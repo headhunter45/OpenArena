@@ -337,6 +337,7 @@ LRESULT CALLBACK WndProc(HWND	hWnd,
 		{
 			if(level.showConsole)
 			{
+				//See if we need to hide the console
 				level.defaultPlayer[0].controls.toggleConsole.FirstPosition();
 				if(wParam == level.defaultPlayer[0].controls.toggleConsole.Retrieve())
 				{
@@ -352,12 +353,12 @@ LRESULT CALLBACK WndProc(HWND	hWnd,
 						}
 					}
 				}
-
+			
 				if(wParam == VK_RETURN)
 				{
 					level.UpdateConsole('\n');
 				}
-				if(wParam == VK_SHIFT)
+				else if(wParam == VK_SHIFT)
 				{
 					keys[VK_SHIFT] = true;
 				}
@@ -368,6 +369,127 @@ LRESULT CALLBACK WndProc(HWND	hWnd,
 				else if(wParam == VK_BACK)
 				{
 					level.UpdateConsole(VK_BACK);
+				}
+				else if(wParam == VK_OEM_1)
+				{
+					if(keys[VK_SHIFT])
+					{
+						level.UpdateConsole(':');
+					}
+					else
+					{
+						level.UpdateConsole(';');
+					}
+				}
+				else if(wParam == VK_OEM_2)
+				{
+					if(keys[VK_SHIFT])
+					{
+						level.UpdateConsole('?');
+					}
+					else
+					{
+						level.UpdateConsole('/');
+					}
+				}
+				else if(wParam == VK_OEM_3)
+				{
+					if(keys[VK_SHIFT])
+					{
+						level.UpdateConsole('~');
+					}
+					else
+					{
+						level.UpdateConsole('`');
+					}
+				}
+				else if(wParam == VK_OEM_4)
+				{
+					if(keys[VK_SHIFT])
+					{
+						level.UpdateConsole('{');
+					}
+					else
+					{
+						level.UpdateConsole('[');
+					}
+				}
+				else if(wParam == VK_OEM_5)
+				{
+					if(keys[VK_SHIFT])
+					{
+						level.UpdateConsole('|');
+					}
+					else
+					{
+						level.UpdateConsole('\\');
+					}
+				}
+				else if(wParam == VK_OEM_6)
+				{
+					if(keys[VK_SHIFT])
+					{
+						level.UpdateConsole('}');
+					}
+					else
+					{
+						level.UpdateConsole(']');
+					}
+				}
+				else if(wParam == VK_OEM_7)
+				{
+					if(keys[VK_SHIFT])
+					{
+						level.UpdateConsole('\'');
+					}
+					else
+					{
+						level.UpdateConsole('"');
+					}
+				}
+				else if(wParam == VK_OEM_PERIOD)
+				{
+					if(keys[VK_SHIFT])
+					{
+						level.UpdateConsole('>');
+					}
+					else
+					{
+						level.UpdateConsole('.,');
+					}
+				}
+				else if(wParam == VK_OEM_PLUS)
+				{
+					if(keys[VK_SHIFT])
+					{
+						level.UpdateConsole('+');
+					}
+					else
+					{
+						level.UpdateConsole('=');
+					}
+				}
+				else if(wParam == VK_OEM_COMMA)
+				{
+					if(keys[VK_SHIFT])
+					{
+						level.UpdateConsole('<');
+					}
+					else
+					{
+						level.UpdateConsole(',');
+					}
+				}
+				else if(wParam == VK_OEM_MINUS)
+				{
+					if(keys[VK_SHIFT])
+					{
+						level.UpdateConsole('_');
+					}
+					else
+					{
+						level.UpdateConsole('-,');
+					}
 				}
 				else if(isalpha(uint8(wParam)))
 				{
