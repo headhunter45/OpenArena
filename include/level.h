@@ -50,6 +50,7 @@ public:
 	void LoadGLTextures();
 	void Render();
 	void UnloadMap();
+	void UpdateConsole(char);
 	uint32 FPS();
 	void ParseCmds(LPSTR);
 

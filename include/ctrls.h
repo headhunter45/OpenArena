@@ -8,6 +8,7 @@ class ControlSchemeClass
 public:
 	void LoadDefaultControlScheme();
 	void ClearControlScheme();
+	void Unbind(uint8);
 
 	list<uint8> forward;
 	list<uint8> backward;

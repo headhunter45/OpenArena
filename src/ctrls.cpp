@@ -3,7 +3,7 @@
 //	Module:		ctrls.cpp
 //	Author:		Tom Hicks
 //	Creation:	09-01-2003
-//	LastEdit:	10-09-2003
+//	LastEdit:	10-20-2003
 //	Editors:	Tom Hicks
 //
 //	Purpose:
@@ -12,7 +12,11 @@
 //	Summary of Methods:
 //	ControlSchemeClass
 //		void LoadDefaultControlScheme();
+//			-Loads the default control scheme
 //		void ClearControlScheme();
+//			-Clears the control scheme
+//		void Unbind(uint8 key);
+//			-Removes key from all control lists.
 //
 //	Summary of Properties:
 //	ControlSchemeClass
@@ -110,3 +114,24 @@ void ControlSchemeClass::ClearControlScheme()
 	weaponPrev.Clear();
 }
 
+void ControlSchemeClass::Unbind(uint8 key)
+{
+	backward.Remove(key);
+	firePrimary.Remove(key);
+	fireSecondary.Remove(key);
+	forward.Remove(key);
+	lookDown.Remove(key);
+	lookUp.Remove(key);
+	lookRight.Remove(key);
+	lookLeft.Remove(key);
+	moveDown.Remove(key);
+	moveUp.Remove(key);
+	moveRight.Remove(key);
+	quickMouseLook.Remove(key);
+	toggleConsole.Remove(key);
+	toggleFPS.Remove(key);
+	toggleLights.Remove(key);
+	toggleMouseLook.Remove(key);
+	weaponNext.Remove(key);
+	weaponPrev.Remove(key);
+}

@@ -257,7 +257,7 @@ string word(string str, uint32 wordNum)
 	{
 		if(wordNum < 1)
 		{
-			while (!isspace(str[++length]) && length <= maxLength);
+			while (!isspace(str[++length]) && length < maxLength);
 
 			return str.substr(start, length);
 		}

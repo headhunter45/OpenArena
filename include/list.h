@@ -179,28 +179,29 @@ void list<ItemType>::Remove(ItemType target)
 	if(head != NULL)
 	{
 		listNode<ItemType>* temp = head;
-		tail->next = head;
-
+		listNode<ItemType>* temp2 = head;
+		
 		while(temp->next != NULL && temp->data != target)
 		{
-			tail->next = temp;
+			temp2 = temp;
 			temp = temp->next;
 		}
 
 		if(temp->data == target)
 		{
-			if(tail->next != head)
+			if(temp != head)
 			{
-				tail->next->next = temp->next;
+				temp2->next = temp->next;
 				delete temp;
 			}
 			else
 			{
+				if(tail == head)
+					tail = NULL;
 				head = head->next;
-				delete tail->next;
+				delete temp2;
 			}
 		}
-		tail->next = NULL;
 	}
 }
 

@@ -3,7 +3,7 @@
 //	Module:		level.cpp
 //	Author:		Tom Hicks
 //	Creation:	09-01-2003
-//	LastEdit:	10-09-2003
+//	LastEdit:	10-20-2003
 //	Editors:	Tom Hicks
 //
 //	Purpose:
@@ -32,12 +32,12 @@ using namespace std;
 
 LEVEL::LEVEL()
 {
-
+/*
 	consoleHistory[0] = "hello0";
 	consoleHistory[1] = "hello1";
 	consoleHistory[MAX_CONSOLE_HISTORY_LINES-2] = "hello3";
 	consoleHistory[MAX_CONSOLE_HISTORY_LINES-1] = "hello4";
-
+*/
 	textureNames = NULL;
 	numTextures = 0;
 
@@ -79,9 +79,6 @@ LEVEL::~LEVEL()
 		defaultPlayer = NULL;
 	}
 }
-
-
-
 
 bool LEVEL::LoadMap(string mapname)
 {
@@ -284,20 +281,6 @@ void LEVEL::Render()
 		}
 		glEnd();
 	}
-/**/
-
-	/*
-	glBindTexture(GL_TEXTURE_2D, 1);
-	glBegin(GL_TRIANGLES);
-		glTexCoord2f(0,0);
-		glVertex3f(-10, -10,-5);
-		glTexCoord2f(0,2);
-		glVertex3f(-10,10,-5);
-		glTexCoord2f(2,0);
-		glVertex3f(10,-10,-5);
-	glEnd();
-	/**/
-
 	glPopMatrix();
 
 	//Draw HUD
@@ -464,7 +447,7 @@ void LEVEL::Execute(string cmd)
 	uint32 i=0xFFFFFFFF;
 	while(word(cmd, ++i) != "")
 	{
-		command = word(cmd, i);
+		command = tolower(word(cmd, i));
 		
 		if(command == "set")
 		{
@@ -587,6 +570,19 @@ void LEVEL::Execute(string cmd)
 		else if(command == "map")
 		{
 			nextLevel = word(cmd, ++i);
+		}
+		else if(command == "unbind")
+		{
+			command = tolower(word(cmd, ++i));
+			
+			if(command == "all")
+			{
+				defaultPlayer[0].controls.ClearControlScheme();
+			}
+			else
+			{
+				defaultPlayer[0].controls.Unbind(KeyName(command));
+			}
 		}
 	}
 }
@@ -948,4 +944,30 @@ void LEVEL::SaveConfig(string cfgname)
 void LEVEL::Print(int x, int y, const char* str, unsigned int set)
 {
 	glFont.Print(x,y,str, set);
+}
+
+void LEVEL::UpdateConsole(char newChar)
+{
+	if(newChar == '\n')
+	{
+		Execute(tolower(consoleHistory[0]));
+		for (int i=MAX_CONSOLE_HISTORY_LINES - 1; i>0; i--)
+		{
+			consoleHistory[i] = consoleHistory[i-1];
+		}
+		consoleHistory[0] = "";
+	}
+	else if(newChar == VK_BACK)
+	{
+		consoleHistory[0] = Left(consoleHistory[0], consoleHistory[0].length()-1);
+	}
+	else
+	{
+		consoleHistory[0] = consoleHistory[0] + newChar;
+		/*
+		char errmsg[256];
+		sprintf(errmsg, "Unhangled keypress: %d", newChar);
+		MessageBox(NULL, errmsg, "Balls", MB_OK);
+		*/
+	}
 }

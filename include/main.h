@@ -22,7 +22,8 @@ static bool		keys[256];			// Array for which keys are down now
 static bool		keys2[256];			// Array for which keys are were down already
 static bool		active=true;		// Is window active flag
 static bool		fullscreen=true;	// Is window fullscreen flag
-static bool		showConsole = false;// Do we need to draw the console
+//static bool		showConsole = false;// Do we need to draw the console
+
 
 
 //static SCREEN g_Screen = {800,600,16,1,"OpenArena"};
