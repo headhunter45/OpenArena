@@ -37,6 +37,7 @@ public:
 	void FirstPosition();
 	void LastPosition();
 	void Clear();
+	unsigned int Length();
 	void operator=(const list<ItemType>&);
 	ItemType operator[](LIST_ARRAY_INDEX_TYPE) const;
 	ItemType& operator[](LIST_ARRAY_INDEX_TYPE);
@@ -336,6 +337,26 @@ ItemType& list<ItemType>::operator[](LIST_ARRAY_INDEX_TYPE index)
 			temp = temp->next;
 		}
 		return (ItemType&)(temp->data);
+	}
+}
+
+template <class ItemType>
+unsigned int Length()
+{
+	if (head == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		int len = 1;
+		listNode<ItemType> temp = head->next;
+		while (temp != NULL)
+		{
+			temp = temp->next;
+			len++
+		}
+		return len;
 	}
 }
 

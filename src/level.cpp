@@ -105,6 +105,10 @@ bool LEVEL::LoadMap(string mapname)
 		delete [] tmpChar;
 		return false;
 	}
+	else
+	{
+		ConsolePrint("map file \"" + mapname + "\" opened successfully");
+	}
 
 	//Gravity
 	input >> readBuffer;
@@ -146,6 +150,9 @@ bool LEVEL::LoadMap(string mapname)
 		input >> readBuffer;
 		triangles[i].normal.z = atof(readBuffer.c_str());
 	}
+	char lpszNumTriangles[6];
+	sprintf(lpszNumTriangles, "%d", numTriangles);
+	ConsolePrint(lpszNumTriangles + string(" triangles successfully read"));
 
 	//Number of textures;
 	input >> readBuffer;
@@ -157,6 +164,9 @@ bool LEVEL::LoadMap(string mapname)
 	{
 		input >> textureNames[i];	
 	}
+	char lpszNumTextures[6];
+	sprintf(lpszNumTextures, "%d", numTextures);
+	ConsolePrint(lpszNumTextures + string(" textures successfully read"));
 
 	//BGM
 	input >> bgm;
@@ -165,6 +175,8 @@ bool LEVEL::LoadMap(string mapname)
 	//Build display list
 	if (sound)
 	{
+		ConsolePrint("Starting sound");
+
 		BASS_Init(-1, 44100, BASS_DEVICE_LEAVEVOL, g_hWnd);
 		BASS_Start();
 		BASS_CDInit(NULL, BASS_DEVICE_LEAVEVOL);
@@ -186,13 +198,15 @@ bool LEVEL::LoadMap(string mapname)
 				BASS_StreamPlay(bgmStream, 1, BASS_SAMPLE_LOOP);					
 			}
 		}
+
+		ConsolePrint("Sound init complete");
 	}
 
 	return true;
 }
-void LEVEL::LoadMap()
+bool LEVEL::LoadMap()
 {
-	LoadMap(nextLevel);
+	return LoadMap(nextLevel);
 }
 
 void LEVEL::SaveMap(string mapname)
@@ -263,7 +277,7 @@ void LEVEL::Render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 
-	// Move the camera to where the player is or more precisely move to world so the camer is where the playe is
+	// Move the camera to where the player is
 	defaultPlayer->camera.Look();
 ///*
 	for (uint32 i=0; i<numTriangles; i++)
@@ -347,10 +361,14 @@ void LEVEL::Render()
 		glEnable(GL_BLEND);
 
 		//render the console background
-		for(unsigned int i=0; i<MAX_CONSOLE_LINES; i++)
+		//render the console output text
+		for(unsigned int i=0; i<MAX_CONSOLE_LINES-1; i++)
 		{
-			Print(30, glFont.ScreenHeight() - i*20, consoleHistory[MAX_CONSOLE_LINES-i-1].c_str(), 0);
+			Print(30, glFont.ScreenHeight() - i*20, consoleOutput[MAX_CONSOLE_LINES-i-2].c_str(), 0);
 		}
+
+		//Render the currently typed command
+		Print(30,glFont.ScreenHeight() - i*20, consoleHistory[0].c_str(),0);
 
 		//disable blending
 		glDisable(GL_BLEND);
@@ -457,9 +475,17 @@ void LEVEL::Execute(string cmd)
 			{
 				turnSpeed = (float)atof(word(cmd, ++i).c_str());//Floating(word(cmd, ++i));
 			}
+			else if(command == "movespeed")
+			{
+				moveSpeed = (float)atof(word(cmd, ++i).c_str());//FLoating(word(cmd, ++i));
+			}
 			else if(command == "mousespeed")
 			{
 				mouseSpeed = (float)atof(word(cmd, ++i).c_str());
+			}
+			else if(command == "mouselook")
+			{
+				mlook = Truth(word(cmd, ++i));
 			}
 			else if(command == "maxfps")
 			{
@@ -485,6 +511,14 @@ void LEVEL::Execute(string cmd)
 			{
 				screen.fullscreen = Truth(word(cmd, ++i));
 			}
+			else if(command == "colordepth")
+			{
+				screen.bpp = Integer(word(cmd, ++i));
+			}
+			else
+			{
+				ConsolePrint("Variable " + command + " doesn't exist");
+			}
 		}
 		else if(command == "bind")
 		{
@@ -492,86 +526,166 @@ void LEVEL::Execute(string cmd)
 
 			if(command == "forward")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_FORWARD, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_FORWARD, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action forward");
+				}
 			}
 			else if(command == "backward")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_BACKWARD, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_BACKWARD, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action backward");
+				}
 			}
 			else if(command == "lookleft")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_LOOKLEFT, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_LOOKLEFT, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action lookleft");
+				}
 			}
 			else if(command == "lookright")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_LOOKRIGHT, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_LOOKRIGHT, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action lookright");
+				}
 			}
 			else if(command == "lookup")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_LOOKUP, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_LOOKUP, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action lookup");
+				}
 			}
 			else if(command == "lookdown")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_LOOKDOWN, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_LOOKDOWN, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action lookdown");
+				}
 			}
 			else if(command == "moveup")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_MOVEUP, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_MOVEUP, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action moveup");
+				}
 			}
 			else if(command == "movedown")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_MOVEDOWN, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_MOVEDOWN, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action movedown");
+				}
 			}
 			else if(command == "moveleft")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_MOVELEFT, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_MOVELEFT, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action moveleft");
+				}
 			}
 			else if(command == "moveright")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_MOVERIGHT, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_MOVERIGHT, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action moveright");
+				}
 			}
 			else if(command == "fireprimary")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_FIREPRIMARY, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_FIREPRIMARY, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action fireprimary");
+				}
 			}
 			else if(command == "firesecondary")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_FIRESECONDARY, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_FIRESECONDARY, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action firesecondary");
+				}
 			}
 			else if(command == "weapnext")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_WEAPONNEXT, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_WEAPONNEXT, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action weapnext");
+				}
 			}
 			else if(command == "weapprev")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_WEAPONPREV, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_WEAPONPREV, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action weapprev");
+				}
 			}
 			else if(command == "togglelights" || command == "togglelighting")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_LIGHTS, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_LIGHTS, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action togglelights");
+				}
 			}
 			else if(command == "togglefps")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_FPS, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_FPS, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action togglefps");
+				}
 			}
 			else if(command == "toggleconsole")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_CONSOLE, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_CONSOLE, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action toggleconsole");
+				}
 			}
 			else if(command == "togglemouselook")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_MOUSELOOK, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_MOUSELOOK, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action togglemouselook");
+				}
 			}
 			else if(command == "quickmouselook")
 			{
-				defaultPlayer[0].controls.Bind(CTRLS_QUICKMOUSELOOK, KeyName(word(cmd, ++i)));
+				if(!defaultPlayer[0].controls.Bind(CTRLS_QUICKMOUSELOOK, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action quickmouselook");
+				}
+			}
+			else if(command == "rollleft")
+			{
+				if(!defaultPlayer[0].controls.Bind(CTRLS_ROLLLEFT, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action rollleft");
+				}
+			}
+			else if(command == "rollright")
+			{
+				if(!defaultPlayer[0].controls.Bind(CTRLS_ROLLRIGHT, KeyName(word(cmd, ++i))))
+				{
+					ConsolePrint("Couldn't bind " + word(cmd, i) + " to action rollright");
+				}
+			}
+			else
+			{
+				ConsolePrint("No action identified by " + command);
 			}
 		}
 		else if(command == "map" || command == "map_load")
 		{
 			nextLevel = word(cmd, ++i);
 			UnloadMap();
-			LoadMap();
+			if(!LoadMap())
+			{
+				ConsolePrint("Unable to load level " + command);
+				nextLevel = "intro.map";
+				LoadMap();
+			}
 		}
 		else if(command == "unbind")
 		{
@@ -589,7 +703,10 @@ void LEVEL::Execute(string cmd)
 		else if(command == "exec" || command == "config_load")
 		{
 			command = tolower(word(cmd, ++i));
-			LoadConfig(command);
+			if(!LoadConfig(command))
+			{
+				ConsolePrint("Unable to load config file " + word(cmd, i));
+			}
 		}
 		else if(command == "map_save")
 		{
@@ -630,10 +747,14 @@ void LEVEL::Execute(string cmd)
 			}
 		}
 		*/
-		
-
-		
-		
+		else if(command == "quit")
+		{
+			PostQuitMessage(0);
+		}
+		else
+		{
+			ConsolePrint("Unknown command " + command);
+		}
 	}
 }
 
@@ -1039,12 +1160,14 @@ void LEVEL::UpdateConsole(char newChar)
 {
 	if(newChar == '\n')
 	{
-		Execute(tolower(consoleHistory[0]));
 		for (int i=MAX_CONSOLE_HISTORY_LINES - 1; i>0; i--)
 		{
 			consoleHistory[i] = consoleHistory[i-1];
 		}
 		consoleHistory[0] = "";
+		ConsolePrint(consoleHistory[1]);
+		Execute(tolower(consoleHistory[1]));
+		
 	}
 	else if(newChar == VK_BACK)
 	{
@@ -1059,4 +1182,13 @@ void LEVEL::UpdateConsole(char newChar)
 		MessageBox(NULL, errmsg, "Balls", MB_OK);
 		*/
 	}
+}
+
+void LEVEL::ConsolePrint(string line)
+{
+	for (int i=MAX_CONSOLE_OUTPUT_LINES - 1; i>0; i--)
+	{
+		consoleOutput[i] = consoleOutput[i-1];
+	}
+	consoleOutput[0] = line;
 }

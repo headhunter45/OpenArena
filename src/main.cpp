@@ -455,7 +455,7 @@ LRESULT CALLBACK WndProc(HWND	hWnd,
 					}
 					else
 					{
-						level.UpdateConsole('.,');
+						level.UpdateConsole('.');
 					}
 				}
 				else if(wParam == VK_OEM_PLUS)
@@ -488,7 +488,7 @@ LRESULT CALLBACK WndProc(HWND	hWnd,
 					}
 					else
 					{
-						level.UpdateConsole('-,');
+						level.UpdateConsole('-');
 					}
 				}
 				else if(isalpha(uint8(wParam)))
