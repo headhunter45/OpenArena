@@ -5,13 +5,15 @@
 
 #pragma warning(disable:4715)
 
+typedef unsigned int LIST_ARRAY_INDEX_TYPE;
+
 template <class ItemType>
 class listNode
 {
 public:
 	listNode();
-	listNode<ItemType>* next;
 	ItemType data;
+	listNode<ItemType>* next;
 };
 
 template <class ItemType>
@@ -22,21 +24,22 @@ public:
 	~list();
 	list(const list&);
 
-	bool IsEmpty();
-	bool IsFull();
+	bool IsEmpty() const;
+	bool IsFull() const;
 	void Insert(ItemType newItem);
 	void Remove(ItemType target);
 	void Remove();
-	ItemType Retrieve();
+	ItemType Retrieve() const;
 	bool PrevPosition();
 	bool NextPosition();
-	bool IsFirstPosition();
-	bool IsLastPosition();
+	bool IsFirstPosition() const;
+	bool IsLastPosition() const;
 	void FirstPosition();
 	void LastPosition();
 	void Clear();
 	void operator=(const list<ItemType>&);
-	ItemType operator[](unsigned int);
+	ItemType operator[](LIST_ARRAY_INDEX_TYPE) const;
+	ItemType& operator[](LIST_ARRAY_INDEX_TYPE);
 
 private:
 	listNode<ItemType>* head;
@@ -75,7 +78,7 @@ template <class ItemType>
 list<ItemType>::list(const list<ItemType>& rtOp)
 {
 	head = NULL;
-	tail = NULL
+	tail = NULL;
 	currPos = NULL;
 
 	operator=(rtOp);
@@ -93,36 +96,39 @@ void list<ItemType>::operator=(const list<ItemType>& rtOp)
 {
 	Clear();
 
-	listNode<ItemType> temp = rtOp.head->next;
-	listNode<ItemType> temp2 = NULL;
-	
-	if(temp != NULL)
+	if(!rtOp.IsEmpty())
 	{
-		head = new listNode<ItemType>;
-		head->data = rtOp.head->data;
-		tail = head;
-		temp2 = head;
-	}
+		listNode<ItemType>* temp = rtOp.head->next;
+		listNode<ItemType>* temp2 = NULL;
 
-	while (temp != NULL)
-	{
-		temp2->next = new listNode<ItemType>;
-		temp2 = temp2->next;
-		temp2->data = temp->data;
-		temp = temp->next;
-	}
+		if(temp != NULL)
+		{
+			head = new listNode<ItemType>;
+			head->data = rtOp.head->data;
+			tail = head;
+			temp2 = head;
+		}
 
-	tail = temp2;
+		while (temp != NULL)
+		{
+			temp2->next = new listNode<ItemType>;
+			temp2 = temp2->next;
+			temp2->data = temp->data;
+			temp = temp->next;
+		}
+
+		tail = temp2;
+	}
 }
 
 template <class ItemType>
-bool list<ItemType>::IsEmpty()
+bool list<ItemType>::IsEmpty() const
 {
 	return head == NULL;
 }
 
 template <class ItemType>
-bool list<ItemType>::IsFull()
+bool list<ItemType>::IsFull() const
 {
 	return false;
 }
@@ -131,46 +137,41 @@ template <class ItemType>
 void list<ItemType>::Insert(ItemType newItem)
 {
 	listNode<ItemType>* temp = head;
-	if(head != NULL)
+	listNode<ItemType>* temp2 = NULL;
+	
+	if(head == NULL)
 	{
-
-		while(temp->next!= NULL && temp->data < newItem)
-		{
-			temp = temp->next;
-		}
-
-		if(temp == head)
-		{
-			tail->next = head;
-			head = new listNode<ItemType>;
-			head->next = tail->next;
-			tail->next = NULL;
-			temp = head;
-		}
-		else if(temp->data != newItem)
-		{
-			if(temp == tail)
-			{
-				tail->next = new listNode<ItemType>;
-				tail = tail->next;
-				temp = tail;
-			}
-			else
-			{
-			tail->next = temp->next;
-			temp = temp->next = new listNode<ItemType>;
-			temp->next = tail->next;
-			tail->next = NULL;
-			}
-		}
+		temp = tail = head = new listNode<ItemType>;
 	}
 	else
 	{
-		temp = tail = head = new listNode<ItemType>;
-		tail->next = NULL;
+		if(newItem < head->data)
+		{
+			temp2 = head;
+			temp = head = new listNode<ItemType>;
+			head->next = temp2;
+			temp2 = NULL;
+		}
+		else
+		{
+			//temp = head;
+			while(temp->next != NULL && newItem > temp->next->data)
+			{
+				temp = temp->next;
+			}
+			temp2 = temp->next;
+			temp = temp->next = new listNode<ItemType>;
+			temp->next = temp2;
+			temp2 = NULL;
+		}
 	}
-
+	
 	temp->data = newItem;
+
+	if(temp->next == NULL)
+	{
+		tail = temp;
+	}
 }
 
 template <class ItemType>
@@ -259,20 +260,20 @@ void list<ItemType>::Remove()
 }
 
 template <class ItemType>
-ItemType list<ItemType>::Retrieve()
+ItemType list<ItemType>::Retrieve() const
 {
 	if(currPos != NULL)
 		return currPos->data;
 }
 
 template <class ItemType>
-bool list<ItemType>::IsFirstPosition()
+bool list<ItemType>::IsFirstPosition() const
 {
 	return currPos == head;
 }
 
 template <class ItemType>
-bool list<ItemType>::IsLastPosition()
+bool list<ItemType>::IsLastPosition() const
 {
 	return currPos == tail;
 }
@@ -290,24 +291,52 @@ void list<ItemType>::LastPosition()
 }
 
 template <class ItemType>
-ItemType list<ItemType>::operator[](unsigned int index)
+ItemType list<ItemType>::operator[](LIST_ARRAY_INDEX_TYPE index) const
 {
-	if(head != NULL)
+	if(head == NULL)
 	{
-	listNode<ItemType>* temp = head;
-	while(index > 0 && temp != NULL)
-	{
-		temp = temp->next;
-		--index;
+		//We should throw an exception here but instead I'll just return shit guess for now if somebody does this they're just fucked.
 	}
-	if(temp != NULL)
+	else
 	{
+		listNode<ItemType>* temp = head;
+		LIST_ARRAY_INDEX_TYPE current;
+
+		for(current=0;current <index; current++)
+		{
+			if(temp->next == NULL)
+			{
+				temp->next = new listNode<ItemType>;
+			}
+			temp = temp->next;
+		}
 		return temp->data;
-	}
 	}
 }
 
+template <class ItemType>
+ItemType& list<ItemType>::operator[](LIST_ARRAY_INDEX_TYPE index)
+{
+	if(head == NULL)
+	{
+		tail = currPos = head = new listNode<ItemType>;
+		return (ItemType&)(head->data);
+	}
+	else
+	{
+		listNode<ItemType>* temp = head;
+		LIST_ARRAY_INDEX_TYPE current;
 
-#include "list.cpp"
+		for(current=0;current <index; current++)
+		{
+			if(temp->next == NULL)
+			{
+				temp->next = new listNode<ItemType>;
+			}
+			temp = temp->next;
+		}
+		return (ItemType&)(temp->data);
+	}
+}
 
 #endif
