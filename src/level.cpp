@@ -492,84 +492,86 @@ void LEVEL::Execute(string cmd)
 
 			if(command == "forward")
 			{
-				defaultPlayer->controls.forward.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_FORWARD, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "backward")
 			{
-				defaultPlayer->controls.backward.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_BACKWARD, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "lookleft")
 			{
-				defaultPlayer->controls.lookLeft.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_LOOKLEFT, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "lookright")
 			{
-				defaultPlayer->controls.lookRight.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_LOOKRIGHT, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "lookup")
 			{
-				defaultPlayer->controls.lookUp.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_LOOKUP, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "lookdown")
 			{
-				defaultPlayer->controls.lookDown.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_LOOKDOWN, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "moveup")
 			{
-				defaultPlayer->controls.moveUp.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_MOVEUP, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "movedown")
 			{
-				defaultPlayer->controls.moveDown.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_MOVEDOWN, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "moveleft")
 			{
-				defaultPlayer[0].controls.moveLeft.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_MOVELEFT, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "moveright")
 			{
-				defaultPlayer[0].controls.moveRight.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_MOVERIGHT, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "fireprimary")
 			{
-				defaultPlayer->controls.firePrimary.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_FIREPRIMARY, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "firesecondary")
 			{
-				defaultPlayer->controls.fireSecondary.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_FIRESECONDARY, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "weapnext")
 			{
-				defaultPlayer->controls.weaponNext.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_WEAPONNEXT, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "weapprev")
 			{
-				defaultPlayer->controls.weaponPrev.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_WEAPONPREV, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "togglelights" || command == "togglelighting")
 			{
-				defaultPlayer->controls.toggleLights.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_LIGHTS, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "togglefps")
 			{
-				defaultPlayer->controls.toggleFPS.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_FPS, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "toggleconsole")
 			{
-				defaultPlayer->controls.toggleConsole.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_CONSOLE, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "togglemouselook")
 			{
-				defaultPlayer->controls.toggleMouseLook.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_MOUSELOOK, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "quickmouselook")
 			{
-				defaultPlayer->controls.quickMouseLook.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_QUICKMOUSELOOK, KeyName(word(cmd, ++i)));
 			}
 		}
-		else if(command == "map")
+		else if(command == "map" || command == "map_load")
 		{
 			nextLevel = word(cmd, ++i);
+			UnloadMap();
+			LoadMap();
 		}
 		else if(command == "unbind")
 		{
@@ -584,6 +586,54 @@ void LEVEL::Execute(string cmd)
 				defaultPlayer[0].controls.Unbind(KeyName(command));
 			}
 		}
+		else if(command == "exec" || command == "config_load")
+		{
+			command = tolower(word(cmd, ++i));
+			LoadConfig(command);
+		}
+		else if(command == "map_save")
+		{
+			command = tolower(word(cmd, ++i));
+			SaveMap(command);
+		}
+		else if(command == "config_save")
+		{
+			command = tolower(word(cmd, ++i));
+			SaveConfig(command);
+		}
+		/*
+		else if(command == "map_add_triangle")
+		{
+			if(triangles != NULL)
+			{
+				TRIANGLE* temp = triangles;
+				triangles = new TRIANGLE[numTriangles + 1];
+				for(int i=0; i<numTriangles; i++)
+				{
+					triangles[i] = temp[i];
+				}
+				
+				triangles[numTriangles].texID = 0;
+				for(int i=0; i<3; i++)
+				{
+					triangles[numTriangles].vertecies[i].x = 0;
+					triangles[numTriangles].vertecies[i].y = 0;
+					triangles[numTriangles].vertecies[i].z = 0;
+					triangles[numTriangles].texCoords[i].x = 0;
+					triangles[numTriangles].texCoords[i].y = 0;
+				}
+				numTriangles++;
+
+			}
+			else
+			{
+			}
+		}
+		*/
+		
+
+		
+		
 	}
 }
 
@@ -628,77 +678,116 @@ void LEVEL::ParseCmds(LPSTR lpCmdLine)
 
 			if(command == "forward")
 			{
-				defaultPlayer->controls.forward.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_FORWARD, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "backward")
 			{
-				defaultPlayer->controls.backward.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_BACKWARD, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "lookleft")
 			{
-				defaultPlayer->controls.lookLeft.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_LOOKLEFT, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "lookright")
 			{
-				defaultPlayer->controls.lookRight.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_LOOKRIGHT, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "lookup")
 			{
-				defaultPlayer->controls.lookUp.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_LOOKUP, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "lookdown")
 			{
-				defaultPlayer->controls.lookDown.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_LOOKDOWN, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "moveup")
 			{
-				defaultPlayer->controls.moveUp.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_MOVEUP, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "movedown")
 			{
-				defaultPlayer->controls.moveDown.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_MOVEDOWN, KeyName(word(cmd, ++i)));
+			}
+			else if(command == "moveleft")
+			{
+				defaultPlayer[0].controls.Bind(CTRLS_MOVELEFT, KeyName(word(cmd, ++i)));
+			}
+			else if(command == "moveright")
+			{
+				defaultPlayer[0].controls.Bind(CTRLS_MOVERIGHT, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "fireprimary")
 			{
-				defaultPlayer->controls.firePrimary.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_FIREPRIMARY, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "firesecondary")
 			{
-				defaultPlayer->controls.fireSecondary.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_FIRESECONDARY, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "weapnext")
 			{
-				defaultPlayer->controls.weaponNext.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_WEAPONNEXT, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "weapprev")
 			{
-				defaultPlayer->controls.weaponPrev.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_WEAPONPREV, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "togglelights" || command == "togglelighting")
 			{
-				defaultPlayer->controls.toggleLights.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_LIGHTS, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "togglefps")
 			{
-				defaultPlayer->controls.toggleFPS.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_FPS, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "toggleconsole")
 			{
-				defaultPlayer->controls.toggleConsole.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_CONSOLE, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "togglemouselook")
 			{
-				defaultPlayer->controls.toggleMouseLook.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_MOUSELOOK, KeyName(word(cmd, ++i)));
 			}
 			else if(command == "quickmouselook")
 			{
-				defaultPlayer->controls.quickMouseLook.Insert(KeyName(word(cmd, ++i)));
+				defaultPlayer[0].controls.Bind(CTRLS_QUICKMOUSELOOK, KeyName(word(cmd, ++i)));
 			}
 		}
-		else if(command == "+map")
+		else if(command == "+map" || command == "+map_load")
 		{
 			nextLevel = word(cmd, ++i);
+			UnloadMap();
+			LoadMap();
 		}
+		else if(command == "+unbind")
+		{
+			command = tolower(word(cmd, ++i));
+			
+			if(command == "all")
+			{
+				defaultPlayer[0].controls.ClearControlScheme();
+			}
+			else
+			{
+				defaultPlayer[0].controls.Unbind(KeyName(command));
+			}
+		}
+		else if(command == "+exec" || command == "+config_load")
+		{
+			command = tolower(word(cmd, ++i));
+			LoadConfig(command);
+		}
+		else if(command == "+map_save")
+		{
+			command = tolower(word(cmd, ++i));
+			SaveMap(command);
+		}
+		else if(command == "+config_save")
+		{
+			command = tolower(word(cmd, ++i));
+			SaveConfig(command);
+		}
+		
 	}
 }
 

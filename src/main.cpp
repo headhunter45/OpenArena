@@ -357,6 +357,10 @@ LRESULT CALLBACK WndProc(HWND	hWnd,
 				{
 					level.UpdateConsole('\n');
 				}
+				if(wParam == VK_SHIFT)
+				{
+					keys[VK_SHIFT] = true;
+				}
 				else if(wParam == VK_SPACE)
 				{
 					level.UpdateConsole(' ');
@@ -367,14 +371,26 @@ LRESULT CALLBACK WndProc(HWND	hWnd,
 				}
 				else if(isalpha(uint8(wParam)))
 				{
+					if(keys[VK_SHIFT])
+					{
+						level.UpdateConsole(wParam);
+					}
+					else
+					{
+						level.UpdateConsole(tolower(wParam));
+					}
+				}
+				else if(isdigit(uint8(wParam)))
+				{
 					level.UpdateConsole(wParam);
 				}
+
 			}
 			else
 			{
 				keys[wParam] = true;
-				return 0;
 			}
+			return 0;
 		}
 	case WM_KEYUP:
 		{
@@ -382,6 +398,8 @@ LRESULT CALLBACK WndProc(HWND	hWnd,
 			keys2[wParam] = false;
 			return 0;
 		}
+	case WM_SYSKEYDOWN:
+		break;
 	case WM_SIZE:
 		{
 			ReSizeGLScene(LOWORD(lParam),HIWORD(lParam));
@@ -447,10 +465,10 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 
 	level.glFont.SetScreenDimensions(g_Screen.width*2, g_Screen.height*2);
 	//level.glFont.BuildFont("oa\\textures\\menu\\font.bmp");//(level.gamedir + "\\textures\\menu\\font.bmp").c_str());
-	if (level.nextLevel != "")
-		level.LoadMap();
-	else
+	if (level.nextLevel == "")
+	{
 		level.LoadMap("intro.map");
+	}
 
 	if (!CreateGLWindow(g_Screen.name, g_Screen.width, g_Screen.height, g_Screen.bpp, g_Screen.fullscreen))
 	{
@@ -781,7 +799,7 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 						}
 						//level.Render();
 					}
-						level.Render();
+					level.Render();
 					//
 				}
 			}

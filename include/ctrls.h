@@ -3,12 +3,19 @@
 #include "list.h"
 #include <windows.h>
 
+enum {CTRLS_FORWARD, CTRLS_BACKWARD, CTRLS_LOOKLEFT, CTRLS_LOOKRIGHT, CTRLS_LOOKUP,
+	  CTRLS_LOOKDOWN, CTRLS_MOVELEFT, CTRLS_MOVERIGHT, CTRLS_MOVEUP, CTRLS_MOVEDOWN,
+	  CTRLS_ROLLLEFT, CTRLS_ROLLRIGHT, CTRLS_FIREPRIMARY, CTRLS_FIRESECONDARY,
+	  CTRLS_WEAPONNEXT, CTRLS_WEAPONPREV, CTRLS_TOGGLE_LIGHTS, CTRLS_TOGGLE_FPS,
+	  CTRLS_TOGGLE_CONSOLE, CTRLS_TOGGLE_MOUSELOOK, CTRLS_QUICKMOUSELOOK};
+
 class ControlSchemeClass
 {
 public:
 	void LoadDefaultControlScheme();
 	void ClearControlScheme();
 	void Unbind(uint8);
+	bool Bind(uint32, uint8);
 
 	list<uint8> forward;
 	list<uint8> backward;

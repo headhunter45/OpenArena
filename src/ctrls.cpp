@@ -135,3 +135,138 @@ void ControlSchemeClass::Unbind(uint8 key)
 	weaponNext.Remove(key);
 	weaponPrev.Remove(key);
 }
+
+bool ControlSchemeClass::Bind(uint32 action, uint8 key)
+{
+	switch(action)
+	{
+	case CTRLS_FORWARD:
+		{
+			Unbind(key);
+			forward.Insert(key);
+			return true;
+		}
+	case CTRLS_BACKWARD:
+		{
+            Unbind(key);
+			backward.Insert(key);
+			return true;
+		}
+	case CTRLS_LOOKLEFT:
+		{
+			Unbind(key);
+			lookLeft.Insert(key);
+			return true;
+		}
+	case CTRLS_LOOKRIGHT:
+		{
+			Unbind(key);
+			lookRight.Insert(key);
+			return true;
+		}
+	case CTRLS_LOOKUP:
+		{
+			Unbind(key);
+			lookUp.Insert(key);
+			return true;
+		}
+	case CTRLS_LOOKDOWN:
+		{
+			Unbind(key);
+			lookDown.Insert(key);
+			return true;
+		}
+	case CTRLS_MOVELEFT:
+		{
+			Unbind(key);
+			moveLeft.Insert(key);
+			return true;
+		}
+	case CTRLS_MOVERIGHT:
+		{
+			Unbind(key);
+			moveRight.Insert(key);
+			return true;
+		}
+	case CTRLS_MOVEUP:
+		{
+			Unbind(key);
+			moveUp.Insert(key);
+			return true;
+		}
+	case CTRLS_MOVEDOWN:
+		{
+			Unbind(key);
+			moveDown.Insert(key);
+			return true;
+		}
+	case CTRLS_ROLLLEFT:
+		{
+			Unbind(key);
+			rollLeft.Insert(key);
+			return true;
+		}
+	case CTRLS_ROLLRIGHT:
+		{
+			Unbind(key);
+			rollRight.Insert(key);
+			return true;
+		}
+	case CTRLS_FIREPRIMARY:
+		{
+			Unbind(key);
+			firePrimary.Insert(key);
+			return true;
+		}
+	case CTRLS_FIRESECONDARY:
+		{
+			Unbind(key);
+			fireSecondary.Insert(key);
+			return true;
+		}
+	case CTRLS_WEAPONNEXT:
+		{
+			Unbind(key);
+			weaponNext.Insert(key);
+			return true;
+		}
+	case CTRLS_WEAPONPREV:
+		{
+			Unbind(key);
+			weaponPrev.Insert(key);
+			return true;
+		}
+	case CTRLS_TOGGLE_LIGHTS:
+		{
+			Unbind(key);
+			toggleLights.Insert(key);
+			return true;
+		}
+	case CTRLS_TOGGLE_FPS:
+		{
+			Unbind(key);
+			toggleFPS.Insert(key);
+			return true;
+		}
+	case CTRLS_TOGGLE_CONSOLE:
+		{
+			Unbind(key);
+			toggleConsole.Insert(key);
+			return true;
+		}
+	case CTRLS_TOGGLE_MOUSELOOK:
+		{
+			Unbind(key);
+			toggleMouseLook.Insert(key);
+			return true;
+		}
+	case CTRLS_QUICKMOUSELOOK:
+		{
+			Unbind(key);
+			quickMouseLook.Insert(key);
+			return true;
+		}
+	default:
+		return false;
+	}
+}
