@@ -1,5 +1,5 @@
 #ifdef WIN32
-#include <
+#include <windows.h>
 #define KEY_LBUTTON	VK_LBUTTON
 #define KEY_RBUTTON VK_RBUTTON
 #define KEY_MBUTTON	VK_MBUTTON
