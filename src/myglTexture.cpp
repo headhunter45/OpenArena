@@ -18,7 +18,7 @@ string GL_MY_TEXTURE::Filename()
 	return filename;
 }
 
-uint32 GL_MY_TEXTURE::ID()
+GLuint GL_MY_TEXTURE::ID()
 {
 	return id;
 }
@@ -45,7 +45,7 @@ bool GL_MY_TEXTURE::Load(string fn)
 	}
 }
 
-bool GL_MY_TEXTURE::Load(string fn, uint32 min, uint32 mag)
+bool GL_MY_TEXTURE::Load(string fn, GLuint min, GLuint mag)
 {
 	if(Loaded())
 		Free();

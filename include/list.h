@@ -37,6 +37,7 @@ public:
 	void FirstPosition();
 	void LastPosition();
 	void Clear();
+	bool Contains(ItemType) const;
 	unsigned int Length();
 	void operator=(const list<ItemType>&);
 	ItemType operator[](LIST_ARRAY_INDEX_TYPE) const;
@@ -341,7 +342,7 @@ ItemType& list<ItemType>::operator[](LIST_ARRAY_INDEX_TYPE index)
 }
 
 template <class ItemType>
-unsigned int Length()
+unsigned int list<ItemType>::Length()
 {
 	if (head == NULL)
 	{
@@ -354,10 +355,25 @@ unsigned int Length()
 		while (temp != NULL)
 		{
 			temp = temp->next;
-			len++
+			len++;
 		}
 		return len;
 	}
+}
+
+template<class ItemType>
+bool list<ItemType>::Contains(ItemType value)
+{
+	listNodke<ItemType>* temp = head;
+	while(temp != NULL)
+	{
+		if(temp->data == value)
+		{
+			return true;
+		}
+		temp = temp->next;
+	}
+	return false;	
 }
 
 #endif

@@ -3,7 +3,10 @@
 
 #include <string>
 #include <cmath>
-#include <windows.h>
+#ifdef WIN32
+#include <windows.h>//WTF why did I need all of these
+#endif
+#include "keys.h"
 #include "datatypes.h"
 
 using namespace std;
@@ -20,4 +23,3 @@ string toupper(string);
 string word(string, uint32);
 
 #endif
-	

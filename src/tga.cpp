@@ -12,13 +12,19 @@ TextureImage* LoadTGA(const char * filename)
 	{
 		errmsg = "Could not open texture file ";
 		errmsg = errmsg + filename;
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		MessageBox(NULL, errmsg.c_str(), "ERROR", MB_OK);
+		#endif
 		return NULL;
 	}
 
 	if(fread(&tgaheader, sizeof(TGAHeader), 1, file) == 0)
 	{
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		MessageBox(NULL, "Could not read file header", "ERROR", MB_OK);
+		#endif
 		if(file != NULL)
 			fclose(file);
 		return NULL;
@@ -30,7 +36,10 @@ TextureImage* LoadTGA(const char * filename)
 		image = LoadCompressedTGA(file);
 	else
 	{
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		MessageBox(NULL, "TGA file must be type 2 or type 10 ", "Invalid Image", MB_OK);
+		#endif
 		fclose(file);
 		return NULL;
 	}
@@ -44,7 +53,10 @@ TextureImage* LoadUncompressedTGA(FILE * fTGA)
 	
 	if(fread(tga.header, sizeof(tga.header), 1, fTGA) == 0)
 	{										
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		MessageBox(NULL, "Could not read info header", "ERROR", MB_OK);
+		#endif
 		if(fTGA != NULL)
 		{
 			fclose(fTGA);
@@ -61,7 +73,10 @@ TextureImage* LoadUncompressedTGA(FILE * fTGA)
 
 	if((image->sizeX <= 0) || (image->sizeY <= 0) || ((image->bpp != 24) && (image->bpp !=32)))
 	{
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		MessageBox(NULL, "Invalid texture information", "ERROR", MB_OK);
+		#endif
 		if(fTGA != NULL)
 		{
 			fclose(fTGA);
@@ -84,14 +99,20 @@ TextureImage* LoadUncompressedTGA(FILE * fTGA)
 
 	if(image->data == NULL)
 	{
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		MessageBox(NULL, "Could not allocate memory for image", "ERROR", MB_OK);
+		#endif
 		fclose(fTGA);
 		return NULL;
 	}
 
 	if(fread(image->data, 1, tga.imageSize, fTGA) != tga.imageSize)
 	{
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		MessageBox(NULL, "Could not read image data", "ERROR", MB_OK);
+		#endif
 		if(image->data != NULL)
 		{
 			free(image->data);
@@ -118,7 +139,10 @@ TextureImage* LoadCompressedTGA(FILE * fTGA)
 
 	if(fread(tga.header, sizeof(tga.header), 1, fTGA) == 0)
 	{
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		MessageBox(NULL, "Could not read info header", "ERROR", MB_OK);
+		#endif
 		if(fTGA != NULL)
 		{
 			fclose(fTGA);
@@ -135,7 +159,10 @@ TextureImage* LoadCompressedTGA(FILE * fTGA)
 
 	if((image->sizeX <= 0) || (image->sizeY <= 0) || ((image->bpp != 24) && (image->bpp !=32)))
 	{
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		MessageBox(NULL, "Invalid texture information", "ERROR", MB_OK);
+		#endif
 		if(fTGA != NULL)
 		{
 			fclose(fTGA);
@@ -149,7 +176,10 @@ TextureImage* LoadCompressedTGA(FILE * fTGA)
 
 	if(image->data == NULL)
 	{
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		MessageBox(NULL, "Could not allocate memory for image", "ERROR", MB_OK);
+		#endif
 		fclose(fTGA);
 		return NULL;
 	}
@@ -165,7 +195,10 @@ TextureImage* LoadCompressedTGA(FILE * fTGA)
 
 		if(fread(&chunkheader, sizeof(GLubyte), 1, fTGA) == 0)
 		{
+			//This needs to be abstracted somehow
+			#ifdef WIN32
 			MessageBox(NULL, "Could not read RLE header", "ERROR", MB_OK);
+			#endif
 			if(fTGA != NULL)
 			{
 				fclose(fTGA);
@@ -184,7 +217,10 @@ TextureImage* LoadCompressedTGA(FILE * fTGA)
 			{
 				if(fread(colorbuffer, 1, tga.bytesPerPixel, fTGA) != tga.bytesPerPixel)
 				{
+					//This needs to be abstracted somehow
+					#ifdef WIN32
 					MessageBox(NULL, "Could not read image data", "ERROR", MB_OK);
+					#endif
 
 					if(fTGA != NULL)
 					{
@@ -218,8 +254,11 @@ TextureImage* LoadCompressedTGA(FILE * fTGA)
 
 				if(currentpixel > pixelcount)
 				{
+					//This needs to be abstracted somehow
+					#ifdef WIN32
 					MessageBox(NULL, "Too many pixels read", "ERROR", NULL);
-
+					#endif
+					
 					if(fTGA != NULL)
 					{
 						fclose(fTGA);
@@ -244,8 +283,11 @@ TextureImage* LoadCompressedTGA(FILE * fTGA)
 			chunkheader -= 127;
 			if(fread(colorbuffer, 1, tga.bytesPerPixel, fTGA) != tga.bytesPerPixel)
 			{	
+				//This needs to be abstracted somehow
+				#ifdef WIN32
 				MessageBox(NULL, "Could not read from file", "ERROR", MB_OK);
-
+				#endif
+				
 				if(fTGA != NULL)
 				{
 					fclose(fTGA);
@@ -280,8 +322,11 @@ TextureImage* LoadCompressedTGA(FILE * fTGA)
 
 				if(currentpixel > pixelcount)
 				{
+					//This needs to be abstracted somehow
+					#ifdef WIN32
 					MessageBox(NULL, "Too many pixels read", "ERROR", NULL);
-
+					#endif
+					
 					if(fTGA != NULL)
 					{
 						fclose(fTGA);

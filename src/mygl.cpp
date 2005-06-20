@@ -1,12 +1,12 @@
 
-#include "../include/myGL.h"
+#include "../include/mygl.h"
 
-void FreeGLTexture(unsigned int& texture)
+void FreeGLTexture(GLuint& texture)
 {
 	glDeleteTextures(1, &texture);
 }
 
-bool LoadGLTexture(string fn, unsigned int& texture, int mag, int min)
+bool LoadGLTexture(string fn, GLuint& texture, GLuint mag, GLuint min)
 {
 	if(Right(tolower(fn), 4) == ".bmp")
 	{

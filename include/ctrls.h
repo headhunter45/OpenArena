@@ -1,8 +1,10 @@
+#include "keys.h"
 #include "physics.h"
 #include "datatypes.h"
 #include "list.h"
-#include <windows.h>
-
+#ifdef WIN32
+//#include <windows.h> //used for VK_ keys and possibly something else.  If this file wont compile try uncommenting this.
+#endif
 enum {CTRLS_FORWARD, CTRLS_BACKWARD, CTRLS_LOOKLEFT, CTRLS_LOOKRIGHT, CTRLS_LOOKUP,
 	  CTRLS_LOOKDOWN, CTRLS_MOVELEFT, CTRLS_MOVERIGHT, CTRLS_MOVEUP, CTRLS_MOVEDOWN,
 	  CTRLS_ROLLLEFT, CTRLS_ROLLRIGHT, CTRLS_FIREPRIMARY, CTRLS_FIRESECONDARY,

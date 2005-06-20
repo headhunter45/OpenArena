@@ -1,22 +1,24 @@
 #ifndef __LEVEL_H__
 #define __LEVEL_H__
 
-#include <windows.h>
+#ifdef WIN32
+#include <windows.h> //prolly used for alot but should be removed
+#endif
 #include <string>
 #include <fstream>
 #include <cctype>
 #include <cmath>
 #include <iostream>
-#include <gl/gl.h>
-#include <gl/glu.h>
-#include <gl/glaux.h>		//for auxDIBImageLoad
-#include <stdio.h>			//for file I/O
+#include <GL/gl.h>
+#include <cstdio>			//for file I/O
 
 #include "mydefs.h"
 #include "bmp.h"
 #include "tga.h"
 #include "list.h"
-#include "bass.h"			
+#ifdef WIN32
+#include "bass.h"	//for audio in windows only this should be replaced by oa_audio
+#endif
 #include "vector.h"
 #include "camera.h"
 #include "entities.h"
@@ -29,7 +31,7 @@
 using namespace std;
 
 const float piover180 = 0.0174532925f;
-const string DEFAULT_TEXTURE_NAME = "oa/textures/default.tga";
+const string DEFAULT_TEXTURE_NAME = "oa/textures/default.bmp";
 const unsigned int MAX_CONSOLE_LINES = 30;  //The max number of lines to be displayed in the console
 const unsigned int MAX_CONSOLE_HISTORY_LINES = MAX_CONSOLE_LINES + 20;	//The max number of console lines to store in the history
 const unsigned int MAX_CONSOLE_OUTPUT_LINES = MAX_CONSOLE_LINES;
@@ -55,7 +57,6 @@ public:
 	void UpdateConsole(char);
 	uint32 FPS();
 	void ParseCmds(LPSTR);
-
 	void Print(int x, int y, const char* string, unsigned int set);
 
 	/*Not Yet Implemented

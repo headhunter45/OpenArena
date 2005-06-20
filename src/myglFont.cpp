@@ -3,7 +3,7 @@
 //	Module:		myglFont.cpp
 //	Author:		Tom Hicks
 //	Creation:	09-01-2003
-//	LastEdit:	09-01-2003
+//	LastEdit:	06-19-2005
 //	Editors:	None
 //
 //	Purpose:

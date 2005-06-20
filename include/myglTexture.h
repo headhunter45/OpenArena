@@ -3,7 +3,7 @@
 
 #include <string>
 #include "datatypes.h"
-#include "myGL.h"
+#include "mygl.h"
 
 using namespace std;
 
@@ -13,9 +13,9 @@ public:
 	GL_MY_TEXTURE();
 	~GL_MY_TEXTURE();
 	string Filename();
-	uint32 ID();
+	GLuint ID();
 	bool Load(string filename);
-	bool Load(string filename, uint32 min, uint32 mag);
+	bool Load(string filename, GLuint min, GLuint mag);
 	void Free();
 	bool Loaded();
 	bool operator<(const GL_MY_TEXTURE&);
@@ -26,10 +26,10 @@ public:
 	bool operator>(const GL_MY_TEXTURE&);
 
 private:
-	uint32 minFilter;
-	uint32 magFilter;
+	GLuint minFilter;
+	GLuint magFilter;
 	string filename;
-	uint32 id;
+	GLuint id;
 };
 
 #endif

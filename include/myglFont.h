@@ -1,7 +1,7 @@
 #ifndef __glPrint_h__
 #define __glPrint_h__
 
-#include "myGL.h"
+#include "mygl.h"
 
 class GLFontClass
 {

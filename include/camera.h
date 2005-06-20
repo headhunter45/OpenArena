@@ -2,9 +2,11 @@
 #define __camera_h__
 
 #include <cmath>
-#include <windows.h>
+#ifdef WIN32
+#include <windows.h>	//Currently used for mouse stuff this should be replaced by oa_input
+#endif
 #include "vector.h"
-#include "myGl.h"
+#include "mygl.h"
 #include "screen.h"
 
 

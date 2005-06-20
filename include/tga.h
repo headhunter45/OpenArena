@@ -2,9 +2,11 @@
 #define __TGA_H__
 
 #pragma comment(lib, "OpenGL32.lib")
-#include <windows.h>
-#include <gl\gl.h>
-#include <stdio.h>
+#ifdef WIN32
+#include <windows.h> //I think this was only needed because gl.h uses it
+#endif
+#include <GL/gl.h>
+#include <cstdio>
 #include <string>
 #include "texture.h"
 
@@ -30,6 +32,5 @@ const GLubyte uTGAcompare[12] = {0,0,2, 0,0,0,0,0,0,0,0,0};	// Uncompressed TGA 
 const GLubyte cTGAcompare[12] = {0,0,10,0,0,0,0,0,0,0,0,0};	// Compressed TGA Header
 TextureImage* LoadUncompressedTGA(FILE *);	// Load an Uncompressed file
 TextureImage* LoadCompressedTGA(FILE *);		// Load a Compressed file
-
 
 #endif

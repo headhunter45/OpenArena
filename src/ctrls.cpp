@@ -3,7 +3,7 @@
 //	Module:		ctrls.cpp
 //	Author:		Tom Hicks
 //	Creation:	09-01-2003
-//	LastEdit:	10-20-2003
+//	LastEdit:	06-19-2005
 //	Editors:	Tom Hicks
 //
 //	Purpose:
@@ -69,15 +69,15 @@
 
 void ControlSchemeClass::LoadDefaultControlScheme()
 {
-	forward.Insert(VK_LBUTTON);
-	backward.Insert(VK_RBUTTON);
-	lookLeft.Insert(VK_LEFT);
-	lookRight.Insert(VK_RIGHT);
-	lookUp.Insert(VK_UP);
-	lookDown.Insert(VK_DOWN);
+	forward.Insert(KEY_LBUTTON);
+	backward.Insert(KEY_RBUTTON);
+	lookLeft.Insert(KEY_LEFT);
+	lookRight.Insert(KEY_RIGHT);
+	lookUp.Insert(KEY_UP);
+	lookDown.Insert(KEY_DOWN);
 	moveLeft.Insert('S');
 	moveRight.Insert('D');
-	moveUp.Insert(VK_SPACE);
+	moveUp.Insert(KEY_SPACE);
 	moveDown.Insert('A');
 	firePrimary.Insert('F');
 	fireSecondary.Insert('G');

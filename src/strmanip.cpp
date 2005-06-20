@@ -18,31 +18,31 @@ int Integer(std::string str)
 		switch(str[x])
 		{
 		case '1':
-			number += (int)pow(10, last-x);
+			number += (int)pow(10.0, last-x);
 			break;
 		case '2':
-			number += 2 * (int)pow(10, last-x);
+			number += 2 * (int)pow(10.0, last-x);
 			break;
 		case '3':
-			number += 3 * (int)pow(10, last-x);
+			number += 3 * (int)pow(10.0, last-x);
 			break;
 		case '4':
-			number += 4 * (int)pow(10, last-x);
+			number += 4 * (int)pow(10.0, last-x);
 			break;
 		case '5':
-			number += 5 * (int)pow(10, last-x);
+			number += 5 * (int)pow(10.0, last-x);
 			break;
 		case '6':
-			number += 6 * (int)pow(10, last-x);
+			number += 6 * (int)pow(10.0, last-x);
 			break;
 		case '7':
-			number += 7 * (int)pow(10, last-x);
+			number += 7 * (int)pow(10.0, last-x);
 			break;
 		case '8':
-			number += 8 * (int)pow(10, last-x);
+			number += 8 * (int)pow(10.0, last-x);
 			break;
 		case '9':
-			number += 9 * (int)pow(10, last-x);
+			number += 9 * (int)pow(10.0, last-x);
 		}
 	}
 	return number;
@@ -61,36 +61,36 @@ float Floating(std::string str)
 		switch(str[x])
 		{
 		case '1':
-			number += (float)pow(10, last-x);
+			number += (float)pow(10.0, last-x);
 			break;
 		case '2':
-			number += 2 * (float)pow(10, last-x);
+			number += 2 * (float)pow(10.0, last-x);
 			break;
 		case '3':
-			number += 3 * (float)pow(10, last-x);
+			number += 3 * (float)pow(10.0, last-x);
 			break;
 		case '4':
-			number += 4 * (float)pow(10, last-x);
+			number += 4 * (float)pow(10.0, last-x);
 			break;
 		case '5':
-			number += 5 * (float)pow(10, last-x);
+			number += 5 * (float)pow(10.0, last-x);
 			break;
 		case '6':
-			number += 6 * (float)pow(10, last-x);
+			number += 6 * (float)pow(10.0, last-x);
 			break;
 		case '7':
-			number += 7 * (float)pow(10, last-x);
+			number += 7 * (float)pow(10.0, last-x);
 			break;
 		case '8':
-			number += 8 * (float)pow(10, last-x);
+			number += 8 * (float)pow(10.0, last-x);
 			break;
 		case '9':
-			number += 9 * (float)pow(10, last-x);
+			number += 9 * (float)pow(10.0, last-x);
 			break;
 		case '.':
 			if (!period)
 			{
-				number *= (float)pow(10, -(last-x));
+				number *= (float)pow(10.0, -(last-x));
 				last -= (x+1);
 				period = true;
 			}
@@ -110,111 +110,111 @@ string KeyString(uint8 key)
 {
 	switch (key)
 	{
-	case VK_LBUTTON:
+	case KEY_LBUTTON:
 		return "mouse1";
-	case VK_RBUTTON:
+	case KEY_RBUTTON:
 		return "mouse2";
-	case VK_MBUTTON:
+	case KEY_MBUTTON:
 		return "mouse3";
-	case VK_TAB:
+	case KEY_TAB:
 		return "tab";
-	case VK_RETURN:
+	case KEY_RETURN:
 		return "enter";
-	case VK_SHIFT:
+	case KEY_SHIFT:
 		return "shift";
-	case VK_CONTROL:
+	case KEY_CONTROL:
 		return "control";
-	case VK_PAUSE:
+	case KEY_PAUSE:
 		return "pause";
-	case VK_CAPITAL:
+	case KEY_CAPITAL:
 		return "capslock";
-	case VK_ESCAPE:
+	case KEY_ESCAPE:
 		return "esc";
-	case VK_SPACE:
+	case KEY_SPACE:
 		return "space";
-	case VK_PRIOR:
+	case KEY_PRIOR:
 		return "pageup";
-	case VK_NEXT:
+	case KEY_NEXT:
 		return "pagedown";
-	case VK_END:
+	case KEY_END:
 		return "end";
-	case VK_HOME:
+	case KEY_HOME:
 		return "home";
-	case VK_LEFT:
+	case KEY_LEFT:
 		return "left";
-	case VK_UP:
+	case KEY_UP:
 		return "up";
-	case VK_RIGHT:
+	case KEY_RIGHT:
 		return "right";
-	case VK_DOWN:
+	case KEY_DOWN:
 		return "down";
-	case VK_INSERT:
+	case KEY_INSERT:
 		return "insert";
-	case VK_DELETE:
+	case KEY_DELETE:
 		return "delete";
-	case VK_LWIN:
+	case KEY_LWIN:
 		return "lwin";
-	case VK_RWIN:
+	case KEY_RWIN:
 		return "rwin";
-	case VK_APPS:
+	case KEY_APPS:
 		return "apps";
-	case VK_NUMPAD0:
+	case KEY_NUMPAD0:
 		return "numpad0";
-	case VK_NUMPAD1:
+	case KEY_NUMPAD1:
 		return "numpad1";
-	case VK_NUMPAD2:
+	case KEY_NUMPAD2:
 		return "numpad2";
-	case VK_NUMPAD3:
+	case KEY_NUMPAD3:
 		return "numpad3";
-	case VK_NUMPAD4:
+	case KEY_NUMPAD4:
 		return "numpad4";
-	case VK_NUMPAD5:
+	case KEY_NUMPAD5:
 		return "numpad5";
-	case VK_NUMPAD6:
+	case KEY_NUMPAD6:
 		return "numpad6";
-	case VK_NUMPAD7:
+	case KEY_NUMPAD7:
 		return "numpad7";
-	case VK_NUMPAD8:
+	case KEY_NUMPAD8:
 		return "numpad8";
-	case VK_NUMPAD9:
+	case KEY_NUMPAD9:
 		return "numpad9";
-	case VK_MULTIPLY:
+	case KEY_MULTIPLY:
 		return "numpad*";
-	case VK_ADD:
+	case KEY_ADD:
 		return "numpad+";
-	case VK_SUBTRACT:
+	case KEY_SUBTRACT:
 		return "numpad-";
-	case VK_DIVIDE:
+	case KEY_DIVIDE:
 		return "numpad/";
-	case VK_F1:
+	case KEY_F1:
 		return "f1";
-	case VK_F2:
+	case KEY_F2:
 		return "f2";
-	case VK_F3:
+	case KEY_F3:
 		return "f3";
-	case VK_F4:
+	case KEY_F4:
 		return "f4";
-	case VK_F5:
+	case KEY_F5:
 		return "f5";
-	case VK_F6:
+	case KEY_F6:
 		return "f6";
-	case VK_F7:
+	case KEY_F7:
 		return "f7";
-	case VK_F8:
+	case KEY_F8:
 		return "f8";
-	case VK_F9:
+	case KEY_F9:
 		return "f9";
-	case VK_F10:
+	case KEY_F10:
 		return "f10";
-	case VK_F11:
+	case KEY_F11:
 		return "f11";
-	case VK_F12:
+	case KEY_F12:
 		return "f2";
-	case VK_NUMLOCK:
+	case KEY_NUMLOCK:
 		return "numlock";
-	case VK_SCROLL:
+	case KEY_SCROLL:
 		return "scroll";
-	case VK_SEPARATOR:
+	case KEY_SEPARATOR:
 		return "separator";
 	default:
 		return "null";
@@ -225,147 +225,147 @@ uint8 KeyName(std::string str)
 	if (str.length() > 1)
 	{
 		if (str.substr(0,2) == "up")
-			return VK_UP;
+			return KEY_UP;
 		else if (str.substr(0,4) == "down")
-			return VK_DOWN;
+			return KEY_DOWN;
 		else if (str.substr(0,3) == "esc")
-			return VK_ESCAPE;
+			return KEY_ESCAPE;
 		else if (str.substr(0,6) == "pageup")
-			return VK_PRIOR;
+			return KEY_PRIOR;
 		else if (str.substr(0,8) == "pagedown")
-			return VK_NEXT;
+			return KEY_NEXT;
 		else if (str.substr(0,5) == "right")
-			return VK_RIGHT;
+			return KEY_RIGHT;
 		else if (str.substr(0,4) == "left")
-			return VK_LEFT;
+			return KEY_LEFT;
 		else if (str.substr(0,5) == "space")
-			return VK_SPACE;
+			return KEY_SPACE;
 		else if (str.substr(0,6) == "mouse1")
-			return VK_LBUTTON;
+			return KEY_LBUTTON;
 		else if (str.substr(0,6) == "mouse2")
-			return VK_RBUTTON;
+			return KEY_RBUTTON;
 		else if (str.substr(0,6) == "mouse3")
-			return VK_MBUTTON;
+			return KEY_MBUTTON;
 		else if (str.substr(0,4) == "home")
-			return VK_HOME;
+			return KEY_HOME;
 		else if (str.substr(0,3) == "end")
-			return VK_END;
+			return KEY_END;
 		else if (str.substr(0,3) == "tab")
-			return VK_TAB;
+			return KEY_TAB;
 		else if (str.substr(0,5) == "enter")
-			return VK_RETURN;
+			return KEY_RETURN;
 		else if (str.substr(0,6) == "insert")
-			return VK_INSERT;
+			return KEY_INSERT;
 		else if (str.substr(0,6) == "delete")
-			return VK_DELETE;
+			return KEY_DELETE;
 		else if (str.substr(0,7) == "control")
-			return VK_CONTROL;
+			return KEY_CONTROL;
 		else if (str.substr(0,5) == "shift")
-			return VK_SHIFT;
+			return KEY_SHIFT;
 		else if (str.substr(0,7) == "numpad0")
-			return VK_NUMPAD0;
+			return KEY_NUMPAD0;
 		else if (str.substr(0,7) == "numpad1")
-			return VK_NUMPAD1;
+			return KEY_NUMPAD1;
 		else if (str.substr(0,7) == "numpad2")
-			return VK_NUMPAD2;
+			return KEY_NUMPAD2;
 		else if (str.substr(0,7) == "numpad3")
-			return VK_NUMPAD3;
+			return KEY_NUMPAD3;
 		else if (str.substr(0,7) == "numpad4")
-			return VK_NUMPAD4;
+			return KEY_NUMPAD4;
 		else if (str.substr(0,7) == "numpad5")
-			return VK_NUMPAD5;
+			return KEY_NUMPAD5;
 		else if (str.substr(0,7) == "numpad6")
-			return VK_NUMPAD6;
+			return KEY_NUMPAD6;
 		else if (str.substr(0,7) == "numpad7")
-			return VK_NUMPAD7;
+			return KEY_NUMPAD7;
 		else if (str.substr(0,7) == "numpad8")
-			return VK_NUMPAD8;
+			return KEY_NUMPAD8;
 		else if (str.substr(0,7) == "numpad9")
-			return VK_NUMPAD9;
+			return KEY_NUMPAD9;
 		else if (str.substr(0,9) == "separator")
-			return VK_SEPARATOR;
+			return KEY_SEPARATOR;
 		else if (str.substr(0,4) == "lwin")
-			return VK_LWIN;
+			return KEY_LWIN;
 		else if (str.substr(0,4) == "rwin")
-			return VK_RWIN;
+			return KEY_RWIN;
 		else if (str.substr(0,4) == "apps")
-			return VK_APPS;
+			return KEY_APPS;
 		else if (str.substr(0,7) == "numpad*")
-			return VK_MULTIPLY;
+			return KEY_MULTIPLY;
 		else if (str.substr(0,7) == "numpad+")
-			return VK_ADD;
+			return KEY_ADD;
 		else if (str.substr(0,7) == "numpad/")
-			return VK_DIVIDE;
+			return KEY_DIVIDE;
 		else if (str.substr(0,7) == "numpad-")
-			return VK_SUBTRACT;
+			return KEY_SUBTRACT;
 		else if (str.substr(0,6) == "scroll")
-			return VK_SCROLL;
+			return KEY_SCROLL;
 		else if (str.substr(0,7) == "numlock")
-			return VK_NUMLOCK;
+			return KEY_NUMLOCK;
 		else if (str.substr(0,5) == "pause")
-			return VK_PAUSE;
+			return KEY_PAUSE;
 		else if (str.substr(0,8) == "capslock")
-			return VK_CAPITAL;
+			return KEY_CAPITAL;
 		
 
 
 		/*uncomment this to enable f1 as a mappable key
 		else if(str.substr(0,2) == "f1")
-		return VK_F1;
+			return KEY_F1;
 		*/
 
 		else if (str.substr(0,2) == "f2")
-			return VK_F2;
+			return KEY_F2;
 		else if (str.substr(0,2) == "f3")
-			return VK_F3;
+			return KEY_F3;
 		else if (str.substr(0,2) == "f4")
-			return VK_F4;
+			return KEY_F4;
 		else if (str.substr(0,2) == "f5")
-			return VK_F5;
+			return KEY_F5;
 		else if (str.substr(0,2) == "f6")
-			return VK_F6;
+			return KEY_F6;
 		else if (str.substr(0,2) == "f7")
-			return VK_F7;
+			return KEY_F7;
 		else if (str.substr(0,2) == "f8")
-			return VK_F8;
+			return KEY_F8;
 		else if (str.substr(0,2) == "f9")
-			return VK_F9;
+			return KEY_F9;
 		else if (str.substr(0,2) == "f10")
-			return VK_F10;
+			return KEY_F10;
 		else if (str.substr(0,2) == "f11")
-			return VK_F11;
+			return KEY_F11;
 		else if (str.substr(0,2) == "f12")
-			return VK_F12;
+			return KEY_F12;
 		//Add Game specific keys here and e-mail headhunter45@hotmail.com subject OpenArena keys so I can add them please
 		else if (str.substr(0,4) == "null")
-			return NULL;
+			return (uint8)NULL;
 		else
-			return NULL;
+			return (uint8)NULL;
 	}
 	else
 	{
 		if(str[0] == '~' || str[0] == '`')
-			return VK_OEM_3;
+			return KEY_OEM_3;
 		else if (str[0] == '?' || str[0] == '/')
-            return VK_OEM_2;
+            return KEY_OEM_2;
 		else if (str[0] == '.' || str[0] == '>')
-			return VK_OEM_PERIOD;
+			return KEY_OEM_PERIOD;
 		else if (str[0] == '+' || str[0] == '=')
-			return VK_OEM_PLUS;
+			return KEY_OEM_PLUS;
 		else if (str[0] == ';' || str[0] == ':')
-			return VK_OEM_1;
+			return KEY_OEM_1;
 		else if (str[0] == ',' || str[0] == '<')
-			return VK_OEM_COMMA;
+			return KEY_OEM_COMMA;
 		else if (str[0] == '-' || str[0] == '_')
-			return VK_OEM_MINUS;
+			return KEY_OEM_MINUS;
 		else if (str[0] == '[' || str[0] == '{')
-			return VK_OEM_4;
+			return KEY_OEM_4;
 		else if (str[0] == ']' || str[0] == '}')
-			return VK_OEM_6;
+			return KEY_OEM_6;
 		else if (str[0] == '\\' || str[0] == '|')
-			return VK_OEM_5;
+			return KEY_OEM_5;
 		else if (str[0] == '\'' || str[0] == '"')
-			return VK_OEM_7;
+			return KEY_OEM_7;
 		else
             return toupper(str[0]);
 	}
