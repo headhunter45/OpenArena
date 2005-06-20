@@ -1,9 +1,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-//	Module:		main.cpp
+//	Module:		linux.cpp
 //	Author:		Tom Hicks
 //	Creation:	09-01-2003
-//	LastEdit:	10-20-2003
+//	LastEdit:	06-19-2005
 //	Editors:	Tom Hicks
 //
 //	Purpose:
@@ -27,15 +27,18 @@
 //			Window Procedure for the OpenGL window.
 //
 ////////////////////////////////////////////////////////////////////////////////
+#ifdef __linux
 
 //include necessary header files
 #include "../include/main.h"
 
+/* I'm pretty sure this won't work in linux
 //link necessary libraries
 #pragma comment(lib, "opengl32.lib")
 #pragma comment(lib, "glu32.lib")
 #pragma comment(lib, "glaux.lib")
 #pragma comment(lib, "winmm.lib")
+*/
 
 //Ensure CDS_FULLSCREEN is defined
 #ifndef CDS_FULLSCREEN
@@ -49,8 +52,10 @@ int InitGL(GLvoid);
 void ReSizeGLScene(GLsizei width, GLsizei height);
 bool CreateGLWindow(string title, int width, int height, int bits, bool fullscreenflag);
 void KillGLWindow();
+/* These two are definately wrong
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+*/
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Function Definitions
@@ -945,3 +950,4 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 	KillGLWindow();
 	return (msg.wParam);
 }
+#endif
