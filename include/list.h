@@ -362,9 +362,9 @@ unsigned int list<ItemType>::Length()
 }
 
 template<class ItemType>
-bool list<ItemType>::Contains(ItemType value)
+bool list<ItemType>::Contains(ItemType value) const
 {
-	listNodke<ItemType>* temp = head;
+	listNode<ItemType>* temp = head;
 	while(temp != NULL)
 	{
 		if(temp->data == value)
