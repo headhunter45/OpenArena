@@ -3,7 +3,7 @@
 //	Module:		level.cpp
 //	Author:		Tom Hicks
 //	Creation:	09-01-2003
-//	LastEdit:	10-20-2003
+//	LastEdit:	06-20-2005
 //	Editors:	Tom Hicks
 //
 //	Purpose:
@@ -40,6 +40,7 @@ LEVEL::LEVEL()
 */
 	textureNames = NULL;
 	numTextures = 0;
+	textures = NULL;
 
 	screen.name = "OpenArena";
 
@@ -69,13 +70,7 @@ LEVEL::~LEVEL()
 {
 	if(defaultPlayer)
 	{
-		try
-		{
-			delete defaultPlayer;
-		}
-		catch(...)
-		{
-		}
+		delete defaultPlayer;
 		defaultPlayer = NULL;
 	}
 }
@@ -164,6 +159,7 @@ bool LEVEL::LoadMap(string mapname)
 	{
 		input >> textureNames[i];	
 	}
+	LoadGLTextures();
 	char lpszNumTextures[6];
 	sprintf(lpszNumTextures, "%d", numTextures);
 	ConsolePrint(lpszNumTextures + string(" textures successfully read"));
@@ -171,8 +167,9 @@ bool LEVEL::LoadMap(string mapname)
 	//BGM
 	input >> bgm;
 
-	//LoadGLTextures();
 	//Build display list
+	
+	//Sound
 	if (sound)
 	{
 		ConsolePrint("Starting sound");
@@ -391,24 +388,20 @@ void LEVEL::UnloadMap()
 
 	if(triangles)
 	{
-		try
-		{
-			delete [] triangles;
-		}
-		catch(...)
-		{
-		}
+		delete [] triangles;
+		triangles = NULL;
+	}
+
+	if(textures)
+	{
+		delete [] textures;
+		textures = NULL;
 	}
 
 	if (textureNames)
 	{
-		try
-		{
 		delete [] textureNames;
-		}
-		catch(...)
-		{
-		}
+		textureNames = NULL;
 	}
 }
 
@@ -420,6 +413,10 @@ void LEVEL::LoadGLTextures()
 	glEnable(GL_LIGHT1);
 	glEnable(GL_LIGHTING);*/
 
+	if(textures != NULL)
+	{
+		delete [] textures;
+	}
 
 	textures = new GL_MY_TEXTURE[numTextures];
 
@@ -435,8 +432,6 @@ void LEVEL::LoadGLTextures()
 	//Load the console background image
 	if(!menuTextures[GL_MY_TEXTURE_CONSOLEBACKGROUND].Load(gamedir + "textures/menu/con_back.tga"))
 		menuTextures[GL_MY_TEXTURE_CONSOLEBACKGROUND].Load("oa/textures/menu/con_back.bmp");
-
-
 }
 
 uint32 LEVEL::FPS()
@@ -1173,7 +1168,7 @@ void LEVEL::UpdateConsole(char newChar)
 	{
 		consoleHistory[0] = Left(consoleHistory[0], consoleHistory[0].length()-1);
 	}
-	else
+	else if(!(defaultPlayer->controls.toggleConsole.Contains(newChar)))
 	{
 		consoleHistory[0] = consoleHistory[0] + newChar;
 		/*
