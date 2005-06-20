@@ -157,7 +157,7 @@
 				RelativePath=".\src\Level.cpp">
 			</File>
 			<File
-				RelativePath=".\src\Main.cpp">
+				RelativePath=".\src\linux.cpp">
 			</File>
 			<File
 				RelativePath=".\src\mygl.cpp">
@@ -167,6 +167,9 @@
 			</File>
 			<File
 				RelativePath=".\src\myglTexture.cpp">
+			</File>
+			<File
+				RelativePath=".\src\physics.cpp">
 			</File>
 			<File
 				RelativePath=".\src\Player.cpp">
@@ -179,6 +182,9 @@
 			</File>
 			<File
 				RelativePath=".\src\vector.cpp">
+			</File>
+			<File
+				RelativePath=".\src\windows.cpp">
 			</File>
 		</Filter>
 		<Filter
@@ -212,6 +218,9 @@
 				RelativePath=".\Include\geometry.h">
 			</File>
 			<File
+				RelativePath=".\include\keys.h">
+			</File>
+			<File
 				RelativePath=".\Include\Level.h">
 			</File>
 			<File
@@ -227,10 +236,16 @@
 				RelativePath=".\Include\mygl.h">
 			</File>
 			<File
+				RelativePath=".\include\myglFont.h">
+			</File>
+			<File
 				RelativePath=".\Include\myglTexture.h">
 			</File>
 			<File
 				RelativePath=".\Include\opengl.h">
+			</File>
+			<File
+				RelativePath=".\include\physics.h">
 			</File>
 			<File
 				RelativePath=".\Include\Player.h">
@@ -279,12 +294,15 @@
 				<File
 					RelativePath="OpenArena\oa\textures\nightSkyc.tga">
 				</File>
-				<File
-					RelativePath=".\OpenArena\oa\textures\test.bmp">
-				</File>
 				<Filter
 					Name="menu"
 					Filter="">
+					<File
+						RelativePath=".\OpenArena\oa\textures\menu\con_back.bmp">
+					</File>
+					<File
+						RelativePath=".\OpenArena\oa\textures\menu\con_back.tga">
+					</File>
 					<File
 						RelativePath="OpenArena\oa\textures\menu\font.bmp">
 					</File>
