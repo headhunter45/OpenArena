@@ -27,6 +27,7 @@
 #include "myglTexture.h"
 #include "player.h"
 #include "strmanip.h"
+#include "keys.h"
 
 using namespace std;
 
@@ -56,7 +57,7 @@ public:
 	void UnloadMap();
 	void UpdateConsole(char);
 	uint32 FPS();
-	void ParseCmds(LPSTR);
+	void ParseCmds(const char*);
 	void Print(int x, int y, const char* string, unsigned int set);
 
 	/*Not Yet Implemented
@@ -71,7 +72,9 @@ public:
 	string* textureNames;
 	
 	string bgm;
+	#ifdef WIN32
 	HSTREAM bgmStream;
+	#endif
 	unsigned char bgmCDA;
 	string gamedir;
 	float gravity;
@@ -100,4 +103,5 @@ private:
 	string consoleOutput[MAX_CONSOLE_OUTPUT_LINES];
 	string outputText[MAX_OUTPUT_TEXT_LINES];
 };
+
 #endif
