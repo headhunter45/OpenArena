@@ -71,6 +71,8 @@ void CameraClass::PositionCamera(Vec3f pos, Vec3f view, Vec3f up)
 
 void CameraClass::SetViewByMouse(SCREEN g_Screen)
 {
+	//Most of this is sorta right for linux I think but since I don't know how yet it's currently windows only
+	#ifdef WIN32
 	static double currentRotX = 0.0f;
 	POINT mpos;
 	POINT middle;
@@ -106,6 +108,7 @@ void CameraClass::SetViewByMouse(SCREEN g_Screen)
 			//RotateView(double(middle.x - mpos.x) / 1000.0f, m_vUpVector.x, m_vUpVector.y, m_vUpVector.z);
 		}
 	}
+	#endif
 }
 
 void CameraClass::MoveCamera(double speed)
