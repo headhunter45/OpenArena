@@ -2,7 +2,7 @@ CPP = g++
 INCLUDES = 
 LD = g++
 INCLUDEPATH = ../include
-OBJECTS = bmp.o camera.o ctrls.o level.o main.o mygl.o myglFont.o myglTexture.o physics.o player.o strmanip.o tga.o vector.o
+OBJECTS = bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o physics.o player.o strmanip.o tga.o vector.o main.o
 LIBS = -L/usr/X11R6/lib -lGL -lGLU -lXxf86vm
 LIBRARIES = 
 SO_LIBS = 
@@ -32,17 +32,31 @@ oa_video.so:
 
 oa_input.so:
 
-bmp.o: bmp.cpp $(INCLUDEPATH)/bmp.h
+#Add something like this
+#$(INCLUDEPATH)/bmp.h: mygl.h datatypes.h texture.h
+#	touch bmp.h
+
+bmp.o: bmp.cpp $(INCLUDEPATH)/bmp.h 
 	$(CPP) -c -o bmp.o bmp.cpp
+	
+$(INCLUDEPATH)/bmp.h: $(INCLUDEPATH)/mygl.h $(INCLUDEPATH)/datatypes.h $(INCLUDEPATH)/texture.h
+	touch $(INCLUDEPATH)/bmp.h
+	
+#$(INCLUDEPATH)/mygl.h: $(INCLUDEPATH)/datatypes.h 
 	
 camera.o: camera.cpp $(INCLUDEPATH)/camera.h
 	$(CPP) -c -o camera.o camera.cpp
+
+#$(INCLUDEPATH)/camera.h
 	
 ctrls.o: ctrls.cpp $(INCLUDEPATH)/ctrls.h
 	$(CPP) -c -o ctrls.o ctrls.cpp
 
 level.o: level.cpp $(INCLUDEPATH)/level.h
 	$(CPP) -c -o level.o level.cpp
+
+$(INCLUDEPATH)/level.h: $(INCLUDEPATH)/myglFont.h
+	touch $(INCLUDEPATH)/level.h
 	
 mygl.o: mygl.cpp $(INCLUDEPATH)/mygl.h
 	$(CPP) -c -o mygl.o mygl.cpp
@@ -68,5 +82,5 @@ tga.o: tga.cpp $(INCLUDEPATH)/tga.h
 vector.o: vector.cpp $(INCLUDEPATH)/vector.h
 	$(CPP) -c -o vector.o vector.cpp
 
-main.o: linux.cpp $(INCLUDEPATH)/linux.h $(INCLUDEPATH)/main.h
+main.o: linux.cpp $(INCLUDEPATH)/main.h
 	$(CPP) -c -o main.o linux.cpp
