@@ -32,12 +32,6 @@ using namespace std;
 
 LEVEL::LEVEL()
 {
-/*
-	consoleHistory[0] = "hello0";
-	consoleHistory[1] = "hello1";
-	consoleHistory[MAX_CONSOLE_HISTORY_LINES-2] = "hello3";
-	consoleHistory[MAX_CONSOLE_HISTORY_LINES-1] = "hello4";
-*/
 	textureNames = NULL;
 	numTextures = 0;
 	textures = NULL;
@@ -62,7 +56,7 @@ LEVEL::LEVEL()
 	//Player Stuff
 	mouseSpeed = 5;
 	turnSpeed = 1.0f;
-	moveSpeed = .2f;
+	moveSpeed = 0.2f;
 	mlook = true;
 }
 
@@ -95,8 +89,11 @@ bool LEVEL::LoadMap(string mapname)
 		strcpy(tmpChar, "Unable to load level file ");
 		strcat(tmpChar, mapname.c_str());
 		strcat(tmpChar, " doesn't exist.");
-
+		
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		MessageBox(NULL,tmpChar,"ERROR",MB_OK|MB_ICONEXCLAMATION);
+		#endif
 		delete [] tmpChar;
 		return false;
 	}
@@ -174,10 +171,13 @@ bool LEVEL::LoadMap(string mapname)
 	{
 		ConsolePrint("Starting sound");
 
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		BASS_Init(-1, 44100, BASS_DEVICE_LEAVEVOL, g_hWnd);
 		BASS_Start();
 		BASS_CDInit(NULL, BASS_DEVICE_LEAVEVOL);
-
+		#endif
+		
 		if(bgm.length()>=4)
 		{
 			if( toupper(bgm[0]) == 'C' &&
@@ -185,18 +185,28 @@ bool LEVEL::LoadMap(string mapname)
 				toupper(bgm[2]) == 'A')
 			{
 				bgmCDA = Integer(bgm.substr(3,bgm.length()));
+				//This needs to be abstracted somehow
+				#ifdef WIN32
 				BASS_CDPlay(bgmCDA, 1, 0);
+				#endif
 			}
 			else
 			{
 				bgmCDA=0;
 				string tmpstr = gamedir + "music/bgm/" + bgm;
+				//This needs to be abstracted somehow
+				#ifdef WIN32
 				bgmStream = BASS_StreamCreateFile(0, (void*)tmpstr.c_str(), 0, 0, BASS_STREAM_AUTOFREE);
 				BASS_StreamPlay(bgmStream, 1, BASS_SAMPLE_LOOP);					
+				#endif
 			}
 		}
 
 		ConsolePrint("Sound init complete");
+	}
+	else
+	{
+		ConsolePrint("Sound disabled");
 	}
 
 	return true;
@@ -224,7 +234,10 @@ void LEVEL::SaveMap(string mapname)
 		strcat(tmpChar, mapname.c_str());
 		strcat(tmpChar, " already exists.");
 
+		//This needs to be abstracted somehow
+		#ifdef WIN32
 		MessageBox(NULL,tmpChar,"ERROR",MB_OK|MB_ICONEXCLAMATION);
+		#endif
 		delete [] tmpChar;
 		return;
 	}
@@ -359,7 +372,8 @@ void LEVEL::Render()
 
 		//render the console background
 		//render the console output text
-		for(unsigned int i=0; i<MAX_CONSOLE_LINES-1; i++)
+		unsigned int i;
+		for(i=0; i<MAX_CONSOLE_LINES-1; i++)
 		{
 			Print(30, glFont.ScreenHeight() - i*20, consoleOutput[MAX_CONSOLE_LINES-i-2].c_str(), 0);
 		}
@@ -379,25 +393,31 @@ void LEVEL::Render()
 void LEVEL::UnloadMap()
 {
 	//Stop audio
+	//This needs to be abstracted somehow
+	#ifdef WIN32
 	BASS_StreamFree(bgmStream);
 	BASS_Stop();
 	BASS_CDFree();
 	BASS_Free();
-
+	#endif
+	
 	//Delete display list
-
+	
+	//Free all polygon data
 	if(triangles)
 	{
 		delete [] triangles;
 		triangles = NULL;
 	}
-
+	
+	//Free all map textures
 	if(textures)
 	{
 		delete [] textures;
 		textures = NULL;
 	}
 
+	//Free the array of texture names
 	if (textureNames)
 	{
 		delete [] textureNames;
@@ -440,7 +460,12 @@ uint32 LEVEL::FPS()
 	static uint32 fps2=0;
 	static float last=0.0f;  // might need to change to double
 
+	//hmmm what the hell is this called in linux I should possibly abstract this
+	#ifdef WIN32
 	float time=GetTickCount()*.001f;
+	#else
+	float time = 0;
+	#endif
 
 	++fps;
 
@@ -744,7 +769,11 @@ void LEVEL::Execute(string cmd)
 		*/
 		else if(command == "quit")
 		{
+			//This needs to be abstracted somehow
+			#ifdef WIN32
 			PostQuitMessage(0);
+			#endif
+			
 		}
 		else
 		{
@@ -753,7 +782,7 @@ void LEVEL::Execute(string cmd)
 	}
 }
 
-void LEVEL::ParseCmds(LPSTR lpCmdLine)
+void LEVEL::ParseCmds(const char* lpCmdLine)
 {
 	string cmd = lpCmdLine;
 	string command;
@@ -1164,7 +1193,7 @@ void LEVEL::UpdateConsole(char newChar)
 		Execute(tolower(consoleHistory[1]));
 		
 	}
-	else if(newChar == VK_BACK)
+	else if(newChar == KEY_BACK)
 	{
 		consoleHistory[0] = Left(consoleHistory[0], consoleHistory[0].length()-1);
 	}
