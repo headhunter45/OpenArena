@@ -13,6 +13,7 @@
 #include "tga.h"
 #include "bmp.h"
 #include "strmanip.h"
+#include "window.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ static HDC			hDC=NULL;			// Private GDI device context
 static HGLRC		hRC=NULL;			// Permanent rendering context
 static HINSTANCE	hInstance;			// Application instance
 #endif
-static SCREEN g_Screen;
+extern OpenArena::Window g_Screen;
 int InitGL(GLvoid);
 
 bool LoadGLTexture(string , GLuint&, GLuint = GL_LINEAR, GLuint = GL_LINEAR);
