@@ -166,7 +166,7 @@ TextureImage* LoadBMP(const char* fn)
 			uint32 i2;
 			for(i=0; i<pixels; i++)
 			{
-				i2 = i << 1 + 1;
+				i2 = (i << 1) + 1;
 				//Should make sure image[i] < palletteEntries
 				tex->data[i2] = bmpPallette[image[i]].red;
 				tex->data[i2 + 1] = bmpPallette[image[i]].blue;
