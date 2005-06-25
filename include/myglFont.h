@@ -18,7 +18,7 @@ public:
 	bool BuildFont(const char*);
 	bool FreeFont();
 	void Print(int, int, const char*, unsigned int = 0);
-	bool Status();
+	bool Loaded();
 	void SetScreenDimensions(short, short);
 	void SetScreenWidth(short);
 	void SetScreenHeight(short);

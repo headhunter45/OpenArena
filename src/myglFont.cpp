@@ -110,7 +110,7 @@ void GLFontClass::Print(int x, int y, const char* str, unsigned int set)
 	}
 }
 
-bool GLFontClass::Status()
+bool GLFontClass::Loaded()
 {
 	return status;
 }
