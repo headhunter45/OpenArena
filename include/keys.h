@@ -64,6 +64,7 @@
 #define KEY_OEM_PLUS	VK_OEM_PLUS
 #define KEY_OEM_MINUS	VK_OEM_MINUS
 #define KEY_OEM_COMMA	VK_OEM_COMMA
+#define KEY_BACK		VK_BACK
 #endif
 
 #ifdef __linux
@@ -132,4 +133,5 @@
 #define KEY_OEM_PLUS	61
 #define KEY_OEM_MINUS	62
 #define KEY_OEM_COMMA	63
+#define KEY_BACK		64
 #endif
