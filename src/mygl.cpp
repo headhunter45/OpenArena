@@ -61,3 +61,5 @@ bool LoadGLTexture(string fn, GLuint& texture, GLuint mag, GLuint min)
 		return false;
 	}
 }
+
+OpenArena::Window g_Screen;
