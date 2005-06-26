@@ -60,11 +60,8 @@ int DrawGLScene()
 {
 	level.Render();
 
-	//Maybe this should be integrated into the Window class
-	if(g_Screen.doubleBuffered)
-	{
-		glXSwapBuffers(g_Screen.display, g_Screen.window);
-	}
+	g_Screen.SwapBuffers();
+	
 	return true;
 }
 

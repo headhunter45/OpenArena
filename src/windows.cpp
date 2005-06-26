@@ -48,8 +48,6 @@ using namespace std;
 void InitControls();
 int InitGL(GLvoid);
 void ReSizeGLScene(GLsizei width, GLsizei height);
-bool CreateGLWindow(string title, int width, int height, int bits, bool fullscreenflag);
-void KillGLWindow();
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
@@ -125,178 +123,6 @@ void ReSizeGLScene(GLsizei width, GLsizei height)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-}
-
-void KillGLWindow()
-{
-	if (g_Screen.fullscreen)
-	{
-		ChangeDisplaySettings(NULL, 0);
-		ShowCursor(true/*false*/);
-	}
-
-	if (hRC)
-	{
-		if (!wglMakeCurrent(NULL, NULL))
-			MessageBox(NULL,"Release Of DC And RC Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
-
-		if (!wglDeleteContext(hRC))
-			MessageBox(NULL,"Release Rendering Context Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
-
-		hRC=NULL;
-	}
-
-	if (hDC && !ReleaseDC(g_hWnd, hDC))
-	{
-		MessageBox(NULL,"Release Device Context Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
-		hDC=NULL;
-	}
-
-	if (g_hWnd && !DestroyWindow(g_hWnd))
-	{
-		MessageBox(NULL,"Could Not Release hWnd.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
-		g_hWnd=NULL;
-	}
-
-	if (!UnregisterClass("OpenArena v0.1.0", hInstance))
-	{
-		MessageBox(NULL,"Could Not Unregister Class.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
-		hInstance=NULL;
-	}
-}
-
-bool CreateGLWindow(string title, int width, int height, int bits, bool fullscreenflag)
-{
-	unsigned int PixelFormat;
-	WNDCLASS	wc;
-	DWORD		dwExStyle;
-	DWORD		dwStyle;
-	RECT WindowRect;
-	WindowRect.left=(long)0;
-	WindowRect.right=(long)width;
-	WindowRect.top=(long)0;
-	WindowRect.bottom=(long)height;
-
-	g_Screen.fullscreen = fullscreenflag;
-	g_Screen.width = width;
-	g_Screen.height = height;
-	g_Screen.bpp = bits;
-	g_Screen.name = title;
-
-	hInstance	= GetModuleHandle(NULL);
-	wc.style	= CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
-	wc.lpfnWndProc = (WNDPROC)WndProc;
-	wc.cbClsExtra = 0;
-	wc.cbWndExtra = 0;
-	wc.hInstance = hInstance;
-	wc.hIcon = LoadIcon(NULL, IDI_WINLOGO);
-	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
-	wc.hbrBackground = NULL;
-	wc.lpszMenuName = NULL;
-	wc.lpszClassName = "OpenArena v0.1.0";
-
-	if (!RegisterClass(&wc))
-	{
-		MessageBox(NULL,"Failed To Register The Window Class.","ERROR",MB_OK|MB_ICONEXCLAMATION);
-		return false;
-	}
-
-	if (g_Screen.fullscreen)
-	{
-		DEVMODE dmScreenSettings;
-		memset(&dmScreenSettings, 0, sizeof(dmScreenSettings));
-		dmScreenSettings.dmSize = sizeof(dmScreenSettings);
-		dmScreenSettings.dmPelsWidth = width;
-		dmScreenSettings.dmPelsHeight = height;
-		dmScreenSettings.dmBitsPerPel = bits;
-		dmScreenSettings.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
-
-
-		if (ChangeDisplaySettings(&dmScreenSettings, CDS_FULLSCREEN) != DISP_CHANGE_SUCCESSFUL)
-		{
-			if (MessageBox(NULL,"The Requested Fullscreen Mode Is Not Supported By\nYour Video Card. Use Windowed Mode Instead?","OpenArena",MB_YESNO|MB_ICONEXCLAMATION)==IDYES)
-				g_Screen.fullscreen = false;
-			else
-			{
-
-				MessageBox(NULL,"Program Will Now Close.","ERROR",MB_OK|MB_ICONSTOP);
-				return false;
-			}
-		}
-	}
-
-	if (g_Screen.fullscreen)
-	{
-		dwExStyle = WS_EX_APPWINDOW;
-		dwStyle = WS_POPUP;
-		ShowCursor(/*true*/false);
-	}
-	else
-	{
-		ShowCursor(false);
-		dwExStyle = WS_EX_APPWINDOW | WS_EX_WINDOWEDGE;
-		dwStyle = WS_OVERLAPPEDWINDOW;
-	}
-
-	AdjustWindowRectEx(&WindowRect, dwStyle, false, dwExStyle);
-
-	if (!(g_hWnd = CreateWindowEx(dwExStyle, "OpenArena v0.1.0", title.c_str(), WS_CLIPSIBLINGS | WS_CLIPCHILDREN | dwStyle, 0, 0, WindowRect.right-WindowRect.left, WindowRect.bottom-WindowRect.top, NULL, NULL, hInstance, NULL)))
-	{
-		KillGLWindow();
-		MessageBox(NULL,"Window Creation Error.","ERROR",MB_OK|MB_ICONEXCLAMATION);
-		return false;
-	}
-
-	static	PIXELFORMATDESCRIPTOR pfd={sizeof(PIXELFORMATDESCRIPTOR), 1, PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER, PFD_TYPE_RGBA, bits, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, PFD_MAIN_PLANE, 0, 0, 0, 0 };
-
-	if (!(hDC=GetDC(g_hWnd)))
-	{
-		KillGLWindow();
-		MessageBox(NULL,"Can't Create A GL Device Context.","ERROR",MB_OK|MB_ICONEXCLAMATION);
-		return false;
-	}
-
-	if (!(PixelFormat=ChoosePixelFormat(hDC,&pfd)))
-	{
-		KillGLWindow();
-		MessageBox(NULL,"Can't Find A Suitable PixelFormat.","ERROR",MB_OK|MB_ICONEXCLAMATION);
-		return false;
-	}
-
-	if(!SetPixelFormat(hDC,PixelFormat,&pfd))
-	{
-		KillGLWindow();
-		MessageBox(NULL,"Can't Set The PixelFormat.","ERROR",MB_OK|MB_ICONEXCLAMATION);
-		return false;
-	}
-
-	if (!(hRC=wglCreateContext(hDC)))
-	{
-		KillGLWindow();
-		MessageBox(NULL,"Can't Create A GL Rendering Context.","ERROR",MB_OK|MB_ICONEXCLAMATION);
-		return false;
-	}
-
-	if(!wglMakeCurrent(hDC,hRC))
-	{
-		KillGLWindow();
-		MessageBox(NULL,"Can't Activate The GL Rendering Context.","ERROR",MB_OK|MB_ICONEXCLAMATION);
-		return false;
-	}
-
-	ShowWindow(g_hWnd,SW_SHOW);
-	SetForegroundWindow(g_hWnd);
-	SetFocus(g_hWnd);
-	ReSizeGLScene(width, height);
-
-	if (!InitGL())
-	{
-		KillGLWindow();
-		MessageBox(NULL,"Initialization Failed.","ERROR",MB_OK|MB_ICONEXCLAMATION);
-		return false;
-	}
-
-	return true;
 }
 
 LRESULT CALLBACK WndProc(HWND	hWnd,
@@ -591,7 +417,9 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 		level.LoadMap();
 	}
 
-	if (!CreateGLWindow(string(OPENARENA_VERSION), level.screen.width, level.screen.height, level.screen.bpp, level.screen.fullscreen))
+	g_Screen.SetOnInit(InitGL);
+	g_Screen.SetOnResize(ReSizeGLScene);
+	if (!g_Screen.Open(string(OPENARENA_VERSION), level.screen.width, level.screen.height, level.screen.bpp, level.screen.fullscreen))
 	{
 		return 0;
 	}
@@ -916,14 +744,14 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 			}
 		}
 
-		SwapBuffers(hDC);
+		g_Screen.SwapBuffers();
 
 		if (keys[VK_F1])
 		{
 			keys[VK_F1]=false;
-			KillGLWindow();
+			g_Screen.Close();
 			g_Screen.fullscreen=!g_Screen.fullscreen;
-			if (!CreateGLWindow("OpenArena",g_Screen.width,g_Screen.height,g_Screen.bpp,g_Screen.fullscreen))
+			if (!g_Screen.Open("OpenArena",g_Screen.width,g_Screen.height,g_Screen.bpp,g_Screen.fullscreen))
 			{
 				return 0;
 			}
@@ -931,7 +759,7 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 	}
 
 	level.UnloadMap();
-	KillGLWindow();
+	g_Screen.Close();
 	return (msg.wParam);
 }
 #endif
