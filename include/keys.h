@@ -1,3 +1,5 @@
+//Everything in this file will be abstracted by oa_input
+//These definitions will be replaced at that time
 #ifdef WIN32
 #include <windows.h>
 #define KEY_LBUTTON	VK_LBUTTON
@@ -68,59 +70,58 @@
 #endif
 
 #ifdef __linux
-//I think these three are right
-#define KEY_LBUTTON		XK_Pointer_Button1
-#define KEY_RBUTTON		XK_Pointer_Button2
-#define KEY_MBUTTON 	XK_Pointer_Button3
-#define KEY_LEFT		XK_Left
-#define KEY_RIGHT		XK_Right
-#define KEY_UP			XK_Up
-#define KEY_DOWN		XK_Down
-#define KEY_SPACE		XK_KP_Space
-#define KEY_TAB			XK_Tab
-#define KEY_RETURN		XK_Return
+#define KEY_LBUTTON		0
+#define KEY_RBUTTON		1
+#define KEY_MBUTTON 	2
+#define KEY_LEFT		3
+#define KEY_RIGHT		4
+#define KEY_UP			5
+#define KEY_DOWN		6
+#define KEY_SPACE		7
+#define KEY_TAB			8
+#define KEY_RETURN		9
 #define KEY_SHIFT		10
-#define KEY_PAUSE		XK_Pause
+#define KEY_PAUSE		11
 #define KEY_CONTROL		12
 #define KEY_CAPITAL		13
-#define KEY_ESCAPE		XK_Escape
-#define KEY_PRIOR		XK_Prior
-#define KEY_NEXT		XK_Next
-#define KEY_END			XK_End
-#define KEY_HOME		XK_Home
-#define KEY_INSERT		XK_Insert
-#define KEY_DELETE		XK_Delete
+#define KEY_ESCAPE		14
+#define KEY_PRIOR		15
+#define KEY_NEXT		16
+#define KEY_END			17
+#define KEY_HOME		18
+#define KEY_INSERT		19
+#define KEY_DELETE		20
 #define KEY_LWIN		21
 #define KEY_RWIN		22
 #define KEY_APPS		23
-#define KEY_NUMPAD0		XK_KP_0
-#define KEY_NUMPAD1		XK_KP_1
-#define KEY_NUMPAD2		XK_KP_2
-#define KEY_NUMPAD3		XK_KP_3
-#define KEY_NUMPAD4		XK_KP_4
-#define KEY_NUMPAD5		XK_KP_5
-#define KEY_NUMPAD6		XK_KP_6
-#define KEY_NUMPAD7		XK_KP_7
-#define KEY_NUMPAD8		XK_KP_8
-#define KEY_NUMPAD9		XK_KP_9
-#define KEY_MULTIPLY	XK_KP_Multiply
-#define KEY_ADD			XK_KP_Add
-#define KEY_SUBTRACT	XK_KP_Subtract
-#define KEY_DIVIDE		XK_KP_Divide
-#define KEY_F1			XK_F1
-#define KEY_F2			XK_F2
-#define KEY_F3			XK_F3
-#define KEY_F4			XK_F4
-#define KEY_F5			XK_F5
-#define KEY_F6			XK_F6
-#define KEY_F7			XK_F7
-#define KEY_F8			XK_F8
-#define KEY_F9			XK_F9
-#define KEY_F10			XK_F10
-#define KEY_F11			XK_F11
-#define KEY_F12			XK_F12	
+#define KEY_NUMPAD0		24
+#define KEY_NUMPAD1		25
+#define KEY_NUMPAD2		26
+#define KEY_NUMPAD3		27
+#define KEY_NUMPAD4		28
+#define KEY_NUMPAD5		29
+#define KEY_NUMPAD6		30
+#define KEY_NUMPAD7		31
+#define KEY_NUMPAD8		32
+#define KEY_NUMPAD9		33
+#define KEY_MULTIPLY	34
+#define KEY_ADD			35
+#define KEY_SUBTRACT	36
+#define KEY_DIVIDE		37
+#define KEY_F1			38
+#define KEY_F2			39
+#define KEY_F3			40
+#define KEY_F4			41
+#define KEY_F5			42
+#define KEY_F6			43
+#define KEY_F7			44
+#define KEY_F8			45
+#define KEY_F9			46
+#define KEY_F10			47
+#define KEY_F11			48
+#define KEY_F12			49
 #define KEY_NUMLOCK		50
-#define KEY_SCROLL		XK_Scroll_Lock
+#define KEY_SCROLL		51
 #define KEY_SEPARATOR	52
 #define KEY_OEM_1		53
 #define KEY_OEM_2		54
@@ -133,5 +134,5 @@
 #define KEY_OEM_PLUS	61
 #define KEY_OEM_MINUS	62
 #define KEY_OEM_COMMA	63
-#define KEY_BACK		XK_BackSpace
+#define KEY_BACK		64
 #endif
