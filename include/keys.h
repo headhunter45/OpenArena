@@ -70,69 +70,108 @@
 #endif
 
 #ifdef __linux
-#define KEY_LBUTTON		0
-#define KEY_RBUTTON		1
-#define KEY_MBUTTON 	2
-#define KEY_LEFT		3
-#define KEY_RIGHT		4
-#define KEY_UP			5
-#define KEY_DOWN		6
-#define KEY_SPACE		7
-#define KEY_TAB			8
-#define KEY_RETURN		9
-#define KEY_SHIFT		10
-#define KEY_PAUSE		11
-#define KEY_CONTROL		12
-#define KEY_CAPITAL		13
-#define KEY_ESCAPE		14
-#define KEY_PRIOR		15
-#define KEY_NEXT		16
-#define KEY_END			17
-#define KEY_HOME		18
-#define KEY_INSERT		19
-#define KEY_DELETE		20
-#define KEY_LWIN		21
-#define KEY_RWIN		22
-#define KEY_APPS		23
-#define KEY_NUMPAD0		24
-#define KEY_NUMPAD1		25
-#define KEY_NUMPAD2		26
-#define KEY_NUMPAD3		27
-#define KEY_NUMPAD4		28
-#define KEY_NUMPAD5		29
-#define KEY_NUMPAD6		30
-#define KEY_NUMPAD7		31
-#define KEY_NUMPAD8		32
-#define KEY_NUMPAD9		33
-#define KEY_MULTIPLY	34
-#define KEY_ADD			35
-#define KEY_SUBTRACT	36
-#define KEY_DIVIDE		37
-#define KEY_F1			38
-#define KEY_F2			39
-#define KEY_F3			40
-#define KEY_F4			41
-#define KEY_F5			42
-#define KEY_F6			43
-#define KEY_F7			44
-#define KEY_F8			45
-#define KEY_F9			46
-#define KEY_F10			47
-#define KEY_F11			48
-#define KEY_F12			49
-#define KEY_NUMLOCK		50
-#define KEY_SCROLL		51
-#define KEY_SEPARATOR	52
-#define KEY_OEM_1		53
-#define KEY_OEM_2		54
-#define KEY_OEM_3		55
-#define KEY_OEM_4		56
-#define KEY_OEM_5		57
-#define KEY_OEM_6		58
-#define KEY_OEM_7		59
-#define KEY_OEM_PERIOD	60
-#define KEY_OEM_PLUS	61
-#define KEY_OEM_MINUS	62
-#define KEY_OEM_COMMA	63
-#define KEY_BACK		64
+enum Keys{
+	KEY_UNKNOWN = 0,
+	KEY_LBUTTON,
+	KEY_RBUTTON,
+	KEY_MBUTTON,
+	KEY_LEFT,
+	KEY_RIGHT,
+	KEY_UP,
+	KEY_DOWN,
+	KEY_SPACE,
+	KEY_RETURN,
+	KEY_SHIFT,
+	KEY_PAUSE,
+	KEY_CONTROL,
+	KEY_CAPITAL,
+	KEY_ESCAPE,
+	KEY_PRIOR,
+	KEY_NEXT,
+	KEY_END,
+	KEY_HOME,
+	KEY_INSERT,
+	KEY_DELETE,
+	KEY_LWIN,
+	KEY_RWIN,
+	KEY_APPS,
+	KEY_NUMPAD0,
+	KEY_NUMPAD1,
+	KEY_NUMPAD2,
+	KEY_NUMPAD3,
+	KEY_NUMPAD4,
+	KEY_NUMPAD5,
+	KEY_NUMPAD6,
+	KEY_NUMPAD7,
+	KEY_NUMPAD8,
+	KEY_NUMPAD9,
+	KEY_MULTIPLY,
+	KEY_ADD,
+	KEY_SUBTRACT,
+	KEY_DIVIDE,
+	KEY_F1,
+	KEY_F2,
+	KEY_F3,
+	KEY_F4,
+	KEY_F5,
+	KEY_F6,
+	KEY_F7,
+	KEY_F8,
+	KEY_F9,
+	KEY_F10,
+	KEY_F11,
+	KEY_F12,
+	KEY_NUMLOCK,
+	KEY_SCROLL,
+	KEY_SEPARATOR,
+	KEY_OEM_1,
+	KEY_OEM_2,
+	KEY_OEM_3,
+	KEY_OEM_4,
+	KEY_OEM_5,
+	KEY_OEM_6,
+	KEY_OEM_7,
+	KEY_OEM_PERIOD,
+	KEY_OEM_PLUS,
+	KEY_OEM_MINUS,
+	KEY_OEM_COMMA,
+	KEY_BACK,
+	KEY_TAB,
+	KEY_0,
+	KEY_1,
+	KEY_2,
+	KEY_3,
+	KEY_4,
+	KEY_5,
+	KEY_6,
+	KEY_7,
+	KEY_8,
+	KEY_9,
+	KEY_A,
+	KEY_B,
+	KEY_C,
+	KEY_D,
+	KEY_E,
+	KEY_F,
+	KEY_G,
+	KEY_H,
+	KEY_I,
+	KEY_J,
+	KEY_K,
+	KEY_L,
+	KEY_M,
+	KEY_N,
+	KEY_O,
+	KEY_P,
+	KEY_Q,
+	KEY_R,
+	KEY_S,
+	KEY_T,
+	KEY_U,
+	KEY_V,
+	KEY_W,
+	KEY_X,
+	KEY_Y,
+	KEY_Z
+}
 #endif
