@@ -18,9 +18,7 @@
 using namespace std;
 
 #ifdef WIN32
-//These three are windows specific
-static HDC			hDC=NULL;			// Private GDI device context
-static HGLRC		hRC=NULL;			// Permanent rendering context
+//These this is windows specific
 static HINSTANCE	hInstance;			// Application instance
 #endif
 extern OpenArena::Window g_Screen;

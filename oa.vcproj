@@ -184,6 +184,9 @@
 				RelativePath=".\src\vector.cpp">
 			</File>
 			<File
+				RelativePath=".\src\window.cpp">
+			</File>
+			<File
 				RelativePath=".\src\windows.cpp">
 			</File>
 		</Filter>

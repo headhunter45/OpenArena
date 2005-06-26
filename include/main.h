@@ -43,8 +43,8 @@ static float currentTime;
 
 void InitControls();				// Sets up player controls
 int InitGL();						// All setup for OpenGL goes here
-GLvoid ReSizeGLScene(GLsizei width, GLsizei height);	// Resize and initialize the GL window
-GLvoid KillGLWindow(GLvoid);		//Properly kill the window
-bool CreateGLWindow(string title, int width, int height, int bits, bool fullscreenflag);
+void ReSizeGLScene(GLsizei width, GLsizei height);	// Resize and initialize the GL window
+
+
 
 #endif
