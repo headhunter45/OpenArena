@@ -50,10 +50,30 @@ void OpenArena::Window::Close()
 		instance=NULL;
 	}
 #endif
-}
+#ifdef __linux
+	if(hRC)
+	{
+		if(!glXMakeCurrent(display, None, NULL))
+		{
+			printf("Could not release drawing context.\n");
+		}
+		glXDestroyContext(display, hRC);
+		hRC = NULL;
+	}
+
+	if(fullscreen)
+	{
+		XF86VidModeSwitchToMode(display, screen, &vidMode);
+		XF86VidModeSetViewPort(display, screen, 0, 0);
+	}
+	XCloseDisplay(display);
+	
+#endif
+}//End OpenArena::Window::Close()
 
 bool OpenArena::Window::Open()
 {
+	#ifdef WIN32
 	unsigned int PixelFormat;
 	WNDCLASS	wc;
 	DWORD		dwExStyle;
@@ -178,6 +198,103 @@ bool OpenArena::Window::Open()
 	}
 
 	return true;
+	#endif
+	#ifdef __linux
+	XVisualInfo* vi;
+	Colormap cmap;
+	int bestMode = 0;
+	int vidModeMajorVersion;
+	int vidModeMinorVersion;
+	int glxMajorVersion;
+	int glxMinorVersion;
+	int modeNum;
+	XF86VidModeModeInfo** modes;
+	Atom  wmDelete;
+	::Window winDummy;
+	unsigned int borderDummy;
+
+	display = XOpenDisplay(0);
+	screen = DefaultScreen(display);
+	XF86VidModeQueryVersion(display, &vidModeMajorVersion, &vidModeMinorVersion);
+	printf("XF86VidModeExtension-Version %d.%d\n", vidModeMajorVersion, vidModeMinorVersion);
+
+	XF86VidModeGetAllModeLines(display, screen, &modeNum, &modes);
+	vidMode = *modes[0];
+
+	int i;
+	for(i=0; i<modeNum; i++)
+	{
+		//Add a check for colordepth here
+		if((modes[i]->hdisplay == width) && (modes[i]->vdisplay == height))
+		{
+			bestMode = i;
+		}
+	}
+
+	vi = glXChooseVisual(display, screen, attrListDbl);
+	if(vi == NULL)
+	{
+		vi = glXChooseVisual(display, screen, attrListSgl);
+		doubleBuffered = false;
+		printf("Only Singlebuffered Visual!\n");
+	}
+	else
+	{
+		doubleBuffered = true;
+		printf("Got Doublebuffered Visual!\n");
+	}
+
+	glXQueryVersion(display, &glxMajorVersion, & glxMinorVersion);
+	printf("glX-Version %d.%d\n", glxMajorVersion, glxMinorVersion);
+
+	hRC = glXCreateContext(display, vi, 0, GL_TRUE);
+	cmap = XCreateColormap(display, RootWindow(display, vi->screen), vi->visual, AllocNone);
+	attributes.colormap = cmap;
+	attributes.border_pixel = 0;
+
+	if(fullscreen)
+	{
+		XF86VidModeSwitchToMode(display, screen, modes[bestMode]);
+		XF86VidModeSetViewPort(display, screen, 0, 0);
+		XFree(modes);
+
+		attributes.override_redirect = true;
+		attributes.event_mask = ExposureMask | KeyPressMask | ButtonPressMask | StructureNotifyMask;
+		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, width, height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask | CWOverrideRedirect, &attributes);
+		XWarpPointer(display, None, window, 0, 0, 0, 0, 0, 0);
+		XMapRaised(display, window);
+		XGrabKeyboard(display, window, true, GrabModeAsync, GrabModeAsync, CurrentTime);
+		XGrabPointer(display, window, true, ButtonPressMask, GrabModeAsync, GrabModeAsync, window, None, CurrentTime);
+	}
+	else
+	{
+		attributes.event_mask = ExposureMask | KeyPressMask | ButtonPressMask | StructureNotifyMask;
+		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, width, height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask, &attributes);
+		wmDelete = XInternAtom(display, "WM_DELETE_WINDOW", true);
+		XSetWMProtocols(display, window, &wmDelete, 1);
+		XSetStandardProperties(display, window, name.c_str(), name.c_str(), None, NULL, 0, NULL);
+		XMapRaised(display, window);
+	}
+
+	glXMakeCurrent(display, window, hRC);
+	unsigned int twidth, theight, depth;
+	XGetGeometry(display, window, &winDummy, &x, &y, &twidth, &theight, &borderDummy, &depth);
+	bpp = (char)depth;
+	height = (short)twidth;
+	width = (short)theight;
+	printf("Depth %d\n", bpp);
+	if(glXIsDirect(display, hRC))
+	{
+		printf("Congrats, you have Direct Rendering!\n");
+	}
+	else
+	{
+		printf("Sorry, no Direct Rendering possible!\n");
+	}
+	OnInit();
+	return true;
+	
+	#endif
 }
 
 bool OpenArena::Window::Open(string title, int width, int height, int bits, bool fullscreenflag)
@@ -228,6 +345,7 @@ int OpenArena::DefaultInit()
 
 void OpenArena::DefaultResize(GLsizei width, GLsizei height)
 {
+	#ifdef WIN32
 	if (height==0)
 		height=1;
 
@@ -239,4 +357,19 @@ void OpenArena::DefaultResize(GLsizei width, GLsizei height)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+	#endif
+	#ifdef __linux
+	#endif
 }
+
+void OpenArena::Window::Resize(GLsizei width, GLsizei height)
+{
+	OnResize(width, height);
+}
+
+#ifdef __linux
+Display* OpenArena::Window::GetDisplay()
+{
+	return display;
+}
+#endif
