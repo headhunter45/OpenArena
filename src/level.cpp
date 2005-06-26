@@ -1193,7 +1193,7 @@ void LEVEL::UpdateConsole(char newChar)
 		Execute(tolower(consoleHistory[1]));
 		
 	}
-	else if(newChar == KEY_BACK)
+	else if(newChar == OpenArena::KEY_BACK)
 	{
 		consoleHistory[0] = Left(consoleHistory[0], consoleHistory[0].length()-1);
 	}
