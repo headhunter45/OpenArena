@@ -2,7 +2,7 @@ CPP = g++ -g
 INCLUDES = 
 LD = g++
 INCLUDEPATH = ../include
-OBJECTS = bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o physics.o player.o strmanip.o tga.o vector.o main.o
+OBJECTS = bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o physics.o player.o strmanip.o tga.o vector.o window.o main.o
 LIBS = -L/usr/X11R6/lib -lGL -lGLU -lXxf86vm
 LIBRARIES = 
 SO_LIBS = 
@@ -16,6 +16,7 @@ all: ../OpenArena/OA
 
 clean: 
 	rm -f *.o
+	rm -f ../OpenArena/OA
 	
 install:
 
@@ -81,6 +82,9 @@ tga.o: tga.cpp $(INCLUDEPATH)/tga.h
 
 vector.o: vector.cpp $(INCLUDEPATH)/vector.h
 	$(CPP) -c -o vector.o vector.cpp
+
+window.o: window.cpp $(INCLUDEPATH)/window.h
+	$(CPP) -c -o window.o window.cpp
 
 main.o: linux.cpp $(INCLUDEPATH)/main.h
 	$(CPP) -c -o main.o linux.cpp
