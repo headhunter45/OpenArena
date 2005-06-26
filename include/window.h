@@ -22,27 +22,6 @@ namespace OpenArena
 	class Window: public SCREEN
 	{
 	public:
-#ifdef __linux
-		Display* display;
-		int screen;
-		::Window window;
-		GLXContext hRC;
-		XSetWindowAttributes attributes;
-		bool doubleBuffered;
-		XF86VidModeModeInfo vidMode;
-		int x, y;
-	private:
-#endif
-#ifdef WIN32
-		HGLRC glContext;
-		HWND window;
-	private:
-		HDC deviceContext;
-		HINSTANCE instance;
-#endif
-		
-
-	public:
 		Window();
 		~Window();
 		void Close();
@@ -52,9 +31,25 @@ namespace OpenArena
 		void SetOnResize(ResizeFunc function);
 		void SwapBuffers();
 
+		#ifdef __linux
+		Display* display;
+		int screen;
+		::Window window;
+		GLXContext hRC;
+		XSetWindowAttributes attributes;
+		bool doubleBuffered;
+		XF86VidModeModeInfo vidMode;
+		int x, y;
+		#endif
 	private:
 		ResizeFunc OnResize;
 		InitFunc OnInit;
+		#ifdef WIN32
+		HGLRC glContext;
+		HWND window;
+		HDC deviceContext;
+		HINSTANCE instance;
+		#endif
 	};
 
 	void DefaultResize(GLsizei width, GLsizei height);
