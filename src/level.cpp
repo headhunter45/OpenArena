@@ -289,7 +289,7 @@ void LEVEL::Render()
 
 	// Move the camera to where the player is
 	defaultPlayer->camera.Look();
-///*
+
 	for (uint32 i=0; i<numTriangles; i++)
 	{
 		glBindTexture(GL_TEXTURE_2D, textures[triangles[i].texID].ID());//Bind this triangle's texture
