@@ -266,6 +266,12 @@
 				RelativePath=".\Include\vector.h">
 			</File>
 			<File
+				RelativePath=".\include\version.h">
+			</File>
+			<File
+				RelativePath=".\include\window.h">
+			</File>
+			<File
 				RelativePath=".\Include\WorldDefs.h">
 			</File>
 		</Filter>
