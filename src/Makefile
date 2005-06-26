@@ -1,4 +1,4 @@
-CPP = g++
+CPP = g++ -g
 INCLUDES = 
 LD = g++
 INCLUDEPATH = ../include
@@ -12,15 +12,15 @@ LDFLAGS = $(LIBS)
 
 .Phony: all clean install
 
-all: oa
+all: ../OpenArena/OA
 
 clean: 
 	rm -f *.o
 	
 install:
 
-oa: $(OBJECTS)
-	$(LD) $(LDFLAGS) -o oa $(OBJECTS)
+../OpenArena/OA: $(OBJECTS)
+	$(LD) $(LDFLAGS) -o ../OpenArena/OA $(OBJECTS)
 
 oa_game.so:
 
