@@ -30,9 +30,12 @@ namespace OpenArena
 		void SetOnInit(InitFunc function);
 		void SetOnResize(ResizeFunc function);
 		void SwapBuffers();
+		void Resize(GLsizei width, GLsizei height);
 
 		#ifdef __linux
-		Display* display;
+		Display* GetDisplay();
+
+	private:		
 		int screen;
 		::Window window;
 		GLXContext hRC;
@@ -40,6 +43,7 @@ namespace OpenArena
 		bool doubleBuffered;
 		XF86VidModeModeInfo vidMode;
 		int x, y;
+		Display* display;			
 		#endif
 	private:
 		ResizeFunc OnResize;
@@ -58,6 +62,10 @@ namespace OpenArena
 
 #ifdef WIN32
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+#endif
+#ifdef __linux
+static int attrListSgl[] = {GLX_RGBA, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
+static int attrListDbl[] = {GLX_RGBA, GLX_DOUBLEBUFFER, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
 #endif
 
 #endif
