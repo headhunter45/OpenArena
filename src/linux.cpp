@@ -35,11 +35,7 @@
 using namespace std;
 
 void InitControls();
-int InitGL();
-void KillGLWindow();
-
-static int attrListSgl[] = {GLX_RGBA, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
-static int attrListDbl[] = {GLX_RGBA, GLX_DOUBLEBUFFER, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
+unsigned char TranslateKey(int keyCode);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Function Definitions
@@ -107,137 +103,6 @@ int InitGL(GLvoid)
 	return true;
 }
 
-//
-//void KillGLWindow()
-//	Purpose:
-//		To do all required setup before creating an OpenGL window
-void KillGLWindow()
-{
-	if(g_Screen.hRC)
-	{
-		if(!glXMakeCurrent(g_Screen.display, None, NULL))
-		{
-			printf("Could not release drawing context.\n");
-		}
-		glXDestroyContext(g_Screen.display, g_Screen.hRC);
-		g_Screen.hRC = NULL;
-	}
-
-	if(g_Screen.fullscreen)
-	{
-		XF86VidModeSwitchToMode(g_Screen.display, g_Screen.screen, &g_Screen.vidMode);
-		XF86VidModeSetViewPort(g_Screen.display, g_Screen.screen, 0, 0);
-	}
-	XCloseDisplay(g_Screen.display);
-}
-
-//
-//bool CreateGLWindow(string title, int width, int height, int bits, bool fullscreenflag)
-//	Purpose:
-//		
-bool CreateGLWindow(string title, int width, int height, int bits, bool fullscreenflag)
-{
-	XVisualInfo* vi;
-	Colormap cmap;
-	int bestMode = 0;
-	int vidModeMajorVersion;
-	int vidModeMinorVersion;
-	int glxMajorVersion;
-	int glxMinorVersion;
-	int modeNum;
-	XF86VidModeModeInfo** modes;
-	Atom  wmDelete;
-	Window winDummy;
-	unsigned int borderDummy;
-
-	g_Screen.name = title;
-	g_Screen.width = width;
-	g_Screen.height = height;
-	g_Screen.bpp = bits;
-	g_Screen.fullscreen = fullscreenflag;
-
-	g_Screen.display = XOpenDisplay(0);
-	g_Screen.screen = DefaultScreen(g_Screen.display);
-	XF86VidModeQueryVersion(g_Screen.display, &vidModeMajorVersion, &vidModeMinorVersion);
-	printf("XF86VidModeExtension-Version %d.%d\n", vidModeMajorVersion, vidModeMinorVersion);
-
-	XF86VidModeGetAllModeLines(g_Screen.display, g_Screen.screen, &modeNum, &modes);
-	g_Screen.vidMode = *modes[0];
-
-	int i;
-	for(i=0; i<modeNum; i++)
-	{
-		//Add a check for colordepth here
-		if((modes[i]->hdisplay == width) && (modes[i]->vdisplay == height))
-		{
-			bestMode = i;
-		}
-	}
-
-	vi = glXChooseVisual(g_Screen.display, g_Screen.screen, attrListDbl);
-	if(vi == NULL)
-	{
-		vi = glXChooseVisual(g_Screen.display, g_Screen.screen, attrListSgl);
-		g_Screen.doubleBuffered = false;
-		printf("Only Singlebuffered Visual!\n");
-	}
-	else
-	{
-		g_Screen.doubleBuffered = true;
-		printf("Got Doublebuffered Visual!\n");
-	}
-
-	glXQueryVersion(g_Screen.display, &glxMajorVersion, & glxMinorVersion);
-	printf("glX-Version %d.%d\n", glxMajorVersion, glxMinorVersion);
-
-	g_Screen.hRC = glXCreateContext(g_Screen.display, vi, 0, GL_TRUE);
-	cmap = XCreateColormap(g_Screen.display, RootWindow(g_Screen.display, vi->screen), vi->visual, AllocNone);
-	g_Screen.attributes.colormap = cmap;
-	g_Screen.attributes.border_pixel = 0;
-
-	if(g_Screen.fullscreen)
-	{
-		XF86VidModeSwitchToMode(g_Screen.display, g_Screen.screen, modes[bestMode]);
-		XF86VidModeSetViewPort(g_Screen.display, g_Screen.screen, 0, 0);
-		XFree(modes);
-
-		g_Screen.attributes.override_redirect = true;
-		g_Screen.attributes.event_mask = ExposureMask | KeyPressMask | ButtonPressMask | StructureNotifyMask;
-		g_Screen.window = XCreateWindow(g_Screen.display, RootWindow(g_Screen.display, vi->screen), 0, 0, width, height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask | CWOverrideRedirect, &g_Screen.attributes);
-		XWarpPointer(g_Screen.display, None, g_Screen.window, 0, 0, 0, 0, 0, 0);
-		XMapRaised(g_Screen.display, g_Screen.window);
-		XGrabKeyboard(g_Screen.display, g_Screen.window, true, GrabModeAsync, GrabModeAsync, CurrentTime);
-		XGrabPointer(g_Screen.display, g_Screen.window, true, ButtonPressMask, GrabModeAsync, GrabModeAsync, g_Screen.window, None, CurrentTime);
-	}
-	else
-	{
-		g_Screen.attributes.event_mask = ExposureMask | KeyPressMask | ButtonPressMask | StructureNotifyMask;
-		g_Screen.window = XCreateWindow(g_Screen.display, RootWindow(g_Screen.display, vi->screen), 0, 0, width, height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask, &g_Screen.attributes);
-		wmDelete = XInternAtom(g_Screen.display, "WM_DELETE_WINDOW", true);
-		XSetWMProtocols(g_Screen.display, g_Screen.window, &wmDelete, 1);
-		XSetStandardProperties(g_Screen.display, g_Screen.window, title.c_str(), title.c_str(), None, NULL, 0, NULL);
-		XMapRaised(g_Screen.display, g_Screen.window);
-	}
-
-	glXMakeCurrent(g_Screen.display, g_Screen.window, g_Screen.hRC);
-	unsigned int twidth, theight, depth;
-	XGetGeometry(g_Screen.display, g_Screen.window, &winDummy, &g_Screen.x, &g_Screen.y, &twidth, &theight, &borderDummy, &depth);
-	g_Screen.bpp = (char)depth;
-	g_Screen.height = (short)twidth;
-	g_Screen.width = (short)theight;
-	printf("Depth %d\n", g_Screen.bpp);
-	if(glXIsDirect(g_Screen.display, g_Screen.hRC))
-	{
-		printf("Congrats, you have Direct Rendering!\n");
-	}
-	else
-	{
-		printf("Sorry, no Direct Rendering possible!\n");
-	}
-	InitGL();
-	return true;
-}
-
 int main(int argc, char** argv)
 {
 	XEvent event;
@@ -270,17 +135,20 @@ int main(int argc, char** argv)
 		level.screen.bpp = 24;
 	}
 
-	if(!CreateGLWindow(OPENARENA_VERSION, level.screen.width, level.screen.height, level.screen.bpp, level.screen.fullscreen))
+	g_Screen.SetOnInit(InitGL);
+	g_Screen.SetOnResize(ResizeGLScene);
+
+	if(!g_Screen.Open(OPENARENA_VERSION, level.screen.width, level.screen.height, level.screen.bpp, level.screen.fullscreen))
 	{
 		return 1;
 	}
 
 	while(!done)
 	{
-		while(XPending(g_Screen.display) > 0)
+		while(XPending(g_Screen.GetDisplay()) > 0)
 		{
 			//Equivalent of WNDPROC
-			XNextEvent(g_Screen.display, &event);
+			XNextEvent(g_Screen.GetDisplay(), &event);
 			switch(event.type)
 			{
 			case Expose:
@@ -303,7 +171,7 @@ int main(int argc, char** argv)
 				done = true;
 				break;
 			case KeyPress:
-				keys[TraslateKey(XLookupKeysym(&event.xkey, 0))] = true;
+				keys[TranslateKey(XLookupKeysym(&event.xkey, 0))] = true;
 				//Remove this later it shouldn't be needed
 				if(XLookupKeysym(&event.xkey, 0) == XK_Escape)
 				{
@@ -311,13 +179,13 @@ int main(int argc, char** argv)
 				}
 				if(XLookupKeysym(&event.xkey, 0) == XK_F1)
 				{
-					KillGLWindow();
+					g_Screen.Close();
 					g_Screen.fullscreen = !g_Screen.fullscreen;
-					CreateGLWindow("Blah Blah Blah", 640, 480, 24, g_Screen.fullscreen);
+					g_Screen.Open("Blah Blah Blah", 640, 480, 24, g_Screen.fullscreen);
 				}
 				break;
 			case ClientMessage:
-				if(*XGetAtomName(g_Screen.display, event.xclient.message_type) == *"WM_PROTOCOLS")
+				if(*XGetAtomName(g_Screen.GetDisplay(), event.xclient.message_type) == *"WM_PROTOCOLS")
 				{
 					printf("Exiting sanely...\n");
 					done = true;
@@ -329,7 +197,7 @@ int main(int argc, char** argv)
 			//End Equivalent of WNDPROC
 			if(active)
 			{
-				if(keys[KEY_ESCAPE])
+				if(keys[OpenArena::KEY_ESCAPE])
 				{
 					done = true;
 				}
@@ -634,12 +502,12 @@ int main(int argc, char** argv)
 
 			DrawGLScene();
 
-			if(keys[KEY_F1])
+			if(keys[OpenArena::KEY_F1])
 			{
-				keys[KEY_F1] = false;
-				KillGLWindow();
+				keys[OpenArena::KEY_F1] = false;
+				g_Screen.Close();
 				g_Screen.fullscreen = !g_Screen.fullscreen;
-				if(!CreateGLWindow(OPENARENA_VERSION, level.screen.width, level.screen.height, level.screen.bpp, level.screen.fullscreen))
+				if(!g_Screen.Open(OPENARENA_VERSION, level.screen.width, level.screen.height, level.screen.bpp, level.screen.fullscreen))
 				{
 					return 1;
 				}
@@ -647,205 +515,205 @@ int main(int argc, char** argv)
 		}
 	}
 	level.UnloadMap();
-	KillGLWindow();
+	g_Screen.Close();
 	exit(0);
 }
 
 //This should probably be moved into oa_input
-usigned char TranslateKey(int keyCode)
+unsigned char TranslateKey(int keyCode)
 {
 	switch (keyCode)
 	{
 	case XK_BackSpace:
-		return KEY_BACK;
+		return OpenArena::KEY_BACK;
 	case XK_Tab:
-		return KEY_TAB;
+		return OpenArena::KEY_TAB;
 	case XK_Return:
-		return KEY_RETURN;
+		return OpenArena::KEY_RETURN;
 	case XK_Escape:
-		return KEY_ESCAPE;
+		return OpenArena::KEY_ESCAPE;
 	case XK_Left:
-		return KEY_LEFT;
+		return OpenArena::KEY_LEFT;
 	case XK_Right:
-		return KEY_RIGHT;
+		return OpenArena::KEY_RIGHT;
 	case XK_Up:
-		return KEY_UP;
+		return OpenArena::KEY_UP;
 	case XK_Down:
-		return KEY_DOWN;
+		return OpenArena::KEY_DOWN;
 	case XK_Home:
-		return KEY_HOME;
+		return OpenArena::KEY_HOME;
 	case XK_End:
-		return KEY_END;
+		return OpenArena::KEY_END;
 	case XK_Prior:
-		return KEY_PRIOR;
+		return OpenArena::KEY_PRIOR;
 	case XK_Next:
-		return KEY_NEXT;
+		return OpenArena::KEY_NEXT;
 	case XK_Num_Lock:
-		return KEY_NUMLOCK;
+		return OpenArena::KEY_NUMLOCK;
 	case XK_KP_Enter:
-		return KEY_RETURN;
+		return OpenArena::KEY_RETURN;
 	case XK_KP_Home:
-		return KEY_HOME;
+		return OpenArena::KEY_HOME;
 	case XK_KP_End:
-		return KEY_END;
+		return OpenArena::KEY_END;
 	case XK_KP_Prior:
-		return KEY_PRIOR;
+		return OpenArena::KEY_PRIOR;
 	case XK_KP_Next:
-		return KEY_NEXT;
+		return OpenArena::KEY_NEXT;
 	case XK_KP_0:
-		return KEY_NUMPAD0;
+		return OpenArena::KEY_NUMPAD0;
 	case XK_KP_1:
-		return KEY_NUMPAD1;
+		return OpenArena::KEY_NUMPAD1;
 	case XK_KP_2:
-		return KEY_NUMPAD2;
-	case XK_KP_3;
-		return KEY_NUMPAD3;
+		return OpenArena::KEY_NUMPAD2;
+	case XK_KP_3:
+		return OpenArena::KEY_NUMPAD3;
 	case XK_KP_4:
-		return KEY_NUMPAD4;
+		return OpenArena::KEY_NUMPAD4;
 	case XK_KP_5:
-		return KEY_NUMPAD5;
+		return OpenArena::KEY_NUMPAD5;
 	case XK_KP_6:
-		return KEY_NUMPAD6;
+		return OpenArena::KEY_NUMPAD6;
 	case XK_KP_7:
-		return KEY_NUMPAD7;
+		return OpenArena::KEY_NUMPAD7;
 	case XK_KP_8:
-		return KEY_NUMPAD8;
+		return OpenArena::KEY_NUMPAD8;
 	case XK_KP_9:
-		return KEY_NUMPAD9;
+		return OpenArena::KEY_NUMPAD9;
 	case XK_KP_Multiply:
-		return KEY_MULTIPLY;
+		return OpenArena::KEY_MULTIPLY;
 	case XK_KP_Add:
-		return KEY_ADD;
+		return OpenArena::KEY_ADD;
 	case XK_KP_Subtract:
-		return KEY_SUBTRACT;
+		return OpenArena::KEY_SUBTRACT;
 	case XK_KP_Divide:
-		return KEY_DIVIDE;
+		return OpenArena::KEY_DIVIDE;
 	case XK_F1:
-		return KEY_F1:
+		return OpenArena::KEY_F1;
 	case XK_F2:
-		return KEY_F2:
-	case XK_F3;
-		return KEY_F3:
+		return OpenArena::KEY_F2;
+	case XK_F3:
+		return OpenArena::KEY_F3;
 	case XK_F4:
-		return KEY_F4:
+		return OpenArena::KEY_F4;
 	case XK_F5:
-		return KEY_F5:
+		return OpenArena::KEY_F5;
 	case XK_F6:
-		return KEY_F6:
+		return OpenArena::KEY_F6;
 	case XK_F7:
-		return KEY_F7:
+		return OpenArena::KEY_F7;
 	case XK_F8:
-		return KEY_F8:
+		return OpenArena::KEY_F8;
 	case XK_F9:
-		return KEY_F9:
+		return OpenArena::KEY_F9;
 	case XK_F10:
-		return KEY_F10:
+		return OpenArena::KEY_F10;
 	case XK_F11:
-		return KEY_F11:
+		return OpenArena::KEY_F11;
 	case XK_F12:
-		return KEY_F12:
+		return OpenArena::KEY_F12;
 	case XK_Shift_L:
-		return KEY_SHIFT;
+		return OpenArena::KEY_SHIFT;
 	case XK_Shift_R:
-		return KEY_SHIFT;
+		return OpenArena::KEY_SHIFT;
 	case XK_Control_L:
-		return KEY_CONTROL;
+		return OpenArena::KEY_CONTROL;
 	case XK_Control_R:
-		return KEY_CONTROL;
+		return OpenArena::KEY_CONTROL;
 	case XK_Caps_Lock:
-		return KEY_CAPITAL;
+		return OpenArena::KEY_CAPITAL;
 	case XK_Pause:
-		return KEY_PAUSE;
+		return OpenArena::KEY_PAUSE;
 	case XK_KP_Space:
-		return KEY_SPACE;
+		return OpenArena::KEY_SPACE;
 	case XK_Insert:
-		return KEY_INSERT;
+		return OpenArena::KEY_INSERT;
 	case XK_Delete:
-		return KEY_DELETE;
+		return OpenArena::KEY_DELETE;
 	case XK_KP_Separator:
-		return KEY_SEPARATOR;
+		return OpenArena::KEY_SEPARATOR;
 	case XK_Scroll_Lock:
-		return KEY_SCROLL;
+		return OpenArena::KEY_SCROLL;
 	case XK_period:
-		return KEY_OEM_PERIOD;
+		return OpenArena::KEY_OEM_PERIOD;
 	case XK_plus:
-		return KEY_OEM_PLUS;
+		return OpenArena::KEY_OEM_PLUS;
 	case XK_minus:
-		return KEY_OEM_MINUS;
+		return OpenArena::KEY_OEM_MINUS;
 	case XK_comma:
-		return KEY_OEM_COMMA;
+		return OpenArena::KEY_OEM_COMMA;
 	case XK_0:
-		return KEY_0;
+		return OpenArena::KEY_0;
 	case XK_1:
-		return KEY_1;
+		return OpenArena::KEY_1;
 	case XK_2:
-		return KEY_2;
+		return OpenArena::KEY_2;
 	case XK_3:
-		return KEY_3;
+		return OpenArena::KEY_3;
 	case XK_4:
-		return KEY_4;
+		return OpenArena::KEY_4;
 	case XK_5:
-		return KEY_5;
+		return OpenArena::KEY_5;
 	case XK_6:
-		return KEY_6;
+		return OpenArena::KEY_6;
 	case XK_7:
-		return KEY_7;
+		return OpenArena::KEY_7;
 	case XK_8:
-		return KEY_8;
+		return OpenArena::KEY_8;
 	case XK_9:
-		return KEY_9;
+		return OpenArena::KEY_9;
 	case XK_A:
-		return KEY_A;
+		return OpenArena::KEY_A;
 	case XK_B:
-		return KEY_B;
+		return OpenArena::KEY_B;
 	case XK_C:
-		return KEY_C;
+		return OpenArena::KEY_C;
 	case XK_D:
-		return KEY_D;
+		return OpenArena::KEY_D;
 	case XK_E:
-		return KEY_E;
+		return OpenArena::KEY_E;
 	case XK_F:
-		return KEY_F;
+		return OpenArena::KEY_F;
 	case XK_G:
-		return KEY_G;
+		return OpenArena::KEY_G;
 	case XK_H:
-		return KEY_H;
+		return OpenArena::KEY_H;
 	case XK_I:
-		return KEY_I;
+		return OpenArena::KEY_I;
 	case XK_J:
-		return KEY_J;
+		return OpenArena::KEY_J;
 	case XK_K:
-		return KEY_K;
+		return OpenArena::KEY_K;
 	case XK_L:
-		return KEY_L;
+		return OpenArena::KEY_L;
 	case XK_M:
-		return KEY_M;
+		return OpenArena::KEY_M;
 	case XK_N:
-		return KEY_N;
+		return OpenArena::KEY_N;
 	case XK_O:
-		return KEY_O;
+		return OpenArena::KEY_O;
 	case XK_P:
-		return KEY_P;
+		return OpenArena::KEY_P;
 	case XK_Q:
-		return KEY_Q;
+		return OpenArena::KEY_Q;
 	case XK_R:
-		return KEY_R;
+		return OpenArena::KEY_R;
 	case XK_S:
-		return KEY_S;
+		return OpenArena::KEY_S;
 	case XK_T:
-		return KEY_T;
+		return OpenArena::KEY_T;
 	case XK_U:
-		return KEY_U;
+		return OpenArena::KEY_U;
 	case XK_V:
-		return KEY_V;
+		return OpenArena::KEY_V;
 	case XK_W:
-		return KEY_W;
+		return OpenArena::KEY_W;
 	case XK_X:
-		return KEY_X;
+		return OpenArena::KEY_X;
 	case XK_Y:
-		return KEY_Y;
+		return OpenArena::KEY_Y;
 	case XK_Z:
-		return KEY_Z;
+		return OpenArena::KEY_Z;
 
 /*These keys definately still need to be accounted for
 #define KEY_LBUTTON		1
@@ -863,7 +731,7 @@ usigned char TranslateKey(int keyCode)
 #define KEY_OEM_7		59
 */
 	default:
-		return KEY_UNKNOWN;
+		return OpenArena::KEY_UNKNOWN;
 	}
 }
 
