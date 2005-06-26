@@ -58,19 +58,14 @@ void ResizeGLScene(GLsizei width, GLsizei height)
 
 int DrawGLScene()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glLoadIdentity();
-	glTranslatef(-1.5f, 0.0f, -6.0f);
-	glBegin(GL_TRIANGLES);
-		glVertex3f(0.0f, 1.0f, 0.0f);
-		glVertex3f(-1.0f, -1.0f, 0.0f);
-		glVertex3f(1.0f, 1.0f, 0.0f);
-	glEnd();
+	level.Render();
+	
+	//Maybe this should be integrated into the Window class
 	if(g_Screen.doubleBuffered)
 	{
 		glXSwapBuffers(g_Screen.display, g_Screen.window);
 	}
-	return 1;
+	return true;
 }
 
 //
@@ -251,7 +246,7 @@ int main(int argc, char** argv)
 	XEvent event;
 	bool done = false;
 
-	String commandLine = "";
+	string commandLine = "";
 	int i;
 	for(i=1; i<argc; i++)
 	{
@@ -635,12 +630,11 @@ int main(int argc, char** argv)
 							}
 						}
 					}
-					level.Render();
 				}
 			}
 			
-			SwapBuffers(hDC);
-
+			DrawGLScene();
+			
 			if(keys[KEY_F1])
 			{
 				keys[KEY_F1] = false;
