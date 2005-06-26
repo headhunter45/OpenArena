@@ -69,27 +69,27 @@
 
 void ControlSchemeClass::LoadDefaultControlScheme()
 {
-	forward.Insert(KEY_LBUTTON);
-	backward.Insert(KEY_RBUTTON);
-	lookLeft.Insert(KEY_LEFT);
-	lookRight.Insert(KEY_RIGHT);
-	lookUp.Insert(KEY_UP);
-	lookDown.Insert(KEY_DOWN);
-	moveLeft.Insert('S');
-	moveRight.Insert('D');
-	moveUp.Insert(KEY_SPACE);
-	moveDown.Insert('A');
-	firePrimary.Insert('F');
-	fireSecondary.Insert('G');
-	weaponNext.Insert('T');
-	weaponPrev.Insert('R');
-	toggleLights.Insert('L');
-	toggleFPS.Insert('P');
-	toggleConsole.Insert('~');
-	toggleMouseLook.Insert('M');
-	quickMouseLook.Insert('Q');
-	rollLeft.Insert('W');
-	rollRight.Insert('E');
+	forward.Insert(OpenArena::KEY_LBUTTON);
+	backward.Insert(OpenArena::KEY_RBUTTON);
+	lookLeft.Insert(OpenArena::KEY_LEFT);
+	lookRight.Insert(OpenArena::KEY_RIGHT);
+	lookUp.Insert(OpenArena::KEY_UP);
+	lookDown.Insert(OpenArena::KEY_DOWN);
+	moveLeft.Insert(OpenArena::KEY_S);
+	moveRight.Insert(OpenArena::KEY_D);
+	moveUp.Insert(OpenArena::KEY_SPACE);
+	moveDown.Insert(OpenArena::KEY_A);
+	firePrimary.Insert(OpenArena::KEY_F);
+	fireSecondary.Insert(OpenArena::KEY_G);
+	weaponNext.Insert(OpenArena::KEY_T);
+	weaponPrev.Insert(OpenArena::KEY_R);
+	toggleLights.Insert(OpenArena::KEY_L);
+	toggleFPS.Insert(OpenArena::KEY_P);
+	toggleConsole.Insert(OpenArena::KEY_OEM_3);
+	toggleMouseLook.Insert(OpenArena::KEY_M);
+	quickMouseLook.Insert(OpenArena::KEY_Q);
+	rollLeft.Insert(OpenArena::KEY_W);
+	rollRight.Insert(OpenArena::KEY_E);
 }
 void ControlSchemeClass::ClearControlScheme()
 {
