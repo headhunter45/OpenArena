@@ -1,8 +1,9 @@
 #ifndef __texture_h__
 #define __texture_h__
 
-struct TextureImage
+class TextureImage
 {
+public:
 	unsigned char* data;
 	unsigned int bpp;
 	unsigned int sizeX;

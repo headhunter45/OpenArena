@@ -25,118 +25,121 @@
 
 #include "../include/myglFont.h"
 
-GLFontClass::GLFontClass()
+namespace OpenArena
 {
-	status = 0;
-	base = 0;
-	texture = 0;
-	screenWidth = 1;
-	screenHeight = 1;
-}
-
-GLFontClass::~GLFontClass()
-{
-	FreeFont();
-}
-
-bool GLFontClass::BuildFont(const char* texName)
-{
-	FreeFont();
-
-	if(LoadGLTexture(texName, texture, GL_NEAREST, GL_NEAREST))
-	{	
-		float x, y;
-		base = glGenLists(256);
-		glBindTexture(GL_TEXTURE_2D, texture);
-		for(short i = 0; i<256; i++)
-		{
-			x = i%16/16.0f;
-			y = i/16/16.0f;
-			glNewList(base+i, GL_COMPILE);
-			glBegin(GL_QUADS);
-				glTexCoord2f(x, 1-y-0.0625f);
-				glVertex2i(0,0);
-				glTexCoord2f(x+0.0625f, 1-y-0.0625f);
-				glVertex2i(16,0);
-				glTexCoord2f(x+0.0625f, 1-y);
-				glVertex2i(16,16);
-				glTexCoord2f(x, 1-y);
-				glVertex2i(0,16);
-			glEnd();
-			glTranslated(16,0,0);
-			glEndList();
+	Font::Font()
+	{
+		status = 0;
+		base = 0;
+		texture = 0;
+		screenWidth = 1;
+		screenHeight = 1;
+	}
+	
+	Font::~Font()
+	{
+		FreeFont();
+	}
+	
+	bool Font::BuildFont(const char* texName)
+	{
+		FreeFont();
+	
+		if(LoadGLTexture(texName, texture, GL_NEAREST, GL_NEAREST))
+		{	
+			float x, y;
+			base = glGenLists(256);
+			glBindTexture(GL_TEXTURE_2D, texture);
+			for(short i = 0; i<256; i++)
+			{
+				x = i%16/16.0f;
+				y = i/16/16.0f;
+				glNewList(base+i, GL_COMPILE);
+				glBegin(GL_QUADS);
+					glTexCoord2f(x, 1-y-0.0625f);
+					glVertex2i(0,0);
+					glTexCoord2f(x+0.0625f, 1-y-0.0625f);
+					glVertex2i(16,0);
+					glTexCoord2f(x+0.0625f, 1-y);
+					glVertex2i(16,16);
+					glTexCoord2f(x, 1-y);
+					glVertex2i(0,16);
+				glEnd();
+				glTranslated(16,0,0);
+				glEndList();
+			}
+			status = true;
 		}
-		status = true;
+		return status;
 	}
-	return status;
-}
-
-bool GLFontClass::FreeFont()
-{
-	if(status)
+	
+	bool Font::FreeFont()
 	{
-		glDeleteLists(base, 256);
-		status = false;
+		if(status)
+		{
+			glDeleteLists(base, 256);
+			status = false;
+		}
+		return status;
 	}
-	return status;
-}
-
-void GLFontClass::Print(int x, int y, const char* str, unsigned int set)
-{
-	if(status)
+	
+	void Font::Print(int x, int y, const char* str, unsigned int set)
 	{
-		if(set>1)
-			set = 1;
-		
-		glBindTexture(GL_TEXTURE_2D, texture);
-		//glDisable(GL_DEPTH_TEST);
-		//glEnable(GL_BLEND);
-		glMatrixMode(GL_PROJECTION);
-		glPushMatrix();
-		glLoadIdentity();
-		glOrtho(0,screenWidth,0,screenHeight,-1,1);
-		glMatrixMode(GL_MODELVIEW);
-		glPushMatrix();
-		glLoadIdentity();
-		glTranslated(x, y, 0);
-		glListBase(base-32+(128*set));
-		glCallLists(strlen(str), GL_BYTE, str);
-		glMatrixMode(GL_PROJECTION);
-		glPopMatrix();
-		glMatrixMode(GL_MODELVIEW);
-		glPopMatrix();
-		//glDisable(GL_BLEND);
-		//glEnable(GL_DEPTH_TEST);
+		if(status)
+		{
+			if(set>1)
+				set = 1;
+			
+			glBindTexture(GL_TEXTURE_2D, texture);
+			//glDisable(GL_DEPTH_TEST);
+			//glEnable(GL_BLEND);
+			glMatrixMode(GL_PROJECTION);
+			glPushMatrix();
+			glLoadIdentity();
+			glOrtho(0,screenWidth,0,screenHeight,-1,1);
+			glMatrixMode(GL_MODELVIEW);
+			glPushMatrix();
+			glLoadIdentity();
+			glTranslated(x, y, 0);
+			glListBase(base-32+(128*set));
+			glCallLists(strlen(str), GL_BYTE, str);
+			glMatrixMode(GL_PROJECTION);
+			glPopMatrix();
+			glMatrixMode(GL_MODELVIEW);
+			glPopMatrix();
+			//glDisable(GL_BLEND);
+			//glEnable(GL_DEPTH_TEST);
+		}
 	}
-}
-
-bool GLFontClass::Loaded()
-{
-	return status;
-}
-
-void GLFontClass::SetScreenDimensions(short x, short y)
-{
-	screenWidth = x;
-	screenHeight = y;
-}
-
-void GLFontClass::SetScreenWidth(short x)
-{
-	screenWidth = x;
-}
-
-void GLFontClass::SetScreenHeight(short y)
-{
-	screenHeight = y;
-}
-
-short GLFontClass::ScreenWidth()
-{
-	return screenWidth;
-}
-
-short GLFontClass::ScreenHeight()
-{
-	return screenHeight;
-}
+	
+	bool Font::Loaded()
+	{
+		return status;
+	}
+	
+	void Font::SetScreenDimensions(short x, short y)
+	{
+		screenWidth = x;
+		screenHeight = y;
+	}
+	
+	void Font::SetScreenWidth(short x)
+	{
+		screenWidth = x;
+	}
+	
+	void Font::SetScreenHeight(short y)
+	{
+		screenHeight = y;
+	}
+	
+	short Font::ScreenWidth()
+	{
+		return screenWidth;
+	}
+	
+	short Font::ScreenHeight()
+	{
+		return screenHeight;
+	}
+};

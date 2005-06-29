@@ -19,7 +19,7 @@ namespace OpenArena
 	typedef void (*ResizeFunc)(GLsizei width, GLsizei height);
 	typedef int (*InitFunc)();
 
-	class Window: public SCREEN
+	class Window: public Screen
 	{
 	public:
 		Window();

@@ -3,27 +3,29 @@
 
 #include "mygl.h"
 
-class GLFontClass
+namespace OpenArena
 {
-private:
-	short screenWidth;
-	short screenHeight;
-	unsigned int base;
-	unsigned int texture;
-	bool status;
-
-public:
-	GLFontClass();
-	~GLFontClass();
-	bool BuildFont(const char*);
-	bool FreeFont();
-	void Print(int, int, const char*, unsigned int = 0);
-	bool Loaded();
-	void SetScreenDimensions(short, short);
-	void SetScreenWidth(short);
-	void SetScreenHeight(short);
-	short ScreenWidth();
-	short ScreenHeight();
+	class Font
+	{
+	private:
+		short screenWidth;
+		short screenHeight;
+		unsigned int base;
+		unsigned int texture;
+		bool status;
+	
+	public:
+		Font();
+		~Font();
+		bool BuildFont(const char*);
+		bool FreeFont();
+		void Print(int, int, const char*, unsigned int = 0);
+		bool Loaded();
+		void SetScreenDimensions(short, short);
+		void SetScreenWidth(short);
+		void SetScreenHeight(short);
+		short ScreenWidth();
+		short ScreenHeight();
+	};
 };
-
 #endif

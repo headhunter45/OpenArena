@@ -1,16 +1,20 @@
 #include "vector.h"
 #include "myglTexture.h"
 
-struct TRIANGLE
+namespace OpenArena
 {
-	GL_MY_TEXTURE texture;
-	uint32 texID;
-	Vec3f vertecies[3];
-	Vec2f texCoords[3];
-	Vec3f normal;
+	class Triangle
+	{
+	public:
+		Texture texture;
+		uint32 texID;
+		Vec3f vertecies[3];
+		Vec2f texCoords[3];
+		Vec3f normal;
+	};
 };
-
-class POSITION
+/*//This class seems to never be used and I dont' remember why I made it.
+class Position
 {
 public:
 	GLfloat xrot;			// X rotation
@@ -21,7 +25,7 @@ public:
 	GLfloat ztrans;			// Z translation
 	bool stepRight;		
 	bool stepLeft;
-	POSITION()
+	Position()
 	{
 		xtrans = 0.0f;
 		ytrans = 0.0f;
@@ -33,3 +37,4 @@ public:
 private:
 
 };
+*/

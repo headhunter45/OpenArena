@@ -1,23 +1,26 @@
 #include "../include/player.h"
 
-void PLAYER::Load()
+namespace OpenArena
 {
-}
-
-void PLAYER::Save()
-{
-}
-
-void PLAYER::AddItem(unsigned int item)
-{
-//	inventory = inventory | item;
-}
-
-void PLAYER::RemoveItem(unsigned int item)
-{
-//	inventory = inventory & ~item;
-}
-
-void PLAYER::CreateCharacter()
-{
-}
+	void Player::Load()
+	{
+	}
+	
+	void Player::Save()
+	{
+	}
+	
+	void Player::AddItem(unsigned int item)
+	{
+	//	inventory = inventory | item;
+	}
+	
+	void Player::RemoveItem(unsigned int item)
+	{
+	//	inventory = inventory & ~item;
+	}
+	
+	void Player::CreateCharacter()
+	{
+	}
+};

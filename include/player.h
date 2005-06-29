@@ -4,23 +4,25 @@
 #include "camera.h"
 #include "ctrls.h"
 
-class PLAYER
+namespace OpenArena
 {
-public:
-	void Load();
-	void Save();
-	void CreateCharacter();
-	//void FirePrimary(ENTITY& ent);
-	//void FireSecondary();
-	void AddItem(unsigned int item);
-	void RemoveItem(unsigned int item);
-	
-	ControlSchemeClass controls;
-	CameraClass camera;
-	
-	
-private:
-	
+	class Player
+	{
+	public:
+		void Load();
+		void Save();
+		void CreateCharacter();
+		//void FirePrimary(ENTITY& ent);
+		//void FireSecondary();
+		void AddItem(unsigned int item);
+		void RemoveItem(unsigned int item);
+		
+		ControlSchemeClass controls;
+		Camera camera;
+		
+		
+	private:
+		
+	};
 };
-
 #endif

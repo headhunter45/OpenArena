@@ -3,26 +3,27 @@
 #include <string>
 
 using namespace std;
-
-class SCREEN
+namespace OpenArena
 {
-public:
-	SCREEN()
+	class Screen
 	{
-		width=640;
-		height=480;
-		bpp=16;
-		fullscreen=false;
-		name = "";
-	}
-
-	short width;
-	short height;
-	char bpp;
-	bool fullscreen;
-	string name;
-
-
+	public:
+		Screen()
+		{
+			width=640;
+			height=480;
+			bpp=16;
+			fullscreen=false;
+			name = "";
+		}
+	
+		short width;
+		short height;
+		char bpp;
+		bool fullscreen;
+		string name;
+	
+	
+	};
 };
-
 #endif

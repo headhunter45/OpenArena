@@ -3,6 +3,6 @@
 
 #include "level.h"
 
-static LEVEL level;
+static OpenArena::Level level;
 
 #endif
