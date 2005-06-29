@@ -3,11 +3,14 @@
 
 namespace OpenArena
 {
+	//Replace KEY_LBUTTON with KEY_BUTTON0, KEY_RBUTTON with KEY_BUTTON1, KEY_MBUTTON with KEY_BUTTON2 and create Buttons 3 and 4
 	enum Keys{
 		KEY_UNKNOWN = 0,
-		KEY_LBUTTON,
-		KEY_RBUTTON,
-		KEY_MBUTTON,
+		KEY_BUTTON0,
+		KEY_BUTTON1,
+		KEY_BUTTON2,
+		KEY_BUTTON3,
+		KEY_BUTTON4,
 		KEY_LEFT,
 		KEY_RIGHT,
 		KEY_UP,
@@ -107,5 +110,8 @@ namespace OpenArena
 		KEY_Y,
 		KEY_Z
 	};
+	const unsigned int KEY_LBUTTON = KEY_BUTTON0;
+	const unsigned int KEY_RBUTTON = KEY_BUTTON1;
+	const unsigned int KEY_MBUTTON = KEY_BUTTON2;
 };
 #endif
