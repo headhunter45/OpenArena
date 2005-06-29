@@ -36,6 +36,7 @@ using namespace std;
 
 void InitControls();
 unsigned char TranslateKey(int keyCode);
+unsigned char TranslateButton(int keyCode);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Function Definitions
@@ -168,21 +169,18 @@ int main(int argc, char** argv)
 				}
 				break;
 			case ButtonPress:
-				done = true;
+				keys[TranslateButton(event.xbutton.button)] = true;
+				break;
+			case ButtonRelease:
+				keys[TranslateButton(event.xbutton.button)] = false;
+				keys2[TranslateButton(event.xbutton.button)] = false;
 				break;
 			case KeyPress:
 				keys[TranslateKey(XLookupKeysym(&event.xkey, 0))] = true;
-				//Remove this later it shouldn't be needed
-				if(XLookupKeysym(&event.xkey, 0) == XK_Escape)
-				{
-				done = true;
-				}
-				if(XLookupKeysym(&event.xkey, 0) == XK_F1)
-				{
-					g_Screen.Close();
-					g_Screen.fullscreen = !g_Screen.fullscreen;
-					g_Screen.Open("Blah Blah Blah", 640, 480, 24, g_Screen.fullscreen);
-				}
+				break;
+			case KeyRelease:
+				keys[TranslateKey(XLookupKeysym(&event.xkey, 0))] = false;
+				keys2[TranslateKey(XLookupKeysym(&event.xkey, 0))] = false;
 				break;
 			case ClientMessage:
 				if(*XGetAtomName(g_Screen.GetDisplay(), event.xclient.message_type) == *"WM_PROTOCOLS")
@@ -200,6 +198,12 @@ int main(int argc, char** argv)
 				if(keys[OpenArena::KEY_ESCAPE])
 				{
 					done = true;
+				}
+				else if(keys[OpenArena::KEY_F1])
+				{
+					g_Screen.Close();
+					g_Screen.fullscreen = !g_Screen.fullscreen;
+					g_Screen.Open();
 				}
 				else
 				{
@@ -735,4 +739,20 @@ unsigned char TranslateKey(int keyCode)
 	}
 }
 
+unsigned char TranslateButton(int keyCode)
+{
+	switch(keyCode)
+	{
+		case Button1:
+			return OpenArena::KEY_BUTTON0;
+		case Button2:
+			return OpenArena::KEY_BUTTON1;
+		case Button3:
+			return OpenArena::KEY_BUTTON2;
+		case Button4:
+			return OpenArena::KEY_BUTTON3;
+		case Button5:
+			return OpenArena::KEY_BUTTON4;
+	}
+}
 #endif
