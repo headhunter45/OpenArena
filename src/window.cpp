@@ -268,7 +268,7 @@ bool OpenArena::Window::Open()
 	}
 	else
 	{
-		attributes.event_mask = ExposureMask | KeyPressMask | ButtonPressMask | StructureNotifyMask;
+		attributes.event_mask = ExposureMask | KeyPressMask | KeyReleaseMask | ButtonPressMask | ButtonReleaseMask | StructureNotifyMask;
 		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, width, height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask, &attributes);
 		wmDelete = XInternAtom(display, "WM_DELETE_WINDOW", true);
 		XSetWMProtocols(display, window, &wmDelete, 1);
