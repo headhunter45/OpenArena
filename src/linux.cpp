@@ -810,9 +810,9 @@ unsigned char TranslateButton(int keyCode)
 		case Button1:
 			return OpenArena::KEY_BUTTON0;
 		case Button2:
-			return OpenArena::KEY_BUTTON1;
-		case Button3:
 			return OpenArena::KEY_BUTTON2;
+		case Button3:
+			return OpenArena::KEY_BUTTON1;
 		case Button4:
 			return OpenArena::KEY_BUTTON3;
 		case Button5:
