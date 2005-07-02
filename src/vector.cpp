@@ -152,7 +152,7 @@ Vec2f Vec2f::operator/(double rtOp) const
 Vec2f Vec2f::operator=(const Vec2f& rtOp)
 {
 	x=rtOp.x;
-	y=rtOp.x;
+	y=rtOp.y;
 	return Vec2f(x,y);
 }
 
@@ -228,7 +228,7 @@ Vec2i Vec2i::operator/(int rtOp) const
 Vec2i Vec2i::operator=(const Vec2i& rtOp)
 {
 	x=rtOp.x;
-	y=rtOp.x;
+	y=rtOp.y;
 	return Vec2i(x,y);
 }
 
