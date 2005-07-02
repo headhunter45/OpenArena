@@ -252,6 +252,12 @@ bool OpenArena::Window::Open()
 	attributes.colormap = cmap;
 	attributes.border_pixel = 0;
 
+	attributes.event_mask = ExposureMask | 
+	                        KeyPressMask | KeyReleaseMask |
+	                        ButtonPressMask | ButtonReleaseMask | 
+//	                        PointerMotionMask | ButtonMotionMask |
+	                        StructureNotifyMask;
+	
 	if(fullscreen)
 	{
 		XF86VidModeSwitchToMode(display, screen, modes[bestMode]);
@@ -259,7 +265,6 @@ bool OpenArena::Window::Open()
 		XFree(modes);
 
 		attributes.override_redirect = true;
-		attributes.event_mask = ExposureMask | KeyPressMask | ButtonPressMask | StructureNotifyMask;
 		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, width, height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask | CWOverrideRedirect, &attributes);
 		XWarpPointer(display, None, window, 0, 0, 0, 0, 0, 0);
 		XMapRaised(display, window);
@@ -268,7 +273,6 @@ bool OpenArena::Window::Open()
 	}
 	else
 	{
-		attributes.event_mask = ExposureMask | KeyPressMask | KeyReleaseMask | ButtonPressMask | ButtonReleaseMask | StructureNotifyMask;
 		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, width, height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask, &attributes);
 		wmDelete = XInternAtom(display, "WM_DELETE_WINDOW", true);
 		XSetWMProtocols(display, window, &wmDelete, 1);
@@ -373,3 +377,45 @@ Display* OpenArena::Window::GetDisplay()
 	return display;
 }
 #endif
+
+
+Vec2i OpenArena::Window::GetMousePosition()
+{
+#ifdef __linux
+	
+	::Window rootWindow;
+	::Window childWindow;
+	int rootX;
+	int rootY;
+	int mouseX;
+	int mouseY;
+	unsigned int mask;
+	if(!XQueryPointer(display, window, &rootWindow, &childWindow, &rootX, &rootY, &mouseX, &mouseY, &mask))
+	{
+		return Vec2i(-1,-1);
+	}
+	else
+	{
+		printf("X:%d, Root X:%d\n", mouseX, rootX);
+		return Vec2i(mouseX, mouseY);
+	}
+#endif
+#ifdef WIN32
+	POINT pos;
+	GetCursorPos(&pos);
+	return Vec2i(pos.x, pos.y);
+#endif
+}
+
+void OpenArena::Window::SetMousePosition(Vec2i pos)
+{
+	#ifdef __linux
+	Vec2i current = GetMousePosition();
+	Vec2i middle = Vec2i(width, height)/2;
+	Vec2i dest = middle - current;
+	XWarpPointer(display, None, None, 0, 0, 0, 0, dest.x, dest.y);
+	#endif
+	#ifdef WIN32
+	SetCursorPos(pos.x, pos.y);
+	#endif
+}

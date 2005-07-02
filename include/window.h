@@ -13,6 +13,7 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #endif
+#include "vector.h"
 
 namespace OpenArena
 {
@@ -31,6 +32,8 @@ namespace OpenArena
 		void SetOnResize(ResizeFunc function);
 		void SwapBuffers();
 		void Resize(GLsizei width, GLsizei height);
+		Vec2i GetMousePosition();
+		void SetMousePosition(Vec2i pos);
 
 		#ifdef __linux
 		Display* GetDisplay();
