@@ -71,22 +71,51 @@ namespace OpenArena
 		m_vUpVector = up;
 	}
 	
-	void Camera::SetViewByMouse(Screen g_Screen)
+	void Camera::SetViewByMouse(Window window)
 	{
+		//Remove the ifdef and use the linux section for both linux and windows
+		#ifdef __linux
+		static double currentRotX = 0.0f;
+		Vec2i pos;
+		Vec2i middle;
+		double angleZ;
+		
+		middle.x = window.width/2;
+		middle.y = window.height/2;
+		pos = window.GetMousePosition();
+		window.SetMousePosition(middle);
+		if(pos != middle)
+		{
+			angleZ = (middle.y - pos.y)/1000.0;
+			currentRotX-=angleZ;
+			if(currentRotX >1.0)
+			{
+				currentRotX = 1.0;
+			}
+			else if(currentRotX < -1.0)
+			{
+				currentRotX = -1.0;
+			}
+			else
+			{
+				Vec3d axis = (m_vView - m_vPosition).cross(m_vUpVector);
+				axis.normalize();
+				RotateView(angleZ, axis.x, axis.y, axis.z);
+				RotateView((middle.x-pos.x)/1000.0, 0, 1, 0);
+				//RotateView((middle.x-pos.x)/1000.0, m_vUpVector.x, m_vUpVector.y, m_vUpVector.z);
+			}
+		}		
+		#endif
 		//Most of this is sorta right for linux I think but since I don't know how yet it's currently windows only
 		#ifdef WIN32
 		static double currentRotX = 0.0f;
 		POINT mpos;
 		POINT middle;
-		
 		double angleZ;
-		
-		middle.x = g_Screen.width / 2;
-		middle.y = g_Screen.height / 2;
-		
+		middle.x = window.width / 2;
+		middle.y = window.height / 2;
 		GetCursorPos(&mpos);
 		SetCursorPos(middle.x, middle.y);							
-		
 		if(mpos.x != middle.x || mpos.y != middle.y)
 		{
 			angleZ = double(middle.y - mpos.y) / 1000.0f;		
@@ -121,6 +150,13 @@ namespace OpenArena
 		m_vPosition.z += heading.z * speed;
 		m_vView.x += heading.x * speed;
 		m_vView.z += heading.z * speed;
+	}
+	
+	void Camera::RotateView(double angle, Vec3d axis)
+	{
+		//Maybe make this not call the other RotateView later
+		axis.normalize();
+		RotateView(angle, axis.x, axis.y, axis.z);
 	}
 	
 	void Camera::RotateView(double angle, double x, double y, double z)
