@@ -161,3 +161,89 @@ Vec2f::Vec2f(double X, double Y)
 	x=(float)X;
 	y=(float)Y;
 }
+////////////
+Vec2i::Vec2i()
+{
+	x=0;
+	y=0;
+}
+
+Vec2i::Vec2i(const Vec2i& rtOp)
+{
+	x=rtOp.x;
+	y=rtOp.y;
+}
+
+Vec2i Vec2i::cross(const Vec2i& rtOp) const
+{
+	return Vec2i(y-rtOp.y, rtOp.x-x);
+}
+
+int Vec2i::length()const
+{
+	return (int)sqrt(x*x+y*y);
+}
+
+int Vec2i::lengthsquared()const
+{
+	return (x*x+y*y);
+}
+
+void Vec2i::normalize()
+{
+	x/=length();
+	y/=length();
+}
+
+Vec2i Vec2i::normalized() const
+{
+	return Vec2i(x/length(), y/length());
+}
+
+Vec2i Vec2i::operator*(int rtOp) const
+{
+	return Vec2i(x*rtOp, y*rtOp);		
+}
+
+Vec2i Vec2i::operator+(const Vec2i& rtOp) const
+{
+	return Vec2i(x+rtOp.x, y+rtOp.y);
+}
+
+Vec2i Vec2i::operator*(const Vec2i& rtOp) const
+{
+	return Vec2i(x*rtOp.x, y*rtOp.y);
+}
+
+Vec2i Vec2i::operator-(const Vec2i& rtOp) const
+{
+	return Vec2i(x-rtOp.x, y-rtOp.y);
+}
+
+Vec2i Vec2i::operator/(int rtOp) const
+{
+	return Vec2i(x/rtOp, y/rtOp);
+}
+
+Vec2i Vec2i::operator=(const Vec2i& rtOp)
+{
+	x=rtOp.x;
+	y=rtOp.x;
+	return Vec2i(x,y);
+}
+
+Vec2i::Vec2i(int X, int Y)
+{
+	x=X;
+	y=Y;
+}
+
+bool Vec2i::operator==(const Vec2i& rtOp) const
+{
+	return x == rtOp.x && y == rtOp.y;
+}
+
+bool Vec2i::operator!=(const Vec2i& rtOp) const
+{
+	return !(x == rtOp.x && y == rtOp.y);
+}

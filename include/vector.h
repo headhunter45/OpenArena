@@ -54,4 +54,30 @@ public:
 
 typedef Vec3d Vec3f;
 
+class Vec2i
+{
+public:
+	int x,y;
+	Vec2i();	//Default Constructor
+	Vec2i(const Vec2i&);	//Copy Constructor
+	Vec2i(int);  // from an angle
+	Vec2i(int,int);	//from values
+
+	int lengthsquared() const;
+	int length() const;
+	void normalize();
+	Vec2i normalized() const;
+	
+	Vec2i cross(const Vec2i&) const;
+	Vec2i operator=(const Vec2i&);
+	Vec2i operator*(const Vec2i&) const;
+	Vec2i operator+(const Vec2i&) const;
+	Vec2i operator-(const Vec2i&) const;
+	//Vec2i operator/(const Vec2i&) const;	//Is this right?
+	Vec2i operator*(int) const;
+	Vec2i operator/(int) const;
+	bool operator==(const Vec2i&) const;
+	bool operator!=(const Vec2i&) const;
+};
+
 #endif
