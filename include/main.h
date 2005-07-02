@@ -16,6 +16,7 @@
 #include "mydefs.h"
 #include "screen.h"
 #include "window.h"
+#include "vector.h"
 #pragma warning(disable: 4786)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Variables
@@ -25,10 +26,10 @@ static bool		keys2[256];			// Array for which keys are were down already
 static bool		active=true;		// Is window active flag
 static bool		fullscreen=true;	// Is window fullscreen flag
 //static bool		showConsole = false;// Do we need to draw the console
+static Vec2i	g_mousePosition;
 
 
 
-//static SCREEN g_Screen = {800,600,16,1,"OpenArena"};
 #ifdef WIN32
 static POINT mpos;
 #endif
