@@ -51,11 +51,15 @@ namespace OpenArena
 		//Purpose:
 		//	
 	
+		void Camera::RotateView(double angle, Vec3d axis);
+		//Purpose:
+		//	
+		
 		void RotateView(double angle, double X, double Y, double Z);
 		//Purpose:
 		//	
 	
-		void SetViewByMouse(Screen g_Screen);
+		void SetViewByMouse(Window window);
 		//Purpose:
 		//	
 	
