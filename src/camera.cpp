@@ -83,9 +83,9 @@ namespace OpenArena
 		middle.x = window.width/2;
 		middle.y = window.height/2;
 		pos = window.GetMousePosition();
-		window.SetMousePosition(middle);
 		if(pos != middle)
 		{
+			window.SetMousePosition(middle);
 			angleZ = (middle.y - pos.y)/1000.0;
 			currentRotX-=angleZ;
 			if(currentRotX >1.0)
