@@ -286,6 +286,7 @@ bool OpenArena::Window::Open()
 	bpp = (char)depth;
 	height = (short)twidth;
 	width = (short)theight;
+	printf("Resolution %dx%d\n", twidth, theight);
 	printf("Depth %d\n", bpp);
 	if(glXIsDirect(display, hRC))
 	{
@@ -396,7 +397,6 @@ Vec2i OpenArena::Window::GetMousePosition()
 	}
 	else
 	{
-		printf("X:%d, Root X:%d\n", mouseX, rootX);
 		return Vec2i(mouseX, mouseY);
 	}
 #endif
@@ -410,10 +410,8 @@ Vec2i OpenArena::Window::GetMousePosition()
 void OpenArena::Window::SetMousePosition(Vec2i pos)
 {
 	#ifdef __linux
-	Vec2i current = GetMousePosition();
 	Vec2i middle = Vec2i(width, height)/2;
-	Vec2i dest = middle - current;
-	XWarpPointer(display, None, None, 0, 0, 0, 0, dest.x, dest.y);
+	XWarpPointer(display, None, window, 0, 0, 0, 0, middle.x, middle.y);
 	#endif
 	#ifdef WIN32
 	SetCursorPos(pos.x, pos.y);
