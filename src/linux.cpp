@@ -37,6 +37,7 @@ using namespace std;
 void InitControls();
 unsigned char TranslateKey(int keyCode);
 unsigned char TranslateButton(int keyCode);
+void HandleConsoleKeyPress(OpenArena::Keys key);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Function Definitions
@@ -175,7 +176,14 @@ int main(int argc, char** argv)
 				keys2[TranslateButton(event.xbutton.button)] = false;
 				break;
 			case KeyPress:
-				keys[TranslateKey(XLookupKeysym(&event.xkey, 0))] = true;
+				if(level.showConsole)
+				{
+					HandleConsoleKeyPress((OpenArena::Keys)TranslateKey(XLookupKeysym(&event.xkey, 0)));
+				}
+				else
+				{
+					keys[TranslateKey(XLookupKeysym(&event.xkey, 0))] = true;
+				}
  				break;
 			case KeyRelease:
 				keys[TranslateKey(XLookupKeysym(&event.xkey, 0))] = false;
@@ -628,6 +636,7 @@ unsigned char TranslateKey(int keyCode)
 	case XK_Pause:
 		return OpenArena::KEY_PAUSE;
 	case XK_KP_Space:
+	case XK_space:
 		return OpenArena::KEY_SPACE;
 	case XK_Insert:
 		return OpenArena::KEY_INSERT;
@@ -819,4 +828,47 @@ unsigned char TranslateButton(int keyCode)
 			return OpenArena::KEY_BUTTON4;
 	}
 }
+
+void HandleConsoleKeyPress(OpenArena::Keys key)
+{
+	//See if we need to hide the console
+	level.defaultPlayer[0].controls.toggleConsole.FirstPosition();
+	if(key == level.defaultPlayer[0].controls.toggleConsole.Retrieve())
+	{
+		level.showConsole = false;
+	}
+	else
+	{
+		while(level.defaultPlayer[0].controls.toggleConsole.NextPosition() && level.showConsole)
+		{
+			if(level.defaultPlayer[0].controls.toggleConsole.Retrieve() == key)
+			{
+				level.showConsole = false;
+			}
+		}
+	}
+	switch (key)
+	{
+	case OpenArena::KEY_SHIFT:
+		keys[OpenArena::KEY_SHIFT] = true;
+		break;
+	case OpenArena::KEY_RETURN:
+		level.UpdateConsole('\n');
+		break;
+	case OpenArena::KEY_SPACE:
+		printf("hello");
+		level.UpdateConsole(' ');
+		break;
+	case OpenArena::KEY_BACK:
+		level.UpdateConsole(OpenArena::KEY_BACK);
+		break;
+	default:
+		char ascii = OpenArena::KeyToASCII(key, keys[OpenArena::KEY_SHIFT]);
+		if(ascii != '\0')
+		{
+			level.UpdateConsole(ascii);
+		}
+	}
+}
+
 #endif

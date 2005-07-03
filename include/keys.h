@@ -113,5 +113,6 @@ namespace OpenArena
 	const unsigned int KEY_LBUTTON = KEY_BUTTON0;
 	const unsigned int KEY_RBUTTON = KEY_BUTTON1;
 	const unsigned int KEY_MBUTTON = KEY_BUTTON2;
+	char KeyToASCII(Keys key, bool shift);
 };
 #endif
