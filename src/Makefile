@@ -1,8 +1,9 @@
+#Dependencies soooo need to be fixed/finished
 CPP = g++ -g
 INCLUDES = 
 LD = g++
 INCLUDEPATH = ../include
-OBJECTS = bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o physics.o player.o strmanip.o tga.o vector.o window.o main.o
+OBJECTS = bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o physics.o player.o strmanip.o tga.o vector.o window.o keys.o main.o
 LIBS = -L/usr/X11R6/lib -lGL -lGLU -lXxf86vm
 LIBRARIES = 
 SO_LIBS = 
@@ -12,7 +13,7 @@ LDFLAGS = $(LIBS)
 
 .Phony: all clean install
 
-all: ../OpenArena/OA
+all: ../OpenArena/OA 
 
 clean: 
 	rm -f *.o
@@ -33,24 +34,13 @@ oa_video.so:
 
 oa_input.so:
 
-#Add something like this
-#$(INCLUDEPATH)/bmp.h: mygl.h datatypes.h texture.h
-#	touch bmp.h
-
-bmp.o: bmp.cpp $(INCLUDEPATH)/bmp.h 
+bmp.o: bmp.cpp $(INCLUDEPATH)/bmp.h $(INCLUDEPATH)/mygl.h $(INCLUDEPATH)/datatypes.h $(INCLUDEPATH)/texture.h
 	$(CPP) -c -o bmp.o bmp.cpp
 	
-$(INCLUDEPATH)/bmp.h: $(INCLUDEPATH)/mygl.h $(INCLUDEPATH)/datatypes.h $(INCLUDEPATH)/texture.h
-	touch $(INCLUDEPATH)/bmp.h
-	
-#$(INCLUDEPATH)/mygl.h: $(INCLUDEPATH)/datatypes.h 
-	
-camera.o: camera.cpp $(INCLUDEPATH)/camera.h
+camera.o: camera.cpp $(INCLUDEPATH)/camera.h $(INCLUDEPATH)/vector.h $(INCLUDEPATH)/mygl.h $(INCLUDEPATH)/screen.h
 	$(CPP) -c -o camera.o camera.cpp
 
-#$(INCLUDEPATH)/camera.h
-	
-ctrls.o: ctrls.cpp $(INCLUDEPATH)/ctrls.h
+ctrls.o: ctrls.cpp $(INCLUDEPATH)/ctrls.h 
 	$(CPP) -c -o ctrls.o ctrls.cpp
 
 level.o: level.cpp $(INCLUDEPATH)/level.h
@@ -85,6 +75,9 @@ vector.o: vector.cpp $(INCLUDEPATH)/vector.h
 
 window.o: window.cpp $(INCLUDEPATH)/window.h
 	$(CPP) -c -o window.o window.cpp
+	
+keys.o: keys.cpp $(INCLUDEPATH)/keys.h
+	$(CPP) -c -o keys.o keys.cpp
 
 main.o: linux.cpp $(INCLUDEPATH)/main.h
 	$(CPP) -c -o main.o linux.cpp
