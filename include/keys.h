@@ -110,9 +110,9 @@ namespace OpenArena
 		KEY_Y,
 		KEY_Z
 	};
-	const unsigned int KEY_LBUTTON = KEY_BUTTON0;
-	const unsigned int KEY_RBUTTON = KEY_BUTTON1;
-	const unsigned int KEY_MBUTTON = KEY_BUTTON2;
+	const Keys KEY_LBUTTON = KEY_BUTTON0;
+	const Keys KEY_RBUTTON = KEY_BUTTON1;
+	const Keys KEY_MBUTTON = KEY_BUTTON2;
 	char KeyToASCII(Keys key, bool shift);
 };
 #endif

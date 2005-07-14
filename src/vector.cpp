@@ -181,7 +181,7 @@ Vec2i Vec2i::cross(const Vec2i& rtOp) const
 
 int Vec2i::length()const
 {
-	return (int)sqrt(x*x+y*y);
+	return (int)sqrt((float)(x*x+y*y));
 }
 
 int Vec2i::lengthsquared()const

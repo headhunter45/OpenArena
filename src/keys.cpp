@@ -19,7 +19,6 @@ char OpenArena::KeyToASCII(Keys key, bool shift)
 			{
 				return ';';
 			}
-			break;
 		case KEY_OEM_2:
 			if(shift)
 			{
@@ -29,7 +28,6 @@ char OpenArena::KeyToASCII(Keys key, bool shift)
 			{
 				return '/';
 			}
-			break;
 		case KEY_OEM_3:
 			if(shift)
 			{
@@ -39,7 +37,6 @@ char OpenArena::KeyToASCII(Keys key, bool shift)
 			{
 				return '`';
 			}
-			break;
 		case KEY_OEM_4:
 			if(shift)
 			{
@@ -49,7 +46,6 @@ char OpenArena::KeyToASCII(Keys key, bool shift)
 			{
 				return '[';
 			}
-			break;
 		case KEY_OEM_5:
 			if(shift)
 			{
@@ -59,7 +55,6 @@ char OpenArena::KeyToASCII(Keys key, bool shift)
 			{
 				return '\\';
 			}
-			break;
 		case KEY_OEM_6:
 			if(shift)
 			{
@@ -69,7 +64,6 @@ char OpenArena::KeyToASCII(Keys key, bool shift)
 			{
 				return ']';
 			}
-			break;
 		case KEY_OEM_7:
 			if(shift)
 			{
@@ -79,7 +73,6 @@ char OpenArena::KeyToASCII(Keys key, bool shift)
 			{
 				return '"';
 			}
-			break;
 		case KEY_OEM_PERIOD:
 			if(shift)
 			{
@@ -89,7 +82,6 @@ char OpenArena::KeyToASCII(Keys key, bool shift)
 			{
 				return '.';
 			}
-			break;
 		case KEY_OEM_PLUS:
 			if(shift)
 			{
@@ -99,7 +91,6 @@ char OpenArena::KeyToASCII(Keys key, bool shift)
 			{
 				return '=';
 			}
-			break;
 		case KEY_OEM_COMMA:
 			if(shift)
 			{
@@ -109,7 +100,6 @@ char OpenArena::KeyToASCII(Keys key, bool shift)
 			{
 				return ',';
 			}
-			break;
 		case KEY_OEM_MINUS:
 			if(shift)
 			{
@@ -119,7 +109,6 @@ char OpenArena::KeyToASCII(Keys key, bool shift)
 			{
 				return '-';
 			}
-			break;
 		default:
 			if(key >= KEY_A && key <= KEY_Z)
 			{

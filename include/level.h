@@ -100,8 +100,9 @@ namespace OpenArena
 		
 	
 	
-	private:
+//	private:
 		void ConsolePrint(string);
+	private:
 		string consoleHistory[MAX_CONSOLE_HISTORY_LINES];
 		string consoleOutput[MAX_CONSOLE_OUTPUT_LINES];
 		string outputText[MAX_OUTPUT_TEXT_LINES];

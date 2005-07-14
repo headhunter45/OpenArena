@@ -366,8 +366,12 @@ uint8 KeyName(std::string str)
 			return OpenArena::KEY_OEM_5;
 		else if (str[0] == '\'' || str[0] == '"')
 			return OpenArena::KEY_OEM_7;
+		else if (isalpha(str[0]))
+			return toupper(str[0]) - 'A' + OpenArena::KEY_A; 
+		else if(isdigit(str[0]))
+			return str[0] - '0' + OpenArena::KEY_0;
 		else
-            return toupper(str[0]);
+			return OpenArena::KEY_UNKNOWN;
 	}
 }
 

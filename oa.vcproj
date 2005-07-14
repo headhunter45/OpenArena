@@ -154,6 +154,9 @@
 				RelativePath=".\src\ctrls.cpp">
 			</File>
 			<File
+				RelativePath=".\src\keys.cpp">
+			</File>
+			<File
 				RelativePath=".\src\Level.cpp">
 			</File>
 			<File
