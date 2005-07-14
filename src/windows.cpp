@@ -239,7 +239,7 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 
 	InitControls();
 
-	level.glFont.SetScreenDimensions(level.screen.width*2, level.screen.height*2);
+	level.glFont.SetScreenDimensions(level.screen.GetWidth()*2, level.screen.GetHeight()*2);
 	//level.glFont.BuildFont("oa\\textures\\menu\\font.bmp");//(level.gamedir + "\\textures\\menu\\font.bmp").c_str());
 	if (level.nextLevel == "")
 	{
@@ -252,7 +252,7 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 
 	g_Screen.SetOnInit(InitGL);
 	g_Screen.SetOnResize(ReSizeGLScene);
-	if (!g_Screen.Open(string(OPENARENA_VERSION), level.screen.width, level.screen.height, level.screen.bpp, level.screen.fullscreen))
+	if (!g_Screen.Open(string(OPENARENA_VERSION), level.screen.GetWidth(), level.screen.GetHeight(), level.screen.GetColorDepth(), level.screen.GetFullscreen()))
 	{
 		return 0;
 	}
@@ -290,7 +290,7 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 					}
 					else
 					{
-						SetCursorPos(g_Screen.width/2, g_Screen.height/2);
+						SetCursorPos(g_Screen.GetWidth()/2, g_Screen.GetHeight()/2);
 					}
 
 					//////////
@@ -583,8 +583,8 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 		{
 			keys[OpenArena::KEY_F1]=false;
 			g_Screen.Close();
-			g_Screen.fullscreen=!g_Screen.fullscreen;
-			if (!g_Screen.Open("OpenArena",g_Screen.width,g_Screen.height,g_Screen.bpp,g_Screen.fullscreen))
+			g_Screen.ToggleFullscreen();
+			if (!g_Screen.Open("OpenArena",g_Screen.GetWidth(),g_Screen.GetHeight(),g_Screen.GetColorDepth(),g_Screen.GetFullscreen()))
 			{
 				return 0;
 			}

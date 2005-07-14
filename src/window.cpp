@@ -15,7 +15,7 @@ void OpenArena::Window::SwapBuffers()
 void OpenArena::Window::Close()
 {
 #ifdef WIN32
-	if (fullscreen)
+	if (_fullscreen)
 	{
 		ChangeDisplaySettings(NULL, 0);
 		ShowCursor(true/*false*/);
@@ -80,9 +80,9 @@ bool OpenArena::Window::Open()
 	DWORD		dwStyle;
 	RECT WindowRect;
 	WindowRect.left=(long)0;
-	WindowRect.right=(long)width;
+	WindowRect.right=(long)_width;
 	WindowRect.top=(long)0;
-	WindowRect.bottom=(long)height;
+	WindowRect.bottom=(long)_height;
 
 	instance	= GetModuleHandle(NULL);
 	wc.style	= CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
@@ -102,21 +102,21 @@ bool OpenArena::Window::Open()
 		return false;
 	}
 
-	if (fullscreen)
+	if (_fullscreen)
 	{
 		DEVMODE dmScreenSettings;
 		memset(&dmScreenSettings, 0, sizeof(dmScreenSettings));
 		dmScreenSettings.dmSize = sizeof(dmScreenSettings);
-		dmScreenSettings.dmPelsWidth = width;
-		dmScreenSettings.dmPelsHeight = height;
-		dmScreenSettings.dmBitsPerPel = bpp;
+		dmScreenSettings.dmPelsWidth = _width;
+		dmScreenSettings.dmPelsHeight = _height;
+		dmScreenSettings.dmBitsPerPel = _colorDepth;
 		dmScreenSettings.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
 
 
 		if (ChangeDisplaySettings(&dmScreenSettings, CDS_FULLSCREEN) != DISP_CHANGE_SUCCESSFUL)
 		{
 			if (MessageBox(NULL,"The Requested Fullscreen Mode Is Not Supported By\nYour Video Card. Use Windowed Mode Instead?","OpenArena",MB_YESNO|MB_ICONEXCLAMATION)==IDYES)
-				fullscreen = false;
+				_fullscreen = false;
 			else
 			{
 
@@ -126,7 +126,7 @@ bool OpenArena::Window::Open()
 		}
 	}
 
-	if (fullscreen)
+	if (_fullscreen)
 	{
 		dwExStyle = WS_EX_APPWINDOW;
 		dwStyle = WS_POPUP;
@@ -141,14 +141,14 @@ bool OpenArena::Window::Open()
 
 	AdjustWindowRectEx(&WindowRect, dwStyle, false, dwExStyle);
 
-	if (!(window = CreateWindowEx(dwExStyle, "OpenArena v0.1.0", name.c_str(), WS_CLIPSIBLINGS | WS_CLIPCHILDREN | dwStyle, 0, 0, WindowRect.right-WindowRect.left, WindowRect.bottom-WindowRect.top, NULL, NULL, instance, NULL)))
+	if (!(window = CreateWindowEx(dwExStyle, "OpenArena v0.1.0", GetName(), WS_CLIPSIBLINGS | WS_CLIPCHILDREN | dwStyle, 0, 0, WindowRect.right-WindowRect.left, WindowRect.bottom-WindowRect.top, NULL, NULL, instance, NULL)))
 	{
 		Close();
 		MessageBox(NULL,"Window Creation Error.","ERROR",MB_OK|MB_ICONEXCLAMATION);
 		return false;
 	}
 
-	static	PIXELFORMATDESCRIPTOR pfd={sizeof(PIXELFORMATDESCRIPTOR), 1, PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER, PFD_TYPE_RGBA, bpp, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, PFD_MAIN_PLANE, 0, 0, 0, 0 };
+	static	PIXELFORMATDESCRIPTOR pfd={sizeof(PIXELFORMATDESCRIPTOR), 1, PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER, PFD_TYPE_RGBA, _colorDepth, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, PFD_MAIN_PLANE, 0, 0, 0, 0 };
 
 	if (!(deviceContext=GetDC(window)))
 	{
@@ -188,7 +188,7 @@ bool OpenArena::Window::Open()
 	ShowWindow(window,SW_SHOW);
 	SetForegroundWindow(window);
 	SetFocus(window);
-	OnResize(width, height);
+	OnResize(_width, _height);
 
 	if (!OnInit())
 	{
@@ -304,11 +304,11 @@ bool OpenArena::Window::Open()
 
 bool OpenArena::Window::Open(string title, int width, int height, int bits, bool fullscreenflag)
 {
-	fullscreen = fullscreenflag;
-	width = width;
-	height = height;
-	bpp = bits;
-	name = title;
+	_fullscreen = fullscreenflag;
+	_width = width;
+	_height = height;
+	_colorDepth = bits;
+	_name = title;
 
 	return Open();
 }

@@ -25,6 +25,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include "../include/level.h"
+#include "../include/version.h"
 
 #pragma comment(lib, "bass.lib")
 
@@ -38,7 +39,7 @@ namespace OpenArena
 		numTextures = 0;
 		textures = NULL;
 	
-		screen.name = "OpenArena";
+		screen.SetName(OPENARENA_VERSION);
 	
 		showFPS = false;
 		showConsole = false;
@@ -345,7 +346,7 @@ namespace OpenArena
 			glMatrixMode(GL_PROJECTION);
 			glPushMatrix();
 			glLoadIdentity();
-			glOrtho(0, screen.width, 0, screen.height, -1, 1);
+			glOrtho(0, screen.GetWidth(), 0, screen.GetHeight(), -1, 1);
 			glMatrixMode(GL_MODELVIEW);
 			glPushMatrix();
 			glLoadIdentity();
@@ -353,13 +354,13 @@ namespace OpenArena
 			
 			glBegin(GL_QUADS);
 				glTexCoord2f(0,0);
-				glVertex2i(0,screen.height/2);
+				glVertex2i(0,screen.GetHeight()/2);
 				glTexCoord2f(0,1);
-				glVertex2i(0,screen.height);
+				glVertex2i(0,screen.GetHeight());
 				glTexCoord2f(1,1);
-				glVertex2i(screen.width,screen.height);
+				glVertex2i(screen.GetWidth(),screen.GetHeight());
 				glTexCoord2f(1,0);
-				glVertex2i(screen.width,screen.height/2);
+				glVertex2i(screen.GetWidth(),screen.GetHeight()/2);
 			glEnd();
 	
 			glMatrixMode(GL_PROJECTION);
@@ -523,19 +524,19 @@ namespace OpenArena
 				}
 				else if(command == "screenwidth")
 				{
-					screen.width = Integer(word(cmd, ++i));
+					screen.SetWidth(Integer(word(cmd, ++i)));
 				}
 				else if(command == "screenheight")
 				{
-					screen.height = Integer(word(cmd, ++i));
+					screen.SetHeight(Integer(word(cmd, ++i)));
 				}
 				else if(command == "fullscreen")
 				{
-					screen.fullscreen = Truth(word(cmd, ++i));
+					screen.SetFullscreen(Truth(word(cmd, ++i)));
 				}
 				else if(command == "colordepth")
 				{
-					screen.bpp = Integer(word(cmd, ++i));
+					screen.SetColorDepth(Integer(word(cmd, ++i)));
 				}
 				else
 				{
@@ -1002,9 +1003,10 @@ namespace OpenArena
 		output << "set turnspeed " << turnSpeed << endl;
 		output << "set mousespeed " << mouseSpeed << endl;
 		output << "set mouselook " << mlook << endl;
-		output << "set screenwidth " << screen.width << endl;
-		output << "set screenheight " << screen.height << endl;
-		output << "set colordepth " << screen.bpp << endl;
+		output << "set screenwidth " << screen.GetWidth() << endl;
+		output << "set screenheight " << screen.GetHeight() << endl;
+		output << "set colordepth " << screen.GetColorDepth() << endl;
+		output << "set fullscreen " << screen.GetFullscreen() << endl;
 		output << "set maxfps " << maxFPS << endl;
 	
 		//Control Scheme

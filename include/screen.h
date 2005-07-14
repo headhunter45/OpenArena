@@ -8,22 +8,27 @@ namespace OpenArena
 	class Screen
 	{
 	public:
-		Screen()
-		{
-			width=640;
-			height=480;
-			bpp=16;
-			fullscreen=false;
-			name = "";
-		}
-	
-		short width;
-		short height;
-		char bpp;
-		bool fullscreen;
-		string name;
-	
-	
+		Screen();
+		int GetWidth();
+		int GetHeight();
+		int GetColorDepth();
+		bool GetFullscreen();
+		const char* GetName();
+		void SetWidth(int);
+		void SetHeight(int);
+		void Resize(int, int);
+		void SetColorDepth(int);
+		void SetFullscreen(bool);
+		void ToggleFullscreen();
+		void SetName(const char*);
+		void SetName(string);
+	protected:
+		short _width;
+		short _height;
+		char _colorDepth;
+		bool _fullscreen;
+//	public:
+		string _name;
 	};
 };
 #endif

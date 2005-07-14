@@ -112,8 +112,8 @@ namespace OpenArena
 		POINT mpos;
 		POINT middle;
 		double angleZ;
-		middle.x = window.width / 2;
-		middle.y = window.height / 2;
+		middle.x = window.GetWidth() / 2;
+		middle.y = window.GetHeight() / 2;
 		GetCursorPos(&mpos);
 		SetCursorPos(middle.x, middle.y);							
 		if(mpos.x != middle.x || mpos.y != middle.y)
