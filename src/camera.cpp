@@ -80,8 +80,8 @@ namespace OpenArena
 		Vec2i middle;
 		double angleZ;
 		
-		middle.x = window.width/2;
-		middle.y = window.height/2;
+		middle.x = window.GetWidth()/2;
+		middle.y = window.GetHeight()/2;
 		pos = window.GetMousePosition();
 		if(pos != middle)
 		{

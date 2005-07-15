@@ -120,7 +120,7 @@ int main(int argc, char** argv)
 
 	InitControls();
 
-	level.glFont.SetScreenDimensions(level.screen.width*2, level.screen.height*2);
+	level.glFont.SetScreenDimensions(level.screen.GetWidth()*2, level.screen.GetHeight()*2);
 
 	if(level.nextLevel == "")
 	{
@@ -132,15 +132,15 @@ int main(int argc, char** argv)
 	}
 
 	//Hack for now
-	if(level.screen.bpp == 32)
+	if(level.screen.GetColorDepth() == 32)
 	{
-		level.screen.bpp = 24;
+		level.screen.SetColorDepth(24);
 	}
 
 	g_Screen.SetOnInit(InitGL);
 	g_Screen.SetOnResize(ResizeGLScene);
 
-	if(!g_Screen.Open(OPENARENA_VERSION, level.screen.width, level.screen.height, level.screen.bpp, level.screen.fullscreen))
+	if(!g_Screen.Open(OPENARENA_VERSION, level.screen.GetWidth(), level.screen.GetHeight(), level.screen.GetColorDepth(), level.screen.GetFullscreen()))
 	{
 		return 1;
 	}
@@ -161,10 +161,10 @@ int main(int argc, char** argv)
 				DrawGLScene();
 				break;
 			case ConfigureNotify:
-				if((event.xconfigure.width != g_Screen.width) || (event.xconfigure.height != g_Screen.height))
+				if((event.xconfigure.width != g_Screen.GetWidth()) || (event.xconfigure.height != g_Screen.GetHeight()))
 				{
-					g_Screen.width = event.xconfigure.width;
-					g_Screen.height = event.xconfigure.height;
+					g_Screen.SetWidth(event.xconfigure.width);
+					g_Screen.SetHeight(event.xconfigure.height);
 					ResizeGLScene(event.xconfigure.width, event.xconfigure.height);
 				}
 				break;
@@ -210,7 +210,7 @@ int main(int argc, char** argv)
 			else if(keys[OpenArena::KEY_F1])
 			{
 				g_Screen.Close();
-				g_Screen.fullscreen = !g_Screen.fullscreen;
+				g_Screen.ToggleFullscreen();
 				g_Screen.Open();
 			}
 			else
@@ -517,8 +517,8 @@ int main(int argc, char** argv)
 		{
 			keys[OpenArena::KEY_F1] = false;
 			g_Screen.Close();
-			g_Screen.fullscreen = !g_Screen.fullscreen;
-			if(!g_Screen.Open(OPENARENA_VERSION, level.screen.width, level.screen.height, level.screen.bpp, level.screen.fullscreen))
+			g_Screen.ToggleFullscreen();
+			if(!g_Screen.Open(OPENARENA_VERSION, level.screen.GetWidth(), level.screen.GetHeight(), level.screen.GetColorDepth(), level.screen.GetFullscreen()))
 			{
 				return 1;
 			}

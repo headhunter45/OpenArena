@@ -1,20 +1,45 @@
 #include "../include/window.h"
+
+#ifdef __linux
 void OpenArena::Window::SwapBuffers()
 {
-#ifdef __linux
 	if(doubleBuffered)
 	{
 		glXSwapBuffers(display, window);
 	}
+}
 #endif
 #ifdef WIN32
+void OpenArena::Window::SwapBuffers()
+{
 	::SwapBuffers(deviceContext);
-#endif
 }
+#endif
 
+#ifdef __linux
 void OpenArena::Window::Close()
 {
+	if(hRC)
+	{
+		if(!glXMakeCurrent(display, None, NULL))
+		{
+			printf("Could not release drawing context.\n");
+		}
+		glXDestroyContext(display, hRC);
+		hRC = NULL;
+	}
+
+	if(_fullscreen)
+	{
+		XF86VidModeSwitchToMode(display, screen, &vidMode);
+		XF86VidModeSetViewPort(display, screen, 0, 0);
+	}
+	XCloseDisplay(display);	
+}	
+#endif
 #ifdef WIN32
+void OpenArena::Window::Close()
+{
 	if (_fullscreen)
 	{
 		ChangeDisplaySettings(NULL, 0);
@@ -49,31 +74,115 @@ void OpenArena::Window::Close()
 		MessageBox(NULL,"Could Not Unregister Class.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
 		instance=NULL;
 	}
-#endif
-#ifdef __linux
-	if(hRC)
-	{
-		if(!glXMakeCurrent(display, None, NULL))
-		{
-			printf("Could not release drawing context.\n");
-		}
-		glXDestroyContext(display, hRC);
-		hRC = NULL;
-	}
-
-	if(fullscreen)
-	{
-		XF86VidModeSwitchToMode(display, screen, &vidMode);
-		XF86VidModeSetViewPort(display, screen, 0, 0);
-	}
-	XCloseDisplay(display);
-	
-#endif
 }//End OpenArena::Window::Close()
+#endif
 
+#ifdef __linux
 bool OpenArena::Window::Open()
 {
-	#ifdef WIN32
+		XVisualInfo* vi;
+	Colormap cmap;
+	int bestMode = 0;
+	int vidModeMajorVersion;
+	int vidModeMinorVersion;
+	int glxMajorVersion;
+	int glxMinorVersion;
+	int modeNum;
+	XF86VidModeModeInfo** modes;
+	Atom  wmDelete;
+	::Window winDummy;
+	unsigned int borderDummy;
+
+	display = XOpenDisplay(0);
+	screen = DefaultScreen(display);
+	XF86VidModeQueryVersion(display, &vidModeMajorVersion, &vidModeMinorVersion);
+	printf("XF86VidModeExtension-Version %d.%d\n", vidModeMajorVersion, vidModeMinorVersion);
+
+	XF86VidModeGetAllModeLines(display, screen, &modeNum, &modes);
+	vidMode = *modes[0];
+
+	int i;
+	for(i=0; i<modeNum; i++)
+	{
+		//Add a check for colordepth here
+		if((modes[i]->hdisplay == _width) && (modes[i]->vdisplay == _height))
+		{
+			bestMode = i;
+		}
+	}
+
+	vi = glXChooseVisual(display, screen, attrListDbl);
+	if(vi == NULL)
+	{
+		vi = glXChooseVisual(display, screen, attrListSgl);
+		doubleBuffered = false;
+		printf("Only Singlebuffered Visual!\n");
+	}
+	else
+	{
+		doubleBuffered = true;
+		printf("Got Doublebuffered Visual!\n");
+	}
+
+	glXQueryVersion(display, &glxMajorVersion, & glxMinorVersion);
+	printf("glX-Version %d.%d\n", glxMajorVersion, glxMinorVersion);
+
+	hRC = glXCreateContext(display, vi, 0, GL_TRUE);
+	cmap = XCreateColormap(display, RootWindow(display, vi->screen), vi->visual, AllocNone);
+	attributes.colormap = cmap;
+	attributes.border_pixel = 0;
+
+	attributes.event_mask = ExposureMask | 
+	                        KeyPressMask | KeyReleaseMask |
+	                        ButtonPressMask | ButtonReleaseMask | 
+//	                        PointerMotionMask | ButtonMotionMask |
+	                        StructureNotifyMask;
+	
+	if(_fullscreen)
+	{
+		XF86VidModeSwitchToMode(display, screen, modes[bestMode]);
+		XF86VidModeSetViewPort(display, screen, 0, 0);
+		XFree(modes);
+
+		attributes.override_redirect = true;
+		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, _width, _height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask | CWOverrideRedirect, &attributes);
+		XWarpPointer(display, None, window, 0, 0, 0, 0, 0, 0);
+		XMapRaised(display, window);
+		XGrabKeyboard(display, window, true, GrabModeAsync, GrabModeAsync, CurrentTime);
+		XGrabPointer(display, window, true, ButtonPressMask, GrabModeAsync, GrabModeAsync, window, None, CurrentTime);
+	}
+	else
+	{
+		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, _width, _height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask, &attributes);
+		wmDelete = XInternAtom(display, "WM_DELETE_WINDOW", true);
+		XSetWMProtocols(display, window, &wmDelete, 1);
+		XSetStandardProperties(display, window, GetName(), GetName(), None, NULL, 0, NULL);
+		XMapRaised(display, window);
+	}
+
+	glXMakeCurrent(display, window, hRC);
+	unsigned int twidth, theight, depth;
+	XGetGeometry(display, window, &winDummy, &x, &y, &twidth, &theight, &borderDummy, &depth);
+	_colorDepth = (char)depth;
+	_height = (short)twidth;
+	_width = (short)theight;
+	printf("Resolution %dx%d\n", twidth, theight);
+	printf("Depth %d\n", depth);
+	if(glXIsDirect(display, hRC))
+	{
+		printf("Congrats, you have Direct Rendering!\n");
+	}
+	else
+	{
+		printf("Sorry, no Direct Rendering possible!\n");
+	}
+	OnInit();
+	return true;
+}
+#endif
+#ifdef WIN32
+bool OpenArena::Window::Open()
+{
 	unsigned int PixelFormat;
 	WNDCLASS	wc;
 	DWORD		dwExStyle;
@@ -198,109 +307,8 @@ bool OpenArena::Window::Open()
 	}
 
 	return true;
-	#endif
-	#ifdef __linux
-	XVisualInfo* vi;
-	Colormap cmap;
-	int bestMode = 0;
-	int vidModeMajorVersion;
-	int vidModeMinorVersion;
-	int glxMajorVersion;
-	int glxMinorVersion;
-	int modeNum;
-	XF86VidModeModeInfo** modes;
-	Atom  wmDelete;
-	::Window winDummy;
-	unsigned int borderDummy;
-
-	display = XOpenDisplay(0);
-	screen = DefaultScreen(display);
-	XF86VidModeQueryVersion(display, &vidModeMajorVersion, &vidModeMinorVersion);
-	printf("XF86VidModeExtension-Version %d.%d\n", vidModeMajorVersion, vidModeMinorVersion);
-
-	XF86VidModeGetAllModeLines(display, screen, &modeNum, &modes);
-	vidMode = *modes[0];
-
-	int i;
-	for(i=0; i<modeNum; i++)
-	{
-		//Add a check for colordepth here
-		if((modes[i]->hdisplay == width) && (modes[i]->vdisplay == height))
-		{
-			bestMode = i;
-		}
-	}
-
-	vi = glXChooseVisual(display, screen, attrListDbl);
-	if(vi == NULL)
-	{
-		vi = glXChooseVisual(display, screen, attrListSgl);
-		doubleBuffered = false;
-		printf("Only Singlebuffered Visual!\n");
-	}
-	else
-	{
-		doubleBuffered = true;
-		printf("Got Doublebuffered Visual!\n");
-	}
-
-	glXQueryVersion(display, &glxMajorVersion, & glxMinorVersion);
-	printf("glX-Version %d.%d\n", glxMajorVersion, glxMinorVersion);
-
-	hRC = glXCreateContext(display, vi, 0, GL_TRUE);
-	cmap = XCreateColormap(display, RootWindow(display, vi->screen), vi->visual, AllocNone);
-	attributes.colormap = cmap;
-	attributes.border_pixel = 0;
-
-	attributes.event_mask = ExposureMask | 
-	                        KeyPressMask | KeyReleaseMask |
-	                        ButtonPressMask | ButtonReleaseMask | 
-//	                        PointerMotionMask | ButtonMotionMask |
-	                        StructureNotifyMask;
-	
-	if(fullscreen)
-	{
-		XF86VidModeSwitchToMode(display, screen, modes[bestMode]);
-		XF86VidModeSetViewPort(display, screen, 0, 0);
-		XFree(modes);
-
-		attributes.override_redirect = true;
-		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, width, height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask | CWOverrideRedirect, &attributes);
-		XWarpPointer(display, None, window, 0, 0, 0, 0, 0, 0);
-		XMapRaised(display, window);
-		XGrabKeyboard(display, window, true, GrabModeAsync, GrabModeAsync, CurrentTime);
-		XGrabPointer(display, window, true, ButtonPressMask, GrabModeAsync, GrabModeAsync, window, None, CurrentTime);
-	}
-	else
-	{
-		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, width, height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask, &attributes);
-		wmDelete = XInternAtom(display, "WM_DELETE_WINDOW", true);
-		XSetWMProtocols(display, window, &wmDelete, 1);
-		XSetStandardProperties(display, window, name.c_str(), name.c_str(), None, NULL, 0, NULL);
-		XMapRaised(display, window);
-	}
-
-	glXMakeCurrent(display, window, hRC);
-	unsigned int twidth, theight, depth;
-	XGetGeometry(display, window, &winDummy, &x, &y, &twidth, &theight, &borderDummy, &depth);
-	bpp = (char)depth;
-	height = (short)twidth;
-	width = (short)theight;
-	printf("Resolution %dx%d\n", twidth, theight);
-	printf("Depth %d\n", bpp);
-	if(glXIsDirect(display, hRC))
-	{
-		printf("Congrats, you have Direct Rendering!\n");
-	}
-	else
-	{
-		printf("Sorry, no Direct Rendering possible!\n");
-	}
-	OnInit();
-	return true;
-	
-	#endif
 }
+#endif
 
 bool OpenArena::Window::Open(string title, int width, int height, int bits, bool fullscreenflag)
 {
@@ -345,11 +353,11 @@ int OpenArena::DefaultInit()
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
 	return true;
-
 }
 
 void OpenArena::DefaultResize(GLsizei width, GLsizei height)
 {
+	//TODO see if this really needs to be os specific
 	#ifdef WIN32
 	if (height==0)
 		height=1;
@@ -364,6 +372,7 @@ void OpenArena::DefaultResize(GLsizei width, GLsizei height)
 	glLoadIdentity();
 	#endif
 	#ifdef __linux
+	//TODO Implement this
 	#endif
 }
 
@@ -379,11 +388,9 @@ Display* OpenArena::Window::GetDisplay()
 }
 #endif
 
-
+#ifdef __linux
 Vec2i OpenArena::Window::GetMousePosition()
 {
-#ifdef __linux
-	
 	::Window rootWindow;
 	::Window childWindow;
 	int rootX;
@@ -399,21 +406,27 @@ Vec2i OpenArena::Window::GetMousePosition()
 	{
 		return Vec2i(mouseX, mouseY);
 	}
+}
 #endif
 #ifdef WIN32
-	POINT pos;
+Vec2i OpenArena::Window::GetMousePosition()
+{
+		POINT pos;
 	GetCursorPos(&pos);
 	return Vec2i(pos.x, pos.y);
-#endif
 }
+#endif
 
+#ifdef __linux
 void OpenArena::Window::SetMousePosition(Vec2i pos)
 {
-	#ifdef __linux
-	Vec2i middle = Vec2i(width, height)/2;
+	Vec2i middle = Vec2i(_width, _height)/2;
 	XWarpPointer(display, None, window, 0, 0, 0, 0, middle.x, middle.y);
-	#endif
-	#ifdef WIN32
-	SetCursorPos(pos.x, pos.y);
-	#endif
 }
+#endif
+#ifdef WIN32
+void OpenArena::Window::SetMousePosition(Vec2i pos)
+{
+	SetCursorPos(pos.x, pos.y);
+}
+#endif

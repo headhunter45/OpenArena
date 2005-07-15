@@ -3,7 +3,7 @@ CPP = g++ -g
 INCLUDES = 
 LD = g++
 INCLUDEPATH = ../include
-OBJECTS = bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o physics.o player.o strmanip.o tga.o vector.o window.o keys.o main.o
+OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o physics.o player.o strmanip.o tga.o vector.o window.o keys.o main.o
 LIBS = -L/usr/X11R6/lib -lGL -lGLU -lXxf86vm
 LIBRARIES = 
 SO_LIBS = 
@@ -33,6 +33,9 @@ oa_net.so:
 oa_video.so:
 
 oa_input.so:
+
+screen.o: screen.cpp $(INCLUDEPATH)/screen.h
+	$(CPP) -c -o screen.o screen.cpp
 
 bmp.o: bmp.cpp $(INCLUDEPATH)/bmp.h $(INCLUDEPATH)/mygl.h $(INCLUDEPATH)/datatypes.h $(INCLUDEPATH)/texture.h
 	$(CPP) -c -o bmp.o bmp.cpp
