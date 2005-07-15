@@ -21,9 +21,11 @@ clean:
 	
 install:
 
+#Executables
 ../OpenArena/OA: $(OBJECTS)
 	$(LD) $(LDFLAGS) -o ../OpenArena/OA $(OBJECTS)
 
+#Dynamic Libraries
 oa_game.so:
 
 oa_audio.so:
@@ -34,6 +36,7 @@ oa_video.so:
 
 oa_input.so:
 
+#Object Files
 screen.o: screen.cpp $(INCLUDEPATH)/screen.h
 	$(CPP) -c -o screen.o screen.cpp
 
@@ -43,10 +46,10 @@ bmp.o: bmp.cpp $(INCLUDEPATH)/bmp.h $(INCLUDEPATH)/mygl.h $(INCLUDEPATH)/datatyp
 camera.o: camera.cpp $(INCLUDEPATH)/camera.h $(INCLUDEPATH)/vector.h $(INCLUDEPATH)/mygl.h $(INCLUDEPATH)/screen.h
 	$(CPP) -c -o camera.o camera.cpp
 
-ctrls.o: ctrls.cpp $(INCLUDEPATH)/ctrls.h 
+ctrls.o: ctrls.cpp $(INCLUDEPATH)/ctrls.h $(INCLUDEPATH)/keys.h $(INCLUDEPATH)/physics.h $(INCLUDEPATH)/datatypes.h $(INCLUDEPATH)/list.h
 	$(CPP) -c -o ctrls.o ctrls.cpp
 
-level.o: level.cpp $(INCLUDEPATH)/level.h
+level.o: level.cpp $(INCLUDEPATH)/level.h $(INCLUDEPATH)/version.h
 	$(CPP) -c -o level.o level.cpp
 
 $(INCLUDEPATH)/level.h: $(INCLUDEPATH)/myglFont.h

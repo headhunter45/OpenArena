@@ -38,7 +38,9 @@ namespace OpenArena
 		#ifdef __linux
 		Display* GetDisplay();
 
-	private:		
+	private:
+		Cursor CreateWindowedCursor();
+		Cursor CreateFullscreenCursor();
 		int screen;
 		::Window window;
 		GLXContext hRC;

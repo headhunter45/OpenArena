@@ -150,6 +150,7 @@ bool OpenArena::Window::Open()
 		XMapRaised(display, window);
 		XGrabKeyboard(display, window, true, GrabModeAsync, GrabModeAsync, CurrentTime);
 		XGrabPointer(display, window, true, ButtonPressMask, GrabModeAsync, GrabModeAsync, window, None, CurrentTime);
+		XDefineCursor(display, window, CreateFullscreenCursor());
 	}
 	else
 	{
@@ -158,6 +159,7 @@ bool OpenArena::Window::Open()
 		XSetWMProtocols(display, window, &wmDelete, 1);
 		XSetStandardProperties(display, window, GetName(), GetName(), None, NULL, 0, NULL);
 		XMapRaised(display, window);
+		XDefineCursor(display, window, CreateWindowedCursor());
 	}
 
 	glXMakeCurrent(display, window, hRC);
@@ -430,3 +432,23 @@ void OpenArena::Window::SetMousePosition(Vec2i pos)
 	SetCursorPos(pos.x, pos.y);
 }
 #endif
+
+#ifdef __linux
+Cursor OpenArena::Window::CreateWindowedCursor()
+{
+	return CreateFullscreenCursor();
+}
+
+Cursor OpenArena::Window::CreateFullscreenCursor()
+{
+	Pixmap pixmap = XCreatePixmap(display, window, 1, 1, 1);
+	XColor color;
+	color.pixel = 0;
+	color.red = 0;
+	color.flags = DoRed;
+	Cursor cur = XCreatePixmapCursor(display, pixmap, pixmap, &color, &color, 0, 0);
+	XFreePixmap(display, pixmap);
+	return cur;
+}
+#endif
+
