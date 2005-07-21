@@ -3,6 +3,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oa", "oa.vcproj", "{6F5D0FF
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelConverter", "ModelConverter\ModelConverter.csproj", "{4327B7E9-B631-479B-8419-BCE37C986360}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -13,6 +17,10 @@ Global
 		{6F5D0FF6-A032-4356-932E-865B601E0DD4}.Debug.Build.0 = Debug|Win32
 		{6F5D0FF6-A032-4356-932E-865B601E0DD4}.Release.ActiveCfg = Release|Win32
 		{6F5D0FF6-A032-4356-932E-865B601E0DD4}.Release.Build.0 = Release|Win32
+		{4327B7E9-B631-479B-8419-BCE37C986360}.Debug.ActiveCfg = Debug|.NET
+		{4327B7E9-B631-479B-8419-BCE37C986360}.Debug.Build.0 = Debug|.NET
+		{4327B7E9-B631-479B-8419-BCE37C986360}.Release.ActiveCfg = Release|.NET
+		{4327B7E9-B631-479B-8419-BCE37C986360}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
