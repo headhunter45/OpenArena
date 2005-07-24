@@ -1,9 +1,4 @@
-; example2.nsi
-;
-; This script is based on example1.nsi, but it remember the directory, 
-; has uninstall support and (optionally) installs start menu shortcuts.
-;
-; It will install makensisw.exe into a directory that the user selects,
+; This script is based on example2.nsi
 
 ;--------------------------------
 
@@ -36,7 +31,7 @@ DirText "Choose a directory to install in to:"
 ;--------------------------------
 
 ; Main section docs and libs
-Section "Base (required)"
+Section - "Base (required)"
 
   SectionIn RO
   
