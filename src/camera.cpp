@@ -229,4 +229,6 @@ namespace OpenArena
 	{
 		return m_vView;
 	}
+
+
 };
