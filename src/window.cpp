@@ -411,7 +411,7 @@ Vec2i OpenArena::Window::GetMousePosition()
 }
 #endif
 #ifdef WIN32
-Vec2i OpenArena::Window::GetMousePosition()
+OpenArena::Vec2i OpenArena::Window::GetMousePosition()
 {
 		POINT pos;
 	GetCursorPos(&pos);
