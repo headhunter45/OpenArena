@@ -1,6 +1,10 @@
 
 #include "../include/tga.h"
+#ifdef WIN32
+#pragma warning(disable:4996)
+#endif
 
+namespace OpenArena{
 TextureImage* LoadTGA(const char * filename)
 {
 	TGAHeader tgaheader;
@@ -662,3 +666,4 @@ TextureImage* LoadCompressedTGA(FILE * fTGA)
 	return image;
 }
 */
+};
