@@ -1,7 +1,7 @@
 #ifndef __datatypes_h__
 #define __datatypes_h__
 
-#ifdef WIN32
+#ifdef WIN32 //Make this MSVC something
 typedef unsigned __int8		uint8;
 typedef unsigned __int16	uint16;
 typedef unsigned __int32	uint32;
@@ -28,7 +28,7 @@ typedef qword	dq;
 */
 #endif
 
-#ifdef __linux
+#ifdef __GNUC__ //ie if we are using GCC //used to be __linux
 typedef unsigned char		uint8;
 typedef unsigned short		uint16;
 typedef unsigned long		uint32;
