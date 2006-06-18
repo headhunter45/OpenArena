@@ -160,4 +160,5 @@ char OpenArena::KeyToASCII(Keys key, bool shift)
 			}
 		}
 	}
+	return '\0';
 }
