@@ -10,7 +10,7 @@
 //		To implement a system for managing a bindable control scheme.
 //
 //	Summary of Methods:
-//	ControlSchemeClass
+//	ControlScheme
 //		void LoadDefaultControlScheme();
 //			-Loads the default control scheme
 //		void ClearControlScheme();
@@ -19,7 +19,7 @@
 //			-Removes key from all control lists.
 //
 //	Summary of Properties:
-//	ControlSchemeClass
+//	ControlScheme
 //		-list<uint8> forward;
 //			A list of the VKeys associated with forward.
 //		-list<uint8> backward;
@@ -68,7 +68,7 @@
 #include "../include/ctrls.h"
 
 namespace OpenArena{
-	void ControlSchemeClass::LoadDefaultControlScheme()
+	void ControlScheme::LoadDefaultControlScheme()
 	{
 		forward.Insert(OpenArena::KEY_LBUTTON);
 		backward.Insert(OpenArena::KEY_RBUTTON);
@@ -92,7 +92,7 @@ namespace OpenArena{
 		rollLeft.Insert(OpenArena::KEY_W);
 		rollRight.Insert(OpenArena::KEY_E);
 	}
-	void ControlSchemeClass::ClearControlScheme()
+	void ControlScheme::ClearControlScheme()
 	{
 		backward.Clear();
 		firePrimary.Clear();
@@ -115,7 +115,7 @@ namespace OpenArena{
 		weaponPrev.Clear();
 	}
 
-	void ControlSchemeClass::Unbind(uint8 key)
+	void ControlScheme::Unbind(uint8 key)
 	{
 		backward.Remove(key);
 		firePrimary.Remove(key);
@@ -137,131 +137,131 @@ namespace OpenArena{
 		weaponPrev.Remove(key);
 	}
 
-	bool ControlSchemeClass::Bind(uint32 action, uint8 key)
+	bool ControlScheme::Bind(uint32 action, uint8 key)
 	{
 		switch(action)
 		{
-		case CTRLS_FORWARD:
+		case ACTION_FORWARD:
 			{
 				Unbind(key);
 				forward.Insert(key);
 				return true;
 			}
-		case CTRLS_BACKWARD:
+		case ACTION_BACKWARD:
 			{
 				Unbind(key);
 				backward.Insert(key);
 				return true;
 			}
-		case CTRLS_LOOKLEFT:
+		case ACTION_LOOKLEFT:
 			{
 				Unbind(key);
 				lookLeft.Insert(key);
 				return true;
 			}
-		case CTRLS_LOOKRIGHT:
+		case ACTION_LOOKRIGHT:
 			{
 				Unbind(key);
 				lookRight.Insert(key);
 				return true;
 			}
-		case CTRLS_LOOKUP:
+		case ACTION_LOOKUP:
 			{
 				Unbind(key);
 				lookUp.Insert(key);
 				return true;
 			}
-		case CTRLS_LOOKDOWN:
+		case ACTION_LOOKDOWN:
 			{
 				Unbind(key);
 				lookDown.Insert(key);
 				return true;
 			}
-		case CTRLS_MOVELEFT:
+		case ACTION_MOVELEFT:
 			{
 				Unbind(key);
 				moveLeft.Insert(key);
 				return true;
 			}
-		case CTRLS_MOVERIGHT:
+		case ACTION_MOVERIGHT:
 			{
 				Unbind(key);
 				moveRight.Insert(key);
 				return true;
 			}
-		case CTRLS_MOVEUP:
+		case ACTION_MOVEUP:
 			{
 				Unbind(key);
 				moveUp.Insert(key);
 				return true;
 			}
-		case CTRLS_MOVEDOWN:
+		case ACTION_MOVEDOWN:
 			{
 				Unbind(key);
 				moveDown.Insert(key);
 				return true;
 			}
-		case CTRLS_ROLLLEFT:
+		case ACTION_ROLLLEFT:
 			{
 				Unbind(key);
 				rollLeft.Insert(key);
 				return true;
 			}
-		case CTRLS_ROLLRIGHT:
+		case ACTION_ROLLRIGHT:
 			{
 				Unbind(key);
 				rollRight.Insert(key);
 				return true;
 			}
-		case CTRLS_FIREPRIMARY:
+		case ACTION_FIREPRIMARY:
 			{
 				Unbind(key);
 				firePrimary.Insert(key);
 				return true;
 			}
-		case CTRLS_FIRESECONDARY:
+		case ACTION_FIRESECONDARY:
 			{
 				Unbind(key);
 				fireSecondary.Insert(key);
 				return true;
 			}
-		case CTRLS_WEAPONNEXT:
+		case ACTION_WEAPONNEXT:
 			{
 				Unbind(key);
 				weaponNext.Insert(key);
 				return true;
 			}
-		case CTRLS_WEAPONPREV:
+		case ACTION_WEAPONPREV:
 			{
 				Unbind(key);
 				weaponPrev.Insert(key);
 				return true;
 			}
-		case CTRLS_TOGGLE_LIGHTS:
+		case ACTION_TOGGLE_LIGHTS:
 			{
 				Unbind(key);
 				toggleLights.Insert(key);
 				return true;
 			}
-		case CTRLS_TOGGLE_FPS:
+		case ACTION_TOGGLE_FPS:
 			{
 				Unbind(key);
 				toggleFPS.Insert(key);
 				return true;
 			}
-		case CTRLS_TOGGLE_CONSOLE:
+		case ACTION_TOGGLE_CONSOLE:
 			{
 				Unbind(key);
 				toggleConsole.Insert(key);
 				return true;
 			}
-		case CTRLS_TOGGLE_MOUSELOOK:
+		case ACTION_TOGGLE_MOUSELOOK:
 			{
 				Unbind(key);
 				toggleMouseLook.Insert(key);
 				return true;
 			}
-		case CTRLS_QUICKMOUSELOOK:
+		case ACTION_QUICKMOUSELOOK:
 			{
 				Unbind(key);
 				quickMouseLook.Insert(key);

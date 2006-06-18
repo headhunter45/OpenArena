@@ -551,147 +551,147 @@ namespace OpenArena
 	
 				if(command == "forward")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_FORWARD, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_FORWARD, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action forward");
 					}
 				}
 				else if(command == "backward")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_BACKWARD, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_BACKWARD, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action backward");
 					}
 				}
 				else if(command == "lookleft")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_LOOKLEFT, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKLEFT, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action lookleft");
 					}
 				}
 				else if(command == "lookright")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_LOOKRIGHT, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKRIGHT, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action lookright");
 					}
 				}
 				else if(command == "lookup")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_LOOKUP, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKUP, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action lookup");
 					}
 				}
 				else if(command == "lookdown")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_LOOKDOWN, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKDOWN, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action lookdown");
 					}
 				}
 				else if(command == "moveup")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_MOVEUP, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVEUP, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action moveup");
 					}
 				}
 				else if(command == "movedown")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_MOVEDOWN, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVEDOWN, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action movedown");
 					}
 				}
 				else if(command == "moveleft")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_MOVELEFT, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVELEFT, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action moveleft");
 					}
 				}
 				else if(command == "moveright")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_MOVERIGHT, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVERIGHT, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action moveright");
 					}
 				}
 				else if(command == "fireprimary")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_FIREPRIMARY, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_FIREPRIMARY, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action fireprimary");
 					}
 				}
 				else if(command == "firesecondary")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_FIRESECONDARY, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_FIRESECONDARY, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action firesecondary");
 					}
 				}
 				else if(command == "weapnext")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_WEAPONNEXT, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_WEAPONNEXT, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action weapnext");
 					}
 				}
 				else if(command == "weapprev")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_WEAPONPREV, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_WEAPONPREV, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action weapprev");
 					}
 				}
 				else if(command == "togglelights" || command == "togglelighting")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_LIGHTS, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_LIGHTS, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action togglelights");
 					}
 				}
 				else if(command == "togglefps")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_FPS, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_FPS, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action togglefps");
 					}
 				}
 				else if(command == "toggleconsole")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_CONSOLE, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_CONSOLE, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action toggleconsole");
 					}
 				}
 				else if(command == "togglemouselook")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_MOUSELOOK, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_MOUSELOOK, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action togglemouselook");
 					}
 				}
 				else if(command == "quickmouselook")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_QUICKMOUSELOOK, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_QUICKMOUSELOOK, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action quickmouselook");
 					}
 				}
 				else if(command == "rollleft")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_ROLLLEFT, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_ROLLLEFT, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action rollleft");
 					}
 				}
 				else if(command == "rollright")
 				{
-					if(!defaultPlayer[0].controls.Bind(CTRLS_ROLLRIGHT, KeyName(word(cmd, ++i))))
+					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_ROLLRIGHT, KeyName(word(cmd, ++i))))
 					{
 						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action rollright");
 					}
@@ -828,79 +828,79 @@ namespace OpenArena
 	
 				if(command == "forward")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_FORWARD, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_FORWARD, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "backward")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_BACKWARD, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_BACKWARD, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "lookleft")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_LOOKLEFT, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKLEFT, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "lookright")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_LOOKRIGHT, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKRIGHT, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "lookup")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_LOOKUP, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKUP, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "lookdown")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_LOOKDOWN, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKDOWN, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "moveup")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_MOVEUP, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVEUP, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "movedown")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_MOVEDOWN, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVEDOWN, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "moveleft")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_MOVELEFT, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVELEFT, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "moveright")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_MOVERIGHT, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVERIGHT, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "fireprimary")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_FIREPRIMARY, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_FIREPRIMARY, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "firesecondary")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_FIRESECONDARY, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_FIRESECONDARY, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "weapnext")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_WEAPONNEXT, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_WEAPONNEXT, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "weapprev")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_WEAPONPREV, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_WEAPONPREV, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "togglelights" || command == "togglelighting")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_LIGHTS, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_LIGHTS, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "togglefps")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_FPS, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_FPS, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "toggleconsole")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_CONSOLE, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_CONSOLE, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "togglemouselook")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_TOGGLE_MOUSELOOK, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_MOUSELOOK, KeyName(word(cmd, ++i)));
 				}
 				else if(command == "quickmouselook")
 				{
-					defaultPlayer[0].controls.Bind(CTRLS_QUICKMOUSELOOK, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_QUICKMOUSELOOK, KeyName(word(cmd, ++i)));
 				}
 			}
 			else if(command == "+map" || command == "+map_load")

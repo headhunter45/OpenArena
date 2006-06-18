@@ -17,7 +17,7 @@ namespace OpenArena
 		void AddItem(unsigned int item);
 		void RemoveItem(unsigned int item);
 		
-		ControlSchemeClass controls;
+		ControlScheme controls;
 		Camera camera;
 		
 		
