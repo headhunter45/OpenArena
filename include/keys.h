@@ -3,7 +3,6 @@
 
 namespace OpenArena
 {
-	//Replace KEY_LBUTTON with KEY_BUTTON0, KEY_RBUTTON with KEY_BUTTON1, KEY_MBUTTON with KEY_BUTTON2 and create Buttons 3 and 4
 	enum Keys{
 		KEY_UNKNOWN = 0,
 		KEY_BUTTON0,
