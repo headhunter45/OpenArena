@@ -5,6 +5,8 @@
 #include "datatypes.h"
 #include "texture.h"
 
-TextureImage* LoadBMP(const char* Filename);
+namespace OpenArena{
+	TextureImage* LoadBMP(const char* Filename);
+};
 
 #endif
