@@ -26,7 +26,7 @@ static bool		keys2[256];			// Array for which keys are were down already
 static bool		active=true;		// Is window active flag
 static bool		fullscreen=true;	// Is window fullscreen flag
 //static bool		showConsole = false;// Do we need to draw the console
-static Vec2i	g_mousePosition;
+static OpenArena::Vec2i	g_mousePosition;
 
 
 
