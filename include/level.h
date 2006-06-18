@@ -9,7 +9,15 @@
 #include <cctype>
 #include <cmath>
 #include <iostream>
+#ifdef WIN32
 #include <GL/gl.h>
+#endif
+#ifdef __linux
+#include <GL/gl.h>
+#endif
+#ifdef __APPLE___
+#include <gl.h>
+#endif
 #include <cstdio>			//for file I/O
 
 #include "mydefs.h"
