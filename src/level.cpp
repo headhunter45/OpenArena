@@ -28,7 +28,9 @@
 #include "../include/version.h"
 
 #pragma comment(lib, "bass.lib")
-
+#ifdef WIN32
+#pragma warning(disable:4996)
+#endif
 using namespace std;
 
 namespace OpenArena
