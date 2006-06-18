@@ -3,9 +3,6 @@
 
 #include <string>
 #include <cmath>
-#ifdef WIN32
-#include <windows.h>//WTF why did I need all of these
-#endif
 #include "keys.h"
 #include "datatypes.h"
 
