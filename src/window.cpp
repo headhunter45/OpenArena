@@ -325,42 +325,26 @@ bool OpenArena::Window::Open(string title, int width, int height, int bits, bool
 
 OpenArena::Window::Window()
 {
-	OnInit = OpenArena::DefaultInit;
-	OnResize = OpenArena::DefaultResize;
+	_initializer = new Initializer();
+	_resizer = new Resizer();
 }
 
 OpenArena::Window::~Window()
 {
 }
 
-void OpenArena::Window::SetOnInit(InitFunc function)
+void OpenArena::Window::SetInitializer(OpenArena::Window::Initializer* initializer)
 {
-	OnInit = function;
+	_initializer = initializer;
 }
 
-void OpenArena::Window::SetOnResize(ResizeFunc function)
+void OpenArena::Window::SetResizer(OpenArena::Window::Resizer* resizer)
 {
-	OnResize = function;
+	_resizer = resizer;
 }
 
-int OpenArena::DefaultInit()
+void OpenArena::Window::Resizer::Resize(GLsizei width, GLsizei height)
 {
-	glEnable(GL_TEXTURE_2D);
-	glShadeModel(GL_SMOOTH);
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	glClearDepth(1.0f);
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LEQUAL);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-
-	return true;
-}
-
-void OpenArena::DefaultResize(GLsizei width, GLsizei height)
-{
-	//TODO see if this really needs to be os specific
-	#ifdef WIN32
 	if (height==0)
 		height=1;
 
@@ -372,15 +356,26 @@ void OpenArena::DefaultResize(GLsizei width, GLsizei height)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	#endif
-	#ifdef __linux
-	//TODO Implement this
-	#endif
+	
+}
+
+int OpenArena::Window::Initializer::Initialize()
+{
+	glEnable(GL_TEXTURE_2D);
+	glShadeModel(GL_SMOOTH);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClearDepth(1.0f);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+	
+	return true;
 }
 
 void OpenArena::Window::Resize(GLsizei width, GLsizei height)
 {
-	OnResize(width, height);
+	_resizer->Resize(width, height);
 }
 
 #ifdef __linux

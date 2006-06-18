@@ -8,6 +8,16 @@
 #include <X11/extensions/xf86vmode.h>
 #include <X11/keysym.h>
 #endif
+
+#ifdef __APPLE__
+#include <gl.h>
+#include <glu.h>
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+#include <X11/extensions/xf86vmode.h>
+#include <X11/keysym.h>
+#endif
+
 #ifdef WIN32
 #include <windows.h>
 #include <GL/gl.h>
@@ -16,26 +26,37 @@
 #include "vector.h"
 
 namespace OpenArena
-{
-	typedef void (*ResizeFunc)(GLsizei width, GLsizei height);
-	typedef int (*InitFunc)();
-
+{	
 	class Window: public Screen
 	{
+	public:
+		class Resizer
+		{
+		public:
+			void Resize(GLsizei width, GLsizei height);
+		};
+		
+		class Initializer
+		{
+		public:
+			int Initialize();
+		};
+	
 	public:
 		Window();
 		~Window();
 		void Close();
 		bool Open();
 		bool Open(string title, int width, int height, int bits, bool fullscreenflag);	//make that string a const char* after this works
-		void SetOnInit(InitFunc function);
-		void SetOnResize(ResizeFunc function);
+		void SetInitializer(Initializer* initializer);
+		void SetResizer(Resizer* resizer);
 		void SwapBuffers();
 		void Resize(GLsizei width, GLsizei height);
 		Vec2i GetMousePosition();
 		void SetMousePosition(Vec2i pos);
 
-		#ifdef __linux
+//		#ifdef __linux
+		#ifdef __APPLE__
 		Display* GetDisplay();
 
 	private:
@@ -51,8 +72,8 @@ namespace OpenArena
 		Display* display;			
 		#endif
 	private:
-		ResizeFunc OnResize;
-		InitFunc OnInit;
+		Resizer* _resizer;
+		Initializer* _initializer;
 		#ifdef WIN32
 		HGLRC glContext;
 		HWND window;
@@ -60,9 +81,6 @@ namespace OpenArena
 		HINSTANCE instance;
 		#endif
 	};
-
-	void DefaultResize(GLsizei width, GLsizei height);
-	int DefaultInit();
 };
 
 #ifdef WIN32
