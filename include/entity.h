@@ -1,3 +1,4 @@
+//Yank/rename this class
 #ifndef __entity_h__
 #define __entity_h__
 
