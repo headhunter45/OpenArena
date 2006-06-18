@@ -4,9 +4,19 @@
 #ifdef WIN32
 #include <windows.h>			// Header file for windows
 #endif
-#include <cstdio>				// Header file for standard input/output
-#include <GL/gl.h>				// Header file for OpenGL32 library
-#include <GL/glu.h>				// Header file for Glu32 library
+#include <cstdio>			// Header file for standard input/output
+#ifdef WIN32
+#include <GL/gl.h>			// Header file for OpenGL32 library
+#include <GL/glu.h>			// Header file for Glu32 library
+#endif
+#ifdef __linux
+#include <GL/gl.h>			// Header file for OpenGL32 library
+#include <GL/glu.h>			// Header file for Glu32 library
+#endif
+#ifdef __APPLE__
+#include <gl.h>				// Header file for OpenGL32 library
+#include <glu.h>				// Header file for Glu32 library
+#endif
 #include <math.h>
 
 #include "camera.h"
