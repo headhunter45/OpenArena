@@ -1,4 +1,6 @@
+//Yank/rename these maybe MapEntities
 using namespace std;
+using OpenArena::Vec3d;
 
 struct LIGHT
 {
@@ -8,18 +10,18 @@ struct LIGHT
 
 struct PLAYER_START
 {
-	Vec3f coords;
-	Vec3f heading;
+	Vec3d coords;
+	Vec3d heading;
 };
 struct PLAYER_DEATHMATCH_START
 {
-	Vec3f coords;
-	Vec3f heading;
+	Vec3d coords;
+	Vec3d heading;
 };
 struct BOT_START
 {
-	Vec3f coords;
-	Vec3f heading;
+	Vec3d coords;
+	Vec3d heading;
 	string name;
 };
 struct GEOMETRY
@@ -28,9 +30,9 @@ struct GEOMETRY
 };
 struct PROJECTILE
 {
-	Vec3f heading;
-	Vec3f start;
-	Vec3f end;
+	Vec3d heading;
+	Vec3d start;
+	Vec3d end;
 	int dammage;
 	float creation;
 	
