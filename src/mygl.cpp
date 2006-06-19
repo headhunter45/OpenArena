@@ -1,13 +1,12 @@
-
 #include "../include/mygl.h"
 namespace OpenArena
 {
-	void FreeGLTexture(GLuint& texture)
+	void FreeGLTexture(GLuint texture)
 	{
-		glDeleteTextures(1, &texture);
+		glDeleteTextures(1, texture);
 	}
 	
-	bool LoadGLTexture(string fn, GLuint& texture, GLuint mag, GLuint min)
+	bool LoadGLTexture(string fn, GLuint texture, GLuint mag, GLuint min)
 	{
 		if(Right(tolower(fn), 4) == ".bmp")
 		{

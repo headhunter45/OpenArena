@@ -11,8 +11,8 @@
 #include <GL/glu.h>
 #endif
 #ifdef __APPLE__
-#include <gl.h>
-#include <glu.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
 #endif
 //#include <gl/glaux.h>	//Hopefully nothing needs this remove if it works in windows
 #include <string>
@@ -34,7 +34,7 @@ extern OpenArena::Window g_Screen;
 //int InitGL(GLvoid);
 namespace OpenArena
 {
-	bool LoadGLTexture(string , GLuint&, GLuint = GL_LINEAR, GLuint = GL_LINEAR);
-	void FreeGLTexture(GLuint&);
+	bool LoadGLTexture(string , GLuint, GLuint = GL_LINEAR, GLuint = GL_LINEAR);
+	void FreeGLTexture(GLuint);
 };
 #endif

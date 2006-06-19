@@ -10,8 +10,9 @@
 #endif
 
 #ifdef __APPLE__
-#include <gl.h>
-#include <glu.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glx.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/extensions/xf86vmode.h>
@@ -55,7 +56,21 @@ namespace OpenArena
 		Vec2i GetMousePosition();
 		void SetMousePosition(Vec2i pos);
 
-//		#ifdef __linux
+		#ifdef __linux
+		Display* GetDisplay();
+
+	private:
+		Cursor CreateWindowedCursor();
+		Cursor CreateFullscreenCursor();
+		int screen;
+		::Window window;
+		GLXContext hRC;
+		XSetWindowAttributes attributes;
+		bool doubleBuffered;
+		XF86VidModeModeInfo vidMode;
+		int x, y;
+		Display* display;			
+		#endif
 		#ifdef __APPLE__
 		Display* GetDisplay();
 
@@ -87,6 +102,10 @@ namespace OpenArena
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 #endif
 #ifdef __linux
+static int attrListSgl[] = {GLX_RGBA, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
+static int attrListDbl[] = {GLX_RGBA, GLX_DOUBLEBUFFER, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
+#endif
+#ifdef __APPLE__
 static int attrListSgl[] = {GLX_RGBA, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
 static int attrListDbl[] = {GLX_RGBA, GLX_DOUBLEBUFFER, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
 #endif

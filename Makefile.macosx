@@ -2,9 +2,6 @@ EXECUTABLES = OpenArena/OA
 LIBRARIES = 
 BUILDROOT = /usr/local
 PREFIX = 
-INCLUDE_DIRS = /System/Library/Frameworks/OpenGL.framework/Headers
-LIBRARY_DIRS = /System/Library/Frameworks/OpenGL.framework/Libraries
-
 .Phony: all clean install
 
 all:

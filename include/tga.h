@@ -10,7 +10,7 @@
 #include <GL/gl.h>
 #endif
 #ifdef __APPLE__
-#include <gl.h>
+#include <GL/gl.h>
 #endif
 #include <cstdio>
 #include <string>

@@ -14,8 +14,8 @@
 #include <GL/glu.h>			// Header file for Glu32 library
 #endif
 #ifdef __APPLE__
-#include <gl.h>				// Header file for OpenGL32 library
-#include <glu.h>				// Header file for Glu32 library
+#include <GL/gl.h>				// Header file for OpenGL32 library
+#include <GL/glu.h>				// Header file for Glu32 library
 #endif
 #include <math.h>
 
@@ -28,6 +28,7 @@
 #include "window.h"
 #include "vector.h"
 #pragma warning(disable: 4786)
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Variables
 

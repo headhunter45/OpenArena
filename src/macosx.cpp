@@ -35,9 +35,9 @@
 using namespace std;
 
 //void InitControls();
-//unsigned char TranslateKey(int keyCode);
-//unsigned char TranslateButton(int keyCode);
-//void HandleConsoleKeyPress(OpenArena::Keys key);
+unsigned char TranslateKey(int keyCode);
+unsigned char TranslateButton(int keyCode);
+void HandleConsoleKeyPress(OpenArena::Keys key);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Function Definitions
@@ -224,7 +224,7 @@ int main(int argc, char** argv)
 					}
 					else
 					{
-						SetCursorPos(g_Screen.width/2, g_Screen.height/2);//Shit this may be windows specific
+//						SetMousePosition(g_Screen.width/2, g_Screen.height/2);//Shit this may be windows specific
 					}
 
 					//Maybe some of these if not almost all should be moved into Level
