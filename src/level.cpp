@@ -37,6 +37,7 @@ namespace OpenArena
 {
 	Level::Level()
 	{
+		_window = NULL;
 		textureNames = NULL;
 		numTextures = 0;
 		textures = NULL;
@@ -432,31 +433,38 @@ namespace OpenArena
 	
 	void Level::LoadGLTextures()
 	{
-		
-		/*GLfloat light[4] = {1.0f,1.0f,1.0f,0.5f};
-	    glLightfv(GL_LIGHT1, GL_AMBIENT, light);
-		glEnable(GL_LIGHT1);
-		glEnable(GL_LIGHTING);*/
-	
-		if(textures != NULL)
+		printf("In LoadGLTextures: _window = %d\n", _window);
+		if(_window != NULL)
 		{
-			delete [] textures;
-		}
-	
-		textures = new Texture[numTextures];
-	
-		for(uint32 i=0; i<numTextures; i++)
-		{
-			if(!textures[i].Load(gamedir + "textures/" + textureNames[i]))
-				textures[i].Load(DEFAULT_TEXTURE_NAME);
-		}
+			/*
+			GLfloat light[4] = {1.0f,1.0f,1.0f,0.5f};
+			glLightfv(GL_LIGHT1, GL_AMBIENT, light);
+			glEnable(GL_LIGHT1);
+			glEnable(GL_LIGHTING);
+			*/
 		
-		if(!glFont.BuildFont((gamedir + "textures/menu/font.bmp").c_str()))
-			glFont.BuildFont("oa/textures/menu/font.bmp");
+			if(textures != NULL)
+			{
+				delete [] textures;
+			}
+		
+			textures = new Texture[numTextures];
+		
+			for(uint32 i=0; i<numTextures; i++)
+			{
+				if(!textures[i].Load(gamedir + "textures/" + textureNames[i]))
+					textures[i].Load(DEFAULT_TEXTURE_NAME);
+			}
+		
+			if(!glFont.BuildFont((gamedir + "textures/menu/font.bmp").c_str()))
+				glFont.BuildFont("oa/textures/menu/font.bmp");
 	
-		//Load the console background image
-		if(!menuTextures[GL_MY_TEXTURE_CONSOLEBACKGROUND].Load(gamedir + "textures/menu/con_back.tga"))
-			menuTextures[GL_MY_TEXTURE_CONSOLEBACKGROUND].Load("oa/textures/menu/con_back.bmp");
+			//Load the console background image
+			if(!menuTextures[GL_MY_TEXTURE_CONSOLEBACKGROUND].Load(gamedir + "textures/menu/con_back.tga"))
+			{
+				menuTextures[GL_MY_TEXTURE_CONSOLEBACKGROUND].Load("oa/textures/menu/con_back.bmp");
+			}
+		}
 	}
 	
 	uint32 Level::FPS()
@@ -1221,5 +1229,15 @@ namespace OpenArena
 			consoleOutput[i] = consoleOutput[i-1];
 		}
 		consoleOutput[0] = line;
+	}
+	
+	void Level::SetWindow(Window* window)
+	{
+		_window = window;
+	}
+	
+	Window* Level::GetWindow()
+	{
+		return _window;
 	}
 };

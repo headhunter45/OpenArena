@@ -15,7 +15,7 @@
 #include <GL/glx.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
-#include <X11/extensions/xf86vmode.h>
+//#include <X11/extensions/xf86vmode.h>
 #include <X11/keysym.h>
 #endif
 
@@ -82,7 +82,7 @@ namespace OpenArena
 		GLXContext hRC;
 		XSetWindowAttributes attributes;
 		bool doubleBuffered;
-		XF86VidModeModeInfo vidMode;
+		//XF86VidModeModeInfo vidMode;
 		int x, y;
 		Display* display;			
 		#endif

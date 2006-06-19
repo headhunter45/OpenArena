@@ -71,7 +71,9 @@ namespace OpenArena
 	{
 		if(Loaded())
 		{
-			FreeGLTexture(id);
+			//This is only temporarily removed for mac os x
+			//TODO make this work on all operating systems
+			//FreeGLTexture(id);
 			minFilter = GL_LINEAR;
 			magFilter = GL_LINEAR;
 			filename = "";

@@ -257,6 +257,8 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 		return 0;
 	}
 
+	level.SetWindow(g_Screen);
+	
 	while(!done)
 	{
 		while (PeekMessage(&msg,NULL,0,0,PM_REMOVE))

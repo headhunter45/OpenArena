@@ -144,6 +144,9 @@ int main(int argc, char** argv)
 	{
 		return 1;
 	}
+	
+	level.SetWindow(&g_Screen);
+	level.LoadGLTextures();
 
 	while(!done)
 	{

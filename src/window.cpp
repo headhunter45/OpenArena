@@ -61,8 +61,8 @@ void OpenArena::Window::Close()
 
 	if(_fullscreen)
 	{
-		XF86VidModeSwitchToMode(display, screen, &vidMode);
-		XF86VidModeSetViewPort(display, screen, 0, 0);
+//		XF86VidModeSwitchToMode(display, screen, &vidMode);
+//		XF86VidModeSetViewPort(display, screen, 0, 0);
 	}
 	XCloseDisplay(display);	
 }	
@@ -222,27 +222,27 @@ bool OpenArena::Window::Open()
 	int glxMajorVersion;
 	int glxMinorVersion;
 	int modeNum;
-	XF86VidModeModeInfo** modes;
+//	XF86VidModeModeInfo** modes;
 	Atom  wmDelete;
 	::Window winDummy;
 	unsigned int borderDummy;
 
 	display = XOpenDisplay(0);
 	screen = DefaultScreen(display);
-	XF86VidModeQueryVersion(display, &vidModeMajorVersion, &vidModeMinorVersion);
-	printf("XF86VidModeExtension-Version %d.%d\n", vidModeMajorVersion, vidModeMinorVersion);
+	//XF86VidModeQueryVersion(display, &vidModeMajorVersion, &vidModeMinorVersion);
+	//printf("XF86VidModeExtension-Version %d.%d\n", vidModeMajorVersion, vidModeMinorVersion);
 
-	XF86VidModeGetAllModeLines(display, screen, &modeNum, &modes);
-	vidMode = *modes[0];
+	//XF86VidModeGetAllModeLines(display, screen, &modeNum, &modes);
+	//vidMode = *modes[0];
 
 	int i;
 	for(i=0; i<modeNum; i++)
 	{
 		//Add a check for colordepth here
-		if((modes[i]->hdisplay == _width) && (modes[i]->vdisplay == _height))
-		{
-			bestMode = i;
-		}
+	//	if((modes[i]->hdisplay == _width) && (modes[i]->vdisplay == _height))
+	//	{
+	//		bestMode = i;
+	//	}
 	}
 
 	vi = glXChooseVisual(display, screen, attrListDbl);
@@ -274,9 +274,9 @@ bool OpenArena::Window::Open()
 	
 	if(_fullscreen)
 	{
-		XF86VidModeSwitchToMode(display, screen, modes[bestMode]);
-		XF86VidModeSetViewPort(display, screen, 0, 0);
-		XFree(modes);
+	//	XF86VidModeSwitchToMode(display, screen, modes[bestMode]);
+	//	XF86VidModeSetViewPort(display, screen, 0, 0);
+	//	XFree(modes);
 
 		attributes.override_redirect = true;
 		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, _width, _height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask | CWOverrideRedirect, &attributes);

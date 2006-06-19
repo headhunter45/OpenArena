@@ -70,7 +70,9 @@ namespace OpenArena
 		uint32 FPS();
 		void ParseCmds(const char*);
 		void Print(int x, int y, const char* string, unsigned int set);
-	
+		void SetWindow(Window*);
+		Window* GetWindow();
+		
 		/*Not Yet Implemented
 		void PlayerConnect();		// implement later
 		void PlayerDisconnect();	// implement later
@@ -105,7 +107,7 @@ namespace OpenArena
 		//list<GL_MY_TEXTURE> textures;
 		Texture* textures;
 		Texture menuTextures[NUM_MENU_TEXTURES];
-		
+		Window* _window;
 	
 	
 //	private:

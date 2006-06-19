@@ -145,6 +145,8 @@ int main(int argc, char** argv)
 		return 1;
 	}
 
+	level.SetWindow(g_Screen);
+	
 	while(!done)
 	{
 		while(XPending(g_Screen.GetDisplay()) > 0)
