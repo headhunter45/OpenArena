@@ -1,4 +1,4 @@
-#include "../include/screen.h"
+#include "screen.h"
 
 namespace OpenArena
 {
@@ -11,27 +11,27 @@ namespace OpenArena
 		_name = "";
 	}
 
-	int Screen::GetWidth()
+	int Screen::GetWidth() const
 	{
 		return _width;
 	}
     
-	int Screen::GetHeight()
+	int Screen::GetHeight() const
 	{
 		return _height;
 	}
 
-	int Screen::GetColorDepth()
+	int Screen::GetColorDepth() const
 	{
 		return _colorDepth;
 	}
 
-	bool Screen::GetFullscreen()
+	bool Screen::GetFullscreen() const
 	{
 		return _fullscreen;
 	}
 
-	const char* Screen::GetName()
+	const char* Screen::GetName() const
 	{
 		return _name.c_str();
 	}

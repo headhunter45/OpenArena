@@ -25,7 +25,7 @@
 #include "tga.h"
 #include "list.h"
 #ifdef WIN32
-#include "bass.h"	//for audio in windows only this should be replaced by oa_audio
+#include "../lib/bass.h"	//for audio in windows only this should be replaced by oa_audio
 #endif
 #include "vector.h"
 #include "camera.h"
@@ -104,8 +104,8 @@ namespace OpenArena
 		uint32 numTriangles;
 		list<Player> players;
 		list<ENTITY> ents;
-		//list<GL_MY_TEXTURE> textures;
-		Texture* textures;
+		list<Texture> textures;
+		//Texture* textures;
 		Texture menuTextures[NUM_MENU_TEXTURES];
 		Window* _window;
 	

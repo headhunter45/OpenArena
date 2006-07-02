@@ -1,4 +1,4 @@
-#include "../include/vector.h"
+#include "vector.h"
 
 namespace OpenArena{
 	Vec3d::Vec3d()

@@ -1,4 +1,4 @@
-#include "../include/window.h"
+#include "window.h"
 
 #ifdef __linux
 void OpenArena::Window::SwapBuffers()
@@ -143,6 +143,7 @@ bool OpenArena::Window::Open()
 
 	vi = glXChooseVisual(display, screen, attrListDbl);
 	if(vi == NULL)
+	{
 		vi = glXChooseVisual(display, screen, attrListSgl);
 		doubleBuffered = false;
 		printf("Only Singlebuffered Visual!\n");
@@ -433,7 +434,7 @@ bool OpenArena::Window::Open()
 	ShowWindow(window,SW_SHOW);
 	SetForegroundWindow(window);
 	SetFocus(window);
-	OnResize(_width, _height);
+	_resizer->Resize(_width, _height);
 
 	if (!_initializer->Initialize())
 	{

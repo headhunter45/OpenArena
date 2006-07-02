@@ -29,12 +29,12 @@ using namespace std;
 //These this is windows specific
 static HINSTANCE	hInstance;			// Application instance
 #endif
-extern OpenArena::Window g_Screen;
+extern OpenArena::Window* g_Screen;
 //This doesn't need to be here I think
 //int InitGL(GLvoid);
 namespace OpenArena
 {
-	bool LoadGLTexture(string , GLuint, GLuint = GL_LINEAR, GLuint = GL_LINEAR);
+	bool LoadGLTexture(string , GLuint&, GLuint = GL_LINEAR, GLuint = GL_LINEAR);
 	void FreeGLTexture(GLuint);
 };
 #endif

@@ -1,5 +1,5 @@
 #include <cctype>
-#include "../include/strmanip.h"
+#include "strmanip.h"
 
 bool Truth(std::string str)
 {

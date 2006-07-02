@@ -1,4 +1,4 @@
-#include "../include/keys.h"
+#include "keys.h"
 
 char OpenArena::KeyToASCII(Keys key, bool shift)
 {

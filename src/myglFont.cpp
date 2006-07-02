@@ -23,7 +23,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "../include/myglFont.h"
+#include "myglFont.h"
 
 namespace OpenArena
 {
@@ -45,7 +45,7 @@ namespace OpenArena
 	{
 		FreeFont();
 	
-		if(LoadGLTexture(texName, texture, GL_NEAREST, GL_NEAREST))
+		if(OpenArena::LoadGLTexture(texName, texture, GL_NEAREST, GL_NEAREST))
 		{	
 			float x, y;
 			base = glGenLists(256);

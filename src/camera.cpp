@@ -44,7 +44,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "../include/camera.h"
+#include "camera.h"
 
 namespace OpenArena
 {
@@ -71,7 +71,7 @@ namespace OpenArena
 		m_vUpVector = up;
 	}
 	
-	void Camera::SetViewByMouse(Window window)
+	void Camera::SetViewByMouse(const Window* window)
 	{
 		//Remove the ifdef and use the linux section for both linux and windows
 		#ifdef __linux
@@ -112,8 +112,8 @@ namespace OpenArena
 		POINT mpos;
 		POINT middle;
 		double angleZ;
-		middle.x = window.GetWidth() / 2;
-		middle.y = window.GetHeight() / 2;
+		middle.x = window->GetWidth() / 2;
+		middle.y = window->GetHeight() / 2;
 		GetCursorPos(&mpos);
 		SetCursorPos(middle.x, middle.y);							
 		if(mpos.x != middle.x || mpos.y != middle.y)

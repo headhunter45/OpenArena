@@ -24,8 +24,8 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "../include/level.h"
-#include "../include/version.h"
+#include "level.h"
+#include "version.h"
 
 #pragma comment(lib, "bass.lib")
 #ifdef WIN32
@@ -40,7 +40,6 @@ namespace OpenArena
 		_window = NULL;
 		textureNames = NULL;
 		numTextures = 0;
-		textures = NULL;
 	
 		screen.SetName(OPENARENA_VERSION);
 	
@@ -417,12 +416,15 @@ namespace OpenArena
 		}
 		
 		//Free all map textures
+		textures.Clear();
+/*
 		if(textures)
 		{
 			delete [] textures;
 			textures = NULL;
 		}
-	
+*/
+
 		//Free the array of texture names
 		if (textureNames)
 		{
@@ -433,23 +435,22 @@ namespace OpenArena
 	
 	void Level::LoadGLTextures()
 	{
-		printf("In LoadGLTextures: _window = %d\n", _window);
 		if(_window != NULL)
 		{
-			/*
-			GLfloat light[4] = {1.0f,1.0f,1.0f,0.5f};
-			glLightfv(GL_LIGHT1, GL_AMBIENT, light);
+			/*GLfloat light[4] = {1.0f,1.0f,1.0f,0.5f};
+		    glLightfv(GL_LIGHT1, GL_AMBIENT, light);
 			glEnable(GL_LIGHT1);
-			glEnable(GL_LIGHTING);
-			*/
-		
-			if(textures != NULL)
+			glEnable(GL_LIGHTING);*/
+
+			textures.Clear();
+/*			if(textures != NULL)
 			{
 				delete [] textures;
 			}
-		
+
 			textures = new Texture[numTextures];
 		
+*/
 			for(uint32 i=0; i<numTextures; i++)
 			{
 				if(!textures[i].Load(gamedir + "textures/" + textureNames[i]))
@@ -457,7 +458,9 @@ namespace OpenArena
 			}
 		
 			if(!glFont.BuildFont((gamedir + "textures/menu/font.bmp").c_str()))
+			{
 				glFont.BuildFont("oa/textures/menu/font.bmp");
+			}
 	
 			//Load the console background image
 			if(!menuTextures[GL_MY_TEXTURE_CONSOLEBACKGROUND].Load(gamedir + "textures/menu/con_back.tga"))

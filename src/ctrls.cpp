@@ -65,7 +65,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "../include/ctrls.h"
+#include "ctrls.h"
 
 namespace OpenArena{
 	void ControlScheme::LoadDefaultControlScheme()

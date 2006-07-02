@@ -1,4 +1,4 @@
-#include "../include/physics.h"
+#include "physics.h"
 
 WORLD_PHYSICS::WORLD_PHYSICS()
 {

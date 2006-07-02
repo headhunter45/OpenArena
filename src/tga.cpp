@@ -1,5 +1,5 @@
 
-#include "../include/tga.h"
+#include "tga.h"
 #ifdef WIN32
 #pragma warning(disable:4996)
 #endif
