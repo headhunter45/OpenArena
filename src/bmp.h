@@ -7,7 +7,19 @@
 #include "texture.h"
 
 namespace OpenArena{
-	TextureImage* LoadBMP(const char* Filename);
+
+	/*!
+	  * \brief
+	  * BitmapImage implements the Image interface and is used to load *.bmp files.
+	  * 
+	  * BitmapImage implements the Image interface which replaces the soon-to-be-removed TextureImage class.  When complete the texture class will accept an Image as the image to generate the texture from.
+	  * 
+	  * \remarks
+	  * I would like to make GetImageData return a const uint8 * but I'm not yet sure this will be possible.  To create an editable image use the BufferedImage class which as yet hasn't been implemented.  A created BitmapImage is expected to not change once it's created.  Doing so may break functionality or cause a crash.
+	  * 
+	  * \see
+	  * Image
+	  */
 	class BitmapImage: public Image
 	{
 	public:
@@ -19,6 +31,7 @@ namespace OpenArena{
 		virtual uint32 GetHeight() const;
 		virtual Image::Type GetType() const;
 		static BitmapImage* CreateFromFile(const char* filename);
+		static TextureImage* LoadBMP(const char* Filename);
 	private:
 		BitmapImage();
 		BitmapImage(uint32 width, uint32 height, uint32 = 24, Image::Type = Image::Type_RGB);

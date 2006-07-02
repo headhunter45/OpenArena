@@ -26,6 +26,18 @@
 
 namespace OpenArena{
 
+	/*!
+	 * \brief
+	 * Write brief comment for BitmapImage here.
+	 * 
+	 * Write detailed description for BitmapImage here.
+	 * 
+	 * \remarks
+	 * Write remarks for BitmapImage here.
+	 * 
+	 * \see
+	 * Separate items with the '|' character.
+	 */
 	BitmapImage::BitmapImage()
 	{
 		BitmapImage(1, 1);
@@ -222,7 +234,7 @@ namespace OpenArena{
 		return image;
 	}
 
-	TextureImage* LoadBMP(const char* fn)
+	TextureImage* BitmapImage::LoadBMP(const char* fn)
 	{
 		//If anything is not perfect return NULL after cleaning up our mess
 
