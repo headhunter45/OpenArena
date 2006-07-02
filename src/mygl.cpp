@@ -12,7 +12,7 @@ namespace OpenArena
 		if(Right(tolower(fn), 4) == ".bmp")
 		{
 			TextureImage* texImage = NULL;
-			if(texImage = LoadBMP(fn.c_str()))
+			if(texImage = BitmapImage::LoadBMP(fn.c_str()))
 			{
 				glGenTextures(1, &texture);
 				glBindTexture(GL_TEXTURE_2D, texture);
@@ -36,7 +36,7 @@ namespace OpenArena
 		else if(Right(tolower(fn), 4) == ".tga")
 		{
 			TextureImage* texImage = NULL;
-			if(texImage = LoadTGA(fn.c_str()))
+			if(texImage = TargaImage::LoadTGA(fn.c_str()))
 			{
 				glGenTextures(1, &texture);
 				glBindTexture(GL_TEXTURE_2D, texture);
