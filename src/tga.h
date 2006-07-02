@@ -22,6 +22,8 @@ namespace OpenArena{
 	private:
 		TargaImage();
 		TargaImage(uint32 width, uint32 height, uint32 bpp = 24, Image::Type type = Image::Type_RGB);
+		static TextureImage* LoadUncompressedTGA(FILE *);	// Load an Uncompressed file
+		static TextureImage* LoadCompressedTGA(FILE *);		// Load a Compressed file
 		uint32 _width;
 		uint32 _height;
 		uint32 _bpp;
@@ -52,13 +54,12 @@ namespace OpenArena{
 		virtual Image::Type GetType() const;
 		virtual ~TargaImage(void);
 		static TargaImage* CreateFromFile(const char* filename);
+		static TextureImage* LoadTGA(const char *filename);
+
 	};
 
-	TextureImage* LoadTGA(const char *filename);
 
 	const GLubyte uTGAcompare[12] = {0,0,2, 0,0,0,0,0,0,0,0,0};	// Uncompressed TGA Header
 	const GLubyte cTGAcompare[12] = {0,0,10,0,0,0,0,0,0,0,0,0};	// Compressed TGA Header
-	TextureImage* LoadUncompressedTGA(FILE *);	// Load an Uncompressed file
-	TextureImage* LoadCompressedTGA(FILE *);		// Load a Compressed file
 };
 #endif

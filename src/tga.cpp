@@ -64,7 +64,7 @@ namespace OpenArena{
 		TargaImage(1,1);
 	}
 
-	TextureImage* LoadTGA(const char * filename)
+	TextureImage* TargaImage::LoadTGA(const char * filename)
 	{
 		TargaImage::TGAHeader tgaheader;
 		TextureImage* image;
@@ -109,7 +109,7 @@ namespace OpenArena{
 		return image;
 	}
 
-	TextureImage* LoadUncompressedTGA(FILE * fTGA)
+	TextureImage* TargaImage::LoadUncompressedTGA(FILE * fTGA)
 	{
 		TargaImage::TGA tga;
 		TextureImage* image = new TextureImage;
@@ -195,7 +195,7 @@ namespace OpenArena{
 		return image;
 	}
 
-	TextureImage* LoadCompressedTGA(FILE * fTGA)
+	TextureImage* TargaImage::LoadCompressedTGA(FILE * fTGA)
 	{
 		TextureImage* image = new TextureImage;
 		TargaImage::TGA tga;
