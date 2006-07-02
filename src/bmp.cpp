@@ -26,13 +26,13 @@
 
 namespace OpenArena{
 
-	Bitmap::Bitmap()
+	BitmapImage::BitmapImage()
 	{
-		Bitmap(1, 1);
+		BitmapImage(1, 1);
 	}
 
 	
-	Bitmap::Bitmap(uint32 width, uint32 height, uint32 bitsPerPixel, Image::Type type)
+	BitmapImage::BitmapImage(uint32 width, uint32 height, uint32 bitsPerPixel, Image::Type type)
 	{
 		_width = width;
 		_height = height;
@@ -41,49 +41,49 @@ namespace OpenArena{
 		_data = new uint8[_width * _height * (_bpp >> 3)];
 	}
 
-	Bitmap::~Bitmap()
+	BitmapImage::~BitmapImage()
 	{
 		delete [] _data;
 	}
 
-	uint8 * Bitmap::GetImageData() const
+	uint8 * BitmapImage::GetImageData() const
 	{
 		return _data;
 	}
 
-	uint32 Bitmap::GetBitsPerPixel() const
+	uint32 BitmapImage::GetBitsPerPixel() const
 	{
 		return _bpp;
 	}
 
-	uint32 Bitmap::GetBytesPerPixel() const
+	uint32 BitmapImage::GetBytesPerPixel() const
 	{
 		return _bpp >> 3;
 	}
 	
-	uint32 Bitmap::GetWidth() const
+	uint32 BitmapImage::GetWidth() const
 	{
 		return _width;
 	}
 
-	uint32 Bitmap::GetHeight() const
+	uint32 BitmapImage::GetHeight() const
 	{
 		return _height;
 	}
 
-	Image::Type Bitmap::GetType() const
+	Image::Type BitmapImage::GetType() const
 	{
 		return _type;
 	}
 
-	Bitmap* Bitmap::CreateFromFile(const char* filename)
+	BitmapImage* BitmapImage::CreateFromFile(const char* filename)
 	{
 		FILE* file = NULL;	//A file from cstdlib?
 
 		//If our filename is null return an empty 1x1 image
 		if(filename == NULL)
 		{
-			return new Bitmap(1,1);
+			return new BitmapImage(1,1);
 		}
 
 		//Try to open the file
@@ -92,7 +92,7 @@ namespace OpenArena{
 		//If the open failed return an empry 1x1 image
 		if(file == NULL)
 		{
-			return new Bitmap(1,1);
+			return new BitmapImage(1,1);
 		}
 
 		BITMAP_HEADER bmpHeader;
@@ -153,7 +153,7 @@ namespace OpenArena{
 			return NULL;
 		}
 
-		Bitmap* image = new Bitmap(bmpInfo.width, bmpInfo.height, bmpInfo.bitCount, (Type)GL_RGB);
+		BitmapImage* image = new BitmapImage(bmpInfo.width, bmpInfo.height, bmpInfo.bitCount, (Type)GL_RGB);
 
 		numPixels = image->GetWidth() * image->GetHeight();
 
@@ -237,9 +237,9 @@ namespace OpenArena{
 		f=fopen(fn, "rb");
 		if(f)
 		{
-			Bitmap::BITMAP_HEADER bmpHeader;
-			Bitmap::BITMAP_INFO bmpInfo;
-			Bitmap::BITMAP_QUAD* bmpPallette = NULL;
+			BitmapImage::BITMAP_HEADER bmpHeader;
+			BitmapImage::BITMAP_INFO bmpInfo;
+			BitmapImage::BITMAP_QUAD* bmpPallette = NULL;
 			uint32 palletteEntries = 0;
 
 			fread(&bmpHeader, sizeof(bmpHeader), 1, f);
@@ -312,8 +312,8 @@ namespace OpenArena{
 			{
 				//Load the pallette
 				palletteEntries = bmpInfo.bitCount << 8;
-				bmpPallette = new Bitmap::BITMAP_QUAD[palletteEntries];
-				fread(bmpPallette, sizeof(Bitmap::BITMAP_QUAD), palletteEntries, f);
+				bmpPallette = new BitmapImage::BITMAP_QUAD[palletteEntries];
+				fread(bmpPallette, sizeof(BitmapImage::BITMAP_QUAD), palletteEntries, f);
 			}
 
 			fseek(f, bmpHeader.offset, SEEK_SET);

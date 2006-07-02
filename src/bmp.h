@@ -8,20 +8,20 @@
 
 namespace OpenArena{
 	TextureImage* LoadBMP(const char* Filename);
-	class Bitmap :Image
+	class BitmapImage: public Image
 	{
 	public:
-		virtual ~Bitmap();
+		virtual ~BitmapImage();
 		virtual uint8 * GetImageData() const;
 		virtual uint32 GetBitsPerPixel() const;
 		virtual uint32 GetBytesPerPixel() const;
 		virtual uint32 GetWidth() const;
 		virtual uint32 GetHeight() const;
 		virtual Image::Type GetType() const;
-		static Bitmap* CreateFromFile(const char* filename);
+		static BitmapImage* CreateFromFile(const char* filename);
 	private:
-		Bitmap();
-		Bitmap(uint32 width, uint32 height, uint32 = 24, Image::Type = Image::Type_RGB);
+		BitmapImage();
+		BitmapImage(uint32 width, uint32 height, uint32 = 24, Image::Type = Image::Type_RGB);
 		uint8* _data;
 		uint32 _width;
 		uint32 _height;
