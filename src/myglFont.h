@@ -11,7 +11,7 @@ namespace OpenArena
 		short screenWidth;
 		short screenHeight;
 		unsigned int base;
-		unsigned int texture;
+		GLuint texture;
 		bool status;
 	
 	public:

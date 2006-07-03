@@ -9,11 +9,11 @@ namespace OpenArena
 	{
 	public:
 		Screen();
-		int GetWidth() const;
-		int GetHeight() const;
-		int GetColorDepth() const;
-		bool GetFullscreen() const;
-		const char* GetName() const;
+		int GetWidth();
+		int GetHeight();
+		int GetColorDepth();
+		bool GetFullscreen();
+		const char* GetName();
 		void SetWidth(int);
 		void SetHeight(int);
 		void Resize(int, int);

@@ -64,7 +64,7 @@ namespace OpenArena
 		//	Rotates the camera by angle degrees about the axis specified by the given components.
 		//		Works the same as glRotatef(angle, X, Y, Z).
 	
-		void SetViewByMouse(const Window* window);
+		void SetViewByMouse(Window window);
 		//Purpose:
 		//	Updates the view Vector based on the change in mouse position since the last time it was called.
 	
