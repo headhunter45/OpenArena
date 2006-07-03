@@ -26,215 +26,58 @@
 
 namespace OpenArena{
 
-	/*!
-	 * \brief
-	 * Write brief comment for BitmapImage here.
-	 * 
-	 * Write detailed description for BitmapImage here.
-	 * 
-	 * \remarks
-	 * Write remarks for BitmapImage here.
-	 * 
-	 * \see
-	 * Separate items with the '|' character.
-	 */
-	BitmapImage::BitmapImage()
+#pragma pack(push,1)
+	struct BITMAP_HEADER
 	{
-		BitmapImage(1, 1);
+		uint16 type;
+		uint32 size;
+		uint16 reserved1;
+		uint16 reserved2;
+		uint32 offset;
+	};
+
+	struct BITMAP_INFO
+	{
+		uint32 size;
+		uint32 width;
+		uint32 height;
+		uint16 planes;
+		uint16 bitCount;
+		uint32 compression;
+		uint32 sizeImage;
+		uint32 xPelsPerMeter;
+		uint32 yPelsPerMeter;
+		uint32 clrUsed;
+		uint32 clrImportant;
+	};
+
+	struct BITMAP_QUAD
+	{
+		uint8 blue;
+		uint8 green;
+		uint8 red;
+		uint8 reserved;
+	};
+#pragma pack(pop)
+
+#define BITMAP_MAGIC 19778
+
+	void PrintBMPHeader(BITMAP_HEADER header)
+	{
+		printf("Header\n");	
+		printf("Type: %X\nSize: %X\nReserved1: %X\nReserved2: %X\nOffset:%X\n", header.type, header.size, header.reserved1, header.reserved2, header.offset);
 	}
 
-	
-	BitmapImage::BitmapImage(uint32 width, uint32 height, uint32 bitsPerPixel, Image::Type type)
+	void PrintBMPInfo(BITMAP_INFO info)
 	{
-		_width = width;
-		_height = height;
-		_bpp = bitsPerPixel;
-		_type = type;
-		_data = new uint8[_width * _height * (_bpp >> 3)];
+		printf("Info\n");
+		printf("Size: %X\nWidth: %X\nHeight:%X\n", info.size, info.width, info.height);
+		printf("Planes: %X\nBitCount: %X\nCompression: %X\n", info.planes, info.bitCount, info.compression);
+		printf("SizeImage: %X\nXPelsPerMeter: %X\nYPelsPerMeter: %X\n", info.sizeImage, info.xPelsPerMeter, info.yPelsPerMeter);
+		printf("ClrUsed: %X\nClrImportant: %X\n", info.clrUsed, info.clrImportant);
 	}
 
-	BitmapImage::~BitmapImage()
-	{
-		delete [] _data;
-	}
-
-	uint8 * BitmapImage::GetImageData() const
-	{
-		return _data;
-	}
-
-	uint32 BitmapImage::GetBitsPerPixel() const
-	{
-		return _bpp;
-	}
-
-	uint32 BitmapImage::GetBytesPerPixel() const
-	{
-		return _bpp >> 3;
-	}
-	
-	uint32 BitmapImage::GetWidth() const
-	{
-		return _width;
-	}
-
-	uint32 BitmapImage::GetHeight() const
-	{
-		return _height;
-	}
-
-	Image::Type BitmapImage::GetType() const
-	{
-		return _type;
-	}
-
-	BitmapImage* BitmapImage::CreateFromFile(const char* filename)
-	{
-		FILE* file = NULL;	//A file from cstdlib?
-
-		//If our filename is null return an empty 1x1 image
-		if(filename == NULL)
-		{
-			return new BitmapImage(1,1);
-		}
-
-		//Try to open the file
-		file = fopen(filename, "rb");
-
-		//If the open failed return an empry 1x1 image
-		if(file == NULL)
-		{
-			return new BitmapImage(1,1);
-		}
-
-		BITMAP_HEADER bmpHeader;
-		BITMAP_INFO bmpInfo;
-		BITMAP_QUAD* pallette = NULL;
-		uint32 numPalletteEntries = 0;
-		uint32 numPixels;
-
-		//Read the header from the file
-		fread(&bmpHeader, sizeof(bmpHeader), 1, file);
-		fread(&bmpInfo, sizeof(bmpInfo), 1, file);
-
-		//Check for an invalid header
-		if(bmpInfo.width < 0)	//See if the width is negative
-		{
-			//This needs to be abstracted somehow
-#ifdef WIN32
-			MessageBox(NULL, "Image width is negative", "ERROR", MB_OK);
-#endif
-			fclose(file);
-			return NULL;
-		}
-		if(bmpInfo.width % 4 != 0) //If the width is not a multiple of 4
-		{
-			//This needs to be abstracted somehow
-#ifdef WIN32
-			MessageBox(NULL, "Image width must be a multiple of 8", "ERROR", MB_OK);
-#endif
-			fclose(file);
-			return NULL;
-		}
-
-		if(bmpInfo.height < 0) //If the height is negative
-		{
-			//This needs to be abstracted somehow
-#ifdef WIN32
-			MessageBox(NULL, "Image height is negative", "ERROR", MB_OK);
-#endif
-			fclose(file);
-			return NULL;
-		}
-		if(bmpInfo.height % 4 != 0)	//If the height is not a multiple of 4
-		{
-			//This needs to be abstracted somehow
-#ifdef WIN32
-			MessageBox(NULL, "Image height must be a multiple of 8", "ERROR", MB_OK);
-#endif
-			fclose(file);
-			return NULL;
-		}
-
-		if((bmpInfo.bitCount != 8 && bmpInfo.bitCount != 24) || bmpInfo.compression != 0)  //Make sure the file is 8 or 24 bit and uncompressed
-		{			//This needs to be abstracted somehow
-#ifdef WIN32
-			MessageBox(NULL, "Only 8 and 24 bit uncompressed windows bmp files are currently supported", "ERROR", MB_OK);
-#endif
-			fclose(file);
-			return NULL;
-		}
-
-		BitmapImage* image = new BitmapImage(bmpInfo.width, bmpInfo.height, bmpInfo.bitCount, (Type)GL_RGB);
-
-		numPixels = image->GetWidth() * image->GetHeight();
-
-		//If 8-bit load the pallette
-		if(image->GetBitsPerPixel() == 8)
-		{
-			//TODO finish this
-			numPalletteEntries = image->GetBytesPerPixel();
-			pallette = new BITMAP_QUAD[numPalletteEntries];
-//			fread(pallette, sizeof(OpenArena::Bitmap::BITMAP_QUAD), pallette, file);
-		}
-
-		//Seek to the start of data
-		fseek(file, bmpHeader.offset, SEEK_SET);
-		
-		//Read the image data
-		fread(image->_data, numPixels * image->GetBytesPerPixel(), 1, file);
-
-		//If 8-bit apply the pallette
-		if(image->GetBitsPerPixel() == 8)
-		{
-			//TODO finish this
-			uint32 i1, i2;
-			for(i1=0; i1<numPixels; i1++)
-			{
-				i2 = (i1 << 1) + 1;
-				if(image->_data[i1] < numPalletteEntries)
-				{
-					image->_data[i2] = pallette[image->_data[i1]].red;
-					image->_data[i2+1] = pallette[image->_data[i1]].blue;
-					image->_data[i2+2] = pallette[image->_data[i1]].green;
-				}
-			}
-			//uint8* image = tex->data;
-			//tex->bpp = 24;
-			//bytes = pixels * tex->bpp;
-			//tex->data = new uint8[bytes];
-
-			//uint32 i;
-			//uint32 i2;
-			//for(i=0; i<pixels; i++)
-			//{
-			//	i2 = (i << 1) + 1;
-			//	//Should make sure image[i] < palletteEntries
-			//	tex->data[i2] = bmpPallette[image[i]].red;
-			//	tex->data[i2 + 1] = bmpPallette[image[i]].blue;
-			//	tex->data[i2 + 2] = bmpPallette[image[i]].green;
-			//}
-			//delete [] image;
-			//image = NULL;
-		}
-		else if(image->GetBitsPerPixel() == 24)
-		{
-			//Convert to rgb
-			uint32 i;
-			uint8 swap;
-
-			for(i=0; i<numPixels * image->GetBytesPerPixel(); i+=3)
-			{
-				swap = image->_data[i];
-				image->_data[i] = image->_data[i+2];
-				image->_data[i+2] = swap;
-			}
-		}
-
-		return image;
-	}
-
-	TextureImage* BitmapImage::LoadBMP(const char* fn)
+	TextureImage* LoadBMP(const char* fn)
 	{
 		//If anything is not perfect return NULL after cleaning up our mess
 
@@ -242,20 +85,86 @@ namespace OpenArena{
 
 		//If our filename is null
 		if(!fn)
+		{
 			return NULL;
+		}
 
 		//Try to open our file and if successfull...
 
 		f=fopen(fn, "rb");
 		if(f)
 		{
-			BitmapImage::BITMAP_HEADER bmpHeader;
-			BitmapImage::BITMAP_INFO bmpInfo;
-			BitmapImage::BITMAP_QUAD* bmpPallette = NULL;
+			BITMAP_HEADER bmpHeader;
+			BITMAP_INFO bmpInfo;
+			BITMAP_QUAD* bmpPallette = NULL;
 			uint32 palletteEntries = 0;
 
 			fread(&bmpHeader, sizeof(bmpHeader), 1, f);
+			#if __BYTE_ORDER == __BIG_ENDIAN
+			//If big endian reorder bytes
+			bmpHeader.type = ((bmpHeader.type & 0xff00) >> 8) |
+							((bmpHeader.type & 0x00ff) << 8);
+			bmpHeader.size = (bmpHeader.size & 0xff000000) >> 24 |
+							(bmpHeader.size & 0x00ff0000) >> 8 |
+							(bmpHeader.size & 0x0000ff00) << 8 |
+							(bmpHeader.size & 0x000000ff) << 24;
+			bmpHeader.reserved1 = ((bmpHeader.reserved1 & 0xff00) >> 8) |
+							((bmpHeader.reserved1 & 0x00ff) << 8);
+			bmpHeader.reserved2 = ((bmpHeader.reserved2 & 0xff00) >> 8) |
+							((bmpHeader.reserved2 & 0x00ff) << 8);
+			bmpHeader.offset = (bmpHeader.offset & 0xff000000) >> 24 |
+							(bmpHeader.offset & 0x00ff0000) >> 8 |
+							(bmpHeader.offset & 0x0000ff00) << 8 |
+							(bmpHeader.offset & 0x000000ff) << 24;
+			#endif
+			PrintBMPHeader(bmpHeader);
+			
 			fread(&bmpInfo, sizeof(bmpInfo), 1, f);
+			#if __BYTE_ORDER == __BIG_ENDIAN
+			//If big endian reorder bytes
+			bmpInfo.size = (bmpInfo.size & 0xff000000) >> 24 |
+							(bmpInfo.size & 0x00ff0000) >> 8 |
+							(bmpInfo.size & 0x0000ff00) << 8 |
+							(bmpInfo.size & 0x000000ff) << 24;
+			bmpInfo.width = (bmpInfo.width & 0xff000000) >> 24 |
+							(bmpInfo.width & 0x00ff0000) >> 8 |
+							(bmpInfo.width & 0x0000ff00) << 8 |
+							(bmpInfo.width & 0x000000ff) << 24;
+			bmpInfo.height = (bmpInfo.height & 0xff000000) >> 24 |
+							(bmpInfo.height & 0x00ff0000) >> 8 |
+							(bmpInfo.height & 0x0000ff00) << 8 |
+							(bmpInfo.height & 0x000000ff) << 24;
+			bmpInfo.planes = ((bmpInfo.planes & 0xff00) >> 8) |
+							((bmpInfo.planes & 0x00ff) << 8);
+			bmpInfo.bitCount = ((bmpInfo.bitCount & 0xff00) >> 8) |
+							((bmpInfo.bitCount & 0x00ff) << 8);
+			bmpInfo.compression = (bmpInfo.compression & 0xff000000) >> 24 |
+							(bmpInfo.compression & 0x00ff0000) >> 8 |
+							(bmpInfo.compression & 0x0000ff00) << 8 |
+							(bmpInfo.compression & 0x000000ff) << 24;
+			bmpInfo.sizeImage = (bmpInfo.sizeImage & 0xff000000) >> 24 |
+							(bmpInfo.sizeImage & 0x00ff0000) >> 8 |
+							(bmpInfo.sizeImage & 0x0000ff00) << 8 |
+							(bmpInfo.sizeImage & 0x000000ff) << 24;
+			bmpInfo.xPelsPerMeter = (bmpInfo.xPelsPerMeter & 0xff000000) >> 24 |
+							(bmpInfo.xPelsPerMeter & 0x00ff0000) >> 8 |
+							(bmpInfo.xPelsPerMeter & 0x0000ff00) << 8 |
+							(bmpInfo.xPelsPerMeter & 0x000000ff) << 24;
+			bmpInfo.yPelsPerMeter = (bmpInfo.yPelsPerMeter & 0xff000000) >> 24 |
+							(bmpInfo.yPelsPerMeter & 0x00ff0000) >> 8 |
+							(bmpInfo.yPelsPerMeter & 0x0000ff00) << 8 |
+							(bmpInfo.yPelsPerMeter & 0x000000ff) << 24;
+			bmpInfo.clrUsed = (bmpInfo.clrUsed & 0xff000000) >> 24 |
+							(bmpInfo.clrUsed & 0x00ff0000) >> 8 |
+							(bmpInfo.clrUsed & 0x0000ff00) << 8 |
+							(bmpInfo.clrUsed & 0x000000ff) << 24;
+			bmpInfo.clrImportant = (bmpInfo.clrImportant & 0xff000000) >> 24 |
+							(bmpInfo.clrImportant & 0x00ff0000) >> 8 |
+							(bmpInfo.clrImportant & 0x0000ff00) << 8 |
+							(bmpInfo.clrImportant & 0x000000ff) << 24;		
+			#endif
+			PrintBMPInfo(bmpInfo);
+					
 
 			if(bmpInfo.width < 0)
 			{
@@ -324,8 +233,8 @@ namespace OpenArena{
 			{
 				//Load the pallette
 				palletteEntries = bmpInfo.bitCount << 8;
-				bmpPallette = new BitmapImage::BITMAP_QUAD[palletteEntries];
-				fread(bmpPallette, sizeof(BitmapImage::BITMAP_QUAD), palletteEntries, f);
+				bmpPallette = new BITMAP_QUAD[palletteEntries];
+				fread(bmpPallette, sizeof(BITMAP_QUAD), palletteEntries, f);
 			}
 
 			fseek(f, bmpHeader.offset, SEEK_SET);

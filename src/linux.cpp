@@ -30,8 +30,8 @@
 #ifdef __linux
 
 //include necessary header files
-#include "../include/main.h"
-#include "../include/version.h"
+#include "main.h"
+#include "version.h"
 using namespace std;
 
 void InitControls();
@@ -122,15 +122,6 @@ int main(int argc, char** argv)
 
 	level.glFont.SetScreenDimensions(level.screen.GetWidth()*2, level.screen.GetHeight()*2);
 
-	if(level.nextLevel == "")
-	{
-		level.LoadMap("intro.map");
-	}
-	else
-	{
-		level.LoadMap();
-	}
-
 	//Hack for now
 	if(level.screen.GetColorDepth() == 32)
 	{
@@ -146,6 +137,15 @@ int main(int argc, char** argv)
 	}
 
 	level.SetWindow(g_Screen);
+
+	if(level.nextLevel == "")
+	{
+		level.LoadMap("intro.map");
+	}
+	else
+	{
+		level.LoadMap();
+	}
 	
 	while(!done)
 	{

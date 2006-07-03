@@ -250,10 +250,9 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 		level.LoadMap();
 	}
 
-	g_Screen = g_PluginManager.GetDefaultVideoPlugin()->CreateNewWindow(level.screen.GetWidth(), level.screen.GetHeight());
-	g_Screen->SetInitializer(new OpenArena::Window::Initializer());
-	g_Screen->SetResizer(new OpenArena::Window::Resizer());
-	if (!g_Screen->Open(string(OPENARENA_VERSION), level.screen.GetWidth(), level.screen.GetHeight(), level.screen.GetColorDepth(), level.screen.GetFullscreen()))
+	g_Screen.SetOnInit(InitGL);
+	g_Screen.SetOnResize(ReSizeGLScene);
+	if (!g_Screen.Open(string(OPENARENA_VERSION), level.screen.GetWidth(), level.screen.GetHeight(), level.screen.GetColorDepth(), level.screen.GetFullscreen()))
 	{
 		return 0;
 	}
@@ -293,7 +292,7 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 					}
 					else
 					{
-						SetCursorPos(g_Screen->GetWidth()/2, g_Screen->GetHeight()/2);
+						SetCursorPos(g_Screen.GetWidth()/2, g_Screen.GetHeight()/2);
 					}
 
 					//////////
@@ -580,14 +579,14 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 			}
 		}
 
-		g_Screen->SwapBuffers();
+		g_Screen.SwapBuffers();
 
 		if (keys[OpenArena::KEY_F1])
 		{
 			keys[OpenArena::KEY_F1]=false;
-			g_Screen->Close();
-			g_Screen->ToggleFullscreen();
-			if (!g_Screen->Open("OpenArena",g_Screen->GetWidth(),g_Screen->GetHeight(),g_Screen->GetColorDepth(),g_Screen->GetFullscreen()))
+			g_Screen.Close();
+			g_Screen.ToggleFullscreen();
+			if (!g_Screen.Open("OpenArena",g_Screen.GetWidth(),g_Screen.GetHeight(),g_Screen.GetColorDepth(),g_Screen.GetFullscreen()))
 			{
 				return 0;
 			}
@@ -595,7 +594,7 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 	}
 
 	level.UnloadMap();
-	g_Screen->Close();
+	g_Screen.Close();
 	return (msg.wParam);
 }
 

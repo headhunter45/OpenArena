@@ -2,7 +2,6 @@
 CPP = g++ -g
 INCLUDES = 
 LD = g++
-INCLUDEPATH = ../include
 X11INCLUDEDIR = /usr/X11R6/include
 X11LIBDIR = /usr/X11R6/lib
 INCLUDE_DIRS = -I$(X11INCLUDEDIR)
@@ -13,10 +12,10 @@ LIBRARIES =
 SO_LIBS = 
 SO_LIBRARIES = oa_game.so oa_audio.so oa_net.so oa_video.so oa_input.so
 CPPFLAGS = $(INCLUDE_DIRS)
-LDFLAGS = $(LIBS)
+LDFLAGS = $(LIBS) -bind_at_load --disable-framework=/Library/Frameworks/OpenGL
 .Phony: all clean install
 
-all: ../OpenArena/OpenArena
+all: ../OpenArena
 
 clean: 
 	rm -f *.o
@@ -25,8 +24,8 @@ clean:
 install:
 
 #Executables
-../OpenArena/OpenArena: $(OBJECTS)
-	$(LD) $(LDFLAGS) $(INCLUDE_DIRS) -o ../OpenArena/OpenArena $(OBJECTS)
+../OpenArena: $(OBJECTS)
+	$(LD) $(LDFLAGS) $(INCLUDE_DIRS) -o ../OpenArena $(OBJECTS)
 
 #Dynamic Libraries
 oa_game.so:
@@ -40,50 +39,50 @@ oa_video.so:
 oa_input.so:
 
 #Object Files
-screen.o: screen.cpp $(INCLUDEPATH)/screen.h
+screen.o: screen.cpp screen.h
 	$(CPP) -c $(INCLUDE_DIRS) -o screen.o screen.cpp
 
-bmp.o: bmp.cpp $(INCLUDEPATH)/bmp.h $(INCLUDEPATH)/mygl.h $(INCLUDEPATH)/datatypes.h $(INCLUDEPATH)/texture.h
+bmp.o: bmp.cpp bmp.h mygl.h datatypes.h texture.h
 	$(CPP) -c $(INCLUDE_DIRS) -o bmp.o bmp.cpp
 	
-camera.o: camera.cpp $(INCLUDEPATH)/camera.h $(INCLUDEPATH)/vector.h $(INCLUDEPATH)/mygl.h $(INCLUDEPATH)/screen.h
+camera.o: camera.cpp camera.h vector.h mygl.h screen.h
 	$(CPP) -c $(INCLUDE_DIRS) -o camera.o camera.cpp
 
-ctrls.o: ctrls.cpp $(INCLUDEPATH)/ctrls.h $(INCLUDEPATH)/keys.h $(INCLUDEPATH)/physics.h $(INCLUDEPATH)/datatypes.h $(INCLUDEPATH)/list.h
+ctrls.o: ctrls.cpp ctrls.h keys.h physics.h datatypes.h list.h
 	$(CPP) -c $(INCLUDE_DIRS) -o ctrls.o ctrls.cpp
 
-level.o: level.cpp $(INCLUDEPATH)/level.h $(INCLUDEPATH)/version.h
+level.o: level.cpp level.h version.h
 	$(CPP) -c $(INCLUDE_DIRS) -o level.o level.cpp
 	
-mygl.o: mygl.cpp $(INCLUDEPATH)/mygl.h
+mygl.o: mygl.cpp mygl.h
 	$(CPP) -c $(INCLUDE_DIRS) -o mygl.o mygl.cpp
 
-myglFont.o: myglFont.cpp $(INCLUDEPATH)/myglFont.h
+myglFont.o: myglFont.cpp myglFont.h
 	$(CPP) -c $(INCLUDE_DIRS) -o myglFont.o myglFont.cpp
 
-myglTexture.o: myglTexture.cpp $(INCLUDEPATH)/myglTexture.h
+myglTexture.o: myglTexture.cpp myglTexture.h
 	$(CPP) -c $(INCLUDE_DIRS) -o myglTexture.o myglTexture.cpp
 
-physics.o: physics.cpp $(INCLUDEPATH)/physics.h
+physics.o: physics.cpp physics.h
 	$(CPP) -c $(INCLUDE_DIRS) -o physics.o physics.cpp
 
-player.o: player.cpp $(INCLUDEPATH)/player.h
+player.o: player.cpp player.h
 	$(CPP) -c $(INCLUDE_DIRS) -o player.o player.cpp
 
-strmanip.o: strmanip.cpp $(INCLUDEPATH)/strmanip.h
+strmanip.o: strmanip.cpp strmanip.h
 	$(CPP) -c $(INCLUDE_DIRS) -o strmanip.o strmanip.cpp
 
-tga.o: tga.cpp $(INCLUDEPATH)/tga.h
+tga.o: tga.cpp tga.h
 	$(CPP) -c $(INCLUDE_DIRS) -o tga.o tga.cpp
 
-vector.o: vector.cpp $(INCLUDEPATH)/vector.h
+vector.o: vector.cpp vector.h
 	$(CPP) -c $(INCLUDE_DIRS) -o vector.o vector.cpp
 
-window.o: window.cpp $(INCLUDEPATH)/window.h
+window.o: window.cpp window.h
 	$(CPP) -c $(INCLUDE_DIRS) -o window.o window.cpp
 	
-keys.o: keys.cpp $(INCLUDEPATH)/keys.h
+keys.o: keys.cpp keys.h
 	$(CPP) -c $(INCLUDE_DIRS) -o keys.o keys.cpp
 
-main.o: macosx.cpp $(INCLUDEPATH)/main.h
+main.o: macosx.cpp main.h
 	$(CPP) -c $(INCLUDE_DIRS) -o main.o macosx.cpp

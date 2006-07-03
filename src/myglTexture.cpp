@@ -43,7 +43,7 @@ namespace OpenArena
 		}
 		else
 		{
-			id=0xFFFFFFFF;
+			id = 0xFFFFFFFF;
 			return false;
 		}
 	}
@@ -83,31 +83,31 @@ namespace OpenArena
 	
 	bool Texture::operator<(const Texture& rtOp)
 	{
-		return id<rtOp.id;
+		return id < rtOp.id;
 	}
 	
 	bool Texture::operator<=(const Texture& rtOp)
 	{
-		return id<=rtOp.id;
+		return id<= rtOp.id;
 	}
 	
 	bool Texture::operator==(const Texture& rtOp)
 	{
-		return id==rtOp.id;
+		return id== rtOp.id;
 	}
 	
 	bool Texture::operator!=(const Texture& rtOp)
 	{
-		return id!=rtOp.id;
+		return id!= rtOp.id;
 	}
 	
 	bool Texture::operator>=(const Texture& rtOp)
 	{
-		return id>=rtOp.id;
+		return id>= rtOp.id;
 	}
 	
 	bool Texture::operator>(const Texture& rtOp)
 	{
-		return id>rtOp.id;
+		return id> rtOp.id;
 	}
 };

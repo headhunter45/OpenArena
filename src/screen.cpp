@@ -11,27 +11,27 @@ namespace OpenArena
 		_name = "";
 	}
 
-	int Screen::GetWidth() const
+	int Screen::GetWidth()
 	{
 		return _width;
 	}
     
-	int Screen::GetHeight() const
+	int Screen::GetHeight()
 	{
 		return _height;
 	}
 
-	int Screen::GetColorDepth() const
+	int Screen::GetColorDepth()
 	{
 		return _colorDepth;
 	}
 
-	bool Screen::GetFullscreen() const
+	bool Screen::GetFullscreen()
 	{
 		return _fullscreen;
 	}
 
-	const char* Screen::GetName() const
+	const char* Screen::GetName()
 	{
 		return _name.c_str();
 	}

@@ -45,7 +45,7 @@ namespace OpenArena
 	{
 		FreeFont();
 	
-		if(OpenArena::LoadGLTexture(texName, texture, GL_NEAREST, GL_NEAREST))
+		if(LoadGLTexture(texName, texture, GL_NEAREST, GL_NEAREST))
 		{	
 			float x, y;
 			base = glGenLists(256);

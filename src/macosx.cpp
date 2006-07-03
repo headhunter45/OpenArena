@@ -30,8 +30,8 @@
 #ifdef __APPLE__
 
 //include necessary header files
-#include "../include/main.h"
-#include "../include/version.h"
+#include "main.h"
+#include "version.h"
 using namespace std;
 
 //void InitControls();

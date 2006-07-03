@@ -1,18 +1,17 @@
-
 #include "mygl.h"
 namespace OpenArena
 {
-	void FreeGLTexture(GLuint& texture)
+	void FreeGLTexture(GLuint texture)
 	{
 		glDeleteTextures(1, &texture);
 	}
 	
-	bool LoadGLTexture(string fn, GLuint& texture, GLuint mag, GLuint min)
+	bool LoadGLTexture(string fn, GLuint texture, GLuint mag, GLuint min)
 	{
 		if(Right(tolower(fn), 4) == ".bmp")
 		{
 			TextureImage* texImage = NULL;
-			if(texImage = BitmapImage::LoadBMP(fn.c_str()))
+			if(texImage = LoadBMP(fn.c_str()))
 			{
 				glGenTextures(1, &texture);
 				glBindTexture(GL_TEXTURE_2D, texture);
@@ -36,7 +35,7 @@ namespace OpenArena
 		else if(Right(tolower(fn), 4) == ".tga")
 		{
 			TextureImage* texImage = NULL;
-			if(texImage = TargaImage::LoadTGA(fn.c_str()))
+			if(texImage = LoadTGA(fn.c_str()))
 			{
 				glGenTextures(1, &texture);
 				glBindTexture(GL_TEXTURE_2D, texture);
@@ -64,4 +63,4 @@ namespace OpenArena
 	}
 };
 	
-OpenArena::Window* g_Screen = NULL;
+OpenArena::Window g_Screen;
