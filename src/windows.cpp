@@ -239,6 +239,14 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 
 	InitControls();
 
+	g_Screen.SetInitializer(new OpenArena::Window::Initializer());
+	g_Screen.SetResizer(new OpenArena::Window::Resizer());
+	if (!g_Screen.Open(string(OPENARENA_VERSION), level.screen.GetWidth(), level.screen.GetHeight(), level.screen.GetColorDepth(), level.screen.GetFullscreen()))
+	{
+		return 0;
+	}
+
+	level.SetWindow(&g_Screen);
 	level.glFont.SetScreenDimensions(level.screen.GetWidth()*2, level.screen.GetHeight()*2);
 	//level.glFont.BuildFont("oa\\textures\\menu\\font.bmp");//(level.gamedir + "\\textures\\menu\\font.bmp").c_str());
 	if (level.nextLevel == "")
@@ -250,15 +258,6 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 		level.LoadMap();
 	}
 
-	g_Screen.SetOnInit(InitGL);
-	g_Screen.SetOnResize(ReSizeGLScene);
-	if (!g_Screen.Open(string(OPENARENA_VERSION), level.screen.GetWidth(), level.screen.GetHeight(), level.screen.GetColorDepth(), level.screen.GetFullscreen()))
-	{
-		return 0;
-	}
-
-	level.SetWindow(g_Screen);
-	
 	while(!done)
 	{
 		while (PeekMessage(&msg,NULL,0,0,PM_REMOVE))

@@ -40,7 +40,6 @@ namespace OpenArena
 		_window = NULL;
 		textureNames = NULL;
 		numTextures = 0;
-		textures = NULL;
 	
 		screen.SetName(OPENARENA_VERSION);
 	
@@ -298,7 +297,7 @@ namespace OpenArena
 	
 		for (uint32 i=0; i<numTriangles; i++)
 		{
-			glBindTexture(GL_TEXTURE_2D, textures[triangles[i].texID].ID());//Bind this triangle's texture
+			glBindTexture(GL_TEXTURE_2D, textures[triangles[i].texID]->ID());//Bind this triangle's texture
 			glBegin(GL_TRIANGLES);
 	//		glNormal3f((GLfloat)triangles[i].normal.x, (GLfloat)triangles[i].normal.y, (GLfloat)triangles[i].normal.z);
 			for (uint32 i2=0; i2<3; i2++)
@@ -417,11 +416,11 @@ namespace OpenArena
 		}
 		
 		//Free all map textures
-		if(textures)
+		if(!textures.IsEmpty())
 		{
-			delete [] textures;
-			textures = NULL;
+			//TODOiterate over list and delete all entries
 		}
+		textures.Clear();
 	
 		//Free the array of texture names
 		if (textureNames)
@@ -443,17 +442,14 @@ namespace OpenArena
 			glEnable(GL_LIGHTING);
 			*/
 		
-			if(textures != NULL)
-			{
-				delete [] textures;
-			}
-		
-			textures = new Texture[numTextures];
+			textures.Clear();		
 		
 			for(uint32 i=0; i<numTextures; i++)
 			{
-				if(!textures[i].Load(gamedir + "textures/" + textureNames[i]))
-					textures[i].Load(DEFAULT_TEXTURE_NAME);
+				Texture* texture = new Texture();
+				if(!texture->Load(gamedir + "textures/" + textureNames[i]))
+					texture->Load(DEFAULT_TEXTURE_NAME);
+				textures[i] = texture;
 			}
 		
 			if(!glFont.BuildFont((gamedir + "textures/menu/font.bmp").c_str()))

@@ -105,7 +105,9 @@ namespace OpenArena{
 			uint32 palletteEntries = 0;
 
 			fread(&bmpHeader, sizeof(bmpHeader), 1, f);
-			#if __BYTE_ORDER == __BIG_ENDIAN
+			byte t[2] = {1,0};
+			if( *((short*)t) !=1)
+			{
 			//If big endian reorder bytes
 			bmpHeader.type = ((bmpHeader.type & 0xff00) >> 8) |
 							((bmpHeader.type & 0x00ff) << 8);
@@ -121,11 +123,12 @@ namespace OpenArena{
 							(bmpHeader.offset & 0x00ff0000) >> 8 |
 							(bmpHeader.offset & 0x0000ff00) << 8 |
 							(bmpHeader.offset & 0x000000ff) << 24;
-			#endif
+			}
 			PrintBMPHeader(bmpHeader);
 			
 			fread(&bmpInfo, sizeof(bmpInfo), 1, f);
-			#if __BYTE_ORDER == __BIG_ENDIAN
+			if( *((short*)t) !=1)
+			{
 			//If big endian reorder bytes
 			bmpInfo.size = (bmpInfo.size & 0xff000000) >> 24 |
 							(bmpInfo.size & 0x00ff0000) >> 8 |
@@ -167,7 +170,7 @@ namespace OpenArena{
 							(bmpInfo.clrImportant & 0x00ff0000) >> 8 |
 							(bmpInfo.clrImportant & 0x0000ff00) << 8 |
 							(bmpInfo.clrImportant & 0x000000ff) << 24;		
-			#endif
+			}
 			PrintBMPInfo(bmpInfo);
 					
 

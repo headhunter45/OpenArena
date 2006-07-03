@@ -34,32 +34,6 @@ TextureImage* LoadTGA(const char * filename)
 			fclose(file);
 		return NULL;
 	}
-	#if __BYTE_ORDER == __BIG_ENDIAN
-	/*	This doesnt need to be done for this structure as it is just a collection of bytes
-	//If big endian reorder bytes
-	uint32 i;
-
-	printf("\n%:X|", ((uint8*)&tgaheader)[1]);
-	for(i=1; i<sizeof(TGAHeader)-1; i++)
-	{	
-		printf("%X|", ((uint8*)&tgaheader)[i]);
-	}
-	printf("%X:\n", ((uint8*)&tgaheader)[i]);
-	
-	for(i=0; i<sizeof(TGAHeader)/2; i++)
-	{
-		GLubyte temp = tgaheader.Header[i];
-		tgaheader.Header[i] = tgaheader.Header[sizeof(TGAHeader) - i];
-		tgaheader.Header[sizeof(TGAHeader) - i] = temp;
-	}
-	printf("%:X|", ((uint8*)&tgaheader)[1]);
-	for(i=1; i<sizeof(TGAHeader)-1; i++)
-	{	
-		printf("%X|", ((uint8*)&tgaheader)[i]);
-	}
-	printf("%X:\n", ((uint8*)&tgaheader)[i]);
-	*/
-	#endif
 		
 	if(memcmp(uTGAcompare, &tgaheader, sizeof(tgaheader)) == 0)
 		image = LoadUncompressedTGA(file);

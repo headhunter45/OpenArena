@@ -433,7 +433,7 @@ bool OpenArena::Window::Open()
 	ShowWindow(window,SW_SHOW);
 	SetForegroundWindow(window);
 	SetFocus(window);
-	OnResize(_width, _height);
+	_resizer->Resize(_width, _height);
 
 	if (!_initializer->Initialize())
 	{
