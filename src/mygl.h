@@ -34,7 +34,7 @@ extern OpenArena::Window g_Screen;
 //int InitGL(GLvoid);
 namespace OpenArena
 {
-	bool LoadGLTexture(string , GLuint, GLuint = GL_LINEAR, GLuint = GL_LINEAR);
-	void FreeGLTexture(GLuint);
+	bool LoadGLTexture(string , GLuint&, GLuint = GL_LINEAR, GLuint = GL_LINEAR);
+	void FreeGLTexture(GLuint&);
 };
 #endif
