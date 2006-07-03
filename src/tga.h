@@ -4,14 +4,8 @@
 #pragma comment(lib, "OpenGL32.lib")
 #ifdef WIN32
 #include <windows.h> //I think this was only needed because gl.h uses it
-#include <GL/gl.h>
 #endif
-#ifdef __linux
 #include <GL/gl.h>
-#endif
-#ifdef __APPLE__
-#include <GL/gl.h>
-#endif
 #include <cstdio>
 #include <string>
 #include "texture.h"

@@ -19,7 +19,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <cstdio>
+#ifdef WIN32
+#include <windows.h>
+#endif
+#include <GL/gl.h>
 #include "bmp.h"
+#include "datatypes.h"
 #ifdef WIN32
 #pragma warning(disable:4996)
 #endif
