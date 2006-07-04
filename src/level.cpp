@@ -432,7 +432,6 @@ namespace OpenArena
 	
 	void Level::LoadGLTextures()
 	{
-		printf("In LoadGLTextures: _window = %d\n", _window);
 		if(_window != NULL)
 		{
 			/*

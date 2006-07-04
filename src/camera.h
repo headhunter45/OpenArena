@@ -1,7 +1,7 @@
 /*!
  * <File comment goes here!!>
  * 
- * Copyright (c) 2005 by <your name/ organization here>
+ * Copyright (c) 2005 by Tom Hicks tomhicks@olympusonline.net
  */
 #ifndef __camera_h__
 #define __camera_h__
@@ -18,15 +18,13 @@ namespace OpenArena
 {
 	/*!
 	 * \brief
-	 * Write brief comment for Camera here.
+	 * The Camera class represents a camera or view in 3-dimensional space.
 	 * 
-	 * Write detailed description for Camera here.
+	 * The Camera class maintains location, view, and orientation (up view) vectors.  The Camera can be moved and rotated in any direction.  It includes a wrapper, Look(), for gluLookAt.
 	 * 
 	 * \remarks
-	 * Write remarks for Camera here.
 	 * 
 	 * \see
-	 * Separate items with the '|' character.
 	 */
 	class Camera
 	{
@@ -56,251 +54,168 @@ namespace OpenArena
 		
 		/*!
 		 * \brief
-		 * Write brief comment for View here.
+		 * Returns the view vector of this camera.
 		 * 
 		 * \returns
-		 * Write description of return value here.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for View here.
+		 * The view vector of this camera.
 		 * 
 		 * \remarks
-		 * Write remarks for View here.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
-		Vec3f View();
-		//Purpose:
-		//	Returns the view vector of this camera.
-		//		This vector is the direction the camera is pointing.
+		Vec3d View();
+		
+		/*!
+		 * \brief
+		 * Returns a vector pointing up with respect to the view.
+		 * 
+		 * \returns
+		 * A vector pointing up with respect to the view.
+		 * 
+		 * \remarks
+		 * 
+		 * \see
+		 */
+		Vec3d UpVector();
+		
+		/*!
+		 * \brief
+		 * Returns this Camera's strafe vector.
+		 * 
+		 * The strafe axis is an axis perpendicular to both the up vector and the view vector.
+		 * 
+		 * \returns
+		 * This Camera's strafe vector.
+		 * 
+		 * \remarks
+		 * 
+		 * \see
+		 */
+		Vec3d Strafe();
 	
 		/*!
 		 * \brief
-		 * Write brief comment for UpVector here.
-		 * 
-		 * \returns
-		 * Write description of return value here.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for UpVector here.
-		 * 
-		 * \remarks
-		 * Write remarks for UpVector here.
-		 * 
-		 * \see
-		 * Separate items with the '|' character.
-		 */
-		Vec3f UpVector();
-		//Purpose:
-		//	Returns the up vector of this camera.
-		//		This vector points up in the rendered view.
-	
-		/*!
-		 * \brief
-		 * Write brief comment for Strafe here.
-		 * 
-		 * \returns
-		 * Write description of return value here.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for Strafe here.
-		 * 
-		 * \remarks
-		 * Write remarks for Strafe here.
-		 * 
-		 * \see
-		 * Separate items with the '|' character.
-		 */
-		Vec3f Strafe();
-		//Purpose:
-		//	Returns the strafe vector fo this camera.
-		//		This is the direction StrafeCamera will move
-	
-		//Mutators
-		/*!
-		 * \brief
-		 * Write brief comment for PositionCamera here.
+		 * Relocates and reorients this Camera.
 		 * 
 		 * \param xpos
-		 * Description of parameter xpos.
+		 * The x-coordinate of the new position vector.
 		 * 
 		 * \param ypos
-		 * Description of parameter ypos.
+		 * The y-coordinate of the new position vector.
 		 * 
 		 * \param zpos
-		 * Description of parameter zpos.
+		 * The z-coordinate of the new position vector.
 		 * 
 		 * \param xview
-		 * Description of parameter xview.
+		 * The x-coordinate of the new view vector.
 		 * 
 		 * \param yview
-		 * Description of parameter yview.
+		 * The y-coordinate of the new view vector.
 		 * 
 		 * \param zview
-		 * Description of parameter zview.
+		 * The z-coordinate of the new view vector.
 		 * 
 		 * \param xup
-		 * Description of parameter xup.
+		 * The x-coordinate of the new up vector.
 		 * 
 		 * \param yup
-		 * Description of parameter yup.
+		 * The y-coordinate of the new up vector.
 		 * 
 		 * \param zup
-		 * Description of parameter zup.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for PositionCamera here.
+		 * The z-coordinate of the new up vector.
 		 * 
 		 * \remarks
-		 * Write remarks for PositionCamera here.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		void PositionCamera(double xpos,  double ypos,  double zpos,
 							double xview, double yview, double zview,
 							double xup,	  double yup,   double zup);
-		//Purpose:
-		//	Relocates and reorientates the camera as determined by the given vector components.
 		
 		/*!
 		 * \brief
-		 * Write brief comment for PositionCamera here.
+		 * Relocates and reorients this Camera.
 		 * 
 		 * \param pos
-		 * Description of parameter pos.
+		 * The new position vector.
 		 * 
 		 * \param view
-		 * Description of parameter view.
+		 * The new view vector.
 		 * 
 		 * \param up
-		 * Description of parameter up.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for PositionCamera here.
+		 * The new up vector.
 		 * 
 		 * \remarks
-		 * Write remarks for PositionCamera here.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
-		void PositionCamera(Vec3f pos, Vec3f view, Vec3f up);
-		//Purpose:
-		//	Relocates and reorientates the camera as determined by the given vectos.
+		void PositionCamera(Vec3d pos, Vec3d view, Vec3d up);
 	
 		/*!
 		 * \brief
-		 * Write brief comment for RotateView here.
+		 * Rotates the camera a given ammount around a given axis.
 		 * 
 		 * \param angle
-		 * Description of parameter angle.
+		 * The number of degrees to rotate.
 		 * 
 		 * \param axis
-		 * Description of parameter axis.
+		 * A vector representing the axis to rotate around.
 		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for RotateView here.
-		 * 
+		 * This method passes the arguments to glRotatef()
+
 		 * \remarks
-		 * Write remarks for RotateView here.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		void Camera::RotateView(double angle, Vec3d axis);
-		//Purpose:
-		//	Rotates the camera by angle degrees about the axis specified by axis.
 		
 		/*!
 		 * \brief
-		 * Write brief comment for RotateView here.
+		 * Rotates the camera a given ammount around a given axis.
 		 * 
 		 * \param angle
-		 * Description of parameter angle.
+		 * The number of degrees to rotate.
 		 * 
 		 * \param X
-		 * Description of parameter X.
+		 * The x component of the vector representing the axis to rotate around
 		 * 
 		 * \param Y
-		 * Description of parameter Y.
+		 * The y component of the vector representing the axis to rotate around
 		 * 
 		 * \param Z
-		 * Description of parameter Z.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for RotateView here.
+		 * The z component of the vector representing the axis to rotate around
 		 * 
 		 * \remarks
-		 * Write remarks for RotateView here.
+		 * The vector should be normalized as the values get passed directly to glRotatef().
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		void RotateView(double angle, double X, double Y, double Z);
-		//Purpose:
-		//	Rotates the camera by angle degrees about the axis specified by the given components.
-		//		Works the same as glRotatef(angle, X, Y, Z).
 	
 		/*!
 		 * \brief
-		 * Write brief comment for SetViewByMouse here.
+		 * Updates the view and up vectors based on mouse movement.
 		 * 
 		 * \param window
-		 * Description of parameter window.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for SetViewByMouse here.
+		 * The Window used to get the mouse coordinates.
 		 * 
 		 * \remarks
-		 * Write remarks for SetViewByMouse here.
+		 * This will be removed in favor of some sort of event trigger.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		void SetViewByMouse(Window window);
-		//Purpose:
-		//	Updates the view Vector based on the change in mouse position since the last time it was called.
-	
-		//This function needs to be reimagined and better fleshed out.
-		//void RotateAroundPoint(Vec3f vCenter, double X, double Y, double Z);
-		//Purpose:
-		//	Rotates the camera arount the point vCenter X degrees around the x-axis, Y degrees around the y-axis, and Z degrees around the z-axis in that order
-		
+
 		/*!
 		 * \brief
-		 * Write brief comment for StrafeCamera here.
+		 * Moves the camera along its strafe axis a given distance.
 		 * 
 		 * \param speed
-		 * Description of parameter speed.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for StrafeCamera here.
+		 * The distance to move.
 		 * 
 		 * \remarks
-		 * Write remarks for StrafeCamera here.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		void StrafeCamera(double speed);
 		//Purpose:
@@ -308,69 +223,43 @@ namespace OpenArena
 		
 		/*!
 		 * \brief
-		 * Write brief comment for MoveCamera here.
+		 * Moves the camera along its view vector a given number of units.
 		 * 
 		 * \param speed
-		 * Description of parameter speed.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for MoveCamera here.
+		 * The distance to move the camera.
 		 * 
 		 * \remarks
-		 * Write remarks for MoveCamera here.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		void MoveCamera(double speed);
-		//Purpose:
-		//	Moves the camera along it's view vector speed units.
 
 		/*!
 		 * \brief
-		 * Write brief comment for Update here.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for Update here.
+		 * Recalculates the strafe vector.
 		 * 
 		 * \remarks
-		 * Write remarks for Update here.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		void Update();
-		//Purpose:
-		//	Recalculates the strafe vector.
-	
+		
 		/*!
 		 * \brief
-		 * Write brief comment for Look here.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for Look here.
+		 * Calls gluLookAt to tell OpenGL where to render from.
 		 * 
 		 * \remarks
-		 * Write remarks for Look here.
+		 * Uses the position, view, and up vectors.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		void Look();
-		//Purpose:
-		//	Calls gluLookAt with stored values to set the scene to the camera.
 
 	private:
-		Vec3f m_vPosition;
-		Vec3f m_vView;
-		Vec3f m_vUpVector;
-		Vec3f m_vStrafe;
+		Vec3d m_vPosition;
+		Vec3d m_vView;
+		Vec3d m_vUpVector;
+		Vec3d m_vStrafe;
 	};
 };
 

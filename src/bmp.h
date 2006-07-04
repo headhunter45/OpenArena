@@ -6,24 +6,18 @@
 namespace OpenArena{
 	/*!
 	 * \brief
-	 * Write brief comment for LoadBMP here.
+	 * Loads a bitmap (*.bmp) file and returns a pointer to a TextureImage object.
 	 * 
-	 * \param Filename
-	 * Description of parameter Filename.
+	 * \param filename
+	 * The path to the file to open.
 	 * 
 	 * \returns
-	 * Write description of return value here.
-	 * 
-	 * \throws <exception class>
-	 * Description of criteria for throwing this exception.
-	 * 
-	 * Write detailed description for LoadBMP here.
+	 * A pointer to the created TextureImage object.
 	 * 
 	 * \remarks
-	 * Write remarks for LoadBMP here.
+	 * Will be replaced with an actual class soon
 	 * 
 	 * \see
-	 * Separate items with the '|' character.
 	 */
 	TextureImage* LoadBMP(const char* Filename);
 };

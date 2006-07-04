@@ -6,15 +6,14 @@
 namespace OpenArena{
 	/*!
 	 * \brief
-	 * Write brief comment for ControlScheme here.
+	 * This class represents a user's control scheme.
 	 * 
-	 * Write detailed description for ControlScheme here.
+	 * This class manages a set of actions and their associated keys.
 	 * 
 	 * \remarks
-	 * Write remarks for ControlScheme here.
+	 * This could become a set of keys with associated actions.
 	 * 
 	 * \see
-	 * Separate items with the '|' character.
 	 */
 	class ControlScheme
 	{
@@ -24,80 +23,56 @@ namespace OpenArena{
 		ACTION_ROLLLEFT, ACTION_ROLLRIGHT, ACTION_FIREPRIMARY, ACTION_FIRESECONDARY,
 		ACTION_WEAPONNEXT, ACTION_WEAPONPREV, ACTION_TOGGLE_LIGHTS, ACTION_TOGGLE_FPS,
 		ACTION_TOGGLE_CONSOLE, ACTION_TOGGLE_MOUSELOOK, ACTION_QUICKMOUSELOOK};
+		
 		/*!
 		 * \brief
-		 * Write brief comment for LoadDefaultControlScheme here.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for LoadDefaultControlScheme here.
+		 * This method loads a hard coded default control scheme.
 		 * 
 		 * \remarks
-		 * Write remarks for LoadDefaultControlScheme here.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		void LoadDefaultControlScheme();
+		
 		/*!
 		 * \brief
-		 * Write brief comment for ClearControlScheme here.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for ClearControlScheme here.
+		 * This method clears this control scheme so that no keys are bound to any actions.
 		 * 
 		 * \remarks
-		 * Write remarks for ClearControlScheme here.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		void ClearControlScheme();
+
 		/*!
 		 * \brief
-		 * Write brief comment for Unbind here.
+		 * This method removes a key from all actions.
 		 * 
 		 * \param 
-		 * Description of parameter .
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for Unbind here.
+		 * The KEY_* constant for the key to unbind.
 		 * 
 		 * \remarks
-		 * Write remarks for Unbind here.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		void Unbind(uint8);
 		/*!
 		 * \brief
-		 * Write brief comment for Bind here.
+		 * This method binds a key to an action.
 		 * 
 		 * \param 
-		 * Description of parameter .
+		 * The ACTION_* constant for the action to bind to.
 		 * 
 		 * \param 
-		 * Description of parameter .
+		 * The KEY_* constant for the key to bind.
 		 * 
 		 * \returns
-		 * Write description of return value here.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for Bind here.
+		 * Returns false if an invalid action is specified and true otherwise.
 		 * 
 		 * \remarks
-		 * Write remarks for Bind here.
+		 * This unbinds the key before binding it to the new action.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		bool Bind(uint32, uint8);
 

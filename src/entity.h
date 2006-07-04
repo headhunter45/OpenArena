@@ -4,7 +4,7 @@
 
 #include "datatypes.h"
 
-enum {	//Begin entity declaration
+enum EntityType{	//Begin entity declaration
 	ENTITY_NONE=0,				//Nonexistant entity this should never be used.
 	ENTITY_PLAYER_MULTI_START	//Player start position for multiplayer.
 };		//End entity declaration
