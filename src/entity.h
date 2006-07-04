@@ -9,9 +9,36 @@ enum {	//Begin entity declaration
 	ENTITY_PLAYER_MULTI_START	//Player start position for multiplayer.
 };		//End entity declaration
 
+/*!
+ * \brief
+ * Write brief comment for ENTITY here.
+ * 
+ * Write detailed description for ENTITY here.
+ * 
+ * \remarks
+ * Write remarks for ENTITY here.
+ * 
+ * \see
+ * Separate items with the '|' character.
+ */
 class ENTITY
 {
 public:
+	/*!
+	 * \brief
+	 * Write brief comment for ENTITY here.
+	 * 
+	 * \throws <exception class>
+	 * Description of criteria for throwing this exception.
+	 * 
+	 * Write detailed description for ENTITY here.
+	 * 
+	 * \remarks
+	 * Write remarks for ENTITY here.
+	 * 
+	 * \see
+	 * Separate items with the '|' character.
+	 */
 	ENTITY()
 	{
 		type = ENTITY_NONE;

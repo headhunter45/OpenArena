@@ -34,7 +34,55 @@ extern OpenArena::Window g_Screen;
 //int InitGL(GLvoid);
 namespace OpenArena
 {
+	/*!
+	 * \brief
+	 * Write brief comment for LoadGLTexture here.
+	 * 
+	 * \param 
+	 * Description of parameter .
+	 * 
+	 * \param 
+	 * Description of parameter .
+	 * 
+	 * \param 
+	 * Description of parameter .
+	 * 
+	 * \param 
+	 * Description of parameter .
+	 * 
+	 * \returns
+	 * Write description of return value here.
+	 * 
+	 * \throws <exception class>
+	 * Description of criteria for throwing this exception.
+	 * 
+	 * Write detailed description for LoadGLTexture here.
+	 * 
+	 * \remarks
+	 * Write remarks for LoadGLTexture here.
+	 * 
+	 * \see
+	 * Separate items with the '|' character.
+	 */
 	bool LoadGLTexture(string , GLuint&, GLuint = GL_LINEAR, GLuint = GL_LINEAR);
+	/*!
+	 * \brief
+	 * Write brief comment for FreeGLTexture here.
+	 * 
+	 * \param 
+	 * Description of parameter .
+	 * 
+	 * \throws <exception class>
+	 * Description of criteria for throwing this exception.
+	 * 
+	 * Write detailed description for FreeGLTexture here.
+	 * 
+	 * \remarks
+	 * Write remarks for FreeGLTexture here.
+	 * 
+	 * \see
+	 * Separate items with the '|' character.
+	 */
 	void FreeGLTexture(GLuint&);
 };
 #endif

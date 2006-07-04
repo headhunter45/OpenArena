@@ -3,6 +3,18 @@
 
 namespace OpenArena
 {
+	/*!
+	 * \brief
+	 * Write brief comment for Triangle here.
+	 * 
+	 * Write detailed description for Triangle here.
+	 * 
+	 * \remarks
+	 * Write remarks for Triangle here.
+	 * 
+	 * \see
+	 * Separate items with the '|' character.
+	 */
 	class Triangle
 	{
 	public:

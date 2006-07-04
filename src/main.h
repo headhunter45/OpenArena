@@ -53,10 +53,62 @@ static float currentTime;
 //This shouldn't need to be here
 //LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);	// Declaration for WndProc
 
+/*!
+ * \brief
+ * Write brief comment for InitControls here.
+ * 
+ * \throws <exception class>
+ * Description of criteria for throwing this exception.
+ * 
+ * Write detailed description for InitControls here.
+ * 
+ * \remarks
+ * Write remarks for InitControls here.
+ * 
+ * \see
+ * Separate items with the '|' character.
+ */
 void InitControls();				// Sets up player controls
+/*!
+ * \brief
+ * Write brief comment for InitGL here.
+ * 
+ * \returns
+ * Write description of return value here.
+ * 
+ * \throws <exception class>
+ * Description of criteria for throwing this exception.
+ * 
+ * Write detailed description for InitGL here.
+ * 
+ * \remarks
+ * Write remarks for InitGL here.
+ * 
+ * \see
+ * Separate items with the '|' character.
+ */
 int InitGL();						// All setup for OpenGL goes here
+/*!
+ * \brief
+ * Write brief comment for ReSizeGLScene here.
+ * 
+ * \param width
+ * Description of parameter width.
+ * 
+ * \param height
+ * Description of parameter height.
+ * 
+ * \throws <exception class>
+ * Description of criteria for throwing this exception.
+ * 
+ * Write detailed description for ReSizeGLScene here.
+ * 
+ * \remarks
+ * Write remarks for ReSizeGLScene here.
+ * 
+ * \see
+ * Separate items with the '|' character.
+ */
 void ReSizeGLScene(GLsizei width, GLsizei height);	// Resize and initialize the GL window
-
-
 
 #endif

@@ -11,11 +11,35 @@
 #include "texture.h"
 
 namespace OpenArena{
+	/*!
+	 * \brief
+	 * Write brief comment for TGAHeader here.
+	 * 
+	 * Write detailed description for TGAHeader here.
+	 * 
+	 * \remarks
+	 * Write remarks for TGAHeader here.
+	 * 
+	 * \see
+	 * Separate items with the '|' character.
+	 */
 	struct TGAHeader
 	{
 		GLubyte Header[12];			// File Header To Determine File Type
 	};
 
+	/*!
+	 * \brief
+	 * Write brief comment for TGA here.
+	 * 
+	 * Write detailed description for TGA here.
+	 * 
+	 * \remarks
+	 * Write remarks for TGA here.
+	 * 
+	 * \see
+	 * Separate items with the '|' character.
+	 */
 	struct TGA
 	{
 		GLubyte header[6];			// Holds The First 6 Useful Bytes Of The File
@@ -27,6 +51,27 @@ namespace OpenArena{
 		GLuint Bpp;					// Number Of BITS Per Pixel (24 Or 32)
 	};
 
+	/*!
+	 * \brief
+	 * Write brief comment for LoadTGA here.
+	 * 
+	 * \param filename
+	 * Description of parameter filename.
+	 * 
+	 * \returns
+	 * Write description of return value here.
+	 * 
+	 * \throws <exception class>
+	 * Description of criteria for throwing this exception.
+	 * 
+	 * Write detailed description for LoadTGA here.
+	 * 
+	 * \remarks
+	 * Write remarks for LoadTGA here.
+	 * 
+	 * \see
+	 * Separate items with the '|' character.
+	 */
 	TextureImage* LoadTGA(const char *filename);
 
 	const GLubyte uTGAcompare[12] = {0,0,2, 0,0,0,0,0,0,0,0,0};	// Uncompressed TGA Header

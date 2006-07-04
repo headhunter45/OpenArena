@@ -8,40 +8,454 @@
 namespace OpenArena{
 	typedef unsigned int LIST_ARRAY_INDEX_TYPE;
 
+	/*!
+	 * \brief
+	 * Write brief comment for listNode here.
+	 * 
+	 * \param ItemType
+	 * Description of parameter ItemType.
+	 * 
+	 * Write detailed description for listNode here.
+	 * 
+	 * \remarks
+	 * Write remarks for listNode here.
+	 * 
+	 * \see
+	 * Separate items with the '|' character.
+	 */
 	template <class ItemType>
 	class listNode
 	{
 	public:
+		/*!
+		 * \brief
+		 * Write brief comment for listNode here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for listNode here.
+		 * 
+		 * \remarks
+		 * Write remarks for listNode here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		listNode();
 		ItemType data;
 		listNode<ItemType>* next;
 	};
 
+	/*!
+	 * \brief
+	 * Write brief comment for list here.
+	 * 
+	 * \param ItemType
+	 * Description of parameter ItemType.
+	 * 
+	 * Write detailed description for list here.
+	 * 
+	 * \remarks
+	 * Write remarks for list here.
+	 * 
+	 * \see
+	 * Separate items with the '|' character.
+	 */
 	template <class ItemType>
 	class list
 	{
 	public:
+		/*!
+		 * \brief
+		 * Write brief comment for list here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for list here.
+		 * 
+		 * \remarks
+		 * Write remarks for list here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		list();
+		/*!
+		 * \brief
+		 * Write brief comment for ~list here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for ~list here.
+		 * 
+		 * \remarks
+		 * Write remarks for ~list here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		~list();
+		/*!
+		 * \brief
+		 * Write brief comment for list here.
+		 * 
+		 * \param 
+		 * Description of parameter .
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for list here.
+		 * 
+		 * \remarks
+		 * Write remarks for list here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		list(const list&);
 
+		/*!
+		 * \brief
+		 * Write brief comment for IsEmpty here.
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for IsEmpty here.
+		 * 
+		 * \remarks
+		 * Write remarks for IsEmpty here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		bool IsEmpty() const;
+		/*!
+		 * \brief
+		 * Write brief comment for IsFull here.
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for IsFull here.
+		 * 
+		 * \remarks
+		 * Write remarks for IsFull here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		bool IsFull() const;
+		/*!
+		 * \brief
+		 * Write brief comment for Insert here.
+		 * 
+		 * \param newItem
+		 * Description of parameter newItem.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for Insert here.
+		 * 
+		 * \remarks
+		 * Write remarks for Insert here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		void Insert(ItemType newItem);
+		/*!
+		 * \brief
+		 * Write brief comment for Remove here.
+		 * 
+		 * \param target
+		 * Description of parameter target.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for Remove here.
+		 * 
+		 * \remarks
+		 * Write remarks for Remove here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		void Remove(ItemType target);
+		/*!
+		 * \brief
+		 * Write brief comment for Remove here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for Remove here.
+		 * 
+		 * \remarks
+		 * Write remarks for Remove here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		void Remove();
+		/*!
+		 * \brief
+		 * Write brief comment for Retrieve here.
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for Retrieve here.
+		 * 
+		 * \remarks
+		 * Write remarks for Retrieve here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		ItemType Retrieve() const;
+		/*!
+		 * \brief
+		 * Write brief comment for PrevPosition here.
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for PrevPosition here.
+		 * 
+		 * \remarks
+		 * Write remarks for PrevPosition here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		bool PrevPosition();
+		/*!
+		 * \brief
+		 * Write brief comment for NextPosition here.
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for NextPosition here.
+		 * 
+		 * \remarks
+		 * Write remarks for NextPosition here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		bool NextPosition();
+		/*!
+		 * \brief
+		 * Write brief comment for IsFirstPosition here.
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for IsFirstPosition here.
+		 * 
+		 * \remarks
+		 * Write remarks for IsFirstPosition here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		bool IsFirstPosition() const;
+		/*!
+		 * \brief
+		 * Write brief comment for IsLastPosition here.
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for IsLastPosition here.
+		 * 
+		 * \remarks
+		 * Write remarks for IsLastPosition here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		bool IsLastPosition() const;
+		/*!
+		 * \brief
+		 * Write brief comment for FirstPosition here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for FirstPosition here.
+		 * 
+		 * \remarks
+		 * Write remarks for FirstPosition here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		void FirstPosition();
+		/*!
+		 * \brief
+		 * Write brief comment for LastPosition here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for LastPosition here.
+		 * 
+		 * \remarks
+		 * Write remarks for LastPosition here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		void LastPosition();
+		/*!
+		 * \brief
+		 * Write brief comment for Clear here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for Clear here.
+		 * 
+		 * \remarks
+		 * Write remarks for Clear here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		void Clear();
+		/*!
+		 * \brief
+		 * Write brief comment for Contains here.
+		 * 
+		 * \param 
+		 * Description of parameter .
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for Contains here.
+		 * 
+		 * \remarks
+		 * Write remarks for Contains here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		bool Contains(ItemType) const;
+		/*!
+		 * \brief
+		 * Write brief comment for Length here.
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for Length here.
+		 * 
+		 * \remarks
+		 * Write remarks for Length here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		unsigned int Length();
+		/*!
+		 * \brief
+		 * Write brief comment for operator = here.
+		 * 
+		 * \param 
+		 * Description of parameter .
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for operator = here.
+		 * 
+		 * \remarks
+		 * Write remarks for operator = here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		void operator=(const list<ItemType>&);
+		/*!
+		 * \brief
+		 * Write brief comment for operator [] here.
+		 * 
+		 * \param 
+		 * Description of parameter .
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for operator [] here.
+		 * 
+		 * \remarks
+		 * Write remarks for operator [] here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		ItemType operator[](LIST_ARRAY_INDEX_TYPE) const;
+		/*!
+		 * \brief
+		 * Write brief comment for operator [] here.
+		 * 
+		 * \param 
+		 * Description of parameter .
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for operator [] here.
+		 * 
+		 * \remarks
+		 * Write remarks for operator [] here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
 		ItemType& operator[](LIST_ARRAY_INDEX_TYPE);
 
 	private:
