@@ -31,6 +31,7 @@
 //include necessary header files
 #include "main.h"
 #include "version.h"
+#include "vector.h"
 
 //link necessary libraries
 #pragma comment(lib, "opengl32.lib")
@@ -287,11 +288,24 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 				{
 					if (level.mlook)
 					{
-						level.defaultPlayer[0].camera.SetViewByMouse(g_Screen);
+						using OpenArena::Vec2i;
+						//Get the mouse delta and rotate accordingly
+						
+						Vec2i mousePosition = g_Screen.GetMousePosition();
+						Vec2i middleOfScreen = Vec2i(g_Screen.GetWidth()/2, g_Screen.GetHeight()/2);
+						Vec2i mouseDelta = mousePosition - middleOfScreen;
+						const float MOUSE_SENSATIVITY_HORIZONTAL = 1;
+						const float MOUSE_SENSATIVITY_VERTICAL = 1;
+						float horizontalAngle = mouseDelta.x * MOUSE_SENSATIVITY_HORIZONTAL;
+						float verticalAngle = mouseDelta.y * MOUSE_SENSATIVITY_VERTICAL;
+						level.defaultPlayer[0].camera.RotateHorizontal(horizontalAngle);
+						level.defaultPlayer[0].camera.RotateVertical(verticalAngle);
+						//level.defaultPlayer[0].camera.SetViewByMouse(g_Screen);
 					}
 					else
 					{
-						SetCursorPos(g_Screen.GetWidth()/2, g_Screen.GetHeight()/2);
+						g_Screen.SetMousePosition(Vec2i(g_Screen.GetWidth()/2, g_Screen.GetHeight()/2));
+						//SetCursorPos(g_Screen.GetWidth()/2, g_Screen.GetHeight()/2);
 					}
 
 					//////////

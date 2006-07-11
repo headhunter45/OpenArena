@@ -106,7 +106,38 @@ namespace OpenArena
 			}
 		}		
 		#endif
-		//Most of this is sorta right for linux I think but since I don't know how yet it's currently windows only
+		#ifdef __APPLE__
+		static double currentRotX = 0.0f;
+		Vec2i pos;
+		Vec2i middle;
+		double angleZ;
+		
+		middle.x = window.GetWidth()/2;
+		middle.y = window.GetHeight()/2;
+		pos = window.GetMousePosition();
+		if(pos != middle)
+		{
+			window.SetMousePosition(middle);
+			angleZ = (middle.y - pos.y)/1000.0;
+			currentRotX-=angleZ;
+			if(currentRotX >1.0)
+			{
+				currentRotX = 1.0;
+			}
+			else if(currentRotX < -1.0)
+			{
+				currentRotX = -1.0;
+			}
+			else
+			{
+				Vec3d axis = (m_vView - m_vPosition).cross(m_vUpVector);
+				axis.normalize();
+				RotateView(angleZ, axis.x, axis.y, axis.z);
+				RotateView((middle.x-pos.x)/1000.0, 0, 1, 0);
+				//RotateView((middle.x-pos.x)/1000.0, m_vUpVector.x, m_vUpVector.y, m_vUpVector.z);
+			}
+		}		
+		#endif
 		#ifdef WIN32
 		static double currentRotX = 0.0f;
 		POINT mpos;
@@ -229,6 +260,29 @@ namespace OpenArena
 	{
 		return m_vView;
 	}
+	
+	void Camera::RotateHorizontal(float angle)
+	{
+		RotateView(angle, GetUpVector());
+	}
+
+	void Camera::RotateVertical(float angle)
+	{
+		RotateView(angle, GetRightVector());
+	}
+
+	Vec3f Camera::GetUpVector()
+	{
+	}
+
+	Vec3f Camera::GetRightVector()
+	{
+	}
+
+	Vec3f Camera::GetForwardVector()
+	{
+	}
+
 
 
 };

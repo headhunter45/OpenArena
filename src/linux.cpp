@@ -222,6 +222,7 @@ int main(int argc, char** argv)
 				{
 					if(level.mlook)
 					{
+						//get the mouse delta and rotate the camera accordingly
 						level.defaultPlayer[0].camera.SetViewByMouse(g_Screen);
 					}
 					else
