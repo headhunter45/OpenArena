@@ -255,11 +255,112 @@ namespace OpenArena
 		 */
 		void Look();
 
+		/*!
+		 * \brief
+		 * Write brief comment for RotateHorizontal here.
+		 * 
+		 * \param angle
+		 * Description of parameter angle.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for RotateHorizontal here.
+		 * 
+		 * \remarks
+		 * Write remarks for RotateHorizontal here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
+		void RotateHorizontal(float angle);
+
+		/*!
+		 * \brief
+		 * Write brief comment for RotateVertical here.
+		 * 
+		 * \param angle
+		 * Description of parameter angle.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for RotateVertical here.
+		 * 
+		 * \remarks
+		 * Write remarks for RotateVertical here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
+		void RotateVertical(float angle);
+
 	private:
-		Vec3d m_vPosition;
-		Vec3d m_vView;
-		Vec3d m_vUpVector;
-		Vec3d m_vStrafe;
+		/*!
+		 * \brief
+		 * Write brief comment for GetUpVector here.
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for GetUpVector here.
+		 * 
+		 * \remarks
+		 * Write remarks for GetUpVector here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
+		Vec3f GetUpVector();
+
+		/*!
+		 * \brief
+		 * Write brief comment for GetRightVector here.
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for GetRightVector here.
+		 * 
+		 * \remarks
+		 * Write remarks for GetRightVector here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
+		Vec3f GetRightVector();
+
+		/*!
+		 * \brief
+		 * Write brief comment for GetForwardVector here.
+		 * 
+		 * \returns
+		 * Write description of return value here.
+		 * 
+		 * \throws <exception class>
+		 * Description of criteria for throwing this exception.
+		 * 
+		 * Write detailed description for GetForwardVector here.
+		 * 
+		 * \remarks
+		 * Write remarks for GetForwardVector here.
+		 * 
+		 * \see
+		 * Separate items with the '|' character.
+		 */
+		Vec3f GetForwardVector();
+
+	private:
+		Vec3f m_vPosition;
+		Vec3f m_vView;
+		Vec3f m_vUpVector;
+		Vec3f m_vStrafe;
 	};
 };
 
