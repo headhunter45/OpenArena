@@ -1,0 +1,465 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="class_open_arena_1_1_font" kind="class" prot="public">
+    <compoundname>OpenArena::Font</compoundname>
+    <includes local="no">myglFont.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_open_arena_1_1_font_121d9f4928248ed16b6cc000562e81cdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::Font::Font</definition>
+        <argsstring>()</argsstring>
+        <name>Font</name>
+        <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_font" kindref="compound">Font</ref> here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for <ref refid="class_open_arena_1_1_font" kindref="compound">Font</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_font" kindref="compound">Font</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="45" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.cpp" bodystart="30" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_font_19ed7c226219a804b631aeaaa1827841c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::Font::~Font</definition>
+        <argsstring>()</argsstring>
+        <name>~Font</name>
+        <briefdescription>
+<para>Write brief comment for ~Font here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for ~Font here.</para><para><simplesect kind="remark"><para>Write remarks for ~Font here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="61" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.cpp" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_font_1bd4b04b733ff71b0a45ddb54b305f262" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Font::BuildFont</definition>
+        <argsstring>(const char *)</argsstring>
+        <name>BuildFont</name>
+        <param>
+          <type>const char *</type>
+          <defname>texName</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for BuildFont here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for BuildFont here.</para><para><simplesect kind="remark"><para>Write remarks for BuildFont here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="83" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.cpp" bodystart="44" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_font_1f3c42a410b651502cbb6c284246d6435" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Font::FreeFont</definition>
+        <argsstring>()</argsstring>
+        <name>FreeFont</name>
+        <briefdescription>
+<para>Write brief comment for FreeFont here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for FreeFont here.</para><para><simplesect kind="remark"><para>Write remarks for FreeFont here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="102" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.cpp" bodystart="76" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_font_1ad96dcc9c923fcccfc1eab8402d1b46d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Font::Print</definition>
+        <argsstring>(int, int, const char *, unsigned int=0)</argsstring>
+        <name>Print</name>
+        <param>
+          <type>int</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>y</defname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <defname>str</defname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>int</declname>
+          <defname>set</defname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Write brief comment for Print here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Print here.</para><para><simplesect kind="remark"><para>Write remarks for Print here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="130" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.cpp" bodystart="86" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_font_140b97ea5770ca1825c260dd65aea70a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Font::Loaded</definition>
+        <argsstring>()</argsstring>
+        <name>Loaded</name>
+        <briefdescription>
+<para>Write brief comment for Loaded here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Loaded here.</para><para><simplesect kind="remark"><para>Write remarks for Loaded here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="149" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_font_13c78224742780f219ed6006bd1d21542" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Font::SetScreenDimensions</definition>
+        <argsstring>(short, short)</argsstring>
+        <name>SetScreenDimensions</name>
+        <param>
+          <type>short</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type>short</type>
+          <defname>y</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for SetScreenDimensions here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for SetScreenDimensions here.</para><para><simplesect kind="remark"><para>Write remarks for SetScreenDimensions here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="171" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.cpp" bodystart="120" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_font_11ba04d5d811f00e55ffca67eb479ca42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Font::SetScreenWidth</definition>
+        <argsstring>(short)</argsstring>
+        <name>SetScreenWidth</name>
+        <param>
+          <type>short</type>
+          <defname>x</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for SetScreenWidth here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for SetScreenWidth here.</para><para><simplesect kind="remark"><para>Write remarks for SetScreenWidth here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="190" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.cpp" bodystart="126" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_font_193be06c84918a7b751c6bf01da4e5ab5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Font::SetScreenHeight</definition>
+        <argsstring>(short)</argsstring>
+        <name>SetScreenHeight</name>
+        <param>
+          <type>short</type>
+          <defname>y</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for SetScreenHeight here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for SetScreenHeight here.</para><para><simplesect kind="remark"><para>Write remarks for SetScreenHeight here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="209" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.cpp" bodystart="131" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_font_134494f6b8a998111347edfdb4c3225e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>short</type>
+        <definition>short OpenArena::Font::ScreenWidth</definition>
+        <argsstring>()</argsstring>
+        <name>ScreenWidth</name>
+        <briefdescription>
+<para>Write brief comment for ScreenWidth here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for ScreenWidth here.</para><para><simplesect kind="remark"><para>Write remarks for ScreenWidth here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="228" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.cpp" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_font_1c9e261e14b536fdf57f010f17be5702e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>short</type>
+        <definition>short OpenArena::Font::ScreenHeight</definition>
+        <argsstring>()</argsstring>
+        <name>ScreenHeight</name>
+        <briefdescription>
+<para>Write brief comment for ScreenHeight here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for ScreenHeight here.</para><para><simplesect kind="remark"><para>Write remarks for ScreenHeight here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="247" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.cpp" bodystart="141" bodyend="144"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_open_arena_1_1_font_115bdfc9f744af3bfc88836daecf78a8c" prot="private" static="no" mutable="no">
+        <type>short</type>
+        <definition>short OpenArena::Font::screenWidth</definition>
+        <argsstring></argsstring>
+        <name>screenWidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="23" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1_font_10c4ee581eb14ff0946c0f958af95c936" prot="private" static="no" mutable="no">
+        <type>short</type>
+        <definition>short OpenArena::Font::screenHeight</definition>
+        <argsstring></argsstring>
+        <name>screenHeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="24" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1_font_1b95774a8049423da5d73e742eeec8c03" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int OpenArena::Font::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="25" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1_font_1f26c7432d00d8b36ef3f962cf393030d" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint OpenArena::Font::texture</definition>
+        <argsstring></argsstring>
+        <name>texture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="26" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1_font_135e4d40b3a6744a7a432986642090a87" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool OpenArena::Font::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="27" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_font" kindref="compound">Font</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="class_open_arena_1_1_font" kindref="compound">Font</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_font" kindref="compound">Font</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" line="21" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglFont.h" bodystart="20" bodyend="248"/>
+    <listofallmembers>
+      <member refid="class_open_arena_1_1_font_1b95774a8049423da5d73e742eeec8c03" prot="private" virt="non-virtual"><scope>OpenArena::Font</scope><name>base</name></member>
+      <member refid="class_open_arena_1_1_font_1bd4b04b733ff71b0a45ddb54b305f262" prot="public" virt="non-virtual"><scope>OpenArena::Font</scope><name>BuildFont</name></member>
+      <member refid="class_open_arena_1_1_font_121d9f4928248ed16b6cc000562e81cdf" prot="public" virt="non-virtual"><scope>OpenArena::Font</scope><name>Font</name></member>
+      <member refid="class_open_arena_1_1_font_1f3c42a410b651502cbb6c284246d6435" prot="public" virt="non-virtual"><scope>OpenArena::Font</scope><name>FreeFont</name></member>
+      <member refid="class_open_arena_1_1_font_140b97ea5770ca1825c260dd65aea70a7" prot="public" virt="non-virtual"><scope>OpenArena::Font</scope><name>Loaded</name></member>
+      <member refid="class_open_arena_1_1_font_1ad96dcc9c923fcccfc1eab8402d1b46d" prot="public" virt="non-virtual"><scope>OpenArena::Font</scope><name>Print</name></member>
+      <member refid="class_open_arena_1_1_font_1c9e261e14b536fdf57f010f17be5702e" prot="public" virt="non-virtual"><scope>OpenArena::Font</scope><name>ScreenHeight</name></member>
+      <member refid="class_open_arena_1_1_font_10c4ee581eb14ff0946c0f958af95c936" prot="private" virt="non-virtual"><scope>OpenArena::Font</scope><name>screenHeight</name></member>
+      <member refid="class_open_arena_1_1_font_115bdfc9f744af3bfc88836daecf78a8c" prot="private" virt="non-virtual"><scope>OpenArena::Font</scope><name>screenWidth</name></member>
+      <member refid="class_open_arena_1_1_font_134494f6b8a998111347edfdb4c3225e8" prot="public" virt="non-virtual"><scope>OpenArena::Font</scope><name>ScreenWidth</name></member>
+      <member refid="class_open_arena_1_1_font_13c78224742780f219ed6006bd1d21542" prot="public" virt="non-virtual"><scope>OpenArena::Font</scope><name>SetScreenDimensions</name></member>
+      <member refid="class_open_arena_1_1_font_193be06c84918a7b751c6bf01da4e5ab5" prot="public" virt="non-virtual"><scope>OpenArena::Font</scope><name>SetScreenHeight</name></member>
+      <member refid="class_open_arena_1_1_font_11ba04d5d811f00e55ffca67eb479ca42" prot="public" virt="non-virtual"><scope>OpenArena::Font</scope><name>SetScreenWidth</name></member>
+      <member refid="class_open_arena_1_1_font_135e4d40b3a6744a7a432986642090a87" prot="private" virt="non-virtual"><scope>OpenArena::Font</scope><name>status</name></member>
+      <member refid="class_open_arena_1_1_font_1f26c7432d00d8b36ef3f962cf393030d" prot="private" virt="non-virtual"><scope>OpenArena::Font</scope><name>texture</name></member>
+      <member refid="class_open_arena_1_1_font_19ed7c226219a804b631aeaaa1827841c" prot="public" virt="non-virtual"><scope>OpenArena::Font</scope><name>~Font</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

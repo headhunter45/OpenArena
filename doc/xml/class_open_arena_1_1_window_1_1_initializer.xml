@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="class_open_arena_1_1_window_1_1_initializer" kind="class" prot="public">
+    <compoundname>OpenArena::Window::Initializer</compoundname>
+    <includes local="no">window.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_open_arena_1_1_window_1_1_initializer_19ddbf79361ede27547c9cf79510a979a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int OpenArena::Window::Initializer::Initialize</definition>
+        <argsstring>()</argsstring>
+        <name>Initialize</name>
+        <briefdescription>
+<para>Write brief comment for Initialize here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Initialize here.</para><para><simplesect kind="remark"><para>Write remarks for Initialize here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/window.h" line="118" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/window.cpp" bodystart="496" bodyend="508"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_window_1_1_initializer" kindref="compound">Initializer</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="class_open_arena_1_1_window_1_1_initializer" kindref="compound">Initializer</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_window_1_1_initializer" kindref="compound">Initializer</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/window.h" line="98" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/window.h" bodystart="97" bodyend="119"/>
+    <listofallmembers>
+      <member refid="class_open_arena_1_1_window_1_1_initializer_19ddbf79361ede27547c9cf79510a979a" prot="public" virt="non-virtual"><scope>OpenArena::Window::Initializer</scope><name>Initialize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="ctrls_8h" kind="file">
+    <compoundname>ctrls.h</compoundname>
+    <includes refid="keys_8h" local="yes">keys.h</includes>
+    <includes refid="datatypes_8h" local="yes">datatypes.h</includes>
+    <includes refid="list_8h" local="yes">list.h</includes>
+    <includedby refid="ctrls_8cpp" local="yes">src/ctrls.cpp</includedby>
+    <includedby refid="player_8h" local="yes">src/player.h</includedby>
+    <incdepgraph>
+      <node id="74">
+        <label>keys.h</label>
+        <link refid="keys_8h"/>
+      </node>
+      <node id="76">
+        <label>list.h</label>
+        <link refid="list_8h"/>
+        <childnode refid="77" relation="include">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>datatypes.h</label>
+        <link refid="datatypes_8h"/>
+      </node>
+      <node id="77">
+        <label>cstdlib</label>
+      </node>
+      <node id="73">
+        <label>src/ctrls.h</label>
+        <link refid="ctrls.h"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="79">
+        <label>src/ctrls.cpp</label>
+        <link refid="ctrls_8cpp"/>
+      </node>
+      <node id="85">
+        <label>src/player.cpp</label>
+        <link refid="player_8cpp"/>
+      </node>
+      <node id="81">
+        <label>src/level.h</label>
+        <link refid="level_8h"/>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>src/player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>src/level.cpp</label>
+        <link refid="level_8cpp"/>
+      </node>
+      <node id="83">
+        <label>src/main.h</label>
+        <link refid="main_8h"/>
+      </node>
+      <node id="84">
+        <label>src/worlddefs.h</label>
+        <link refid="worlddefs_8h"/>
+        <childnode refid="83" relation="include">
+        </childnode>
+      </node>
+      <node id="78">
+        <label>src/ctrls.h</label>
+        <link refid="ctrls.h"/>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_open_arena_1_1_control_scheme" prot="public">OpenArena::ControlScheme</innerclass>
+    <innernamespace refid="namespace_open_arena">OpenArena</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="keys_8h" kindref="compound">keys.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="datatypes_8h" kindref="compound">datatypes.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="list_8h" kindref="compound">list.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">OpenArena{</highlight></codeline>
+<codeline lineno="17" refid="class_open_arena_1_1_control_scheme" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_open_arena_1_1_control_scheme" kindref="compound">ControlScheme</ref></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470" kindref="member">Action</ref>{<ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb647058e67ae02e5ad8b8be8959593abac85f" kindref="member">ACTION_FORWARD</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64708c3b455dd3032dda887f2ac34caa5d78" kindref="member">ACTION_BACKWARD</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470957357f63dea4bce22ce0f1249784f38" kindref="member">ACTION_LOOKLEFT</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64706cd4659fdc7daa95a85a193df5d7b943" kindref="member">ACTION_LOOKRIGHT</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64702c91798eef0fdd1ffb9f63f7a358faeb" kindref="member">ACTION_LOOKUP</ref>,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb647035b6849ad9d1fcdf982c11682fb89edf" kindref="member">ACTION_LOOKDOWN</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64704bb958b603711cb45cbaad96f5c3dc82" kindref="member">ACTION_MOVELEFT</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470a610128fed5c5f5c531cd88efc132480" kindref="member">ACTION_MOVERIGHT</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470fc9baf0e123886852a056bdf00b11063" kindref="member">ACTION_MOVEUP</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64705c986417d949b73419acf70c5b758cad" kindref="member">ACTION_MOVEDOWN</ref>,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470c60c3cc1967f74ccbc09d0c7ff567d83" kindref="member">ACTION_ROLLLEFT</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64708c5873e9b0e5c4f48a4213766247203b" kindref="member">ACTION_ROLLRIGHT</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470c92d09126b24caa957ff10359fc4e09d" kindref="member">ACTION_FIREPRIMARY</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470960b5a41ec9bb69f0a6d07d8646ccf67" kindref="member">ACTION_FIRESECONDARY</ref>,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb647054ec0aeadaf5635e0814bc4c557090b8" kindref="member">ACTION_WEAPONNEXT</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64701ac62aca035455f7046695babc021ff2" kindref="member">ACTION_WEAPONPREV</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470fa53b13ff972fb03707f3a3394984fbd" kindref="member">ACTION_TOGGLE_LIGHTS</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64701146495b2610a6c479ac0b1e9ab0a6ef" kindref="member">ACTION_TOGGLE_FPS</ref>,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64708bdeaee35a9476cee967bca55ba21c5d" kindref="member">ACTION_TOGGLE_CONSOLE</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470ee0a5ffbc348fb547ec55c97e9a15a96" kindref="member">ACTION_TOGGLE_MOUSELOOK</ref>,<sp/><ref refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470254fba47562dee30ccfc9d23a54cca87" kindref="member">ACTION_QUICKMOUSELOOK</ref>};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_control_scheme_1932882dbe80e19222cebf1bdf6fbfe4c" kindref="member">LoadDefaultControlScheme</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_control_scheme_11e53440ff1add23d420605d8a50d0329" kindref="member">ClearControlScheme</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_control_scheme_1a05a50132bde8beff71dce6d497bb725" kindref="member">Unbind</ref>(uint8);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_control_scheme_18e036dbf842c63c661968d6fe20cd3dd" kindref="member">Bind</ref>(uint32,<sp/>uint8);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_1abe764f69af07d6922ecfafc4f72b964" kindref="member">forward</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_1e2682bea47e63baa08442730db01710b" kindref="member">backward</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_1c1f98ecf72eee9aac474e25c00e47d64" kindref="member">lookLeft</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_1a204a0364d56fded7aa1a2d0d2cd82c4" kindref="member">lookRight</ref>;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_1383b1519d6d9d7ad482367530ae099b8" kindref="member">lookUp</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_15207024f2304650cb4322164934d6c8e" kindref="member">lookDown</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_1685a52ed0ed53cc5211c3b5b602f55c1" kindref="member">moveLeft</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_16e7de44d343d9d3bc78197306f3276e9" kindref="member">moveRight</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_17d2e2e8500ef7ef00880f6cda5e4e66f" kindref="member">moveUp</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_1d2a95d1188d1c0b45ba3b8f9d1fe7305" kindref="member">moveDown</ref>;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_1d075a0f32ecd35563117c77ecdba8731" kindref="member">firePrimary</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_14e748a330655a240588bb96eddf3ed6e" kindref="member">fireSecondary</ref>;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_1f178f3c71b1ee870b2762662fd480e7c" kindref="member">weaponNext</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_19f0a64e8678f34c2803dfad54a25bd0a" kindref="member">weaponPrev</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_17845050ee7a49d2f40c1a04ac9db6a9f" kindref="member">toggleLights</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_17d34e7ec600a76f7aacf684e93f412cd" kindref="member">toggleFPS</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_19d6b0cf6344f3f1832eee0f3e8716759" kindref="member">toggleConsole</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_1a5890366a21037d1015a96d08cd8fd0a" kindref="member">toggleMouseLook</ref>;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_11bab72ffff29fcf1b1c8b22d58017ee8" kindref="member">quickMouseLook</ref>;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_14be988b9358268e41ec93c5356e52909" kindref="member">rollLeft</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;uint8&gt;</ref><sp/><ref refid="class_open_arena_1_1_control_scheme_1fd36e7b0417881a2261dfa50bbd5c2b6" kindref="member">rollRight</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/ctrls.h"/>
+  </compounddef>
+</doxygen>

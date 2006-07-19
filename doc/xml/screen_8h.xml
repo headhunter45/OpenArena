@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="screen_8h" kind="file">
+    <compoundname>screen.h</compoundname>
+    <includes local="no">string</includes>
+    <includedby refid="mygl_8h" local="yes">src/mygl.h</includedby>
+    <includedby refid="window_8h" local="yes">src/window.h</includedby>
+    <includedby refid="camera_8h" local="yes">src/camera.h</includedby>
+    <includedby refid="main_8h" local="yes">src/main.h</includedby>
+    <includedby refid="screen_8cpp" local="yes">src/screen.cpp</includedby>
+    <incdepgraph>
+      <node id="515">
+        <label>string</label>
+      </node>
+      <node id="514">
+        <label>src/screen.h</label>
+        <link refid="screen.h"/>
+        <childnode refid="515" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="539">
+        <label>src/screen.cpp</label>
+        <link refid="screen_8cpp"/>
+      </node>
+      <node id="531">
+        <label>src/mygl.cpp</label>
+        <link refid="mygl_8cpp"/>
+      </node>
+      <node id="536">
+        <label>src/PluginManager.cpp</label>
+        <link refid="_plugin_manager_8cpp"/>
+      </node>
+      <node id="538">
+        <label>src/window.cpp</label>
+        <link refid="window_8cpp"/>
+      </node>
+      <node id="535">
+        <label>src/NullVideoPlugin.cpp</label>
+        <link refid="_null_video_plugin_8cpp"/>
+      </node>
+      <node id="517">
+        <label>src/mygl.h</label>
+        <link refid="mygl_8h"/>
+        <childnode refid="518" relation="include">
+        </childnode>
+        <childnode refid="526" relation="include">
+        </childnode>
+        <childnode refid="529" relation="include">
+        </childnode>
+        <childnode refid="522" relation="include">
+        </childnode>
+        <childnode refid="531" relation="include">
+        </childnode>
+      </node>
+      <node id="534">
+        <label>src/NullVideoPlugin.h</label>
+        <link refid="_null_video_plugin_8h"/>
+        <childnode refid="535" relation="include">
+        </childnode>
+        <childnode refid="536" relation="include">
+        </childnode>
+      </node>
+      <node id="516">
+        <label>src/screen.h</label>
+        <link refid="screen.h"/>
+        <childnode refid="517" relation="include">
+        </childnode>
+        <childnode refid="532" relation="include">
+        </childnode>
+        <childnode refid="518" relation="include">
+        </childnode>
+        <childnode refid="522" relation="include">
+        </childnode>
+        <childnode refid="539" relation="include">
+        </childnode>
+      </node>
+      <node id="525">
+        <label>src/player.cpp</label>
+        <link refid="player_8cpp"/>
+      </node>
+      <node id="520">
+        <label>src/level.h</label>
+        <link refid="level_8h"/>
+        <childnode refid="521" relation="include">
+        </childnode>
+        <childnode refid="522" relation="include">
+        </childnode>
+        <childnode refid="523" relation="include">
+        </childnode>
+      </node>
+      <node id="530">
+        <label>src/myglFont.cpp</label>
+        <link refid="mygl_font_8cpp"/>
+      </node>
+      <node id="526">
+        <label>src/myglTexture.h</label>
+        <link refid="mygl_texture_8h"/>
+        <childnode refid="527" relation="include">
+        </childnode>
+        <childnode refid="520" relation="include">
+        </childnode>
+        <childnode refid="528" relation="include">
+        </childnode>
+      </node>
+      <node id="524">
+        <label>src/player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="520" relation="include">
+        </childnode>
+        <childnode refid="525" relation="include">
+        </childnode>
+      </node>
+      <node id="537">
+        <label>src/PluginManager.h</label>
+        <link refid="_plugin_manager_8h"/>
+        <childnode refid="536" relation="include">
+        </childnode>
+      </node>
+      <node id="521">
+        <label>src/level.cpp</label>
+        <link refid="level_8cpp"/>
+      </node>
+      <node id="532">
+        <label>src/window.h</label>
+        <link refid="window_8h"/>
+        <childnode refid="517" relation="include">
+        </childnode>
+        <childnode refid="522" relation="include">
+        </childnode>
+        <childnode refid="533" relation="include">
+        </childnode>
+        <childnode refid="538" relation="include">
+        </childnode>
+      </node>
+      <node id="522">
+        <label>src/main.h</label>
+        <link refid="main_8h"/>
+      </node>
+      <node id="518">
+        <label>src/camera.h</label>
+        <link refid="camera_8h"/>
+        <childnode refid="519" relation="include">
+        </childnode>
+        <childnode refid="520" relation="include">
+        </childnode>
+        <childnode refid="524" relation="include">
+        </childnode>
+        <childnode refid="522" relation="include">
+        </childnode>
+      </node>
+      <node id="529">
+        <label>src/myglFont.h</label>
+        <link refid="mygl_font_8h"/>
+        <childnode refid="520" relation="include">
+        </childnode>
+        <childnode refid="530" relation="include">
+        </childnode>
+      </node>
+      <node id="527">
+        <label>src/geometry.h</label>
+        <link refid="geometry_8h"/>
+        <childnode refid="520" relation="include">
+        </childnode>
+      </node>
+      <node id="523">
+        <label>src/worlddefs.h</label>
+        <link refid="worlddefs_8h"/>
+        <childnode refid="522" relation="include">
+        </childnode>
+      </node>
+      <node id="528">
+        <label>src/myglTexture.cpp</label>
+        <link refid="mygl_texture_8cpp"/>
+      </node>
+      <node id="533">
+        <label>src/VideoPlugin.h</label>
+        <link refid="_video_plugin_8h"/>
+        <childnode refid="534" relation="include">
+        </childnode>
+        <childnode refid="537" relation="include">
+        </childnode>
+      </node>
+      <node id="519">
+        <label>src/camera.cpp</label>
+        <link refid="camera_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_open_arena_1_1_screen" prot="public">OpenArena::Screen</innerclass>
+    <innernamespace refid="namespace_open_arena">OpenArena</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__screen_h__</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__screen_h__</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">OpenArena</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20" refid="class_open_arena_1_1_screen" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_open_arena_1_1_screen" kindref="compound">Screen</ref></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_screen_1be7c4e1e72db645db91e1fd97b04d889" kindref="member">Screen</ref>();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_18a6bfbe8265107e8ec9e81ba143cd4b4" kindref="member">GetWidth</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_1ea8ed73c79b51258a64d23688a9f51ad" kindref="member">GetHeight</ref>();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_1618935dd613073d3f7e1b287a37bacae" kindref="member">GetColorDepth</ref>();</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_1486218ff5ffa46f5bcfdf8f8e84d4e4d" kindref="member">GetFullscreen</ref>();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="class_open_arena_1_1_screen_10191301b9f64e039a4fbbeec27032664" kindref="member">GetName</ref>();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_1fea6d6f0f042de545d0e4a9041a23f33" kindref="member">SetWidth</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_11b44f0c54e30144e3662904bf6f3f12f" kindref="member">SetHeight</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_1dc25204025c838f3709536e7e6d9460c" kindref="member">Resize</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_1b0ff2d97e02bc5c42b5ab4e18c8fa962" kindref="member">SetColorDepth</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_1c39783098d4de08390457c4c97a4f927" kindref="member">SetFullscreen</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_1de25f0b69637786e0b68bb70ed2b1cad" kindref="member">ToggleFullscreen</ref>();</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_177f99500ca98c16adc9b6bc65ce4a5d7" kindref="member">SetName</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_177f99500ca98c16adc9b6bc65ce4a5d7" kindref="member">SetName</ref>(string);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_12d24af3ef8c363b38a1505bf098e24c4" kindref="member">_width</ref>;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_1329d0d63a77d91ad69fe1fc2f5591b1d" kindref="member">_height</ref>;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_108e5688bdf2357f70118489ad186e240" kindref="member">_colorDepth</ref>;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_screen_1947f95891b450031b8f2f7dcf9858327" kindref="member">_fullscreen</ref>;</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>public:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/><ref refid="class_open_arena_1_1_screen_1d9182abf19f7f23782534019e06a4dad" kindref="member">_name</ref>;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="294"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="struct_p_r_o_j_e_c_t_i_l_e" kind="struct" prot="public">
+    <compoundname>PROJECTILE</compoundname>
+    <includes local="no">entities.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_p_r_o_j_e_c_t_i_l_e_1937fa44cb43f25ecbcdff8b7e7606f42" prot="public" static="no" mutable="no">
+        <type><ref refid="class_open_arena_1_1_vec3d" kindref="compound">Vec3d</ref></type>
+        <definition>Vec3d PROJECTILE::heading</definition>
+        <argsstring></argsstring>
+        <name>heading</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="105" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_p_r_o_j_e_c_t_i_l_e_12ceddfdfa748824ef1486bf8da9a707b" prot="public" static="no" mutable="no">
+        <type><ref refid="class_open_arena_1_1_vec3d" kindref="compound">Vec3d</ref></type>
+        <definition>Vec3d PROJECTILE::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="106" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_p_r_o_j_e_c_t_i_l_e_1510810d76f33e7748ef32fca969b1b79" prot="public" static="no" mutable="no">
+        <type><ref refid="class_open_arena_1_1_vec3d" kindref="compound">Vec3d</ref></type>
+        <definition>Vec3d PROJECTILE::end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="107" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_p_r_o_j_e_c_t_i_l_e_182f79454fc460083767fa18db20eb921" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int PROJECTILE::dammage</definition>
+        <argsstring></argsstring>
+        <name>dammage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="108" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_p_r_o_j_e_c_t_i_l_e_186711aa789c7b7db19ad97cb1c8cc14b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PROJECTILE::creation</definition>
+        <argsstring></argsstring>
+        <name>creation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="109" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="struct_p_r_o_j_e_c_t_i_l_e" kindref="compound">PROJECTILE</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="struct_p_r_o_j_e_c_t_i_l_e" kindref="compound">PROJECTILE</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="struct_p_r_o_j_e_c_t_i_l_e" kindref="compound">PROJECTILE</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="91">
+        <label>OpenArena::Vec3d</label>
+        <link refid="class_open_arena_1_1_vec3d"/>
+      </node>
+      <node id="90">
+        <label>PROJECTILE</label>
+        <link refid="struct_p_r_o_j_e_c_t_i_l_e"/>
+        <childnode refid="91" relation="usage">
+          <edgelabel>heading
+end
+start</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="104" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="103" bodyend="111"/>
+    <listofallmembers>
+      <member refid="struct_p_r_o_j_e_c_t_i_l_e_186711aa789c7b7db19ad97cb1c8cc14b" prot="public" virt="non-virtual"><scope>PROJECTILE</scope><name>creation</name></member>
+      <member refid="struct_p_r_o_j_e_c_t_i_l_e_182f79454fc460083767fa18db20eb921" prot="public" virt="non-virtual"><scope>PROJECTILE</scope><name>dammage</name></member>
+      <member refid="struct_p_r_o_j_e_c_t_i_l_e_1510810d76f33e7748ef32fca969b1b79" prot="public" virt="non-virtual"><scope>PROJECTILE</scope><name>end</name></member>
+      <member refid="struct_p_r_o_j_e_c_t_i_l_e_1937fa44cb43f25ecbcdff8b7e7606f42" prot="public" virt="non-virtual"><scope>PROJECTILE</scope><name>heading</name></member>
+      <member refid="struct_p_r_o_j_e_c_t_i_l_e_12ceddfdfa748824ef1486bf8da9a707b" prot="public" virt="non-virtual"><scope>PROJECTILE</scope><name>start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

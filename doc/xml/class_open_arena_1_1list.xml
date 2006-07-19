@@ -1,0 +1,675 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="class_open_arena_1_1list" kind="class" prot="public">
+    <compoundname>OpenArena::list</compoundname>
+    <includes local="no">list.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class</type>
+        <declname>ItemType</declname>
+        <defname>ItemType</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_open_arena_1_1list_13fd2b74f26103c0df2bdc35d97f80326" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::list&lt; ItemType &gt;::list</definition>
+        <argsstring>()</argsstring>
+        <name>list</name>
+        <briefdescription>
+<para>Write brief comment for list here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for list here.</para><para><simplesect kind="remark"><para>Write remarks for list here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="84" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="474" bodyend="479"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_1e404fb174ab6c8db0fe1115ffbfba605" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::list&lt; ItemType &gt;::~list</definition>
+        <argsstring>()</argsstring>
+        <name>~list</name>
+        <briefdescription>
+<para>Write brief comment for ~list here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for ~list here.</para><para><simplesect kind="remark"><para>Write remarks for ~list here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="100" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="482" bodyend="492"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_13dbbfc5a7545f4641880e6910edb2a14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::list&lt; ItemType &gt;::list</definition>
+        <argsstring>(const list &amp;)</argsstring>
+        <name>list</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1list" kindref="compound">list</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Write brief comment for list here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for list here.</para><para><simplesect kind="remark"><para>Write remarks for list here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="119"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_1ead7299bdae7bed3b62160e62749a12a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::list&lt; ItemType &gt;::IsEmpty</definition>
+        <argsstring>() const </argsstring>
+        <name>IsEmpty</name>
+        <briefdescription>
+<para>Write brief comment for IsEmpty here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for IsEmpty here.</para><para><simplesect kind="remark"><para>Write remarks for IsEmpty here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="139" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="542" bodyend="545"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_16449ffaba5c51c0ebae88f9e8aa6f68c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::list&lt; ItemType &gt;::IsFull</definition>
+        <argsstring>() const </argsstring>
+        <name>IsFull</name>
+        <briefdescription>
+<para>Write brief comment for IsFull here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for IsFull here.</para><para><simplesect kind="remark"><para>Write remarks for IsFull here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="158" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="548" bodyend="551"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_1e9c9e72c6fb72f2c98a19892ce62f911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::list&lt; ItemType &gt;::Insert</definition>
+        <argsstring>(ItemType newItem)</argsstring>
+        <name>Insert</name>
+        <param>
+          <type>ItemType</type>
+          <declname>newItem</declname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for Insert here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newItem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter newItem.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Insert here.</para><para><simplesect kind="remark"><para>Write remarks for Insert here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="177" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="554" bodyend="592"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_148ab395cc9e874309bf86553e9c55bcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::list&lt; ItemType &gt;::Remove</definition>
+        <argsstring>(ItemType target)</argsstring>
+        <name>Remove</name>
+        <param>
+          <type>ItemType</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for Remove here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter target.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Remove here.</para><para><simplesect kind="remark"><para>Write remarks for Remove here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="196" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="595" bodyend="624"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_130622d48bc3076ef3b84981703e7df5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::list&lt; ItemType &gt;::Remove</definition>
+        <argsstring>()</argsstring>
+        <name>Remove</name>
+        <briefdescription>
+<para>Write brief comment for Remove here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Remove here.</para><para><simplesect kind="remark"><para>Write remarks for Remove here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="212" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="667" bodyend="677"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_1edb8a0a9a85cdf4881402e39ab10ac79" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ItemType</type>
+        <definition>ItemType OpenArena::list&lt; ItemType &gt;::Retrieve</definition>
+        <argsstring>() const </argsstring>
+        <name>Retrieve</name>
+        <briefdescription>
+<para>Write brief comment for Retrieve here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Retrieve here.</para><para><simplesect kind="remark"><para>Write remarks for Retrieve here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="231" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="680" bodyend="684"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_1713ccf4d821a05d941711b20c2d4532b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::list&lt; ItemType &gt;::PrevPosition</definition>
+        <argsstring>()</argsstring>
+        <name>PrevPosition</name>
+        <briefdescription>
+<para>Write brief comment for PrevPosition here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for PrevPosition here.</para><para><simplesect kind="remark"><para>Write remarks for PrevPosition here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="250" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="627" bodyend="650"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_15f1c217d3eb89c045af994743aa5bfd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::list&lt; ItemType &gt;::NextPosition</definition>
+        <argsstring>()</argsstring>
+        <name>NextPosition</name>
+        <briefdescription>
+<para>Write brief comment for NextPosition here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for NextPosition here.</para><para><simplesect kind="remark"><para>Write remarks for NextPosition here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="269" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="653" bodyend="664"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_14f111a73e050da2f4b719a06d0570b31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::list&lt; ItemType &gt;::IsFirstPosition</definition>
+        <argsstring>() const </argsstring>
+        <name>IsFirstPosition</name>
+        <briefdescription>
+<para>Write brief comment for IsFirstPosition here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for IsFirstPosition here.</para><para><simplesect kind="remark"><para>Write remarks for IsFirstPosition here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="288" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="687" bodyend="690"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_12913857c2cec76f3b1b78a0fab6185d3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::list&lt; ItemType &gt;::IsLastPosition</definition>
+        <argsstring>() const </argsstring>
+        <name>IsLastPosition</name>
+        <briefdescription>
+<para>Write brief comment for IsLastPosition here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for IsLastPosition here.</para><para><simplesect kind="remark"><para>Write remarks for IsLastPosition here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="307" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="693" bodyend="696"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_1c71b0c3cea263107bf75f266da8965dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::list&lt; ItemType &gt;::FirstPosition</definition>
+        <argsstring>()</argsstring>
+        <name>FirstPosition</name>
+        <briefdescription>
+<para>Write brief comment for FirstPosition here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for FirstPosition here.</para><para><simplesect kind="remark"><para>Write remarks for FirstPosition here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="323" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="699" bodyend="702"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_129da0fb05654977d142ea838efc0ea38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::list&lt; ItemType &gt;::LastPosition</definition>
+        <argsstring>()</argsstring>
+        <name>LastPosition</name>
+        <briefdescription>
+<para>Write brief comment for LastPosition here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for LastPosition here.</para><para><simplesect kind="remark"><para>Write remarks for LastPosition here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="339" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="705" bodyend="708"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_1d3af9b2f3226aaeb16ab8600978352a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::list&lt; ItemType &gt;::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <briefdescription>
+<para>Write brief comment for Clear here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Clear here.</para><para><simplesect kind="remark"><para>Write remarks for Clear here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="355" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="505" bodyend="509"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_11df7f9733f97df546d70928ffec13539" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::list&lt; ItemType &gt;::Contains</definition>
+        <argsstring>(ItemType) const </argsstring>
+        <name>Contains</name>
+        <param>
+          <type>ItemType</type>
+          <defname>value</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for Contains here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Contains here.</para><para><simplesect kind="remark"><para>Write remarks for Contains here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="377" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="780" bodyend="792"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_1467851b58d012a678b2d1379ba7997d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int OpenArena::list&lt; ItemType &gt;::Length</definition>
+        <argsstring>()</argsstring>
+        <name>Length</name>
+        <briefdescription>
+<para>Write brief comment for Length here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Length here.</para><para><simplesect kind="remark"><para>Write remarks for Length here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="396" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="760" bodyend="777"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_16de9ce258186e2de381d93a9c7253841" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::list&lt; ItemType &gt;::operator=</definition>
+        <argsstring>(const list&lt; ItemType &gt; &amp;)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1list" kindref="compound">list</ref>&lt; ItemType &gt; &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator = here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator = here.</para><para><simplesect kind="remark"><para>Write remarks for operator = here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="415" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="512" bodyend="539"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_1ab014322bb7634624ab9f7f329ae766e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ItemType</type>
+        <definition>ItemType OpenArena::list&lt; ItemType &gt;::operator[]</definition>
+        <argsstring>(LIST_ARRAY_INDEX_TYPE) const </argsstring>
+        <name>operator[]</name>
+        <param>
+          <type><ref refid="namespace_open_arena_106a2c7f75bbf3debba540b9b3a201bd4" kindref="member">LIST_ARRAY_INDEX_TYPE</ref></type>
+          <defname>index</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator [] here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator [] here.</para><para><simplesect kind="remark"><para>Write remarks for operator [] here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="437" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="711" bodyend="732"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1list_1e6757364939bc1006ea6d5844810f7d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ItemType &amp;</type>
+        <definition>ItemType &amp; OpenArena::list&lt; ItemType &gt;::operator[]</definition>
+        <argsstring>(LIST_ARRAY_INDEX_TYPE)</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type><ref refid="namespace_open_arena_106a2c7f75bbf3debba540b9b3a201bd4" kindref="member">LIST_ARRAY_INDEX_TYPE</ref></type>
+          <defname>index</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator [] here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator [] here.</para><para><simplesect kind="remark"><para>Write remarks for operator [] here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="459" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="735" bodyend="757"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_open_arena_1_1list_1fb4e0d8f28c010603e771967ded85f24" prot="private" static="no" mutable="no">
+        <type><ref refid="class_open_arena_1_1list_node" kindref="compound">listNode</ref>&lt; ItemType &gt; *</type>
+        <definition>listNode&lt;ItemType&gt;* OpenArena::list&lt; ItemType &gt;::head</definition>
+        <argsstring></argsstring>
+        <name>head</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="462" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="462" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1list_1c53b13be65cf4631f98a4220c5216f70" prot="private" static="no" mutable="no">
+        <type><ref refid="class_open_arena_1_1list_node" kindref="compound">listNode</ref>&lt; ItemType &gt; *</type>
+        <definition>listNode&lt;ItemType&gt;* OpenArena::list&lt; ItemType &gt;::tail</definition>
+        <argsstring></argsstring>
+        <name>tail</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="463" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="463" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1list_195dffe8cd9e9bda2cc7d51fcf38281c6" prot="private" static="no" mutable="no">
+        <type><ref refid="class_open_arena_1_1list_node" kindref="compound">listNode</ref>&lt; ItemType &gt; *</type>
+        <definition>listNode&lt;ItemType&gt;* OpenArena::list&lt; ItemType &gt;::currPos</definition>
+        <argsstring></argsstring>
+        <name>currPos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="464" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="464" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for list here. </para>    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ItemType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter ItemType.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for list here.</para><para><simplesect kind="remark"><para>Write remarks for list here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="67" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="66" bodyend="465"/>
+    <listofallmembers>
+      <member refid="class_open_arena_1_1list_1d3af9b2f3226aaeb16ab8600978352a5" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>Clear</name></member>
+      <member refid="class_open_arena_1_1list_11df7f9733f97df546d70928ffec13539" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>Contains</name></member>
+      <member refid="class_open_arena_1_1list_195dffe8cd9e9bda2cc7d51fcf38281c6" prot="private" virt="non-virtual"><scope>OpenArena::list</scope><name>currPos</name></member>
+      <member refid="class_open_arena_1_1list_1c71b0c3cea263107bf75f266da8965dc" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>FirstPosition</name></member>
+      <member refid="class_open_arena_1_1list_1fb4e0d8f28c010603e771967ded85f24" prot="private" virt="non-virtual"><scope>OpenArena::list</scope><name>head</name></member>
+      <member refid="class_open_arena_1_1list_1e9c9e72c6fb72f2c98a19892ce62f911" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>Insert</name></member>
+      <member refid="class_open_arena_1_1list_1ead7299bdae7bed3b62160e62749a12a" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>IsEmpty</name></member>
+      <member refid="class_open_arena_1_1list_14f111a73e050da2f4b719a06d0570b31" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>IsFirstPosition</name></member>
+      <member refid="class_open_arena_1_1list_16449ffaba5c51c0ebae88f9e8aa6f68c" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>IsFull</name></member>
+      <member refid="class_open_arena_1_1list_12913857c2cec76f3b1b78a0fab6185d3" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>IsLastPosition</name></member>
+      <member refid="class_open_arena_1_1list_129da0fb05654977d142ea838efc0ea38" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>LastPosition</name></member>
+      <member refid="class_open_arena_1_1list_1467851b58d012a678b2d1379ba7997d8" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>Length</name></member>
+      <member refid="class_open_arena_1_1list_13fd2b74f26103c0df2bdc35d97f80326" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>list</name></member>
+      <member refid="class_open_arena_1_1list_13dbbfc5a7545f4641880e6910edb2a14" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>list</name></member>
+      <member refid="class_open_arena_1_1list_15f1c217d3eb89c045af994743aa5bfd6" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>NextPosition</name></member>
+      <member refid="class_open_arena_1_1list_16de9ce258186e2de381d93a9c7253841" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>operator=</name></member>
+      <member refid="class_open_arena_1_1list_1ab014322bb7634624ab9f7f329ae766e" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>operator[]</name></member>
+      <member refid="class_open_arena_1_1list_1e6757364939bc1006ea6d5844810f7d0" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>operator[]</name></member>
+      <member refid="class_open_arena_1_1list_1713ccf4d821a05d941711b20c2d4532b" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>PrevPosition</name></member>
+      <member refid="class_open_arena_1_1list_148ab395cc9e874309bf86553e9c55bcb" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>Remove</name></member>
+      <member refid="class_open_arena_1_1list_130622d48bc3076ef3b84981703e7df5e" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>Remove</name></member>
+      <member refid="class_open_arena_1_1list_1edb8a0a9a85cdf4881402e39ab10ac79" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>Retrieve</name></member>
+      <member refid="class_open_arena_1_1list_1c53b13be65cf4631f98a4220c5216f70" prot="private" virt="non-virtual"><scope>OpenArena::list</scope><name>tail</name></member>
+      <member refid="class_open_arena_1_1list_1e404fb174ab6c8db0fe1115ffbfba605" prot="public" virt="non-virtual"><scope>OpenArena::list</scope><name>~list</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

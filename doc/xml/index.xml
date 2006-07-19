@@ -1,0 +1,682 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.4.7">
+  <compound refid="struct_open_arena_1_1_b_i_t_m_a_p___h_e_a_d_e_r" kind="struct"><name>OpenArena::BITMAP_HEADER</name>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___h_e_a_d_e_r_1630c2957f0e61b7b2cfd8e72d5bb8efc" kind="variable"><name>type</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___h_e_a_d_e_r_12e39c9fdf24f2e414ef7ae7a2891f06f" kind="variable"><name>size</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___h_e_a_d_e_r_15cbaaaa57f8febd83b0df2eac2608795" kind="variable"><name>reserved1</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___h_e_a_d_e_r_1ee1d1788602ef5ddaf74ac45073fc47d" kind="variable"><name>reserved2</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___h_e_a_d_e_r_1a3fa717db8938e0d72035524018eba75" kind="variable"><name>offset</name></member>
+  </compound>
+  <compound refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o" kind="struct"><name>OpenArena::BITMAP_INFO</name>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1704088a925b13a5b918698c2993f005b" kind="variable"><name>size</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1e227143d0b68bf579759828c2959c2a8" kind="variable"><name>width</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_17de292dc2099e8be9ada8ca1b88e28ac" kind="variable"><name>height</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_129688aa35ff9916bb8416d21ca283107" kind="variable"><name>planes</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_170892afbfca1e35b20a9abbd8fc7a7a0" kind="variable"><name>bitCount</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_15b3a1b063bf9a319a3f77624dea3d0a2" kind="variable"><name>compression</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1332311682615f026df7f83822325fb48" kind="variable"><name>sizeImage</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1d5c8947b311dfeb07be2e9efff164c1a" kind="variable"><name>xPelsPerMeter</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_138686ef73500d830773c74af41b89783" kind="variable"><name>yPelsPerMeter</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1537e138806ec66433dd84853432aaa90" kind="variable"><name>clrUsed</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_194e2e30bf95c0f918ee137c05a19b80e" kind="variable"><name>clrImportant</name></member>
+  </compound>
+  <compound refid="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d" kind="struct"><name>OpenArena::BITMAP_QUAD</name>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d_10cd8888acc1c2636dd19141bc7989678" kind="variable"><name>blue</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d_1f6c416ac369e612e6e0d319e3d5d6a1a" kind="variable"><name>green</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d_14901ad774491156e3d1303cb1de25ac7" kind="variable"><name>red</name></member>
+    <member refid="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d_1ee433c8fdbf6d87de316d8e091b0ba67" kind="variable"><name>reserved</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_camera" kind="class"><name>OpenArena::Camera</name>
+    <member refid="class_open_arena_1_1_camera_1bb376200420ebb3a66d05ec0aa9349b9" kind="function"><name>Camera</name></member>
+    <member refid="class_open_arena_1_1_camera_1a9aa0d60f8f88ed64e695dcd2a5ead25" kind="function"><name>Position</name></member>
+    <member refid="class_open_arena_1_1_camera_155fdaa3adbb54036cbeabb58621151c7" kind="function"><name>View</name></member>
+    <member refid="class_open_arena_1_1_camera_11059827a14e8be84398b344e2c9a6ac6" kind="function"><name>UpVector</name></member>
+    <member refid="class_open_arena_1_1_camera_190e293115cfc8b82e56c5975af2b2340" kind="function"><name>Strafe</name></member>
+    <member refid="class_open_arena_1_1_camera_1e442c80b0291b9e72e188b8f267f0f8b" kind="function"><name>PositionCamera</name></member>
+    <member refid="class_open_arena_1_1_camera_1c647757a221f41f78487fb11fc9cedb9" kind="function"><name>PositionCamera</name></member>
+    <member refid="class_open_arena_1_1_camera_18d3d5a12988ca56c7d86caecab77f891" kind="function"><name>RotateView</name></member>
+    <member refid="class_open_arena_1_1_camera_174996afcd49ed188350c9dcaf46c9064" kind="function"><name>RotateView</name></member>
+    <member refid="class_open_arena_1_1_camera_1c6d1ddc9aedc346967227e7892ced12c" kind="function"><name>SetViewByMouse</name></member>
+    <member refid="class_open_arena_1_1_camera_17c509721078606ef3d1348be2314b704" kind="function"><name>StrafeCamera</name></member>
+    <member refid="class_open_arena_1_1_camera_1d9a8e82dfd65dc414630142769b2e939" kind="function"><name>MoveCamera</name></member>
+    <member refid="class_open_arena_1_1_camera_128bc2891a2d4f08cd3208bdf40cb7e21" kind="function"><name>Update</name></member>
+    <member refid="class_open_arena_1_1_camera_1157113367b26e66f41a7c03a96041237" kind="function"><name>Look</name></member>
+    <member refid="class_open_arena_1_1_camera_10431a9b2752d9074011a2bb29b1dfd21" kind="function"><name>RotateHorizontal</name></member>
+    <member refid="class_open_arena_1_1_camera_1dbaec1b05c7495babd28136204fad594" kind="function"><name>RotateVertical</name></member>
+    <member refid="class_open_arena_1_1_camera_1219a76dc8e65945774e3528947f7d968" kind="function"><name>GetUpVector</name></member>
+    <member refid="class_open_arena_1_1_camera_1d5a25265612eb37c611fde3d3b412469" kind="function"><name>GetRightVector</name></member>
+    <member refid="class_open_arena_1_1_camera_142750b47e5606fb71ba715da9a4b3a9a" kind="function"><name>GetForwardVector</name></member>
+    <member refid="class_open_arena_1_1_camera_1d29881ee271ce07f1d4164e22ae1fdac" kind="function"><name>UpdateVectors</name></member>
+    <member refid="class_open_arena_1_1_camera_1d7de81b78e41164443888012d105ed55" kind="variable"><name>m_vPosition</name></member>
+    <member refid="class_open_arena_1_1_camera_149a63a47dbc79ce926fb6e68e65c4ade" kind="variable"><name>m_vView</name></member>
+    <member refid="class_open_arena_1_1_camera_1b48b08d52de388a5d1bd06a242714116" kind="variable"><name>m_vUpVector</name></member>
+    <member refid="class_open_arena_1_1_camera_1e5cd1fa4c3d236d319e667fdd407bfef" kind="variable"><name>m_vStrafe</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_control_scheme" kind="class"><name>OpenArena::ControlScheme</name>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470" kind="enum"><name>Action</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb647058e67ae02e5ad8b8be8959593abac85f" kind="enumvalue"><name>ACTION_FORWARD</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64708c3b455dd3032dda887f2ac34caa5d78" kind="enumvalue"><name>ACTION_BACKWARD</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470957357f63dea4bce22ce0f1249784f38" kind="enumvalue"><name>ACTION_LOOKLEFT</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64706cd4659fdc7daa95a85a193df5d7b943" kind="enumvalue"><name>ACTION_LOOKRIGHT</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64702c91798eef0fdd1ffb9f63f7a358faeb" kind="enumvalue"><name>ACTION_LOOKUP</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb647035b6849ad9d1fcdf982c11682fb89edf" kind="enumvalue"><name>ACTION_LOOKDOWN</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64704bb958b603711cb45cbaad96f5c3dc82" kind="enumvalue"><name>ACTION_MOVELEFT</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470a610128fed5c5f5c531cd88efc132480" kind="enumvalue"><name>ACTION_MOVERIGHT</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470fc9baf0e123886852a056bdf00b11063" kind="enumvalue"><name>ACTION_MOVEUP</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64705c986417d949b73419acf70c5b758cad" kind="enumvalue"><name>ACTION_MOVEDOWN</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470c60c3cc1967f74ccbc09d0c7ff567d83" kind="enumvalue"><name>ACTION_ROLLLEFT</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64708c5873e9b0e5c4f48a4213766247203b" kind="enumvalue"><name>ACTION_ROLLRIGHT</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470c92d09126b24caa957ff10359fc4e09d" kind="enumvalue"><name>ACTION_FIREPRIMARY</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470960b5a41ec9bb69f0a6d07d8646ccf67" kind="enumvalue"><name>ACTION_FIRESECONDARY</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb647054ec0aeadaf5635e0814bc4c557090b8" kind="enumvalue"><name>ACTION_WEAPONNEXT</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64701ac62aca035455f7046695babc021ff2" kind="enumvalue"><name>ACTION_WEAPONPREV</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470fa53b13ff972fb03707f3a3394984fbd" kind="enumvalue"><name>ACTION_TOGGLE_LIGHTS</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64701146495b2610a6c479ac0b1e9ab0a6ef" kind="enumvalue"><name>ACTION_TOGGLE_FPS</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb64708bdeaee35a9476cee967bca55ba21c5d" kind="enumvalue"><name>ACTION_TOGGLE_CONSOLE</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470ee0a5ffbc348fb547ec55c97e9a15a96" kind="enumvalue"><name>ACTION_TOGGLE_MOUSELOOK</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_12077ff07c06c70c7fd53ebfe19fb6470254fba47562dee30ccfc9d23a54cca87" kind="enumvalue"><name>ACTION_QUICKMOUSELOOK</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1932882dbe80e19222cebf1bdf6fbfe4c" kind="function"><name>LoadDefaultControlScheme</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_11e53440ff1add23d420605d8a50d0329" kind="function"><name>ClearControlScheme</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1a05a50132bde8beff71dce6d497bb725" kind="function"><name>Unbind</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_18e036dbf842c63c661968d6fe20cd3dd" kind="function"><name>Bind</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1abe764f69af07d6922ecfafc4f72b964" kind="variable"><name>forward</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1e2682bea47e63baa08442730db01710b" kind="variable"><name>backward</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1c1f98ecf72eee9aac474e25c00e47d64" kind="variable"><name>lookLeft</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1a204a0364d56fded7aa1a2d0d2cd82c4" kind="variable"><name>lookRight</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1383b1519d6d9d7ad482367530ae099b8" kind="variable"><name>lookUp</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_15207024f2304650cb4322164934d6c8e" kind="variable"><name>lookDown</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1685a52ed0ed53cc5211c3b5b602f55c1" kind="variable"><name>moveLeft</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_16e7de44d343d9d3bc78197306f3276e9" kind="variable"><name>moveRight</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_17d2e2e8500ef7ef00880f6cda5e4e66f" kind="variable"><name>moveUp</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1d2a95d1188d1c0b45ba3b8f9d1fe7305" kind="variable"><name>moveDown</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1d075a0f32ecd35563117c77ecdba8731" kind="variable"><name>firePrimary</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_14e748a330655a240588bb96eddf3ed6e" kind="variable"><name>fireSecondary</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1f178f3c71b1ee870b2762662fd480e7c" kind="variable"><name>weaponNext</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_19f0a64e8678f34c2803dfad54a25bd0a" kind="variable"><name>weaponPrev</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_17845050ee7a49d2f40c1a04ac9db6a9f" kind="variable"><name>toggleLights</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_17d34e7ec600a76f7aacf684e93f412cd" kind="variable"><name>toggleFPS</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_19d6b0cf6344f3f1832eee0f3e8716759" kind="variable"><name>toggleConsole</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1a5890366a21037d1015a96d08cd8fd0a" kind="variable"><name>toggleMouseLook</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_11bab72ffff29fcf1b1c8b22d58017ee8" kind="variable"><name>quickMouseLook</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_14be988b9358268e41ec93c5356e52909" kind="variable"><name>rollLeft</name></member>
+    <member refid="class_open_arena_1_1_control_scheme_1fd36e7b0417881a2261dfa50bbd5c2b6" kind="variable"><name>rollRight</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_font" kind="class"><name>OpenArena::Font</name>
+    <member refid="class_open_arena_1_1_font_121d9f4928248ed16b6cc000562e81cdf" kind="function"><name>Font</name></member>
+    <member refid="class_open_arena_1_1_font_19ed7c226219a804b631aeaaa1827841c" kind="function"><name>~Font</name></member>
+    <member refid="class_open_arena_1_1_font_1bd4b04b733ff71b0a45ddb54b305f262" kind="function"><name>BuildFont</name></member>
+    <member refid="class_open_arena_1_1_font_1f3c42a410b651502cbb6c284246d6435" kind="function"><name>FreeFont</name></member>
+    <member refid="class_open_arena_1_1_font_1ad96dcc9c923fcccfc1eab8402d1b46d" kind="function"><name>Print</name></member>
+    <member refid="class_open_arena_1_1_font_140b97ea5770ca1825c260dd65aea70a7" kind="function"><name>Loaded</name></member>
+    <member refid="class_open_arena_1_1_font_13c78224742780f219ed6006bd1d21542" kind="function"><name>SetScreenDimensions</name></member>
+    <member refid="class_open_arena_1_1_font_11ba04d5d811f00e55ffca67eb479ca42" kind="function"><name>SetScreenWidth</name></member>
+    <member refid="class_open_arena_1_1_font_193be06c84918a7b751c6bf01da4e5ab5" kind="function"><name>SetScreenHeight</name></member>
+    <member refid="class_open_arena_1_1_font_134494f6b8a998111347edfdb4c3225e8" kind="function"><name>ScreenWidth</name></member>
+    <member refid="class_open_arena_1_1_font_1c9e261e14b536fdf57f010f17be5702e" kind="function"><name>ScreenHeight</name></member>
+    <member refid="class_open_arena_1_1_font_115bdfc9f744af3bfc88836daecf78a8c" kind="variable"><name>screenWidth</name></member>
+    <member refid="class_open_arena_1_1_font_10c4ee581eb14ff0946c0f958af95c936" kind="variable"><name>screenHeight</name></member>
+    <member refid="class_open_arena_1_1_font_1b95774a8049423da5d73e742eeec8c03" kind="variable"><name>base</name></member>
+    <member refid="class_open_arena_1_1_font_1f26c7432d00d8b36ef3f962cf393030d" kind="variable"><name>texture</name></member>
+    <member refid="class_open_arena_1_1_font_135e4d40b3a6744a7a432986642090a87" kind="variable"><name>status</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_image" kind="class"><name>OpenArena::Image</name>
+    <member refid="class_open_arena_1_1_image_1ca37f2ad5dd96e2859831f1906bad38f" kind="enum"><name>Type</name></member>
+    <member refid="class_open_arena_1_1_image_1ca37f2ad5dd96e2859831f1906bad38fda51471d353b3637e396865d74d257f6" kind="enumvalue"><name>Type_RGB</name></member>
+    <member refid="class_open_arena_1_1_image_14e42b3c49bf88e31c50029664e3604b9" kind="function"><name>GetImageData</name></member>
+    <member refid="class_open_arena_1_1_image_19e2571d03127a4b8ea677952e46b10eb" kind="function"><name>GetBitsPerPixel</name></member>
+    <member refid="class_open_arena_1_1_image_137073327914dd416fd86f57cdca62502" kind="function"><name>GetBytesPerPixel</name></member>
+    <member refid="class_open_arena_1_1_image_1ea45a60931d45196828269ed70f87bbc" kind="function"><name>GetWidth</name></member>
+    <member refid="class_open_arena_1_1_image_1c3d4fbafd28103aafdb20d8b222fe1ba" kind="function"><name>GetHeight</name></member>
+    <member refid="class_open_arena_1_1_image_165f02cae03bc870e9781f87ddde10b85" kind="function"><name>GetType</name></member>
+    <member refid="class_open_arena_1_1_image_1387e4530a6408fce279a6c19fad64584" kind="function"><name>~Image</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_level" kind="class"><name>OpenArena::Level</name>
+    <member refid="class_open_arena_1_1_level_15b6a51fe49f2767c5a87adc9667b5ddb" kind="function"><name>Level</name></member>
+    <member refid="class_open_arena_1_1_level_18edd5f37cbc8a04928828270ebb7a89a" kind="function"><name>~Level</name></member>
+    <member refid="class_open_arena_1_1_level_1c1855ed7843917751f05f24f383cc38d" kind="function"><name>LoadMap</name></member>
+    <member refid="class_open_arena_1_1_level_18be66953d75ad742f5934d4cff30af1b" kind="function"><name>LoadMap</name></member>
+    <member refid="class_open_arena_1_1_level_1ff12b5813734e731fe546dc8f695b5f0" kind="function"><name>SaveMap</name></member>
+    <member refid="class_open_arena_1_1_level_1149ae183fa2564f6744e85c6dcb3312c" kind="function"><name>LoadConfig</name></member>
+    <member refid="class_open_arena_1_1_level_13735542a131af793330bc2d1f9c45b02" kind="function"><name>LoadConfig</name></member>
+    <member refid="class_open_arena_1_1_level_132cd26bf48d6c3dc5873f9934217b988" kind="function"><name>SaveConfig</name></member>
+    <member refid="class_open_arena_1_1_level_13e41383131c482dcd1c07e5eac8201c5" kind="function"><name>Execute</name></member>
+    <member refid="class_open_arena_1_1_level_17bc094479be8d07f988548bf22a12894" kind="function"><name>LoadGLTextures</name></member>
+    <member refid="class_open_arena_1_1_level_1a96af1efc4ba237332f16b86f9780b0c" kind="function"><name>Render</name></member>
+    <member refid="class_open_arena_1_1_level_168ab5997fd1052932585c03ccd5d40bc" kind="function"><name>UnloadMap</name></member>
+    <member refid="class_open_arena_1_1_level_1c160b417a0835dc7fac144f5ad12ac32" kind="function"><name>UpdateConsole</name></member>
+    <member refid="class_open_arena_1_1_level_1b5dd76eccea1ef392fa1d959f698c78b" kind="function"><name>FPS</name></member>
+    <member refid="class_open_arena_1_1_level_1e1e90628bddd7823e6159af0f6b15307" kind="function"><name>ParseCmds</name></member>
+    <member refid="class_open_arena_1_1_level_1c1952b1efdc2cf84b0f8e8f7deb75b97" kind="function"><name>Print</name></member>
+    <member refid="class_open_arena_1_1_level_1ea76daad1a0d7fb0ede7a3c8f06a2938" kind="function"><name>SetWindow</name></member>
+    <member refid="class_open_arena_1_1_level_1f953752717d8a4d750ffd9e76b26d6a3" kind="function"><name>GetWindow</name></member>
+    <member refid="class_open_arena_1_1_level_11bc8ebcaffc9706768a6eb2717f5f38a" kind="function"><name>ConsolePrint</name></member>
+    <member refid="class_open_arena_1_1_level_1c5c4d184229ffa78432f171d5c3757e4" kind="variable"><name>screen</name></member>
+    <member refid="class_open_arena_1_1_level_1eb7e603c241910b8f41b774bf8df13bd" kind="variable"><name>glFont</name></member>
+    <member refid="class_open_arena_1_1_level_13b8d8a1160c028a1d3a18c3e25a61d2f" kind="variable"><name>nextLevel</name></member>
+    <member refid="class_open_arena_1_1_level_1ec7ee32d878081467484475558f384fe" kind="variable"><name>defaultPlayer</name></member>
+    <member refid="class_open_arena_1_1_level_1bbc8a296f44f68c47749a5d19696cc3c" kind="variable"><name>numTextures</name></member>
+    <member refid="class_open_arena_1_1_level_1795dea99526f1becf525b23aa11398a1" kind="variable"><name>textureNames</name></member>
+    <member refid="class_open_arena_1_1_level_1c6cf4317c860d5a50d7bf151ccb63ccf" kind="variable"><name>bgm</name></member>
+    <member refid="class_open_arena_1_1_level_1b6fd13f872dc6b19ef83e55316714e5d" kind="variable"><name>bgmCDA</name></member>
+    <member refid="class_open_arena_1_1_level_1083734d24864d9b2dadf810dd644d2c2" kind="variable"><name>gamedir</name></member>
+    <member refid="class_open_arena_1_1_level_1388c32c76f5200e525f065629f86c6da" kind="variable"><name>gravity</name></member>
+    <member refid="class_open_arena_1_1_level_1e610be7c9986ef5876ecc762e3bfcdd8" kind="variable"><name>mlook</name></member>
+    <member refid="class_open_arena_1_1_level_12aac1844ab1b438c067e14d5505344e8" kind="variable"><name>showFPS</name></member>
+    <member refid="class_open_arena_1_1_level_1ad7b324391cdada359046a0aa7fcfdef" kind="variable"><name>showConsole</name></member>
+    <member refid="class_open_arena_1_1_level_19036560c4e748201023feeebd77f67b2" kind="variable"><name>sound</name></member>
+    <member refid="class_open_arena_1_1_level_12df00d2539215cdd42077b9196647fba" kind="variable"><name>turnSpeed</name></member>
+    <member refid="class_open_arena_1_1_level_1961c76f58c6fec31edb85e6127e146c6" kind="variable"><name>moveSpeed</name></member>
+    <member refid="class_open_arena_1_1_level_1b256439dfcf24b3477f881e9f9a3043e" kind="variable"><name>mouseSpeed</name></member>
+    <member refid="class_open_arena_1_1_level_114904c1f6f42728d6d863e464160432a" kind="variable"><name>maxFPS</name></member>
+    <member refid="class_open_arena_1_1_level_1f2baa02ba7c947aa1e0b7f036e2842ee" kind="variable"><name>triangles</name></member>
+    <member refid="class_open_arena_1_1_level_185ffae540bada083fceb9d9af024f877" kind="variable"><name>numTriangles</name></member>
+    <member refid="class_open_arena_1_1_level_160574e2c07001508429da0fb4e4e346e" kind="variable"><name>players</name></member>
+    <member refid="class_open_arena_1_1_level_19fc2e7e7b4fc8467032e8b8fb2892821" kind="variable"><name>textures</name></member>
+    <member refid="class_open_arena_1_1_level_1afdf9a49dca708712795deca64bde32e" kind="variable"><name>menuTextures</name></member>
+    <member refid="class_open_arena_1_1_level_17487e093a13ae8a3873390ddc6a37c90" kind="variable"><name>_window</name></member>
+    <member refid="class_open_arena_1_1_level_15163c81dae13e76147492f8c29a742d1" kind="variable"><name>consoleHistory</name></member>
+    <member refid="class_open_arena_1_1_level_1bc183aa7f39f9c1462d792fa4e3518db" kind="variable"><name>consoleOutput</name></member>
+    <member refid="class_open_arena_1_1_level_19d90d057469bfea4e040d8ee163c884e" kind="variable"><name>outputText</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1list" kind="class"><name>OpenArena::list</name>
+    <member refid="class_open_arena_1_1list_13fd2b74f26103c0df2bdc35d97f80326" kind="function"><name>list</name></member>
+    <member refid="class_open_arena_1_1list_1e404fb174ab6c8db0fe1115ffbfba605" kind="function"><name>~list</name></member>
+    <member refid="class_open_arena_1_1list_13dbbfc5a7545f4641880e6910edb2a14" kind="function"><name>list</name></member>
+    <member refid="class_open_arena_1_1list_1ead7299bdae7bed3b62160e62749a12a" kind="function"><name>IsEmpty</name></member>
+    <member refid="class_open_arena_1_1list_16449ffaba5c51c0ebae88f9e8aa6f68c" kind="function"><name>IsFull</name></member>
+    <member refid="class_open_arena_1_1list_1e9c9e72c6fb72f2c98a19892ce62f911" kind="function"><name>Insert</name></member>
+    <member refid="class_open_arena_1_1list_148ab395cc9e874309bf86553e9c55bcb" kind="function"><name>Remove</name></member>
+    <member refid="class_open_arena_1_1list_130622d48bc3076ef3b84981703e7df5e" kind="function"><name>Remove</name></member>
+    <member refid="class_open_arena_1_1list_1edb8a0a9a85cdf4881402e39ab10ac79" kind="function"><name>Retrieve</name></member>
+    <member refid="class_open_arena_1_1list_1713ccf4d821a05d941711b20c2d4532b" kind="function"><name>PrevPosition</name></member>
+    <member refid="class_open_arena_1_1list_15f1c217d3eb89c045af994743aa5bfd6" kind="function"><name>NextPosition</name></member>
+    <member refid="class_open_arena_1_1list_14f111a73e050da2f4b719a06d0570b31" kind="function"><name>IsFirstPosition</name></member>
+    <member refid="class_open_arena_1_1list_12913857c2cec76f3b1b78a0fab6185d3" kind="function"><name>IsLastPosition</name></member>
+    <member refid="class_open_arena_1_1list_1c71b0c3cea263107bf75f266da8965dc" kind="function"><name>FirstPosition</name></member>
+    <member refid="class_open_arena_1_1list_129da0fb05654977d142ea838efc0ea38" kind="function"><name>LastPosition</name></member>
+    <member refid="class_open_arena_1_1list_1d3af9b2f3226aaeb16ab8600978352a5" kind="function"><name>Clear</name></member>
+    <member refid="class_open_arena_1_1list_11df7f9733f97df546d70928ffec13539" kind="function"><name>Contains</name></member>
+    <member refid="class_open_arena_1_1list_1467851b58d012a678b2d1379ba7997d8" kind="function"><name>Length</name></member>
+    <member refid="class_open_arena_1_1list_16de9ce258186e2de381d93a9c7253841" kind="function"><name>operator=</name></member>
+    <member refid="class_open_arena_1_1list_1ab014322bb7634624ab9f7f329ae766e" kind="function"><name>operator[]</name></member>
+    <member refid="class_open_arena_1_1list_1e6757364939bc1006ea6d5844810f7d0" kind="function"><name>operator[]</name></member>
+    <member refid="class_open_arena_1_1list_1fb4e0d8f28c010603e771967ded85f24" kind="variable"><name>head</name></member>
+    <member refid="class_open_arena_1_1list_1c53b13be65cf4631f98a4220c5216f70" kind="variable"><name>tail</name></member>
+    <member refid="class_open_arena_1_1list_195dffe8cd9e9bda2cc7d51fcf38281c6" kind="variable"><name>currPos</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1list_node" kind="class"><name>OpenArena::listNode</name>
+    <member refid="class_open_arena_1_1list_node_18b16053dae8b812cf591f2c8e91d849d" kind="function"><name>listNode</name></member>
+    <member refid="class_open_arena_1_1list_node_13501bc9d46c28598380a31c40eb05745" kind="variable"><name>data</name></member>
+    <member refid="class_open_arena_1_1list_node_1d665269f85a01c0d9b07db84a6ea6c70" kind="variable"><name>next</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_logger" kind="class"><name>OpenArena::Logger</name>
+    <member refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe" kind="enum"><name>MessageType</name></member>
+    <member refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe23dd11f2e8ae4a6c0fe8970f0e3ac909" kind="enumvalue"><name>MESSAGETYPE_ALL</name></member>
+    <member refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363feb7f49e037d99e079be85d5735525433a" kind="enumvalue"><name>MESSAGETYPE_NONE</name></member>
+    <member refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe310a07b2ab5e1cfd8dd59543e459f5bc" kind="enumvalue"><name>MESSAGETYPE_INFORMATION</name></member>
+    <member refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe79f20b1686365acfc8a5b7e0d938dbba" kind="enumvalue"><name>MESSAGETYPE_ERROR</name></member>
+    <member refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe93e45ed8e8f0b4d37cccaadfc9c04dd5" kind="enumvalue"><name>MESSAGETYPE_DEBUG</name></member>
+    <member refid="class_open_arena_1_1_logger_18a7cb5fef2d927f9b99fb1035cba9394" kind="function"><name>~Logger</name></member>
+    <member refid="class_open_arena_1_1_logger_185340fe19c7a3cc878e2296073cdc2ff" kind="function"><name>Log</name></member>
+    <member refid="class_open_arena_1_1_logger_1a58e1e11566f483af54448f48f2d9a05" kind="function"><name>Log</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_null_video_plugin" kind="class"><name>OpenArena::NullVideoPlugin</name>
+    <member refid="class_open_arena_1_1_null_video_plugin_1657af506168882078ce87f5ca6ff824d" kind="function"><name>NullVideoPlugin</name></member>
+    <member refid="class_open_arena_1_1_null_video_plugin_1a2df79127b2ab9d1a831d72e202b9e27" kind="function"><name>~NullVideoPlugin</name></member>
+    <member refid="class_open_arena_1_1_null_video_plugin_1313039d35ab592784bda75c90c53317c" kind="function"><name>CreateNewWindow</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_player" kind="class"><name>OpenArena::Player</name>
+    <member refid="class_open_arena_1_1_player_1452e91c114a3fbed6a976dca04f79152" kind="function"><name>Load</name></member>
+    <member refid="class_open_arena_1_1_player_13dc79d7777ce43928da9150d334956cd" kind="function"><name>Save</name></member>
+    <member refid="class_open_arena_1_1_player_17febc0eb2e888ef25ca493a5aa5486e4" kind="function"><name>CreateCharacter</name></member>
+    <member refid="class_open_arena_1_1_player_1aa4e2dcd1aa0f46869d859d451e5ebee" kind="function"><name>AddItem</name></member>
+    <member refid="class_open_arena_1_1_player_1c99914695b86395979431498e329f96e" kind="function"><name>RemoveItem</name></member>
+    <member refid="class_open_arena_1_1_player_12aa998fde9ee743bd6d1a3118280db2a" kind="variable"><name>controls</name></member>
+    <member refid="class_open_arena_1_1_player_15d97fc74963ae2c2fede23ec627df63a" kind="variable"><name>camera</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_plugin" kind="class"><name>OpenArena::Plugin</name>
+    <member refid="class_open_arena_1_1_plugin_14db1c9624c3894a5ef2220bfaf6c00e4" kind="enum"><name>Type</name></member>
+    <member refid="class_open_arena_1_1_plugin_14db1c9624c3894a5ef2220bfaf6c00e49f71439bc4ee268dd64321426aa8b40c" kind="enumvalue"><name>VideoPlugin</name></member>
+    <member refid="class_open_arena_1_1_plugin_14db1c9624c3894a5ef2220bfaf6c00e4f7e7f2ab39f985ac95d238558f6cda54" kind="enumvalue"><name>AudioPlugin</name></member>
+    <member refid="class_open_arena_1_1_plugin_14db1c9624c3894a5ef2220bfaf6c00e427fac2aa3af683e6840a1a7a8cca5766" kind="enumvalue"><name>InputPlugin</name></member>
+    <member refid="class_open_arena_1_1_plugin_10fd911031b5c842b099d767e07a3b6d2" kind="function"><name>~Plugin</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_plugin_manager" kind="class"><name>OpenArena::PluginManager</name>
+    <member refid="class_open_arena_1_1_plugin_manager_19c7ce7bbec8202a45488526243a1d139" kind="function"><name>PluginManager</name></member>
+    <member refid="class_open_arena_1_1_plugin_manager_1f64e3d9dd49f49f4a1a920b6f1662f96" kind="function"><name>~PluginManager</name></member>
+    <member refid="class_open_arena_1_1_plugin_manager_1eff31316116ef2802a19ad15490246d9" kind="function"><name>GetPluginsOfType</name></member>
+    <member refid="class_open_arena_1_1_plugin_manager_16acbb1db827c37c31640a16fd18687df" kind="function"><name>GetDefaultVideoPlugin</name></member>
+    <member refid="class_open_arena_1_1_plugin_manager_143051113260abc44b3a6d5ab4f2e3a28" kind="variable"><name>_plugins</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_screen" kind="class"><name>OpenArena::Screen</name>
+    <member refid="class_open_arena_1_1_screen_1be7c4e1e72db645db91e1fd97b04d889" kind="function"><name>Screen</name></member>
+    <member refid="class_open_arena_1_1_screen_18a6bfbe8265107e8ec9e81ba143cd4b4" kind="function"><name>GetWidth</name></member>
+    <member refid="class_open_arena_1_1_screen_1ea8ed73c79b51258a64d23688a9f51ad" kind="function"><name>GetHeight</name></member>
+    <member refid="class_open_arena_1_1_screen_1618935dd613073d3f7e1b287a37bacae" kind="function"><name>GetColorDepth</name></member>
+    <member refid="class_open_arena_1_1_screen_1486218ff5ffa46f5bcfdf8f8e84d4e4d" kind="function"><name>GetFullscreen</name></member>
+    <member refid="class_open_arena_1_1_screen_10191301b9f64e039a4fbbeec27032664" kind="function"><name>GetName</name></member>
+    <member refid="class_open_arena_1_1_screen_1fea6d6f0f042de545d0e4a9041a23f33" kind="function"><name>SetWidth</name></member>
+    <member refid="class_open_arena_1_1_screen_11b44f0c54e30144e3662904bf6f3f12f" kind="function"><name>SetHeight</name></member>
+    <member refid="class_open_arena_1_1_screen_1dc25204025c838f3709536e7e6d9460c" kind="function"><name>Resize</name></member>
+    <member refid="class_open_arena_1_1_screen_1b0ff2d97e02bc5c42b5ab4e18c8fa962" kind="function"><name>SetColorDepth</name></member>
+    <member refid="class_open_arena_1_1_screen_1c39783098d4de08390457c4c97a4f927" kind="function"><name>SetFullscreen</name></member>
+    <member refid="class_open_arena_1_1_screen_1de25f0b69637786e0b68bb70ed2b1cad" kind="function"><name>ToggleFullscreen</name></member>
+    <member refid="class_open_arena_1_1_screen_177f99500ca98c16adc9b6bc65ce4a5d7" kind="function"><name>SetName</name></member>
+    <member refid="class_open_arena_1_1_screen_17d8cd0fec83eb5615d51991df9ace874" kind="function"><name>SetName</name></member>
+    <member refid="class_open_arena_1_1_screen_12d24af3ef8c363b38a1505bf098e24c4" kind="variable"><name>_width</name></member>
+    <member refid="class_open_arena_1_1_screen_1329d0d63a77d91ad69fe1fc2f5591b1d" kind="variable"><name>_height</name></member>
+    <member refid="class_open_arena_1_1_screen_108e5688bdf2357f70118489ad186e240" kind="variable"><name>_colorDepth</name></member>
+    <member refid="class_open_arena_1_1_screen_1947f95891b450031b8f2f7dcf9858327" kind="variable"><name>_fullscreen</name></member>
+    <member refid="class_open_arena_1_1_screen_1d9182abf19f7f23782534019e06a4dad" kind="variable"><name>_name</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_texture" kind="class"><name>OpenArena::Texture</name>
+    <member refid="class_open_arena_1_1_texture_10264c134338dfdd0549c52c36c8f0cfd" kind="function"><name>Texture</name></member>
+    <member refid="class_open_arena_1_1_texture_1d66e30c5ed12dffd0e8801c85ad517a1" kind="function"><name>~Texture</name></member>
+    <member refid="class_open_arena_1_1_texture_10a1c45b69a0ecc52ad173527dd91368d" kind="function"><name>Filename</name></member>
+    <member refid="class_open_arena_1_1_texture_1d82ab039fdc7f95b05e29432b9c995e9" kind="function"><name>ID</name></member>
+    <member refid="class_open_arena_1_1_texture_17978c772a4786df0c93cd845bba72662" kind="function"><name>Load</name></member>
+    <member refid="class_open_arena_1_1_texture_1fd843c252a43149eb3d874b53f5547d8" kind="function"><name>Load</name></member>
+    <member refid="class_open_arena_1_1_texture_1bb409e39ba0c22ed29a940c19d0cbe06" kind="function"><name>Free</name></member>
+    <member refid="class_open_arena_1_1_texture_107dae6e9d5d866c16572f3c09a85de86" kind="function"><name>Loaded</name></member>
+    <member refid="class_open_arena_1_1_texture_121cd653809b54aab34304f1a5e85e1f3" kind="function"><name>operator&lt;</name></member>
+    <member refid="class_open_arena_1_1_texture_153b4be136fbc47ec01e1c556c3b14584" kind="function"><name>operator&lt;=</name></member>
+    <member refid="class_open_arena_1_1_texture_15f2e4503f45465e780c4ebc973c2919b" kind="function"><name>operator==</name></member>
+    <member refid="class_open_arena_1_1_texture_17e8aca4eebade70517b6b074737c300d" kind="function"><name>operator!=</name></member>
+    <member refid="class_open_arena_1_1_texture_1dcce40f8fc14d56ccfd5c2bd009106c9" kind="function"><name>operator&gt;=</name></member>
+    <member refid="class_open_arena_1_1_texture_1bcd647f052e8f9aab5e328772ed7e582" kind="function"><name>operator&gt;</name></member>
+    <member refid="class_open_arena_1_1_texture_1aeb7b7d8771dd3eaa04d21be3d60d84d" kind="variable"><name>minFilter</name></member>
+    <member refid="class_open_arena_1_1_texture_157ca675815ebcd2128fdad683ce33d2e" kind="variable"><name>magFilter</name></member>
+    <member refid="class_open_arena_1_1_texture_1ea8321b81b2a1e0053e48d1633169462" kind="variable"><name>filename</name></member>
+    <member refid="class_open_arena_1_1_texture_155ac5997e40c3c0283da94729e014c38" kind="variable"><name>id</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_texture_image" kind="class"><name>OpenArena::TextureImage</name>
+    <member refid="class_open_arena_1_1_texture_image_1db2e1e78d18c3d27ef03e4ae553d0eeb" kind="variable"><name>data</name></member>
+    <member refid="class_open_arena_1_1_texture_image_1f7880c5c46bde3257661647a90b9f147" kind="variable"><name>bpp</name></member>
+    <member refid="class_open_arena_1_1_texture_image_1f9eef367f71b4a4cee65593e480538c5" kind="variable"><name>sizeX</name></member>
+    <member refid="class_open_arena_1_1_texture_image_14a5d640b684ad154ab07b2f9c7cbe755" kind="variable"><name>sizeY</name></member>
+    <member refid="class_open_arena_1_1_texture_image_17d4881b1f034b9d6e2f13f9c1d37cbcc" kind="variable"><name>type</name></member>
+  </compound>
+  <compound refid="struct_open_arena_1_1_t_g_a" kind="struct"><name>OpenArena::TGA</name>
+    <member refid="struct_open_arena_1_1_t_g_a_13c680b0d46bb00e821e824ac66f3e44b" kind="variable"><name>header</name></member>
+    <member refid="struct_open_arena_1_1_t_g_a_1df63b52db302f457b185d62c6c6003c4" kind="variable"><name>bytesPerPixel</name></member>
+    <member refid="struct_open_arena_1_1_t_g_a_16a540d10ef2328929897322ff624eed3" kind="variable"><name>imageSize</name></member>
+    <member refid="struct_open_arena_1_1_t_g_a_1468a3ed9fa9fad27abdc78e6ef99a9df" kind="variable"><name>type</name></member>
+    <member refid="struct_open_arena_1_1_t_g_a_1e8de9322b9547b8e1e0b23f23ca77719" kind="variable"><name>Height</name></member>
+    <member refid="struct_open_arena_1_1_t_g_a_187135335a7751edde25aa607cad9a4db" kind="variable"><name>Width</name></member>
+    <member refid="struct_open_arena_1_1_t_g_a_1aca0a3b01972bf773ad0d53ad8d78ad7" kind="variable"><name>Bpp</name></member>
+  </compound>
+  <compound refid="struct_open_arena_1_1_t_g_a_header" kind="struct"><name>OpenArena::TGAHeader</name>
+    <member refid="struct_open_arena_1_1_t_g_a_header_1d193395b787c3a7f0dbd80b2dc5cd8b1" kind="variable"><name>Header</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_triangle" kind="class"><name>OpenArena::Triangle</name>
+    <member refid="class_open_arena_1_1_triangle_1b676cc0eadc3a9237a5028d661214629" kind="variable"><name>texture</name></member>
+    <member refid="class_open_arena_1_1_triangle_1cac0a16e7c70e2ecc94400cce3db3386" kind="variable"><name>texID</name></member>
+    <member refid="class_open_arena_1_1_triangle_1d5f7b7c57071d0bf7a3e7017013c1459" kind="variable"><name>vertecies</name></member>
+    <member refid="class_open_arena_1_1_triangle_18c3b22e26bd7003abcc0dc6a47d6a1a9" kind="variable"><name>texCoords</name></member>
+    <member refid="class_open_arena_1_1_triangle_1944168581e8efee74a5065dcc2d01318" kind="variable"><name>normal</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_vec2f" kind="class"><name>OpenArena::Vec2f</name>
+    <member refid="class_open_arena_1_1_vec2f_13c9f9bb1b5a44a43bd8e405e334bf6eb" kind="function"><name>Vec2f</name></member>
+    <member refid="class_open_arena_1_1_vec2f_140b6dcccfc1a02162dcf725b3bde3859" kind="function"><name>Vec2f</name></member>
+    <member refid="class_open_arena_1_1_vec2f_188a41eb41cf4648fcf5190fc6822d2d9" kind="function"><name>Vec2f</name></member>
+    <member refid="class_open_arena_1_1_vec2f_125136f866769e4834d68b91c3af8714a" kind="function"><name>Vec2f</name></member>
+    <member refid="class_open_arena_1_1_vec2f_17a6a57e352f1e719f2fcd43e9502ec24" kind="function"><name>lengthsquared</name></member>
+    <member refid="class_open_arena_1_1_vec2f_100bdd73763bab43e4d566b7e6bba2d35" kind="function"><name>length</name></member>
+    <member refid="class_open_arena_1_1_vec2f_17af96f273a8fd438740633bfa434aa1f" kind="function"><name>normalize</name></member>
+    <member refid="class_open_arena_1_1_vec2f_169b3eae645ee750e532df9fa7774728c" kind="function"><name>normalized</name></member>
+    <member refid="class_open_arena_1_1_vec2f_13cc413ca0b5f6bcbf741047decd2f873" kind="function"><name>cross</name></member>
+    <member refid="class_open_arena_1_1_vec2f_17832dd37d6d3dbe9a655128e95c153d3" kind="function"><name>operator=</name></member>
+    <member refid="class_open_arena_1_1_vec2f_1bcc7f052869c8507bfc0fdde23b6af8c" kind="function"><name>operator *</name></member>
+    <member refid="class_open_arena_1_1_vec2f_19c60084e76656b4ccda657b3608bd269" kind="function"><name>operator+</name></member>
+    <member refid="class_open_arena_1_1_vec2f_134533fb92d780a465616aa9372144ea4" kind="function"><name>operator-</name></member>
+    <member refid="class_open_arena_1_1_vec2f_1844d38b338ea9f736548ba8cf5e6c5f7" kind="function"><name>operator *</name></member>
+    <member refid="class_open_arena_1_1_vec2f_1f421dc21f7632f5fdb4fa3b6b0dca108" kind="function"><name>operator/</name></member>
+    <member refid="class_open_arena_1_1_vec2f_1d24b019e1d5cc39b341296eeff399b35" kind="variable"><name>x</name></member>
+    <member refid="class_open_arena_1_1_vec2f_1a2cfda0285a249dbdd2977f2a68aa1a8" kind="variable"><name>y</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_vec2i" kind="class"><name>OpenArena::Vec2i</name>
+    <member refid="class_open_arena_1_1_vec2i_1c8e897797291baa62b609b236fdd080f" kind="function"><name>Vec2i</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1a6553ce6633e091e565ebc2b75f6a886" kind="function"><name>Vec2i</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1d46640cbe7cc188b4aa771b1848749db" kind="function"><name>Vec2i</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1e3f6f7b208bf19e4264938bb728b8bd9" kind="function"><name>Vec2i</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1843e1346026fe48e331a98330be8a707" kind="function"><name>lengthsquared</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1d990e17463a0b67d5f65113464c9062d" kind="function"><name>length</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1ad31cb1652ca3974be38d27e572964e4" kind="function"><name>normalize</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1b77e6219666df2f0839151c96f12288b" kind="function"><name>normalized</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1753639bdb528394d1ebbdb03567a468f" kind="function"><name>cross</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1bfb1f667105f18cbfdff78f87ded3af9" kind="function"><name>operator=</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1b96bbf1647ac82b3e883c90912fb29e2" kind="function"><name>operator *</name></member>
+    <member refid="class_open_arena_1_1_vec2i_112a40973447d1028734288254aa3b3e6" kind="function"><name>operator+</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1aa19fa47e1a128f574e120e75a4e1987" kind="function"><name>operator-</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1362b3a57a13519b569eb0bba3bf0a3c2" kind="function"><name>operator *</name></member>
+    <member refid="class_open_arena_1_1_vec2i_19be930aa720f557a108e1044e17a3c31" kind="function"><name>operator/</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1d3fa3fec463016035c359e599cc275a8" kind="function"><name>operator==</name></member>
+    <member refid="class_open_arena_1_1_vec2i_167ebc613fb2ce0efc47775ff89047162" kind="function"><name>operator!=</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1ea11b9e46216ef31073acb41e5116285" kind="variable"><name>x</name></member>
+    <member refid="class_open_arena_1_1_vec2i_1e1d43bf652fbb7a47c421345902158aa" kind="variable"><name>y</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_vec3d" kind="class"><name>OpenArena::Vec3d</name>
+    <member refid="class_open_arena_1_1_vec3d_14c280d3d8fb12e12d84c0a55beb58553" kind="function"><name>Vec3d</name></member>
+    <member refid="class_open_arena_1_1_vec3d_1bd9e536efd60bb562e071983e9f6c25c" kind="function"><name>Vec3d</name></member>
+    <member refid="class_open_arena_1_1_vec3d_14ccf3bc55bd0c168599938e54e5bf617" kind="function"><name>Vec3d</name></member>
+    <member refid="class_open_arena_1_1_vec3d_191f8ebc529bf236247a366fb2657571f" kind="function"><name>Vec3d</name></member>
+    <member refid="class_open_arena_1_1_vec3d_1517ba1a1ab14e149455605fb5d83ac2b" kind="function"><name>lengthsquared</name></member>
+    <member refid="class_open_arena_1_1_vec3d_1d0f6fefc97a1c4f65c6b770399e7550b" kind="function"><name>length</name></member>
+    <member refid="class_open_arena_1_1_vec3d_13e2e5e656a6a1640524af315478f0eae" kind="function"><name>normalize</name></member>
+    <member refid="class_open_arena_1_1_vec3d_149cdea25e2bc16694f5d193899dda1a3" kind="function"><name>normalized</name></member>
+    <member refid="class_open_arena_1_1_vec3d_13ef1ca508683012bdfa03483c590bfe4" kind="function"><name>cross</name></member>
+    <member refid="class_open_arena_1_1_vec3d_16c4e0c9d1a999cc9de152343a1348d00" kind="function"><name>operator=</name></member>
+    <member refid="class_open_arena_1_1_vec3d_1d1d9ec29466d7df12903f622c603f7b0" kind="function"><name>operator *</name></member>
+    <member refid="class_open_arena_1_1_vec3d_1474b425b1b200c284ff9e82502d81bfa" kind="function"><name>operator+</name></member>
+    <member refid="class_open_arena_1_1_vec3d_140b233280f53fb3302453d20acde1ba0" kind="function"><name>operator-</name></member>
+    <member refid="class_open_arena_1_1_vec3d_16f9d2d6e1e4ad7b4290a4833a34c9208" kind="function"><name>operator *</name></member>
+    <member refid="class_open_arena_1_1_vec3d_17709433d0f8b3c70a6e950807711cc36" kind="function"><name>operator/</name></member>
+    <member refid="class_open_arena_1_1_vec3d_15b2f892451ae79fb3ae6aff9aeee1bb7" kind="variable"><name>x</name></member>
+    <member refid="class_open_arena_1_1_vec3d_1ca9e575bbf1acfe952a609111ee8f4f8" kind="variable"><name>y</name></member>
+    <member refid="class_open_arena_1_1_vec3d_16f0f64b7f7c4db99151e6413f34a704a" kind="variable"><name>z</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_video_plugin" kind="class"><name>OpenArena::VideoPlugin</name>
+    <member refid="class_open_arena_1_1_video_plugin_11254366f2b63b23cb7cbd18bd14aedcd" kind="function"><name>~VideoPlugin</name></member>
+    <member refid="class_open_arena_1_1_video_plugin_1954e14695396e3c6d20dc4dddd864a44" kind="function"><name>CreateNewWindow</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_window" kind="class"><name>OpenArena::Window</name>
+    <member refid="class_open_arena_1_1_window_18b8504acdafa71dac6ef98bd5405ccef" kind="function"><name>Window</name></member>
+    <member refid="class_open_arena_1_1_window_12623d49dd2889b3f52ddaa71ef6c0877" kind="function"><name>~Window</name></member>
+    <member refid="class_open_arena_1_1_window_1a2c852225c7ef56414f57b19ddf6239f" kind="function"><name>Close</name></member>
+    <member refid="class_open_arena_1_1_window_1f6f8fbd6b5552162520ce63ace57fbca" kind="function"><name>Open</name></member>
+    <member refid="class_open_arena_1_1_window_16bcaa745bd7efd0b5f994e2d3513eb6f" kind="function"><name>Open</name></member>
+    <member refid="class_open_arena_1_1_window_160c2555c7cabdafbc7c0d38d3dccde82" kind="function"><name>SetInitializer</name></member>
+    <member refid="class_open_arena_1_1_window_1244b08462277c6fa6c6775ad01461142" kind="function"><name>SetResizer</name></member>
+    <member refid="class_open_arena_1_1_window_17afdbd55049b6dee29470f409aca9f50" kind="function"><name>SwapBuffers</name></member>
+    <member refid="class_open_arena_1_1_window_102a32228cf4f994ecf57896e634d9f0e" kind="function"><name>Resize</name></member>
+    <member refid="class_open_arena_1_1_window_15908d570c7f7503e96e102dbfcd3f37e" kind="function"><name>GetMousePosition</name></member>
+    <member refid="class_open_arena_1_1_window_17a1792ae52a07e14b2a8c0c15f5323e4" kind="function"><name>SetMousePosition</name></member>
+    <member refid="class_open_arena_1_1_window_1d66d94eee0f6b26e867fe1caf8a50a28" kind="variable"><name>_resizer</name></member>
+    <member refid="class_open_arena_1_1_window_172729ef130a411dd0e824953db2dcf3f" kind="variable"><name>_initializer</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_window_1_1_initializer" kind="class"><name>OpenArena::Window::Initializer</name>
+    <member refid="class_open_arena_1_1_window_1_1_initializer_19ddbf79361ede27547c9cf79510a979a" kind="function"><name>Initialize</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_window_1_1_resizer" kind="class"><name>OpenArena::Window::Resizer</name>
+    <member refid="class_open_arena_1_1_window_1_1_resizer_116b734f66289c0dd954dc9ed12854f44" kind="function"><name>Resize</name></member>
+  </compound>
+  <compound refid="class_open_arena_1_1_windows_logger" kind="class"><name>OpenArena::WindowsLogger</name>
+    <member refid="class_open_arena_1_1_windows_logger_1b61c1531f112ec19cce3834ccab99bd4" kind="function"><name>WindowsLogger</name></member>
+    <member refid="class_open_arena_1_1_windows_logger_1da9ccce424e5a91c2dbb4db5a9b0e599" kind="function"><name>WindowsLogger</name></member>
+    <member refid="class_open_arena_1_1_windows_logger_1b31782c8cd4cb0aa657446f472b3386c" kind="function"><name>Log</name></member>
+    <member refid="class_open_arena_1_1_windows_logger_1fd5b7070bef443711abc75e732cbfbd4" kind="function"><name>Log</name></member>
+    <member refid="class_open_arena_1_1_windows_logger_19571293433f5f094953b585ac4825835" kind="function"><name>~WindowsLogger</name></member>
+    <member refid="class_open_arena_1_1_windows_logger_103253207854b00aa88afc15553f79eff" kind="function"><name>GetIconFromMessageType</name></member>
+    <member refid="class_open_arena_1_1_windows_logger_1018c45b84c59a048a80fa673c214ab9e" kind="variable"><name>_type</name></member>
+  </compound>
+  <compound refid="namespace_open_arena" kind="namespace"><name>OpenArena</name>
+    <member refid="namespace_open_arena_106a2c7f75bbf3debba540b9b3a201bd4" kind="typedef"><name>LIST_ARRAY_INDEX_TYPE</name></member>
+    <member refid="namespace_open_arena_1ddde3f5075e9eb7e8f0b3e2b40571fa2" kind="typedef"><name>Vec3f</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672" kind="enum"><name>Keys</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876729095435154f1719eaadcb5569859add8" kind="enumvalue"><name>KEY_UNKNOWN</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876720e44b5a752652d24a60c8848ab814567" kind="enumvalue"><name>KEY_BUTTON0</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876727c9f413da88b807bc772bffdae4f8702" kind="enumvalue"><name>KEY_BUTTON1</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672fe1ecadfbfa800a745eb0b0a25201799" kind="enumvalue"><name>KEY_BUTTON2</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672e4fc35b24dab8758756d65e5f926c662" kind="enumvalue"><name>KEY_BUTTON3</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876726f76f2b38b9f109b792c3e982757a5bd" kind="enumvalue"><name>KEY_BUTTON4</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672cb8b1193fdc2b37abf53aac04bcaabd3" kind="enumvalue"><name>KEY_LEFT</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672dde7a62b1d0eb584d39b4dd5e0a091af" kind="enumvalue"><name>KEY_RIGHT</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672deae257b15164edbeb2b0bfd89cf5cb3" kind="enumvalue"><name>KEY_UP</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876726d1d7086fa4eeeec6c4d21d63d5791cc" kind="enumvalue"><name>KEY_DOWN</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876728511f515d4c2f8659b6d7876e34a53fa" kind="enumvalue"><name>KEY_SPACE</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876720c2d2860bebe49aab15dc8da538e6c87" kind="enumvalue"><name>KEY_RETURN</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672971a1e688b4b5330e8945ea8cf01fd8b" kind="enumvalue"><name>KEY_SHIFT</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767236901ab5460ce8c38ccb6da9cea5f0fc" kind="enumvalue"><name>KEY_PAUSE</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767242dd7c0c63f6b581f89732a2d9047ce2" kind="enumvalue"><name>KEY_CONTROL</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767282412ffbb721a2855ab8e97373cc07cc" kind="enumvalue"><name>KEY_CAPITAL</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876723dded342db18f925f5a0bac145770389" kind="enumvalue"><name>KEY_ESCAPE</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672971c9c96d859946f13d7b6c647d8d582" kind="enumvalue"><name>KEY_PRIOR</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876724c4d2ffc916d51b6b9084fbd35d92371" kind="enumvalue"><name>KEY_NEXT</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672e6752291156c1a3ac6a95c8051449f8b" kind="enumvalue"><name>KEY_END</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767220fa414af06c9cdf4f5d1115e7705355" kind="enumvalue"><name>KEY_HOME</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672e545168d1dffe51e2ec1ae0e4e41520f" kind="enumvalue"><name>KEY_INSERT</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876721add1a81971f0a2d3ac6e746c6623a9e" kind="enumvalue"><name>KEY_DELETE</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672121ac2edd2a2dd9030c78aa810227dd4" kind="enumvalue"><name>KEY_LWIN</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767274a3bfd795507afd3732576f396a6b93" kind="enumvalue"><name>KEY_RWIN</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767225d8c758e8e9f12fd816f2c71a9a4bfe" kind="enumvalue"><name>KEY_APPS</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672d75496b8d004eb630558f82d60a6e5d8" kind="enumvalue"><name>KEY_NUMPAD0</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876727a69552f4fb990b1e48d87a233742bc4" kind="enumvalue"><name>KEY_NUMPAD1</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876729027b6b74acc9ad49124a986a379396d" kind="enumvalue"><name>KEY_NUMPAD2</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672ad9129cfc2b0b86622203d9a0b92a18a" kind="enumvalue"><name>KEY_NUMPAD3</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672c93c822dd2b508da27073ce28c05c499" kind="enumvalue"><name>KEY_NUMPAD4</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672229ed15369952c1ae88c08db21211f1e" kind="enumvalue"><name>KEY_NUMPAD5</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876729d8106a82ef1389a612c135fdeac6462" kind="enumvalue"><name>KEY_NUMPAD6</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767294ba7a153b75c7a2cb3313be9cc41ce5" kind="enumvalue"><name>KEY_NUMPAD7</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876722abff6b947f137cfe593489c46630eb7" kind="enumvalue"><name>KEY_NUMPAD8</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672bb4407623dc9ebe5b3bbf2836b387ebe" kind="enumvalue"><name>KEY_NUMPAD9</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876721d263b525206b9e47b9b8e623013e589" kind="enumvalue"><name>KEY_MULTIPLY</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672811cc1bdbfec2019c414d3b679339214" kind="enumvalue"><name>KEY_ADD</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672ab245e54fe38757a7d1f8a1258de33fd" kind="enumvalue"><name>KEY_SUBTRACT</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767256d581408fd2df5666e692d378db9384" kind="enumvalue"><name>KEY_DIVIDE</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672d3baa47d28edf91271dd4d24a0aa1dfb" kind="enumvalue"><name>KEY_F1</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876727d05647c2d8e9f2c264ea65ae3d7df5a" kind="enumvalue"><name>KEY_F2</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672256158aed773c5e98e3042d0968c6559" kind="enumvalue"><name>KEY_F3</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672d0527a430e4812e3a6253bc29bcd884e" kind="enumvalue"><name>KEY_F4</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767274d0dfe8d3b4fb353fabccd1bd7ff5f0" kind="enumvalue"><name>KEY_F5</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876725370eb55bfb9085cbfa242f5101b3b22" kind="enumvalue"><name>KEY_F6</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876723e0e9841805886f33998606063082498" kind="enumvalue"><name>KEY_F7</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767216a8866e710c8d5f4023b17a2f51c101" kind="enumvalue"><name>KEY_F8</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876727b4ae1bba65ee0abb27c9fa52474e0bc" kind="enumvalue"><name>KEY_F9</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876726b3de2eec67df362e640d7275f51a45b" kind="enumvalue"><name>KEY_F10</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876722a59f1e0a3ad863461e13f7023603c5d" kind="enumvalue"><name>KEY_F11</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672eaf3b86128d5a6a34248058b0afd4ee3" kind="enumvalue"><name>KEY_F12</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672c7c0fe9f83b2733b34e85553ac9958b0" kind="enumvalue"><name>KEY_NUMLOCK</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672dd23190dc10f58f09acb211ad73deb48" kind="enumvalue"><name>KEY_SCROLL</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672d87e96b17359230a6da13bced46dd27d" kind="enumvalue"><name>KEY_SEPARATOR</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876723ea771906bb60b6340610c0fa59b927b" kind="enumvalue"><name>KEY_OEM_1</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672f1c191a5bb6cd6d873da87e994027b4e" kind="enumvalue"><name>KEY_OEM_2</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767248845cf510da90aabdffed2d66eab92e" kind="enumvalue"><name>KEY_OEM_3</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876725b6623b1147ed654c6eb43dfb51f3aa0" kind="enumvalue"><name>KEY_OEM_4</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672eb546b235b968a836a8f1e3b49ef330b" kind="enumvalue"><name>KEY_OEM_5</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672b1480d90798dffa8de1e499d63c29f98" kind="enumvalue"><name>KEY_OEM_6</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876723ba0af35fb9fd49aeab3138ddd5295a2" kind="enumvalue"><name>KEY_OEM_7</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672cf7117d59d03bb9fe669c3b9fff1df85" kind="enumvalue"><name>KEY_OEM_PERIOD</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876720d76cdd48c291089cf5b4de60fdebefc" kind="enumvalue"><name>KEY_OEM_PLUS</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672f30630e58be3ec7896dd594c2e9d259d" kind="enumvalue"><name>KEY_OEM_MINUS</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767288cda3e051e770e9c440348f51ce5ca6" kind="enumvalue"><name>KEY_OEM_COMMA</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672c951c4312b3a940d173263450ab1ccfa" kind="enumvalue"><name>KEY_BACK</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876726363469a38d809aea8cbec6c9721f39a" kind="enumvalue"><name>KEY_TAB</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672bb0ed783253a783ad8448bff0fb1eed4" kind="enumvalue"><name>KEY_0</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672fc6f8025367100b5ca8928d3fc276ee3" kind="enumvalue"><name>KEY_1</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767232bede77cf69e40fbaf3edb715bef01a" kind="enumvalue"><name>KEY_2</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672d645b5a14cfac0dae7c5bff4dcef4b13" kind="enumvalue"><name>KEY_3</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672a9e33071947c13b3c300d925f110937e" kind="enumvalue"><name>KEY_4</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672a67065bf773358a592ceb42add7f3e24" kind="enumvalue"><name>KEY_5</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876720c5cc2f4db0b2caa4c27d44698e025ba" kind="enumvalue"><name>KEY_6</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672e6fddf9d88419208aa4de674691d3120" kind="enumvalue"><name>KEY_7</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672ce772dc95402f1ba74f943f577fbbd07" kind="enumvalue"><name>KEY_8</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672db03ecf2e25bb18835026739c9ca7be8" kind="enumvalue"><name>KEY_9</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672f326d4702965ecc7dd36a5f4cc200197" kind="enumvalue"><name>KEY_A</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767275f9f86c401f26fcbc366d1a9db5240e" kind="enumvalue"><name>KEY_B</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876721041abc8c1f70671881e03af18245107" kind="enumvalue"><name>KEY_C</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767253deeb8c034e53f79611362635f1e841" kind="enumvalue"><name>KEY_D</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672d8bfa12fc53ee4ab4f32134d216d7c5d" kind="enumvalue"><name>KEY_E</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876722d202d93adc4e03a7849fdb32bf1edad" kind="enumvalue"><name>KEY_F</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672468c134eb895ac1cbfa5061a002312bb" kind="enumvalue"><name>KEY_G</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672b081451154729677bd63ffb379c5df42" kind="enumvalue"><name>KEY_H</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876724c7b7a14d79505160262c3b4609dda8d" kind="enumvalue"><name>KEY_I</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876729d505c18776ab54f6e53656d74706da1" kind="enumvalue"><name>KEY_J</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672a1221e7b3349d9c835a638bcc71d3c9c" kind="enumvalue"><name>KEY_K</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672e9067357843691a90ea75b3b82f42ea8" kind="enumvalue"><name>KEY_L</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672a58125bae09edb33be4ae74051bf9050" kind="enumvalue"><name>KEY_M</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876728db1cfaede19b8c941e30d3030eeb9a3" kind="enumvalue"><name>KEY_N</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767278fce7fa2bd78f9d0532af1ca9cfd425" kind="enumvalue"><name>KEY_O</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672204e5122fbdb630d9ce1f113c6ced301" kind="enumvalue"><name>KEY_P</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672a66d978746286b8cd6d704fa97c45e46" kind="enumvalue"><name>KEY_Q</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672b87feb1e8e1e38f7b501f8d4a625c77f" kind="enumvalue"><name>KEY_R</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876722e531d6177f57450386c6e0e8d3348e8" kind="enumvalue"><name>KEY_S</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876727e4b15398558be7be08ec46a1198b235" kind="enumvalue"><name>KEY_T</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672102ce1212f94ddaf8debefdbfb581a3f" kind="enumvalue"><name>KEY_U</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672788c75e9885c5b24b4e9b9e0d9d75b86" kind="enumvalue"><name>KEY_V</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672f5f5670e64ed712f4636d007c539b1a3" kind="enumvalue"><name>KEY_W</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c5876724126c32ead376568595b807b309dac32" kind="enumvalue"><name>KEY_X</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c587672f1c98f72bc084bc9f89a5b0b3e606d0e" kind="enumvalue"><name>KEY_Y</name></member>
+    <member refid="namespace_open_arena_1faff6c7cf43cc06114b2525f0c58767286368067a741fd7f012357737c88e6f9" kind="enumvalue"><name>KEY_Z</name></member>
+    <member refid="namespace_open_arena_1de3eacbfe4e57e8f886089e9ffca60c3" kind="enum"><name>@0</name></member>
+    <member refid="namespace_open_arena_1de3eacbfe4e57e8f886089e9ffca60c35c681db37433e4ff14b9982decfcdf0e" kind="enumvalue"><name>GL_MY_TEXTURE_CONSOLEBACKGROUND</name></member>
+    <member refid="namespace_open_arena_1de3eacbfe4e57e8f886089e9ffca60c349f2172c1f1c52782deaf547da60c4c9" kind="enumvalue"><name>NUM_MENU_TEXTURES</name></member>
+    <member refid="namespace_open_arena_14253d4750d06e658280eea4b1dfc454e" kind="function"><name>PrintBMPHeader</name></member>
+    <member refid="namespace_open_arena_14ceae6e20dfbebef2d767bdcc6192c65" kind="function"><name>PrintBMPInfo</name></member>
+    <member refid="namespace_open_arena_15d8f0770595d2cf2c71df9aae63662d2" kind="function"><name>LoadBMP</name></member>
+    <member refid="namespace_open_arena_13a0992b3c33e713d6b6481f289a73504" kind="function"><name>KeyToASCII</name></member>
+    <member refid="namespace_open_arena_172e2bd01e7f4dd1ccad4ff71de942c37" kind="function"><name>FreeGLTexture</name></member>
+    <member refid="namespace_open_arena_11c95962c382ff30f9ccf883dfc20281d" kind="function"><name>LoadGLTexture</name></member>
+    <member refid="namespace_open_arena_1536ba73d0e6be255bec7eaa7f8cfdaf7" kind="function"><name>LoadTGA</name></member>
+    <member refid="namespace_open_arena_11488c1495547db4a13c799d6a1a469b4" kind="function"><name>LoadUncompressedTGA</name></member>
+    <member refid="namespace_open_arena_188c4dfb38dec1af05350c06e8e5c5868" kind="function"><name>LoadCompressedTGA</name></member>
+    <member refid="namespace_open_arena_18d000e4705425c8b35973071ddbe2fa9" kind="function"><name>Vector</name></member>
+    <member refid="namespace_open_arena_1af097a889f94e3ddd695fbf5f95203dd" kind="variable"><name>KEY_LBUTTON</name></member>
+    <member refid="namespace_open_arena_104a76f6afd97b2d186e101226545ce3b" kind="variable"><name>KEY_RBUTTON</name></member>
+    <member refid="namespace_open_arena_1a1c9304006f9908c89debd9f45f59d18" kind="variable"><name>KEY_MBUTTON</name></member>
+    <member refid="namespace_open_arena_19fe0434303ff135ed1cef0fdc2eb9676" kind="variable"><name>piover180</name></member>
+    <member refid="namespace_open_arena_12b7faaceb1e7f7078c0763aae99216ab" kind="variable"><name>DEFAULT_TEXTURE_NAME</name></member>
+    <member refid="namespace_open_arena_10745908dbc502bc9bac8bccd96b7d83f" kind="variable"><name>MAX_CONSOLE_LINES</name></member>
+    <member refid="namespace_open_arena_1f631478ed0bac188a4e2436c723f4d01" kind="variable"><name>MAX_CONSOLE_HISTORY_LINES</name></member>
+    <member refid="namespace_open_arena_112db95c0247a5cbe110265cdb30cd347" kind="variable"><name>MAX_CONSOLE_OUTPUT_LINES</name></member>
+    <member refid="namespace_open_arena_1d8d094be76d67241acb17086ee86a3b9" kind="variable"><name>MAX_OUTPUT_TEXT_LINES</name></member>
+    <member refid="namespace_open_arena_13e1a67251247b162b2d9303def1c5250" kind="variable"><name>uTGAcompare</name></member>
+    <member refid="namespace_open_arena_1efb8ccaffef9b60357daf7952169b30b" kind="variable"><name>cTGAcompare</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="bmp_8cpp" kind="file"><name>bmp.cpp</name>
+    <member refid="bmp_8cpp_1559125fc74fd9cd0de4de3b87de114e4" kind="define"><name>BITMAP_MAGIC</name></member>
+  </compound>
+  <compound refid="bmp_8h" kind="file"><name>bmp.h</name>
+  </compound>
+  <compound refid="camera_8cpp" kind="file"><name>camera.cpp</name>
+  </compound>
+  <compound refid="camera_8h" kind="file"><name>camera.h</name>
+  </compound>
+  <compound refid="ctrls_8cpp" kind="file"><name>ctrls.cpp</name>
+  </compound>
+  <compound refid="ctrls_8h" kind="file"><name>ctrls.h</name>
+  </compound>
+  <compound refid="datatypes_8h" kind="file"><name>datatypes.h</name>
+  </compound>
+  <compound refid="geometry_8h" kind="file"><name>geometry.h</name>
+  </compound>
+  <compound refid="image_8h" kind="file"><name>image.h</name>
+  </compound>
+  <compound refid="keys_8cpp" kind="file"><name>keys.cpp</name>
+  </compound>
+  <compound refid="keys_8h" kind="file"><name>keys.h</name>
+  </compound>
+  <compound refid="level_8cpp" kind="file"><name>level.cpp</name>
+  </compound>
+  <compound refid="level_8h" kind="file"><name>level.h</name>
+  </compound>
+  <compound refid="linux_8cpp" kind="file"><name>linux.cpp</name>
+  </compound>
+  <compound refid="list_8h" kind="file"><name>list.h</name>
+  </compound>
+  <compound refid="_logger_8h" kind="file"><name>Logger.h</name>
+  </compound>
+  <compound refid="macosx_8cpp" kind="file"><name>macosx.cpp</name>
+  </compound>
+  <compound refid="main_8h" kind="file"><name>main.h</name>
+    <member refid="main_8h_16cb9cc594af6db9cce8eb08c7e27791a" kind="function"><name>InitControls</name></member>
+    <member refid="main_8h_135338e0b14dcced9b48123bc8990c510" kind="function"><name>InitGL</name></member>
+    <member refid="main_8h_10009d3548e8c5ac1984876fa71ec85d7" kind="function"><name>ReSizeGLScene</name></member>
+    <member refid="main_8h_123ca8db2cebbfb94538122c439146f1a" kind="variable"><name>keys</name></member>
+    <member refid="main_8h_1c39f881da1d71662e0239870ae5bfc49" kind="variable"><name>keys2</name></member>
+    <member refid="main_8h_103c996f9fcf0e10baeb3e700be0c409a" kind="variable"><name>active</name></member>
+    <member refid="main_8h_15a9147cb82d1cbeefadd62beb9e6910b" kind="variable"><name>fullscreen</name></member>
+    <member refid="main_8h_1943ac1686163d3119fd925e871742738" kind="variable"><name>g_mousePosition</name></member>
+    <member refid="main_8h_131f329c3598933288ab03000db32a23f" kind="variable"><name>lastTime</name></member>
+    <member refid="main_8h_1a1e945429dacc086ea2db82a7d7cd9af" kind="variable"><name>currentTime</name></member>
+  </compound>
+  <compound refid="mydefs_8h" kind="file"><name>mydefs.h</name>
+  </compound>
+  <compound refid="mygl_8cpp" kind="file"><name>mygl.cpp</name>
+    <member refid="mygl_8cpp_18570786c49629bad74b1caa30adaacdd" kind="variable"><name>g_Screen</name></member>
+  </compound>
+  <compound refid="mygl_8h" kind="file"><name>mygl.h</name>
+    <member refid="mygl_8h_18570786c49629bad74b1caa30adaacdd" kind="variable"><name>g_Screen</name></member>
+  </compound>
+  <compound refid="mygl_font_8cpp" kind="file"><name>myglFont.cpp</name>
+  </compound>
+  <compound refid="mygl_font_8h" kind="file"><name>myglFont.h</name>
+  </compound>
+  <compound refid="mygl_texture_8cpp" kind="file"><name>myglTexture.cpp</name>
+  </compound>
+  <compound refid="mygl_texture_8h" kind="file"><name>myglTexture.h</name>
+  </compound>
+  <compound refid="_null_video_plugin_8cpp" kind="file"><name>NullVideoPlugin.cpp</name>
+  </compound>
+  <compound refid="_null_video_plugin_8h" kind="file"><name>NullVideoPlugin.h</name>
+  </compound>
+  <compound refid="player_8cpp" kind="file"><name>player.cpp</name>
+  </compound>
+  <compound refid="player_8h" kind="file"><name>player.h</name>
+  </compound>
+  <compound refid="_plugin_8h" kind="file"><name>Plugin.h</name>
+  </compound>
+  <compound refid="_plugin_manager_8cpp" kind="file"><name>PluginManager.cpp</name>
+  </compound>
+  <compound refid="_plugin_manager_8h" kind="file"><name>PluginManager.h</name>
+  </compound>
+  <compound refid="screen_8cpp" kind="file"><name>screen.cpp</name>
+  </compound>
+  <compound refid="screen_8h" kind="file"><name>screen.h</name>
+  </compound>
+  <compound refid="strmanip_8cpp" kind="file"><name>strmanip.cpp</name>
+    <member refid="strmanip_8cpp_1cad899f2659159c5b4a5e83e5f875ac9" kind="function"><name>Truth</name></member>
+    <member refid="strmanip_8cpp_1fb0c23b6094f7f2a9b48abb0c3305f49" kind="function"><name>Integer</name></member>
+    <member refid="strmanip_8cpp_15be83b1e30d4424547d942128e04b1ac" kind="function"><name>Floating</name></member>
+    <member refid="strmanip_8cpp_148064b7f922b4862615b89373d1cd24d" kind="function"><name>KeyString</name></member>
+    <member refid="strmanip_8cpp_1710bb5d9f33eb42f0a462abf630a37d3" kind="function"><name>KeyName</name></member>
+    <member refid="strmanip_8cpp_1869a94eef007a9ad98418f64f09c450a" kind="function"><name>Right</name></member>
+    <member refid="strmanip_8cpp_10a18020e39d2e59c36fd73417e56555a" kind="function"><name>Left</name></member>
+    <member refid="strmanip_8cpp_1e54a3b84bee70d664328ea309edbba81" kind="function"><name>tolower</name></member>
+    <member refid="strmanip_8cpp_1262268d20a5ebeb2ac43456357c362c2" kind="function"><name>toupper</name></member>
+    <member refid="strmanip_8cpp_1bd3ba73a1a316b3663c393681238f01e" kind="function"><name>word</name></member>
+  </compound>
+  <compound refid="strmanip_8h" kind="file"><name>strmanip.h</name>
+    <member refid="strmanip_8h_117128be6334c86ccae2386fd3390165b" kind="function"><name>Truth</name></member>
+    <member refid="strmanip_8h_125b9ea0ada0c6bbeb97fee9ad36dfa7d" kind="function"><name>Integer</name></member>
+    <member refid="strmanip_8h_167f68962212f87b6715b61d4b9953cd0" kind="function"><name>Floating</name></member>
+    <member refid="strmanip_8h_159d5acd9e49fe620906bea67bdfb88d8" kind="function"><name>KeyName</name></member>
+    <member refid="strmanip_8h_122e7fa564a55d32fc3bfc1e969a2903d" kind="function"><name>KeyString</name></member>
+    <member refid="strmanip_8h_1eec68bf07eff1d01f995272e12ad490e" kind="function"><name>Right</name></member>
+    <member refid="strmanip_8h_1d9822461d72b7e9658cd1076b68ad42b" kind="function"><name>Left</name></member>
+    <member refid="strmanip_8h_1b8eb32822d54bba42834addddeca8ec8" kind="function"><name>tolower</name></member>
+    <member refid="strmanip_8h_106c5f542c72af8cfc87ee923a01e6f78" kind="function"><name>toupper</name></member>
+    <member refid="strmanip_8h_1562f35371d51d476b610f2f7b425acbe" kind="function"><name>word</name></member>
+  </compound>
+  <compound refid="texture_8h" kind="file"><name>texture.h</name>
+  </compound>
+  <compound refid="tga_8cpp" kind="file"><name>tga.cpp</name>
+  </compound>
+  <compound refid="tga_8h" kind="file"><name>tga.h</name>
+  </compound>
+  <compound refid="vector_8cpp" kind="file"><name>vector.cpp</name>
+  </compound>
+  <compound refid="vector_8h" kind="file"><name>vector.h</name>
+  </compound>
+  <compound refid="version_8h" kind="file"><name>version.h</name>
+    <member refid="version_8h_13184f05ab22cb1f4b07081b8a6caffc6" kind="define"><name>OPENARENA_VERSION</name></member>
+  </compound>
+  <compound refid="_video_plugin_8h" kind="file"><name>VideoPlugin.h</name>
+  </compound>
+  <compound refid="window_8cpp" kind="file"><name>window.cpp</name>
+  </compound>
+  <compound refid="window_8h" kind="file"><name>window.h</name>
+  </compound>
+  <compound refid="windows_8cpp" kind="file"><name>windows.cpp</name>
+  </compound>
+  <compound refid="_windows_logger_8cpp" kind="file"><name>WindowsLogger.cpp</name>
+  </compound>
+  <compound refid="_windows_logger_8h" kind="file"><name>WindowsLogger.h</name>
+  </compound>
+  <compound refid="worlddefs_8h" kind="file"><name>worlddefs.h</name>
+    <member refid="worlddefs_8h_1c5f96b31ea33a80e0cf550d03861d49b" kind="variable"><name>level</name></member>
+  </compound>
+  <compound refid="dir_2f52def434941140b94c45f8aa4dce98" kind="dir"><name>src/</name>
+  </compound>
+</doxygenindex>

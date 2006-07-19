@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="worlddefs_8h" kind="file">
+    <compoundname>worlddefs.h</compoundname>
+    <includes refid="level_8h" local="yes">level.h</includes>
+    <includedby refid="main_8h" local="yes">src/main.h</includedby>
+    <incdepgraph>
+      <node id="736">
+        <label>keys.h</label>
+        <link refid="keys_8h"/>
+      </node>
+      <node id="725">
+        <label>texture.h</label>
+        <link refid="texture_8h"/>
+      </node>
+      <node id="732">
+        <label>mygl.h</label>
+        <link refid="mygl_8h"/>
+        <childnode refid="717" relation="include">
+        </childnode>
+        <childnode refid="733" relation="include">
+        </childnode>
+        <childnode refid="734" relation="include">
+        </childnode>
+        <childnode refid="726" relation="include">
+        </childnode>
+        <childnode refid="724" relation="include">
+        </childnode>
+        <childnode refid="735" relation="include">
+        </childnode>
+        <childnode refid="737" relation="include">
+        </childnode>
+      </node>
+      <node id="728">
+        <label>list.h</label>
+        <link refid="list_8h"/>
+        <childnode refid="729" relation="include">
+        </childnode>
+      </node>
+      <node id="720">
+        <label>cmath</label>
+      </node>
+      <node id="717">
+        <label>string</label>
+      </node>
+      <node id="734">
+        <label>screen.h</label>
+        <link refid="screen_8h"/>
+        <childnode refid="717" relation="include">
+        </childnode>
+      </node>
+      <node id="723">
+        <label>mydefs.h</label>
+        <link refid="mydefs_8h"/>
+      </node>
+      <node id="718">
+        <label>fstream</label>
+      </node>
+      <node id="735">
+        <label>strmanip.h</label>
+        <link refid="strmanip_8h"/>
+        <childnode refid="717" relation="include">
+        </childnode>
+        <childnode refid="720" relation="include">
+        </childnode>
+        <childnode refid="736" relation="include">
+        </childnode>
+        <childnode refid="733" relation="include">
+        </childnode>
+      </node>
+      <node id="716">
+        <label>level.h</label>
+        <link refid="level_8h"/>
+        <childnode refid="717" relation="include">
+        </childnode>
+        <childnode refid="718" relation="include">
+        </childnode>
+        <childnode refid="719" relation="include">
+        </childnode>
+        <childnode refid="720" relation="include">
+        </childnode>
+        <childnode refid="721" relation="include">
+        </childnode>
+        <childnode refid="722" relation="include">
+        </childnode>
+        <childnode refid="723" relation="include">
+        </childnode>
+        <childnode refid="724" relation="include">
+        </childnode>
+        <childnode refid="726" relation="include">
+        </childnode>
+        <childnode refid="728" relation="include">
+        </childnode>
+        <childnode refid="730" relation="include">
+        </childnode>
+        <childnode refid="731" relation="include">
+        </childnode>
+        <childnode refid="738" relation="include">
+        </childnode>
+        <childnode refid="740" relation="include">
+        </childnode>
+        <childnode refid="739" relation="include">
+        </childnode>
+        <childnode refid="741" relation="include">
+        </childnode>
+        <childnode refid="735" relation="include">
+        </childnode>
+        <childnode refid="736" relation="include">
+        </childnode>
+      </node>
+      <node id="739">
+        <label>myglTexture.h</label>
+        <link refid="mygl_texture_8h"/>
+        <childnode refid="717" relation="include">
+        </childnode>
+        <childnode refid="733" relation="include">
+        </childnode>
+        <childnode refid="732" relation="include">
+        </childnode>
+      </node>
+      <node id="741">
+        <label>player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="731" relation="include">
+        </childnode>
+        <childnode refid="742" relation="include">
+        </childnode>
+      </node>
+      <node id="733">
+        <label>datatypes.h</label>
+        <link refid="datatypes_8h"/>
+      </node>
+      <node id="730">
+        <label>vector.h</label>
+        <link refid="vector_8h"/>
+        <childnode refid="720" relation="include">
+        </childnode>
+      </node>
+      <node id="722">
+        <label>cstdio</label>
+      </node>
+      <node id="737">
+        <label>window.h</label>
+        <link refid="window_8h"/>
+        <childnode refid="734" relation="include">
+        </childnode>
+        <childnode refid="730" relation="include">
+        </childnode>
+      </node>
+      <node id="731">
+        <label>camera.h</label>
+        <link refid="camera_8h"/>
+        <childnode refid="720" relation="include">
+        </childnode>
+        <childnode refid="730" relation="include">
+        </childnode>
+        <childnode refid="732" relation="include">
+        </childnode>
+        <childnode refid="734" relation="include">
+        </childnode>
+      </node>
+      <node id="740">
+        <label>myglFont.h</label>
+        <link refid="mygl_font_8h"/>
+        <childnode refid="732" relation="include">
+        </childnode>
+      </node>
+      <node id="729">
+        <label>cstdlib</label>
+      </node>
+      <node id="719">
+        <label>cctype</label>
+      </node>
+      <node id="721">
+        <label>iostream</label>
+      </node>
+      <node id="738">
+        <label>geometry.h</label>
+        <link refid="geometry_8h"/>
+        <childnode refid="730" relation="include">
+        </childnode>
+        <childnode refid="739" relation="include">
+        </childnode>
+      </node>
+      <node id="724">
+        <label>bmp.h</label>
+        <link refid="bmp_8h"/>
+        <childnode refid="725" relation="include">
+        </childnode>
+      </node>
+      <node id="715">
+        <label>src/worlddefs.h</label>
+        <link refid="worlddefs.h"/>
+        <childnode refid="716" relation="include">
+        </childnode>
+      </node>
+      <node id="742">
+        <label>ctrls.h</label>
+        <link refid="ctrls_8h"/>
+        <childnode refid="736" relation="include">
+        </childnode>
+        <childnode refid="733" relation="include">
+        </childnode>
+        <childnode refid="728" relation="include">
+        </childnode>
+      </node>
+      <node id="727">
+        <label>GL/gl.h</label>
+      </node>
+      <node id="726">
+        <label>tga.h</label>
+        <link refid="tga_8h"/>
+        <childnode refid="727" relation="include">
+        </childnode>
+        <childnode refid="722" relation="include">
+        </childnode>
+        <childnode refid="717" relation="include">
+        </childnode>
+        <childnode refid="725" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="744">
+        <label>src/main.h</label>
+        <link refid="main_8h"/>
+      </node>
+      <node id="743">
+        <label>src/worlddefs.h</label>
+        <link refid="worlddefs.h"/>
+        <childnode refid="744" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="worlddefs_8h_1c5f96b31ea33a80e0cf550d03861d49b" prot="public" static="yes" mutable="no">
+        <type><ref refid="class_open_arena_1_1_level" kindref="compound">OpenArena::Level</ref></type>
+        <definition>OpenArena::Level level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/worlddefs.h" line="6" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/worlddefs.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__WorldDefs_h__</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__WorldDefs_h__</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="level_8h" kindref="compound">level.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level" kindref="compound">OpenArena::Level</ref><sp/><ref refid="worlddefs_8h_1c5f96b31ea33a80e0cf550d03861d49b" kindref="member">level</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/worlddefs.h"/>
+  </compounddef>
+</doxygen>

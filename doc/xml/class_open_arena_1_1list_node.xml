@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="class_open_arena_1_1list_node" kind="class" prot="public">
+    <compoundname>OpenArena::listNode</compoundname>
+    <includes local="no">list.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class</type>
+        <declname>ItemType</declname>
+        <defname>ItemType</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_open_arena_1_1list_node_18b16053dae8b812cf591f2c8e91d849d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::listNode&lt; ItemType &gt;::listNode</definition>
+        <argsstring>()</argsstring>
+        <name>listNode</name>
+        <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1list_node" kindref="compound">listNode</ref> here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for <ref refid="class_open_arena_1_1list_node" kindref="compound">listNode</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1list_node" kindref="compound">listNode</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="45" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="468" bodyend="471"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_open_arena_1_1list_node_13501bc9d46c28598380a31c40eb05745" prot="public" static="no" mutable="no">
+        <type>ItemType</type>
+        <definition>ItemType OpenArena::listNode&lt; ItemType &gt;::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="46" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1list_node_1d665269f85a01c0d9b07db84a6ea6c70" prot="public" static="no" mutable="no">
+        <type><ref refid="class_open_arena_1_1list_node" kindref="compound">listNode</ref>&lt; ItemType &gt; *</type>
+        <definition>listNode&lt;ItemType&gt;* OpenArena::listNode&lt; ItemType &gt;::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="47" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1list_node" kindref="compound">listNode</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ItemType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter ItemType.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for <ref refid="class_open_arena_1_1list_node" kindref="compound">listNode</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1list_node" kindref="compound">listNode</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="37">
+        <label>ItemType</label>
+      </node>
+      <node id="36">
+        <label>OpenArena::listNode&lt; ItemType &gt;</label>
+        <link refid="class_open_arena_1_1list_node"/>
+        <childnode refid="37" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" line="28" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/list.h" bodystart="27" bodyend="48"/>
+    <listofallmembers>
+      <member refid="class_open_arena_1_1list_node_13501bc9d46c28598380a31c40eb05745" prot="public" virt="non-virtual"><scope>OpenArena::listNode</scope><name>data</name></member>
+      <member refid="class_open_arena_1_1list_node_18b16053dae8b812cf591f2c8e91d849d" prot="public" virt="non-virtual"><scope>OpenArena::listNode</scope><name>listNode</name></member>
+      <member refid="class_open_arena_1_1list_node_1d665269f85a01c0d9b07db84a6ea6c70" prot="public" virt="non-virtual"><scope>OpenArena::listNode</scope><name>next</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

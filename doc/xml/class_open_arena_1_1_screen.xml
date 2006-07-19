@@ -1,0 +1,539 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="class_open_arena_1_1_screen" kind="class" prot="public">
+    <compoundname>OpenArena::Screen</compoundname>
+    <derivedcompoundref refid="class_open_arena_1_1_window" prot="public" virt="non-virtual">OpenArena::Window</derivedcompoundref>
+    <includes local="no">screen.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_open_arena_1_1_screen_1be7c4e1e72db645db91e1fd97b04d889" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::Screen::Screen</definition>
+        <argsstring>()</argsstring>
+        <name>Screen</name>
+        <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_screen" kindref="compound">Screen</ref> here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for <ref refid="class_open_arena_1_1_screen" kindref="compound">Screen</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_screen" kindref="compound">Screen</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="38" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="5" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_18a6bfbe8265107e8ec9e81ba143cd4b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int OpenArena::Screen::GetWidth</definition>
+        <argsstring>()</argsstring>
+        <name>GetWidth</name>
+        <briefdescription>
+<para>Write brief comment for GetWidth here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for GetWidth here.</para><para><simplesect kind="remark"><para>Write remarks for GetWidth here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="57" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_1ea8ed73c79b51258a64d23688a9f51ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int OpenArena::Screen::GetHeight</definition>
+        <argsstring>()</argsstring>
+        <name>GetHeight</name>
+        <briefdescription>
+<para>Write brief comment for GetHeight here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for GetHeight here.</para><para><simplesect kind="remark"><para>Write remarks for GetHeight here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="76" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_1618935dd613073d3f7e1b287a37bacae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int OpenArena::Screen::GetColorDepth</definition>
+        <argsstring>()</argsstring>
+        <name>GetColorDepth</name>
+        <briefdescription>
+<para>Write brief comment for GetColorDepth here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for GetColorDepth here.</para><para><simplesect kind="remark"><para>Write remarks for GetColorDepth here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="95" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_1486218ff5ffa46f5bcfdf8f8e84d4e4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Screen::GetFullscreen</definition>
+        <argsstring>()</argsstring>
+        <name>GetFullscreen</name>
+        <briefdescription>
+<para>Write brief comment for GetFullscreen here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for GetFullscreen here.</para><para><simplesect kind="remark"><para>Write remarks for GetFullscreen here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="114" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_10191301b9f64e039a4fbbeec27032664" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * OpenArena::Screen::GetName</definition>
+        <argsstring>()</argsstring>
+        <name>GetName</name>
+        <briefdescription>
+<para>Write brief comment for GetName here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for GetName here.</para><para><simplesect kind="remark"><para>Write remarks for GetName here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="133" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="34" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_1fea6d6f0f042de545d0e4a9041a23f33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Screen::SetWidth</definition>
+        <argsstring>(int)</argsstring>
+        <name>SetWidth</name>
+        <param>
+          <type>int</type>
+          <defname>width</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for SetWidth here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for SetWidth here.</para><para><simplesect kind="remark"><para>Write remarks for SetWidth here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="152" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_11b44f0c54e30144e3662904bf6f3f12f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Screen::SetHeight</definition>
+        <argsstring>(int)</argsstring>
+        <name>SetHeight</name>
+        <param>
+          <type>int</type>
+          <defname>height</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for SetHeight here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for SetHeight here.</para><para><simplesect kind="remark"><para>Write remarks for SetHeight here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="171" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_1dc25204025c838f3709536e7e6d9460c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Screen::Resize</definition>
+        <argsstring>(int, int)</argsstring>
+        <name>Resize</name>
+        <param>
+          <type>int</type>
+          <defname>width</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>height</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for Resize here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Resize here.</para><para><simplesect kind="remark"><para>Write remarks for Resize here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="193" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="49" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_1b0ff2d97e02bc5c42b5ab4e18c8fa962" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Screen::SetColorDepth</definition>
+        <argsstring>(int)</argsstring>
+        <name>SetColorDepth</name>
+        <param>
+          <type>int</type>
+          <defname>colorDepth</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for SetColorDepth here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for SetColorDepth here.</para><para><simplesect kind="remark"><para>Write remarks for SetColorDepth here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="212" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_1c39783098d4de08390457c4c97a4f927" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Screen::SetFullscreen</definition>
+        <argsstring>(bool)</argsstring>
+        <name>SetFullscreen</name>
+        <param>
+          <type>bool</type>
+          <defname>status</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for SetFullscreen here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for SetFullscreen here.</para><para><simplesect kind="remark"><para>Write remarks for SetFullscreen here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="231" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_1de25f0b69637786e0b68bb70ed2b1cad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Screen::ToggleFullscreen</definition>
+        <argsstring>()</argsstring>
+        <name>ToggleFullscreen</name>
+        <briefdescription>
+<para>Write brief comment for ToggleFullscreen here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for ToggleFullscreen here.</para><para><simplesect kind="remark"><para>Write remarks for ToggleFullscreen here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="247" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="65" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_177f99500ca98c16adc9b6bc65ce4a5d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Screen::SetName</definition>
+        <argsstring>(const char *)</argsstring>
+        <name>SetName</name>
+        <param>
+          <type>const char *</type>
+          <defname>name</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for SetName here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for SetName here.</para><para><simplesect kind="remark"><para>Write remarks for SetName here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="266" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="70" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_screen_17d8cd0fec83eb5615d51991df9ace874" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Screen::SetName</definition>
+        <argsstring>(string)</argsstring>
+        <name>SetName</name>
+        <param>
+          <type>string</type>
+          <defname>name</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for SetName here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for SetName here.</para><para><simplesect kind="remark"><para>Write remarks for SetName here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="285" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.cpp" bodystart="75" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_open_arena_1_1_screen_12d24af3ef8c363b38a1505bf098e24c4" prot="protected" static="no" mutable="no">
+        <type>short</type>
+        <definition>short OpenArena::Screen::_width</definition>
+        <argsstring></argsstring>
+        <name>_width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="287" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1_screen_1329d0d63a77d91ad69fe1fc2f5591b1d" prot="protected" static="no" mutable="no">
+        <type>short</type>
+        <definition>short OpenArena::Screen::_height</definition>
+        <argsstring></argsstring>
+        <name>_height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="288" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1_screen_108e5688bdf2357f70118489ad186e240" prot="protected" static="no" mutable="no">
+        <type>char</type>
+        <definition>char OpenArena::Screen::_colorDepth</definition>
+        <argsstring></argsstring>
+        <name>_colorDepth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="289" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1_screen_1947f95891b450031b8f2f7dcf9858327" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool OpenArena::Screen::_fullscreen</definition>
+        <argsstring></argsstring>
+        <name>_fullscreen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="290" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1_screen_1d9182abf19f7f23782534019e06a4dad" prot="protected" static="no" mutable="no">
+        <type>string</type>
+        <definition>string OpenArena::Screen::_name</definition>
+        <argsstring></argsstring>
+        <name>_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="292" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" bodystart="292" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_screen" kindref="compound">Screen</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="class_open_arena_1_1_screen" kindref="compound">Screen</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_screen" kindref="compound">Screen</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="60">
+        <label>OpenArena::Screen</label>
+        <link refid="class_open_arena_1_1_screen"/>
+      </node>
+      <node id="61">
+        <label>OpenArena::Window</label>
+        <link refid="class_open_arena_1_1_window"/>
+        <childnode refid="60" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" line="21" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/screen.h" bodystart="20" bodyend="293"/>
+    <listofallmembers>
+      <member refid="class_open_arena_1_1_screen_108e5688bdf2357f70118489ad186e240" prot="protected" virt="non-virtual"><scope>OpenArena::Screen</scope><name>_colorDepth</name></member>
+      <member refid="class_open_arena_1_1_screen_1947f95891b450031b8f2f7dcf9858327" prot="protected" virt="non-virtual"><scope>OpenArena::Screen</scope><name>_fullscreen</name></member>
+      <member refid="class_open_arena_1_1_screen_1329d0d63a77d91ad69fe1fc2f5591b1d" prot="protected" virt="non-virtual"><scope>OpenArena::Screen</scope><name>_height</name></member>
+      <member refid="class_open_arena_1_1_screen_1d9182abf19f7f23782534019e06a4dad" prot="protected" virt="non-virtual"><scope>OpenArena::Screen</scope><name>_name</name></member>
+      <member refid="class_open_arena_1_1_screen_12d24af3ef8c363b38a1505bf098e24c4" prot="protected" virt="non-virtual"><scope>OpenArena::Screen</scope><name>_width</name></member>
+      <member refid="class_open_arena_1_1_screen_1618935dd613073d3f7e1b287a37bacae" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>GetColorDepth</name></member>
+      <member refid="class_open_arena_1_1_screen_1486218ff5ffa46f5bcfdf8f8e84d4e4d" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>GetFullscreen</name></member>
+      <member refid="class_open_arena_1_1_screen_1ea8ed73c79b51258a64d23688a9f51ad" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>GetHeight</name></member>
+      <member refid="class_open_arena_1_1_screen_10191301b9f64e039a4fbbeec27032664" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>GetName</name></member>
+      <member refid="class_open_arena_1_1_screen_18a6bfbe8265107e8ec9e81ba143cd4b4" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>GetWidth</name></member>
+      <member refid="class_open_arena_1_1_screen_1dc25204025c838f3709536e7e6d9460c" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>Resize</name></member>
+      <member refid="class_open_arena_1_1_screen_1be7c4e1e72db645db91e1fd97b04d889" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>Screen</name></member>
+      <member refid="class_open_arena_1_1_screen_1b0ff2d97e02bc5c42b5ab4e18c8fa962" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>SetColorDepth</name></member>
+      <member refid="class_open_arena_1_1_screen_1c39783098d4de08390457c4c97a4f927" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>SetFullscreen</name></member>
+      <member refid="class_open_arena_1_1_screen_11b44f0c54e30144e3662904bf6f3f12f" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>SetHeight</name></member>
+      <member refid="class_open_arena_1_1_screen_177f99500ca98c16adc9b6bc65ce4a5d7" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>SetName</name></member>
+      <member refid="class_open_arena_1_1_screen_17d8cd0fec83eb5615d51991df9ace874" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>SetName</name></member>
+      <member refid="class_open_arena_1_1_screen_1fea6d6f0f042de545d0e4a9041a23f33" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>SetWidth</name></member>
+      <member refid="class_open_arena_1_1_screen_1de25f0b69637786e0b68bb70ed2b1cad" prot="public" virt="non-virtual"><scope>OpenArena::Screen</scope><name>ToggleFullscreen</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

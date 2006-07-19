@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="_plugin_8h" kind="file">
+    <compoundname>Plugin.h</compoundname>
+    <includedby refid="_video_plugin_8h" local="yes">src/VideoPlugin.h</includedby>
+    <includedby refid="_plugin_manager_8h" local="yes">src/PluginManager.h</includedby>
+    <invincdepgraph>
+      <node id="481">
+        <label>src/PluginManager.cpp</label>
+        <link refid="_plugin_manager_8cpp"/>
+      </node>
+      <node id="480">
+        <label>src/NullVideoPlugin.cpp</label>
+        <link refid="_null_video_plugin_8cpp"/>
+      </node>
+      <node id="479">
+        <label>src/NullVideoPlugin.h</label>
+        <link refid="_null_video_plugin_8h"/>
+        <childnode refid="480" relation="include">
+        </childnode>
+        <childnode refid="481" relation="include">
+        </childnode>
+      </node>
+      <node id="477">
+        <label>src/Plugin.h</label>
+        <link refid="Plugin.h"/>
+        <childnode refid="478" relation="include">
+        </childnode>
+        <childnode refid="482" relation="include">
+        </childnode>
+      </node>
+      <node id="482">
+        <label>src/PluginManager.h</label>
+        <link refid="_plugin_manager_8h"/>
+        <childnode refid="481" relation="include">
+        </childnode>
+      </node>
+      <node id="478">
+        <label>src/VideoPlugin.h</label>
+        <link refid="_video_plugin_8h"/>
+        <childnode refid="479" relation="include">
+        </childnode>
+        <childnode refid="482" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_open_arena_1_1_plugin" prot="public">OpenArena::Plugin</innerclass>
+    <innernamespace refid="namespace_open_arena">OpenArena</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">OpenArena</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17" refid="class_open_arena_1_1_plugin" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_open_arena_1_1_plugin" kindref="compound">Plugin</ref></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_plugin_10fd911031b5c842b099d767e07a3b6d2" kindref="member">~Plugin</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_plugin_14db1c9624c3894a5ef2220bfaf6c00e4" kindref="member">Type</ref><sp/>{<ref refid="class_open_arena_1_1_video_plugin" kindref="compound">VideoPlugin</ref>,<sp/><ref refid="class_open_arena_1_1_plugin_14db1c9624c3894a5ef2220bfaf6c00e4f7e7f2ab39f985ac95d238558f6cda54" kindref="member">AudioPlugin</ref>,<sp/><ref refid="class_open_arena_1_1_plugin_14db1c9624c3894a5ef2220bfaf6c00e427fac2aa3af683e6840a1a7a8cca5766" kindref="member">InputPlugin</ref>};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/Plugin.h"/>
+  </compounddef>
+</doxygen>

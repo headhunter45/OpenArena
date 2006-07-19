@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="class_w_o_r_l_d___p_h_y_s_i_c_s" kind="class" prot="public">
+    <compoundname>WORLD_PHYSICS</compoundname>
+    <includes local="no">physics.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_w_o_r_l_d___p_h_y_s_i_c_s_1e48ce66777fcc4e7bbf55c90268b289a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>WORLD_PHYSICS::WORLD_PHYSICS</definition>
+        <argsstring>()</argsstring>
+        <name>WORLD_PHYSICS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/physics.h" line="17" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/physics.cpp" bodystart="3" bodyend="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="class_w_o_r_l_d___p_h_y_s_i_c_s" kindref="compound">WORLD_PHYSICS</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="class_w_o_r_l_d___p_h_y_s_i_c_s" kindref="compound">WORLD_PHYSICS</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_w_o_r_l_d___p_h_y_s_i_c_s" kindref="compound">WORLD_PHYSICS</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/physics.h" line="15" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/physics.h" bodystart="14" bodyend="18"/>
+    <listofallmembers>
+      <member refid="class_w_o_r_l_d___p_h_y_s_i_c_s_1e48ce66777fcc4e7bbf55c90268b289a" prot="public" virt="non-virtual"><scope>WORLD_PHYSICS</scope><name>WORLD_PHYSICS</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

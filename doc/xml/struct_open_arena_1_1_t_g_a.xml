@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="struct_open_arena_1_1_t_g_a" kind="struct" prot="public">
+    <compoundname>OpenArena::TGA</compoundname>
+    <includes local="no">tga.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_open_arena_1_1_t_g_a_13c680b0d46bb00e821e824ac66f3e44b" prot="public" static="no" mutable="no">
+        <type>GLubyte</type>
+        <definition>GLubyte OpenArena::TGA::header[6]</definition>
+        <argsstring>[6]</argsstring>
+        <name>header</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" line="45" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_t_g_a_1df63b52db302f457b185d62c6c6003c4" prot="public" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint OpenArena::TGA::bytesPerPixel</definition>
+        <argsstring></argsstring>
+        <name>bytesPerPixel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" line="46" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_t_g_a_16a540d10ef2328929897322ff624eed3" prot="public" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint OpenArena::TGA::imageSize</definition>
+        <argsstring></argsstring>
+        <name>imageSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" line="47" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_t_g_a_1468a3ed9fa9fad27abdc78e6ef99a9df" prot="public" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint OpenArena::TGA::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" line="48" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_t_g_a_1e8de9322b9547b8e1e0b23f23ca77719" prot="public" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint OpenArena::TGA::Height</definition>
+        <argsstring></argsstring>
+        <name>Height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" line="49" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_t_g_a_187135335a7751edde25aa607cad9a4db" prot="public" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint OpenArena::TGA::Width</definition>
+        <argsstring></argsstring>
+        <name>Width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" line="50" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_t_g_a_1aca0a3b01972bf773ad0d53ad8d78ad7" prot="public" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint OpenArena::TGA::Bpp</definition>
+        <argsstring></argsstring>
+        <name>Bpp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" line="51" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="struct_open_arena_1_1_t_g_a" kindref="compound">TGA</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="struct_open_arena_1_1_t_g_a" kindref="compound">TGA</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="struct_open_arena_1_1_t_g_a" kindref="compound">TGA</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" line="44" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" bodystart="43" bodyend="52"/>
+    <listofallmembers>
+      <member refid="struct_open_arena_1_1_t_g_a_1aca0a3b01972bf773ad0d53ad8d78ad7" prot="public" virt="non-virtual"><scope>OpenArena::TGA</scope><name>Bpp</name></member>
+      <member refid="struct_open_arena_1_1_t_g_a_1df63b52db302f457b185d62c6c6003c4" prot="public" virt="non-virtual"><scope>OpenArena::TGA</scope><name>bytesPerPixel</name></member>
+      <member refid="struct_open_arena_1_1_t_g_a_13c680b0d46bb00e821e824ac66f3e44b" prot="public" virt="non-virtual"><scope>OpenArena::TGA</scope><name>header</name></member>
+      <member refid="struct_open_arena_1_1_t_g_a_1e8de9322b9547b8e1e0b23f23ca77719" prot="public" virt="non-virtual"><scope>OpenArena::TGA</scope><name>Height</name></member>
+      <member refid="struct_open_arena_1_1_t_g_a_16a540d10ef2328929897322ff624eed3" prot="public" virt="non-virtual"><scope>OpenArena::TGA</scope><name>imageSize</name></member>
+      <member refid="struct_open_arena_1_1_t_g_a_1468a3ed9fa9fad27abdc78e6ef99a9df" prot="public" virt="non-virtual"><scope>OpenArena::TGA</scope><name>type</name></member>
+      <member refid="struct_open_arena_1_1_t_g_a_187135335a7751edde25aa607cad9a4db" prot="public" virt="non-virtual"><scope>OpenArena::TGA</scope><name>Width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="class_open_arena_1_1_window_1_1_resizer" kind="class" prot="public">
+    <compoundname>OpenArena::Window::Resizer</compoundname>
+    <includes local="no">window.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_open_arena_1_1_window_1_1_resizer_116b734f66289c0dd954dc9ed12854f44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Window::Resizer::Resize</definition>
+        <argsstring>(GLsizei width, GLsizei height)</argsstring>
+        <name>Resize</name>
+        <param>
+          <type>GLsizei</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>GLsizei</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for Resize here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter width.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter height.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Resize here.</para><para><simplesect kind="remark"><para>Write remarks for Resize here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/window.h" line="82" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/window.cpp" bodystart="480" bodyend="494"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_window_1_1_resizer" kindref="compound">Resizer</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="class_open_arena_1_1_window_1_1_resizer" kindref="compound">Resizer</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_window_1_1_resizer" kindref="compound">Resizer</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/window.h" line="59" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/window.h" bodystart="58" bodyend="83"/>
+    <listofallmembers>
+      <member refid="class_open_arena_1_1_window_1_1_resizer_116b734f66289c0dd954dc9ed12854f44" prot="public" virt="non-virtual"><scope>OpenArena::Window::Resizer</scope><name>Resize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

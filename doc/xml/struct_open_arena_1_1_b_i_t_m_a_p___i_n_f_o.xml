@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o" kind="struct" prot="public">
+    <compoundname>OpenArena::BITMAP_INFO</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1704088a925b13a5b918698c2993f005b" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 OpenArena::BITMAP_INFO::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="46" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1e227143d0b68bf579759828c2959c2a8" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 OpenArena::BITMAP_INFO::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="47" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_17de292dc2099e8be9ada8ca1b88e28ac" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 OpenArena::BITMAP_INFO::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="48" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_129688aa35ff9916bb8416d21ca283107" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 OpenArena::BITMAP_INFO::planes</definition>
+        <argsstring></argsstring>
+        <name>planes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="49" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_170892afbfca1e35b20a9abbd8fc7a7a0" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 OpenArena::BITMAP_INFO::bitCount</definition>
+        <argsstring></argsstring>
+        <name>bitCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="50" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_15b3a1b063bf9a319a3f77624dea3d0a2" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 OpenArena::BITMAP_INFO::compression</definition>
+        <argsstring></argsstring>
+        <name>compression</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="51" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1332311682615f026df7f83822325fb48" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 OpenArena::BITMAP_INFO::sizeImage</definition>
+        <argsstring></argsstring>
+        <name>sizeImage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="52" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1d5c8947b311dfeb07be2e9efff164c1a" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 OpenArena::BITMAP_INFO::xPelsPerMeter</definition>
+        <argsstring></argsstring>
+        <name>xPelsPerMeter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="53" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_138686ef73500d830773c74af41b89783" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 OpenArena::BITMAP_INFO::yPelsPerMeter</definition>
+        <argsstring></argsstring>
+        <name>yPelsPerMeter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="54" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1537e138806ec66433dd84853432aaa90" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 OpenArena::BITMAP_INFO::clrUsed</definition>
+        <argsstring></argsstring>
+        <name>clrUsed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="55" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_194e2e30bf95c0f918ee137c05a19b80e" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 OpenArena::BITMAP_INFO::clrImportant</definition>
+        <argsstring></argsstring>
+        <name>clrImportant</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="56" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="45" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="44" bodyend="57"/>
+    <listofallmembers>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_170892afbfca1e35b20a9abbd8fc7a7a0" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_INFO</scope><name>bitCount</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_194e2e30bf95c0f918ee137c05a19b80e" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_INFO</scope><name>clrImportant</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1537e138806ec66433dd84853432aaa90" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_INFO</scope><name>clrUsed</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_15b3a1b063bf9a319a3f77624dea3d0a2" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_INFO</scope><name>compression</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_17de292dc2099e8be9ada8ca1b88e28ac" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_INFO</scope><name>height</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_129688aa35ff9916bb8416d21ca283107" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_INFO</scope><name>planes</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1704088a925b13a5b918698c2993f005b" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_INFO</scope><name>size</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1332311682615f026df7f83822325fb48" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_INFO</scope><name>sizeImage</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1e227143d0b68bf579759828c2959c2a8" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_INFO</scope><name>width</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_1d5c8947b311dfeb07be2e9efff164c1a" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_INFO</scope><name>xPelsPerMeter</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___i_n_f_o_138686ef73500d830773c74af41b89783" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_INFO</scope><name>yPelsPerMeter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

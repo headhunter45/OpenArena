@@ -1,0 +1,541 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="class_open_arena_1_1_texture" kind="class" prot="public">
+    <compoundname>OpenArena::Texture</compoundname>
+    <includes local="no">myglTexture.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_open_arena_1_1_texture_10264c134338dfdd0549c52c36c8f0cfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::Texture::Texture</definition>
+        <argsstring>()</argsstring>
+        <name>Texture</name>
+        <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref> here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for <ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="42" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="6" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_1d66e30c5ed12dffd0e8801c85ad517a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::Texture::~Texture</definition>
+        <argsstring>()</argsstring>
+        <name>~Texture</name>
+        <briefdescription>
+<para>Write brief comment for ~Texture here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for ~Texture here.</para><para><simplesect kind="remark"><para>Write remarks for ~Texture here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="58" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_10a1c45b69a0ecc52ad173527dd91368d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string OpenArena::Texture::Filename</definition>
+        <argsstring>()</argsstring>
+        <name>Filename</name>
+        <briefdescription>
+<para>Write brief comment for Filename here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Filename here.</para><para><simplesect kind="remark"><para>Write remarks for Filename here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="77" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_1d82ab039fdc7f95b05e29432b9c995e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GLuint</type>
+        <definition>GLuint OpenArena::Texture::ID</definition>
+        <argsstring>()</argsstring>
+        <name>ID</name>
+        <briefdescription>
+<para>Write brief comment for ID here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for ID here.</para><para><simplesect kind="remark"><para>Write remarks for ID here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="96" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_17978c772a4786df0c93cd845bba72662" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Texture::Load</definition>
+        <argsstring>(string filename)</argsstring>
+        <name>Load</name>
+        <param>
+          <type>string</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for Load here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter filename.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Load here.</para><para><simplesect kind="remark"><para>Write remarks for Load here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="118" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="34" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_1fd843c252a43149eb3d874b53f5547d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Texture::Load</definition>
+        <argsstring>(string filename, GLuint min, GLuint mag)</argsstring>
+        <name>Load</name>
+        <param>
+          <type>string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>GLuint</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>GLuint</type>
+          <declname>mag</declname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for Load here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter filename.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter min.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter mag.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Load here.</para><para><simplesect kind="remark"><para>Write remarks for Load here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="146" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="51" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_1bb409e39ba0c22ed29a940c19d0cbe06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Texture::Free</definition>
+        <argsstring>()</argsstring>
+        <name>Free</name>
+        <briefdescription>
+<para>Write brief comment for Free here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Free here.</para><para><simplesect kind="remark"><para>Write remarks for Free here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="162" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="70" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_107dae6e9d5d866c16572f3c09a85de86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Texture::Loaded</definition>
+        <argsstring>()</argsstring>
+        <name>Loaded</name>
+        <briefdescription>
+<para>Write brief comment for Loaded here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Loaded here.</para><para><simplesect kind="remark"><para>Write remarks for Loaded here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="181" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_121cd653809b54aab34304f1a5e85e1f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Texture::operator&lt;</definition>
+        <argsstring>(const Texture &amp;)</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref> &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator &lt; here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator &lt; here.</para><para><simplesect kind="remark"><para>Write remarks for operator &lt; here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="203" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="84" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_153b4be136fbc47ec01e1c556c3b14584" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Texture::operator&lt;=</definition>
+        <argsstring>(const Texture &amp;)</argsstring>
+        <name>operator&lt;=</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref> &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator &lt;= here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator &lt;= here.</para><para><simplesect kind="remark"><para>Write remarks for operator &lt;= here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="225" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_15f2e4503f45465e780c4ebc973c2919b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Texture::operator==</definition>
+        <argsstring>(const Texture &amp;)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref> &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator == here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator == here.</para><para><simplesect kind="remark"><para>Write remarks for operator == here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="247" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="94" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_17e8aca4eebade70517b6b074737c300d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Texture::operator!=</definition>
+        <argsstring>(const Texture &amp;)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref> &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator != here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator != here.</para><para><simplesect kind="remark"><para>Write remarks for operator != here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="269" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_1dcce40f8fc14d56ccfd5c2bd009106c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Texture::operator&gt;=</definition>
+        <argsstring>(const Texture &amp;)</argsstring>
+        <name>operator&gt;=</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref> &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator &gt;= here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator &gt;= here.</para><para><simplesect kind="remark"><para>Write remarks for operator &gt;= here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="291" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="104" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_texture_1bcd647f052e8f9aab5e328772ed7e582" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OpenArena::Texture::operator&gt;</definition>
+        <argsstring>(const Texture &amp;)</argsstring>
+        <name>operator&gt;</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref> &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator &gt; here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator &gt; here.</para><para><simplesect kind="remark"><para>Write remarks for operator &gt; here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="313" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.cpp" bodystart="109" bodyend="112"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_open_arena_1_1_texture_1aeb7b7d8771dd3eaa04d21be3d60d84d" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint OpenArena::Texture::minFilter</definition>
+        <argsstring></argsstring>
+        <name>minFilter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="316" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1_texture_157ca675815ebcd2128fdad683ce33d2e" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint OpenArena::Texture::magFilter</definition>
+        <argsstring></argsstring>
+        <name>magFilter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="317" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" bodystart="317" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1_texture_1ea8321b81b2a1e0053e48d1633169462" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string OpenArena::Texture::filename</definition>
+        <argsstring></argsstring>
+        <name>filename</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="318" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1_texture_155ac5997e40c3c0283da94729e014c38" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint OpenArena::Texture::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="319" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" line="25" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h" bodystart="24" bodyend="320"/>
+    <listofallmembers>
+      <member refid="class_open_arena_1_1_texture_1ea8321b81b2a1e0053e48d1633169462" prot="private" virt="non-virtual"><scope>OpenArena::Texture</scope><name>filename</name></member>
+      <member refid="class_open_arena_1_1_texture_10a1c45b69a0ecc52ad173527dd91368d" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>Filename</name></member>
+      <member refid="class_open_arena_1_1_texture_1bb409e39ba0c22ed29a940c19d0cbe06" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>Free</name></member>
+      <member refid="class_open_arena_1_1_texture_1d82ab039fdc7f95b05e29432b9c995e9" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>ID</name></member>
+      <member refid="class_open_arena_1_1_texture_155ac5997e40c3c0283da94729e014c38" prot="private" virt="non-virtual"><scope>OpenArena::Texture</scope><name>id</name></member>
+      <member refid="class_open_arena_1_1_texture_17978c772a4786df0c93cd845bba72662" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>Load</name></member>
+      <member refid="class_open_arena_1_1_texture_1fd843c252a43149eb3d874b53f5547d8" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>Load</name></member>
+      <member refid="class_open_arena_1_1_texture_107dae6e9d5d866c16572f3c09a85de86" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>Loaded</name></member>
+      <member refid="class_open_arena_1_1_texture_157ca675815ebcd2128fdad683ce33d2e" prot="private" virt="non-virtual"><scope>OpenArena::Texture</scope><name>magFilter</name></member>
+      <member refid="class_open_arena_1_1_texture_1aeb7b7d8771dd3eaa04d21be3d60d84d" prot="private" virt="non-virtual"><scope>OpenArena::Texture</scope><name>minFilter</name></member>
+      <member refid="class_open_arena_1_1_texture_17e8aca4eebade70517b6b074737c300d" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>operator!=</name></member>
+      <member refid="class_open_arena_1_1_texture_121cd653809b54aab34304f1a5e85e1f3" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>operator&lt;</name></member>
+      <member refid="class_open_arena_1_1_texture_153b4be136fbc47ec01e1c556c3b14584" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>operator&lt;=</name></member>
+      <member refid="class_open_arena_1_1_texture_15f2e4503f45465e780c4ebc973c2919b" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>operator==</name></member>
+      <member refid="class_open_arena_1_1_texture_1bcd647f052e8f9aab5e328772ed7e582" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>operator&gt;</name></member>
+      <member refid="class_open_arena_1_1_texture_1dcce40f8fc14d56ccfd5c2bd009106c9" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>operator&gt;=</name></member>
+      <member refid="class_open_arena_1_1_texture_10264c134338dfdd0549c52c36c8f0cfd" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>Texture</name></member>
+      <member refid="class_open_arena_1_1_texture_1d66e30c5ed12dffd0e8801c85ad517a1" prot="public" virt="non-virtual"><scope>OpenArena::Texture</scope><name>~Texture</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

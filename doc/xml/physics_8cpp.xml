@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="physics_8cpp" kind="file">
+    <compoundname>physics.cpp</compoundname>
+    <includes refid="physics_8h" local="yes">physics.h</includes>
+    <incdepgraph>
+      <node id="435">
+        <label>src/physics.cpp</label>
+        <link refid="physics.cpp"/>
+        <childnode refid="436" relation="include">
+        </childnode>
+      </node>
+      <node id="436">
+        <label>physics.h</label>
+        <link refid="physics_8h"/>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="physics_8h" kindref="compound">physics.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><ref refid="class_w_o_r_l_d___p_h_y_s_i_c_s_1e48ce66777fcc4e7bbf55c90268b289a" kindref="member">WORLD_PHYSICS::WORLD_PHYSICS</ref>()</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/physics.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d" kind="struct" prot="public">
+    <compoundname>OpenArena::BITMAP_QUAD</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d_10cd8888acc1c2636dd19141bc7989678" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 OpenArena::BITMAP_QUAD::blue</definition>
+        <argsstring></argsstring>
+        <name>blue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="61" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d_1f6c416ac369e612e6e0d319e3d5d6a1a" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 OpenArena::BITMAP_QUAD::green</definition>
+        <argsstring></argsstring>
+        <name>green</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="62" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d_14901ad774491156e3d1303cb1de25ac7" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 OpenArena::BITMAP_QUAD::red</definition>
+        <argsstring></argsstring>
+        <name>red</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="63" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d_1ee433c8fdbf6d87de316d8e091b0ba67" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 OpenArena::BITMAP_QUAD::reserved</definition>
+        <argsstring></argsstring>
+        <name>reserved</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="64" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" line="60" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/bmp.cpp" bodystart="59" bodyend="65"/>
+    <listofallmembers>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d_10cd8888acc1c2636dd19141bc7989678" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_QUAD</scope><name>blue</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d_1f6c416ac369e612e6e0d319e3d5d6a1a" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_QUAD</scope><name>green</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d_14901ad774491156e3d1303cb1de25ac7" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_QUAD</scope><name>red</name></member>
+      <member refid="struct_open_arena_1_1_b_i_t_m_a_p___q_u_a_d_1ee433c8fdbf6d87de316d8e091b0ba67" prot="public" virt="non-virtual"><scope>OpenArena::BITMAP_QUAD</scope><name>reserved</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

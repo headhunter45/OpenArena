@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="_plugin_manager_8h" kind="file">
+    <compoundname>PluginManager.h</compoundname>
+    <includes refid="list_8h" local="yes">list.h</includes>
+    <includes refid="_plugin_8h" local="yes">Plugin.h</includes>
+    <includes refid="_video_plugin_8h" local="yes">VideoPlugin.h</includes>
+    <includedby refid="_plugin_manager_8cpp" local="yes">src/PluginManager.cpp</includedby>
+    <incdepgraph>
+      <node id="498">
+        <label>list.h</label>
+        <link refid="list_8h"/>
+        <childnode refid="499" relation="include">
+        </childnode>
+      </node>
+      <node id="506">
+        <label>cmath</label>
+      </node>
+      <node id="504">
+        <label>string</label>
+      </node>
+      <node id="503">
+        <label>screen.h</label>
+        <link refid="screen_8h"/>
+        <childnode refid="504" relation="include">
+        </childnode>
+      </node>
+      <node id="500">
+        <label>Plugin.h</label>
+        <link refid="_plugin_8h"/>
+      </node>
+      <node id="507">
+        <label>datatypes.h</label>
+        <link refid="datatypes_8h"/>
+      </node>
+      <node id="497">
+        <label>src/PluginManager.h</label>
+        <link refid="PluginManager.h"/>
+        <childnode refid="498" relation="include">
+        </childnode>
+        <childnode refid="500" relation="include">
+        </childnode>
+        <childnode refid="501" relation="include">
+        </childnode>
+      </node>
+      <node id="505">
+        <label>vector.h</label>
+        <link refid="vector_8h"/>
+        <childnode refid="506" relation="include">
+        </childnode>
+      </node>
+      <node id="502">
+        <label>window.h</label>
+        <link refid="window_8h"/>
+        <childnode refid="503" relation="include">
+        </childnode>
+        <childnode refid="505" relation="include">
+        </childnode>
+      </node>
+      <node id="499">
+        <label>cstdlib</label>
+      </node>
+      <node id="501">
+        <label>VideoPlugin.h</label>
+        <link refid="_video_plugin_8h"/>
+        <childnode refid="500" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+        <childnode refid="507" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="509">
+        <label>src/PluginManager.cpp</label>
+        <link refid="_plugin_manager_8cpp"/>
+      </node>
+      <node id="508">
+        <label>src/PluginManager.h</label>
+        <link refid="PluginManager.h"/>
+        <childnode refid="509" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_open_arena_1_1_plugin_manager" prot="public">OpenArena::PluginManager</innerclass>
+    <innernamespace refid="namespace_open_arena">OpenArena</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="list_8h" kindref="compound">list.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_plugin_8h" kindref="compound">Plugin.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_video_plugin_8h" kindref="compound">VideoPlugin.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">OpenArena</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24" refid="class_open_arena_1_1_plugin_manager" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_open_arena_1_1_plugin_manager" kindref="compound">PluginManager</ref></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;Plugin*&gt;</ref><sp/><ref refid="class_open_arena_1_1_plugin_manager_143051113260abc44b3a6d5ab4f2e3a28" kindref="member">_plugins</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_plugin_manager_19c7ce7bbec8202a45488526243a1d139" kindref="member">PluginManager</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_plugin_manager_1f64e3d9dd49f49f4a1a920b6f1662f96" kindref="member">~PluginManager</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;Plugin*&gt;</ref><sp/><ref refid="class_open_arena_1_1_plugin_manager_1eff31316116ef2802a19ad15490246d9" kindref="member">GetPluginsOfType</ref>(<ref refid="class_open_arena_1_1_plugin_14db1c9624c3894a5ef2220bfaf6c00e4" kindref="member">Plugin::Type</ref><sp/>type);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_video_plugin" kindref="compound">VideoPlugin</ref>*<sp/><ref refid="class_open_arena_1_1_plugin_manager_16acbb1db827c37c31640a16fd18687df" kindref="member">GetDefaultVideoPlugin</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/PluginManager.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="dir_2f52def434941140b94c45f8aa4dce98" kind="dir">
+    <compoundname>src/</compoundname>
+    <innerfile refid="bmp_8cpp">bmp.cpp</innerfile>
+    <innerfile refid="bmp_8h">bmp.h</innerfile>
+    <innerfile refid="camera_8cpp">camera.cpp</innerfile>
+    <innerfile refid="camera_8h">camera.h</innerfile>
+    <innerfile refid="ctrls_8cpp">ctrls.cpp</innerfile>
+    <innerfile refid="ctrls_8h">ctrls.h</innerfile>
+    <innerfile refid="datatypes_8h">datatypes.h</innerfile>
+    <innerfile refid="geometry_8h">geometry.h</innerfile>
+    <innerfile refid="image_8h">image.h</innerfile>
+    <innerfile refid="keys_8cpp">keys.cpp</innerfile>
+    <innerfile refid="keys_8h">keys.h</innerfile>
+    <innerfile refid="level_8cpp">level.cpp</innerfile>
+    <innerfile refid="level_8h">level.h</innerfile>
+    <innerfile refid="linux_8cpp">linux.cpp</innerfile>
+    <innerfile refid="list_8h">list.h</innerfile>
+    <innerfile refid="_logger_8h">Logger.h</innerfile>
+    <innerfile refid="macosx_8cpp">macosx.cpp</innerfile>
+    <innerfile refid="main_8h">main.h</innerfile>
+    <innerfile refid="mydefs_8h">mydefs.h</innerfile>
+    <innerfile refid="mygl_8cpp">mygl.cpp</innerfile>
+    <innerfile refid="mygl_8h">mygl.h</innerfile>
+    <innerfile refid="mygl_font_8cpp">myglFont.cpp</innerfile>
+    <innerfile refid="mygl_font_8h">myglFont.h</innerfile>
+    <innerfile refid="mygl_texture_8cpp">myglTexture.cpp</innerfile>
+    <innerfile refid="mygl_texture_8h">myglTexture.h</innerfile>
+    <innerfile refid="_null_video_plugin_8cpp">NullVideoPlugin.cpp</innerfile>
+    <innerfile refid="_null_video_plugin_8h">NullVideoPlugin.h</innerfile>
+    <innerfile refid="player_8cpp">player.cpp</innerfile>
+    <innerfile refid="player_8h">player.h</innerfile>
+    <innerfile refid="_plugin_8h">Plugin.h</innerfile>
+    <innerfile refid="_plugin_manager_8cpp">PluginManager.cpp</innerfile>
+    <innerfile refid="_plugin_manager_8h">PluginManager.h</innerfile>
+    <innerfile refid="screen_8cpp">screen.cpp</innerfile>
+    <innerfile refid="screen_8h">screen.h</innerfile>
+    <innerfile refid="strmanip_8cpp">strmanip.cpp</innerfile>
+    <innerfile refid="strmanip_8h">strmanip.h</innerfile>
+    <innerfile refid="texture_8h">texture.h</innerfile>
+    <innerfile refid="tga_8cpp">tga.cpp</innerfile>
+    <innerfile refid="tga_8h">tga.h</innerfile>
+    <innerfile refid="vector_8cpp">vector.cpp</innerfile>
+    <innerfile refid="vector_8h">vector.h</innerfile>
+    <innerfile refid="version_8h">version.h</innerfile>
+    <innerfile refid="_video_plugin_8h">VideoPlugin.h</innerfile>
+    <innerfile refid="window_8cpp">window.cpp</innerfile>
+    <innerfile refid="window_8h">window.h</innerfile>
+    <innerfile refid="windows_8cpp">windows.cpp</innerfile>
+    <innerfile refid="_windows_logger_8cpp">WindowsLogger.cpp</innerfile>
+    <innerfile refid="_windows_logger_8h">WindowsLogger.h</innerfile>
+    <innerfile refid="worlddefs_8h">worlddefs.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/"/>
+  </compounddef>
+</doxygen>

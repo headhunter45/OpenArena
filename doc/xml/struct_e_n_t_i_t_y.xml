@@ -1,0 +1,340 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="struct_e_n_t_i_t_y" kind="class" prot="public">
+    <compoundname>ENTITY</compoundname>
+    <includes local="no">entity.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_e_n_t_i_t_y_18885d9c9a6259e04f3ac5614079b5bc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ENTITY::ENTITY</definition>
+        <argsstring>()</argsstring>
+        <name>ENTITY</name>
+        <briefdescription>
+<para>Write brief comment for <ref refid="struct_e_n_t_i_t_y" kindref="compound">ENTITY</ref> here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for <ref refid="struct_e_n_t_i_t_y" kindref="compound">ENTITY</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="struct_e_n_t_i_t_y" kindref="compound">ENTITY</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="155"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_e_n_t_i_t_y_18885d9c9a6259e04f3ac5614079b5bc0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ENTITY::ENTITY</definition>
+        <argsstring>()</argsstring>
+        <name>ENTITY</name>
+        <briefdescription>
+<para>Write brief comment for <ref refid="struct_e_n_t_i_t_y" kindref="compound">ENTITY</ref> here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for <ref refid="struct_e_n_t_i_t_y" kindref="compound">ENTITY</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="struct_e_n_t_i_t_y" kindref="compound">ENTITY</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entity.h" line="43" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entity.h" bodystart="42" bodyend="49"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_15fbb4d23a6c2e1dddc306865ab5d5e8e" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_p_l_a_y_e_r___s_t_a_r_t" kindref="compound">PLAYER_START</ref> *</type>
+        <definition>PLAYER_START* ENTITY::Player_Start</definition>
+        <argsstring></argsstring>
+        <name>Player_Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="129" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_1ba542eeabc23f0ce324e37fed7c936d3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ENTITY::numPlayer_Start</definition>
+        <argsstring></argsstring>
+        <name>numPlayer_Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="130" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_177408e053b38a68ed1722413633a2d70" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_p_l_a_y_e_r___d_e_a_t_h_m_a_t_c_h___s_t_a_r_t" kindref="compound">PLAYER_DEATHMATCH_START</ref> *</type>
+        <definition>PLAYER_DEATHMATCH_START* ENTITY::Player_Deathmatch_Start</definition>
+        <argsstring></argsstring>
+        <name>Player_Deathmatch_Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="131" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_1bdc3007c08b19d5326bed7ab1c005c01" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ENTITY::numPlayer_Deathmatch_Start</definition>
+        <argsstring></argsstring>
+        <name>numPlayer_Deathmatch_Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="132" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_1086f977154c2d17210d151e83799c2ab" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_b_o_t___s_t_a_r_t" kindref="compound">BOT_START</ref> *</type>
+        <definition>BOT_START* ENTITY::Bot_Start</definition>
+        <argsstring></argsstring>
+        <name>Bot_Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="133" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_166038fbfb29ccad6789bee035fce8180" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ENTITY::numBot_Start</definition>
+        <argsstring></argsstring>
+        <name>numBot_Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="134" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_1343ddcef2e15ed74d7b5e933326d1614" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_e_o_m_e_t_r_y" kindref="compound">GEOMETRY</ref> *</type>
+        <definition>GEOMETRY* ENTITY::Geometry</definition>
+        <argsstring></argsstring>
+        <name>Geometry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="135" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_129046498b33e419850f5bda7e0dbea57" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ENTITY::numGeometry</definition>
+        <argsstring></argsstring>
+        <name>numGeometry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="136" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_15244ad9eb0469ae8bdd0960620fb14c8" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_p_r_o_j_e_c_t_i_l_e" kindref="compound">PROJECTILE</ref> *</type>
+        <definition>PROJECTILE* ENTITY::Projectile</definition>
+        <argsstring></argsstring>
+        <name>Projectile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="137" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_114affdef6559766851ecb16273750f89" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ENTITY::numProjectile</definition>
+        <argsstring></argsstring>
+        <name>numProjectile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="138" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_18dc62bbd10d5f0e2598cc4d364a07846" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 ENTITY::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entity.h" line="51" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entity.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_12769a4e21b50b7304e9b6d4ea229d96c" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_open_arena_1ddde3f5075e9eb7e8f0b3e2b40571fa2" kindref="member">Vec3f</ref></type>
+        <definition>Vec3f ENTITY::vPosition</definition>
+        <argsstring></argsstring>
+        <name>vPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entity.h" line="52" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entity.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_1a5f2b4244c2f361c85a5b75df3fb0f8a" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_open_arena_1ddde3f5075e9eb7e8f0b3e2b40571fa2" kindref="member">Vec3f</ref></type>
+        <definition>Vec3f ENTITY::vHeading</definition>
+        <argsstring></argsstring>
+        <name>vHeading</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entity.h" line="53" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entity.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_112f4b31e2734f0aa02d5adf3b73abd73" prot="public" static="no" mutable="no">
+        <type><ref refid="namespace_open_arena_1ddde3f5075e9eb7e8f0b3e2b40571fa2" kindref="member">Vec3f</ref></type>
+        <definition>Vec3f ENTITY::vUp</definition>
+        <argsstring></argsstring>
+        <name>vUp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entity.h" line="54" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entity.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_e_n_t_i_t_y_12e721a02ff2bfdf34ec88532cd64249f" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 ENTITY::health</definition>
+        <argsstring></argsstring>
+        <name>health</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entity.h" line="55" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entity.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="struct_e_n_t_i_t_y" kindref="compound">ENTITY</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="struct_e_n_t_i_t_y" kindref="compound">ENTITY</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="struct_e_n_t_i_t_y" kindref="compound">ENTITY</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="20">
+        <label>BOT_START</label>
+        <link refid="struct_b_o_t___s_t_a_r_t"/>
+        <childnode refid="19" relation="usage">
+          <edgelabel>heading
+coords</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>OpenArena::Vec3d</label>
+        <link refid="class_open_arena_1_1_vec3d"/>
+      </node>
+      <node id="23">
+        <label>PLAYER_START</label>
+        <link refid="struct_p_l_a_y_e_r___s_t_a_r_t"/>
+        <childnode refid="19" relation="usage">
+          <edgelabel>heading
+coords</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>PLAYER_DEATHMATCH_START</label>
+        <link refid="struct_p_l_a_y_e_r___d_e_a_t_h_m_a_t_c_h___s_t_a_r_t"/>
+        <childnode refid="19" relation="usage">
+          <edgelabel>heading
+coords</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>ENTITY</label>
+        <link refid="struct_e_n_t_i_t_y"/>
+        <childnode refid="18" relation="usage">
+          <edgelabel>Projectile</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>Bot_Start</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>Geometry</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>Player_Deathmatch_Start</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>Player_Start</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>GEOMETRY</label>
+        <link refid="struct_g_e_o_m_e_t_r_y"/>
+      </node>
+      <node id="18">
+        <label>PROJECTILE</label>
+        <link refid="struct_p_r_o_j_e_c_t_i_l_e"/>
+        <childnode refid="19" relation="usage">
+          <edgelabel>heading
+end
+start</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="128" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="127" bodyend="157"/>
+    <listofallmembers>
+      <member refid="struct_e_n_t_i_t_y_1086f977154c2d17210d151e83799c2ab" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>Bot_Start</name></member>
+      <member refid="struct_e_n_t_i_t_y_18885d9c9a6259e04f3ac5614079b5bc0" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>ENTITY</name></member>
+      <member refid="struct_e_n_t_i_t_y_18885d9c9a6259e04f3ac5614079b5bc0" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>ENTITY</name></member>
+      <member refid="struct_e_n_t_i_t_y_1343ddcef2e15ed74d7b5e933326d1614" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>Geometry</name></member>
+      <member refid="struct_e_n_t_i_t_y_12e721a02ff2bfdf34ec88532cd64249f" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>health</name></member>
+      <member refid="struct_e_n_t_i_t_y_166038fbfb29ccad6789bee035fce8180" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>numBot_Start</name></member>
+      <member refid="struct_e_n_t_i_t_y_129046498b33e419850f5bda7e0dbea57" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>numGeometry</name></member>
+      <member refid="struct_e_n_t_i_t_y_1bdc3007c08b19d5326bed7ab1c005c01" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>numPlayer_Deathmatch_Start</name></member>
+      <member refid="struct_e_n_t_i_t_y_1ba542eeabc23f0ce324e37fed7c936d3" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>numPlayer_Start</name></member>
+      <member refid="struct_e_n_t_i_t_y_114affdef6559766851ecb16273750f89" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>numProjectile</name></member>
+      <member refid="struct_e_n_t_i_t_y_177408e053b38a68ed1722413633a2d70" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>Player_Deathmatch_Start</name></member>
+      <member refid="struct_e_n_t_i_t_y_15fbb4d23a6c2e1dddc306865ab5d5e8e" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>Player_Start</name></member>
+      <member refid="struct_e_n_t_i_t_y_15244ad9eb0469ae8bdd0960620fb14c8" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>Projectile</name></member>
+      <member refid="struct_e_n_t_i_t_y_18dc62bbd10d5f0e2598cc4d364a07846" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>type</name></member>
+      <member refid="struct_e_n_t_i_t_y_1a5f2b4244c2f361c85a5b75df3fb0f8a" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>vHeading</name></member>
+      <member refid="struct_e_n_t_i_t_y_12769a4e21b50b7304e9b6d4ea229d96c" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>vPosition</name></member>
+      <member refid="struct_e_n_t_i_t_y_112f4b31e2734f0aa02d5adf3b73abd73" prot="public" virt="non-virtual"><scope>ENTITY</scope><name>vUp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

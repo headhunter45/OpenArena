@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="mygl_texture_8h" kind="file">
+    <compoundname>myglTexture.h</compoundname>
+    <includes local="no">string</includes>
+    <includes refid="datatypes_8h" local="yes">datatypes.h</includes>
+    <includes refid="mygl_8h" local="yes">mygl.h</includes>
+    <includedby refid="geometry_8h" local="yes">src/geometry.h</includedby>
+    <includedby refid="level_8h" local="yes">src/level.h</includedby>
+    <includedby refid="mygl_texture_8cpp" local="yes">src/myglTexture.cpp</includedby>
+    <incdepgraph>
+      <node id="397">
+        <label>keys.h</label>
+        <link refid="keys_8h"/>
+      </node>
+      <node id="393">
+        <label>texture.h</label>
+        <link refid="texture_8h"/>
+      </node>
+      <node id="388">
+        <label>mygl.h</label>
+        <link refid="mygl_8h"/>
+        <childnode refid="386" relation="include">
+        </childnode>
+        <childnode refid="387" relation="include">
+        </childnode>
+        <childnode refid="389" relation="include">
+        </childnode>
+        <childnode refid="390" relation="include">
+        </childnode>
+        <childnode refid="394" relation="include">
+        </childnode>
+        <childnode refid="395" relation="include">
+        </childnode>
+        <childnode refid="398" relation="include">
+        </childnode>
+      </node>
+      <node id="396">
+        <label>cmath</label>
+      </node>
+      <node id="386">
+        <label>string</label>
+      </node>
+      <node id="389">
+        <label>screen.h</label>
+        <link refid="screen_8h"/>
+        <childnode refid="386" relation="include">
+        </childnode>
+      </node>
+      <node id="395">
+        <label>strmanip.h</label>
+        <link refid="strmanip_8h"/>
+        <childnode refid="386" relation="include">
+        </childnode>
+        <childnode refid="396" relation="include">
+        </childnode>
+        <childnode refid="397" relation="include">
+        </childnode>
+        <childnode refid="387" relation="include">
+        </childnode>
+      </node>
+      <node id="385">
+        <label>src/myglTexture.h</label>
+        <link refid="myglTexture.h"/>
+        <childnode refid="386" relation="include">
+        </childnode>
+        <childnode refid="387" relation="include">
+        </childnode>
+        <childnode refid="388" relation="include">
+        </childnode>
+      </node>
+      <node id="387">
+        <label>datatypes.h</label>
+        <link refid="datatypes_8h"/>
+      </node>
+      <node id="399">
+        <label>vector.h</label>
+        <link refid="vector_8h"/>
+        <childnode refid="396" relation="include">
+        </childnode>
+      </node>
+      <node id="392">
+        <label>cstdio</label>
+      </node>
+      <node id="398">
+        <label>window.h</label>
+        <link refid="window_8h"/>
+        <childnode refid="389" relation="include">
+        </childnode>
+        <childnode refid="399" relation="include">
+        </childnode>
+      </node>
+      <node id="394">
+        <label>bmp.h</label>
+        <link refid="bmp_8h"/>
+        <childnode refid="393" relation="include">
+        </childnode>
+      </node>
+      <node id="391">
+        <label>GL/gl.h</label>
+      </node>
+      <node id="390">
+        <label>tga.h</label>
+        <link refid="tga_8h"/>
+        <childnode refid="391" relation="include">
+        </childnode>
+        <childnode refid="392" relation="include">
+        </childnode>
+        <childnode refid="386" relation="include">
+        </childnode>
+        <childnode refid="393" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="402">
+        <label>src/level.h</label>
+        <link refid="level_8h"/>
+        <childnode refid="403" relation="include">
+        </childnode>
+        <childnode refid="404" relation="include">
+        </childnode>
+        <childnode refid="405" relation="include">
+        </childnode>
+      </node>
+      <node id="400">
+        <label>src/myglTexture.h</label>
+        <link refid="myglTexture.h"/>
+        <childnode refid="401" relation="include">
+        </childnode>
+        <childnode refid="402" relation="include">
+        </childnode>
+        <childnode refid="406" relation="include">
+        </childnode>
+      </node>
+      <node id="403">
+        <label>src/level.cpp</label>
+        <link refid="level_8cpp"/>
+      </node>
+      <node id="404">
+        <label>src/main.h</label>
+        <link refid="main_8h"/>
+      </node>
+      <node id="401">
+        <label>src/geometry.h</label>
+        <link refid="geometry_8h"/>
+        <childnode refid="402" relation="include">
+        </childnode>
+      </node>
+      <node id="405">
+        <label>src/worlddefs.h</label>
+        <link refid="worlddefs_8h"/>
+        <childnode refid="404" relation="include">
+        </childnode>
+      </node>
+      <node id="406">
+        <label>src/myglTexture.cpp</label>
+        <link refid="mygl_texture_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_open_arena_1_1_texture" prot="public">OpenArena::Texture</innerclass>
+    <innernamespace refid="namespace_open_arena">OpenArena</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__myglTexture_h__</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__myglTexture_h__</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="datatypes_8h" kindref="compound">datatypes.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mygl_8h" kindref="compound">mygl.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">OpenArena</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24" refid="class_open_arena_1_1_texture" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_texture_10264c134338dfdd0549c52c36c8f0cfd" kindref="member">Texture</ref>();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_texture_1d66e30c5ed12dffd0e8801c85ad517a1" kindref="member">~Texture</ref>();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/><ref refid="class_open_arena_1_1_texture_10a1c45b69a0ecc52ad173527dd91368d" kindref="member">Filename</ref>();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLuint<sp/><ref refid="class_open_arena_1_1_texture_1d82ab039fdc7f95b05e29432b9c995e9" kindref="member">ID</ref>();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture_17978c772a4786df0c93cd845bba72662" kindref="member">Load</ref>(string<sp/><ref refid="class_open_arena_1_1_texture_1ea8321b81b2a1e0053e48d1633169462" kindref="member">filename</ref>);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture_17978c772a4786df0c93cd845bba72662" kindref="member">Load</ref>(string<sp/>filename,<sp/>GLuint<sp/>min,<sp/>GLuint<sp/>mag);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture_1bb409e39ba0c22ed29a940c19d0cbe06" kindref="member">Free</ref>();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture_107dae6e9d5d866c16572f3c09a85de86" kindref="member">Loaded</ref>();</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture_121cd653809b54aab34304f1a5e85e1f3" kindref="member">operator&lt;</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref>&amp;);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture_153b4be136fbc47ec01e1c556c3b14584" kindref="member">operator&lt;=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref>&amp;);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture_15f2e4503f45465e780c4ebc973c2919b" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref>&amp;);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture_17e8aca4eebade70517b6b074737c300d" kindref="member">operator!=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref>&amp;);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture_1dcce40f8fc14d56ccfd5c2bd009106c9" kindref="member">operator&gt;=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref>&amp;);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture_1bcd647f052e8f9aab5e328772ed7e582" kindref="member">operator&gt;</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref>&amp;);</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLuint<sp/><ref refid="class_open_arena_1_1_texture_1aeb7b7d8771dd3eaa04d21be3d60d84d" kindref="member">minFilter</ref>;</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLuint<sp/><ref refid="class_open_arena_1_1_texture_157ca675815ebcd2128fdad683ce33d2e" kindref="member">magFilter</ref>;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/>filename;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLuint<sp/><ref refid="class_open_arena_1_1_texture_155ac5997e40c3c0283da94729e014c38" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="321"><highlight class="normal">};<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/myglTexture.h"/>
+  </compounddef>
+</doxygen>

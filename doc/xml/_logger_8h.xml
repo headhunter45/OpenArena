@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="_logger_8h" kind="file">
+    <compoundname>Logger.h</compoundname>
+    <includedby refid="_windows_logger_8h" local="yes">src/WindowsLogger.h</includedby>
+    <invincdepgraph>
+      <node id="245">
+        <label>src/WindowsLogger.cpp</label>
+        <link refid="_windows_logger_8cpp"/>
+      </node>
+      <node id="243">
+        <label>src/Logger.h</label>
+        <link refid="Logger.h"/>
+        <childnode refid="244" relation="include">
+        </childnode>
+      </node>
+      <node id="244">
+        <label>src/WindowsLogger.h</label>
+        <link refid="_windows_logger_8h"/>
+        <childnode refid="245" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_open_arena_1_1_logger" prot="public">OpenArena::Logger</innerclass>
+    <innernamespace refid="namespace_open_arena">OpenArena</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">OpenArena</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17" refid="class_open_arena_1_1_logger" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_open_arena_1_1_logger" kindref="compound">Logger</ref></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe" kindref="member">MessageType</ref>{<ref refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe23dd11f2e8ae4a6c0fe8970f0e3ac909" kindref="member">MESSAGETYPE_ALL</ref>,<sp/><ref refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363feb7f49e037d99e079be85d5735525433a" kindref="member">MESSAGETYPE_NONE</ref>,<sp/><ref refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe310a07b2ab5e1cfd8dd59543e459f5bc" kindref="member">MESSAGETYPE_INFORMATION</ref>,<sp/><ref refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe79f20b1686365acfc8a5b7e0d938dbba" kindref="member">MESSAGETYPE_ERROR</ref>,<sp/><ref refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe93e45ed8e8f0b4d37cccaadfc9c04dd5" kindref="member">MESSAGETYPE_DEBUG</ref>};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_logger_18a7cb5fef2d927f9b99fb1035cba9394" kindref="member">~Logger</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_logger_185340fe19c7a3cc878e2296073cdc2ff" kindref="member">Log</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>message,<sp/><ref refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe" kindref="member">MessageType</ref><sp/>type=<ref refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe310a07b2ab5e1cfd8dd59543e459f5bc" kindref="member">MESSAGETYPE_INFORMATION</ref>)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_logger_185340fe19c7a3cc878e2296073cdc2ff" kindref="member">Log</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>message,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>classification,<sp/><ref refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe" kindref="member">MessageType</ref><sp/>type=<ref refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe310a07b2ab5e1cfd8dd59543e459f5bc" kindref="member">MESSAGETYPE_INFORMATION</ref>)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/Logger.h"/>
+  </compounddef>
+</doxygen>

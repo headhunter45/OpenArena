@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="physics_8h" kind="file">
+    <compoundname>physics.h</compoundname>
+    <includedby refid="ctrls_8h" local="yes">src/ctrls.h</includedby>
+    <includedby refid="physics_8cpp" local="yes">src/physics.cpp</includedby>
+    <invincdepgraph>
+      <node id="448">
+        <label>src/physics.cpp</label>
+        <link refid="physics_8cpp"/>
+      </node>
+      <node id="441">
+        <label>src/ctrls.cpp</label>
+        <link refid="ctrls_8cpp"/>
+      </node>
+      <node id="447">
+        <label>src/player.cpp</label>
+        <link refid="player_8cpp"/>
+      </node>
+      <node id="443">
+        <label>src/level.h</label>
+        <link refid="level_8h"/>
+        <childnode refid="444" relation="include">
+        </childnode>
+        <childnode refid="445" relation="include">
+        </childnode>
+        <childnode refid="446" relation="include">
+        </childnode>
+      </node>
+      <node id="442">
+        <label>src/player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="443" relation="include">
+        </childnode>
+        <childnode refid="447" relation="include">
+        </childnode>
+      </node>
+      <node id="444">
+        <label>src/level.cpp</label>
+        <link refid="level_8cpp"/>
+      </node>
+      <node id="445">
+        <label>src/main.h</label>
+        <link refid="main_8h"/>
+      </node>
+      <node id="446">
+        <label>src/worlddefs.h</label>
+        <link refid="worlddefs_8h"/>
+        <childnode refid="445" relation="include">
+        </childnode>
+      </node>
+      <node id="439">
+        <label>src/physics.h</label>
+        <link refid="physics.h"/>
+        <childnode refid="440" relation="include">
+        </childnode>
+        <childnode refid="448" relation="include">
+        </childnode>
+      </node>
+      <node id="440">
+        <label>src/ctrls.h</label>
+        <link refid="ctrls_8h"/>
+        <childnode refid="441" relation="include">
+        </childnode>
+        <childnode refid="442" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_w_o_r_l_d___p_h_y_s_i_c_s" prot="public">WORLD_PHYSICS</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//Rename/Move</highlight></codeline>
+<codeline lineno="14" refid="class_w_o_r_l_d___p_h_y_s_i_c_s" refkind="compound"><highlight class="comment"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_w_o_r_l_d___p_h_y_s_i_c_s" kindref="compound">WORLD_PHYSICS</ref></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_w_o_r_l_d___p_h_y_s_i_c_s_1e48ce66777fcc4e7bbf55c90268b289a" kindref="member">WORLD_PHYSICS</ref>();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/physics.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="struct_p_l_a_y_e_r___d_e_a_t_h_m_a_t_c_h___s_t_a_r_t" kind="struct" prot="public">
+    <compoundname>PLAYER_DEATHMATCH_START</compoundname>
+    <includes local="no">entities.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_p_l_a_y_e_r___d_e_a_t_h_m_a_t_c_h___s_t_a_r_t_18fe685bbb26c47cd1595ddcf4df86371" prot="public" static="no" mutable="no">
+        <type><ref refid="class_open_arena_1_1_vec3d" kindref="compound">Vec3d</ref></type>
+        <definition>Vec3d PLAYER_DEATHMATCH_START::coords</definition>
+        <argsstring></argsstring>
+        <name>coords</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="54" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_p_l_a_y_e_r___d_e_a_t_h_m_a_t_c_h___s_t_a_r_t_1760ffd06f743e3c2a14bd284f7e02993" prot="public" static="no" mutable="no">
+        <type><ref refid="class_open_arena_1_1_vec3d" kindref="compound">Vec3d</ref></type>
+        <definition>Vec3d PLAYER_DEATHMATCH_START::heading</definition>
+        <argsstring></argsstring>
+        <name>heading</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="55" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="struct_p_l_a_y_e_r___d_e_a_t_h_m_a_t_c_h___s_t_a_r_t" kindref="compound">PLAYER_DEATHMATCH_START</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="struct_p_l_a_y_e_r___d_e_a_t_h_m_a_t_c_h___s_t_a_r_t" kindref="compound">PLAYER_DEATHMATCH_START</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="struct_p_l_a_y_e_r___d_e_a_t_h_m_a_t_c_h___s_t_a_r_t" kindref="compound">PLAYER_DEATHMATCH_START</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="79">
+        <label>OpenArena::Vec3d</label>
+        <link refid="class_open_arena_1_1_vec3d"/>
+      </node>
+      <node id="78">
+        <label>PLAYER_DEATHMATCH_START</label>
+        <link refid="struct_p_l_a_y_e_r___d_e_a_t_h_m_a_t_c_h___s_t_a_r_t"/>
+        <childnode refid="79" relation="usage">
+          <edgelabel>heading
+coords</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="53" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="52" bodyend="56"/>
+    <listofallmembers>
+      <member refid="struct_p_l_a_y_e_r___d_e_a_t_h_m_a_t_c_h___s_t_a_r_t_18fe685bbb26c47cd1595ddcf4df86371" prot="public" virt="non-virtual"><scope>PLAYER_DEATHMATCH_START</scope><name>coords</name></member>
+      <member refid="struct_p_l_a_y_e_r___d_e_a_t_h_m_a_t_c_h___s_t_a_r_t_1760ffd06f743e3c2a14bd284f7e02993" prot="public" virt="non-virtual"><scope>PLAYER_DEATHMATCH_START</scope><name>heading</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

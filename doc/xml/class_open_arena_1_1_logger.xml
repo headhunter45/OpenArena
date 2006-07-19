@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="class_open_arena_1_1_logger" kind="class" prot="public">
+    <compoundname>OpenArena::Logger</compoundname>
+    <derivedcompoundref refid="class_open_arena_1_1_windows_logger" prot="public" virt="non-virtual">OpenArena::WindowsLogger</derivedcompoundref>
+    <includes local="no">Logger.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe" prot="public" static="no">
+        <name>MessageType</name>
+        <enumvalue id="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe23dd11f2e8ae4a6c0fe8970f0e3ac909" prot="public">
+          <name>MESSAGETYPE_ALL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363feb7f49e037d99e079be85d5735525433a" prot="public">
+          <name>MESSAGETYPE_NONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe310a07b2ab5e1cfd8dd59543e459f5bc" prot="public">
+          <name>MESSAGETYPE_INFORMATION</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe79f20b1686365acfc8a5b7e0d938dbba" prot="public">
+          <name>MESSAGETYPE_ERROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe93e45ed8e8f0b4d37cccaadfc9c04dd5" prot="public">
+          <name>MESSAGETYPE_DEBUG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Write brief comment for MESSAGETYPE_DEBUG here. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/Logger.h" line="24" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/Logger.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_open_arena_1_1_logger_18a7cb5fef2d927f9b99fb1035cba9394" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>virtual</type>
+        <definition>virtual OpenArena::Logger::~Logger</definition>
+        <argsstring>(void)</argsstring>
+        <name>~Logger</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Write brief comment for ~Logger here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for ~Logger here.</para><para><simplesect kind="remark"><para>Write remarks for ~Logger here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/Logger.h" line="40" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/Logger.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_logger_185340fe19c7a3cc878e2296073cdc2ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void OpenArena::Logger::Log</definition>
+        <argsstring>(const char *message, MessageType type=MESSAGETYPE_INFORMATION)=0</argsstring>
+        <name>Log</name>
+        <param>
+          <type>const char *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe" kindref="member">MessageType</ref></type>
+          <declname>type</declname>
+          <defval>MESSAGETYPE_INFORMATION</defval>
+        </param>
+        <briefdescription>
+<para>Write brief comment for Log here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter message.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter type.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Log here.</para><para><simplesect kind="remark"><para>Write remarks for Log here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/Logger.h" line="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_logger_1a58e1e11566f483af54448f48f2d9a05" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void OpenArena::Logger::Log</definition>
+        <argsstring>(const char *message, const char *classification, MessageType type=MESSAGETYPE_INFORMATION)=0</argsstring>
+        <name>Log</name>
+        <param>
+          <type>const char *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>classification</declname>
+        </param>
+        <param>
+          <type><ref refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe" kindref="member">MessageType</ref></type>
+          <declname>type</declname>
+          <defval>MESSAGETYPE_INFORMATION</defval>
+        </param>
+        <briefdescription>
+<para>Write brief comment for Log here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter message.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>classification</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter classification.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description of parameter type.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for Log here.</para><para><simplesect kind="remark"><para>Write remarks for Log here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/Logger.h" line="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_logger" kindref="compound">Logger</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="class_open_arena_1_1_logger" kindref="compound">Logger</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_logger" kindref="compound">Logger</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="38">
+        <label>OpenArena::Logger</label>
+        <link refid="class_open_arena_1_1_logger"/>
+      </node>
+      <node id="39">
+        <label>OpenArena::WindowsLogger</label>
+        <link refid="class_open_arena_1_1_windows_logger"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/Logger.h" line="18" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/Logger.h" bodystart="17" bodyend="88"/>
+    <listofallmembers>
+      <member refid="class_open_arena_1_1_logger_185340fe19c7a3cc878e2296073cdc2ff" prot="public" virt="pure-virtual"><scope>OpenArena::Logger</scope><name>Log</name></member>
+      <member refid="class_open_arena_1_1_logger_1a58e1e11566f483af54448f48f2d9a05" prot="public" virt="pure-virtual"><scope>OpenArena::Logger</scope><name>Log</name></member>
+      <member refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe" prot="public" virt="non-virtual"><scope>OpenArena::Logger</scope><name>MessageType</name></member>
+      <member refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe23dd11f2e8ae4a6c0fe8970f0e3ac909" prot="public" virt="non-virtual"><scope>OpenArena::Logger</scope><name>MESSAGETYPE_ALL</name></member>
+      <member refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe93e45ed8e8f0b4d37cccaadfc9c04dd5" prot="public" virt="non-virtual"><scope>OpenArena::Logger</scope><name>MESSAGETYPE_DEBUG</name></member>
+      <member refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe79f20b1686365acfc8a5b7e0d938dbba" prot="public" virt="non-virtual"><scope>OpenArena::Logger</scope><name>MESSAGETYPE_ERROR</name></member>
+      <member refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363fe310a07b2ab5e1cfd8dd59543e459f5bc" prot="public" virt="non-virtual"><scope>OpenArena::Logger</scope><name>MESSAGETYPE_INFORMATION</name></member>
+      <member refid="class_open_arena_1_1_logger_1798f271553e67e6cc05c3798538363feb7f49e037d99e079be85d5735525433a" prot="public" virt="non-virtual"><scope>OpenArena::Logger</scope><name>MESSAGETYPE_NONE</name></member>
+      <member refid="class_open_arena_1_1_logger_18a7cb5fef2d927f9b99fb1035cba9394" prot="public" virt="virtual"><scope>OpenArena::Logger</scope><name>~Logger</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

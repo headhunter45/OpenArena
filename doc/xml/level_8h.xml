@@ -1,0 +1,391 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="level_8h" kind="file">
+    <compoundname>level.h</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">cctype</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">cstdio</includes>
+    <includes refid="mydefs_8h" local="yes">mydefs.h</includes>
+    <includes refid="bmp_8h" local="yes">bmp.h</includes>
+    <includes refid="tga_8h" local="yes">tga.h</includes>
+    <includes refid="list_8h" local="yes">list.h</includes>
+    <includes refid="vector_8h" local="yes">vector.h</includes>
+    <includes refid="camera_8h" local="yes">camera.h</includes>
+    <includes refid="geometry_8h" local="yes">geometry.h</includes>
+    <includes refid="mygl_font_8h" local="yes">myglFont.h</includes>
+    <includes refid="mygl_texture_8h" local="yes">myglTexture.h</includes>
+    <includes refid="player_8h" local="yes">player.h</includes>
+    <includes refid="strmanip_8h" local="yes">strmanip.h</includes>
+    <includes refid="keys_8h" local="yes">keys.h</includes>
+    <includedby refid="level_8cpp" local="yes">src/level.cpp</includedby>
+    <includedby refid="main_8h" local="yes">src/main.h</includedby>
+    <includedby refid="worlddefs_8h" local="yes">src/worlddefs.h</includedby>
+    <incdepgraph>
+      <node id="216">
+        <label>keys.h</label>
+        <link refid="keys_8h"/>
+      </node>
+      <node id="205">
+        <label>texture.h</label>
+        <link refid="texture_8h"/>
+      </node>
+      <node id="212">
+        <label>mygl.h</label>
+        <link refid="mygl_8h"/>
+        <childnode refid="197" relation="include">
+        </childnode>
+        <childnode refid="213" relation="include">
+        </childnode>
+        <childnode refid="214" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+        <childnode refid="204" relation="include">
+        </childnode>
+        <childnode refid="215" relation="include">
+        </childnode>
+        <childnode refid="217" relation="include">
+        </childnode>
+      </node>
+      <node id="208">
+        <label>list.h</label>
+        <link refid="list_8h"/>
+        <childnode refid="209" relation="include">
+        </childnode>
+      </node>
+      <node id="200">
+        <label>cmath</label>
+      </node>
+      <node id="197">
+        <label>string</label>
+      </node>
+      <node id="214">
+        <label>screen.h</label>
+        <link refid="screen_8h"/>
+        <childnode refid="197" relation="include">
+        </childnode>
+      </node>
+      <node id="203">
+        <label>mydefs.h</label>
+        <link refid="mydefs_8h"/>
+      </node>
+      <node id="198">
+        <label>fstream</label>
+      </node>
+      <node id="215">
+        <label>strmanip.h</label>
+        <link refid="strmanip_8h"/>
+        <childnode refid="197" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+        <childnode refid="216" relation="include">
+        </childnode>
+        <childnode refid="213" relation="include">
+        </childnode>
+      </node>
+      <node id="196">
+        <label>src/level.h</label>
+        <link refid="level.h"/>
+        <childnode refid="197" relation="include">
+        </childnode>
+        <childnode refid="198" relation="include">
+        </childnode>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+        <childnode refid="201" relation="include">
+        </childnode>
+        <childnode refid="202" relation="include">
+        </childnode>
+        <childnode refid="203" relation="include">
+        </childnode>
+        <childnode refid="204" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+        <childnode refid="208" relation="include">
+        </childnode>
+        <childnode refid="210" relation="include">
+        </childnode>
+        <childnode refid="211" relation="include">
+        </childnode>
+        <childnode refid="218" relation="include">
+        </childnode>
+        <childnode refid="220" relation="include">
+        </childnode>
+        <childnode refid="219" relation="include">
+        </childnode>
+        <childnode refid="221" relation="include">
+        </childnode>
+        <childnode refid="215" relation="include">
+        </childnode>
+        <childnode refid="216" relation="include">
+        </childnode>
+      </node>
+      <node id="219">
+        <label>myglTexture.h</label>
+        <link refid="mygl_texture_8h"/>
+        <childnode refid="197" relation="include">
+        </childnode>
+        <childnode refid="213" relation="include">
+        </childnode>
+        <childnode refid="212" relation="include">
+        </childnode>
+      </node>
+      <node id="221">
+        <label>player.h</label>
+        <link refid="player_8h"/>
+        <childnode refid="211" relation="include">
+        </childnode>
+        <childnode refid="222" relation="include">
+        </childnode>
+      </node>
+      <node id="213">
+        <label>datatypes.h</label>
+        <link refid="datatypes_8h"/>
+      </node>
+      <node id="210">
+        <label>vector.h</label>
+        <link refid="vector_8h"/>
+        <childnode refid="200" relation="include">
+        </childnode>
+      </node>
+      <node id="202">
+        <label>cstdio</label>
+      </node>
+      <node id="217">
+        <label>window.h</label>
+        <link refid="window_8h"/>
+        <childnode refid="214" relation="include">
+        </childnode>
+        <childnode refid="210" relation="include">
+        </childnode>
+      </node>
+      <node id="211">
+        <label>camera.h</label>
+        <link refid="camera_8h"/>
+        <childnode refid="200" relation="include">
+        </childnode>
+        <childnode refid="210" relation="include">
+        </childnode>
+        <childnode refid="212" relation="include">
+        </childnode>
+        <childnode refid="214" relation="include">
+        </childnode>
+      </node>
+      <node id="220">
+        <label>myglFont.h</label>
+        <link refid="mygl_font_8h"/>
+        <childnode refid="212" relation="include">
+        </childnode>
+      </node>
+      <node id="209">
+        <label>cstdlib</label>
+      </node>
+      <node id="199">
+        <label>cctype</label>
+      </node>
+      <node id="201">
+        <label>iostream</label>
+      </node>
+      <node id="218">
+        <label>geometry.h</label>
+        <link refid="geometry_8h"/>
+        <childnode refid="210" relation="include">
+        </childnode>
+        <childnode refid="219" relation="include">
+        </childnode>
+      </node>
+      <node id="204">
+        <label>bmp.h</label>
+        <link refid="bmp_8h"/>
+        <childnode refid="205" relation="include">
+        </childnode>
+      </node>
+      <node id="222">
+        <label>ctrls.h</label>
+        <link refid="ctrls_8h"/>
+        <childnode refid="216" relation="include">
+        </childnode>
+        <childnode refid="213" relation="include">
+        </childnode>
+        <childnode refid="208" relation="include">
+        </childnode>
+      </node>
+      <node id="207">
+        <label>GL/gl.h</label>
+      </node>
+      <node id="206">
+        <label>tga.h</label>
+        <link refid="tga_8h"/>
+        <childnode refid="207" relation="include">
+        </childnode>
+        <childnode refid="202" relation="include">
+        </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
+        <childnode refid="205" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="223">
+        <label>src/level.h</label>
+        <link refid="level.h"/>
+        <childnode refid="224" relation="include">
+        </childnode>
+        <childnode refid="225" relation="include">
+        </childnode>
+        <childnode refid="226" relation="include">
+        </childnode>
+      </node>
+      <node id="224">
+        <label>src/level.cpp</label>
+        <link refid="level_8cpp"/>
+      </node>
+      <node id="225">
+        <label>src/main.h</label>
+        <link refid="main_8h"/>
+      </node>
+      <node id="226">
+        <label>src/worlddefs.h</label>
+        <link refid="worlddefs_8h"/>
+        <childnode refid="225" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_open_arena_1_1_level" prot="public">OpenArena::Level</innerclass>
+    <innernamespace refid="namespace_open_arena">OpenArena</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__LEVEL_H__</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>__LEVEL_H__</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WIN32</highlight></codeline>
+<codeline lineno="5"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;windows.h&gt;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//prolly<sp/>used<sp/>for<sp/>alot<sp/>but<sp/>should<sp/>be<sp/>removed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="7"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cctype&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WIN32</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;GL/gl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifdef<sp/>__linux</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;GL/gl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifdef<sp/>__APPLE___</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;gl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdio&gt;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//for<sp/>file<sp/>I/O</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mydefs_8h" kindref="compound">mydefs.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="bmp_8h" kindref="compound">bmp.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="tga_8h" kindref="compound">tga.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="list_8h" kindref="compound">list.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>WIN32</highlight></codeline>
+<codeline lineno="28"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&quot;../lib/bass.h&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//for<sp/>audio<sp/>in<sp/>windows<sp/>only<sp/>this<sp/>should<sp/>be<sp/>replaced<sp/>by<sp/>oa_audio</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="vector_8h" kindref="compound">vector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="camera_8h" kindref="compound">camera.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="geometry_8h" kindref="compound">geometry.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mygl_font_8h" kindref="compound">myglFont.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="mygl_texture_8h" kindref="compound">myglTexture.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="player_8h" kindref="compound">player.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="strmanip_8h" kindref="compound">strmanip.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="keys_8h" kindref="compound">keys.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_triangle" kindref="compound">OpenArena::Triangle</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">OpenArena</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="namespace_open_arena_19fe0434303ff135ed1cef0fdc2eb9676" kindref="member">piover180</ref><sp/>=<sp/>0.0174532925f;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>string<sp/><ref refid="namespace_open_arena_12b7faaceb1e7f7078c0763aae99216ab" kindref="member">DEFAULT_TEXTURE_NAME</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;oa/textures/default.bmp&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespace_open_arena_10745908dbc502bc9bac8bccd96b7d83f" kindref="member">MAX_CONSOLE_LINES</ref><sp/>=<sp/>30;<sp/><sp/></highlight><highlight class="comment">//The<sp/>max<sp/>number<sp/>of<sp/>lines<sp/>to<sp/>be<sp/>displayed<sp/>in<sp/>the<sp/>console</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespace_open_arena_1f631478ed0bac188a4e2436c723f4d01" kindref="member">MAX_CONSOLE_HISTORY_LINES</ref><sp/>=<sp/><ref refid="namespace_open_arena_10745908dbc502bc9bac8bccd96b7d83f" kindref="member">MAX_CONSOLE_LINES</ref><sp/>+<sp/>20;<sp/><sp/></highlight><highlight class="comment">//The<sp/>max<sp/>number<sp/>of<sp/>console<sp/>lines<sp/>to<sp/>store<sp/>in<sp/>the<sp/>history</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespace_open_arena_112db95c0247a5cbe110265cdb30cd347" kindref="member">MAX_CONSOLE_OUTPUT_LINES</ref><sp/>=<sp/><ref refid="namespace_open_arena_10745908dbc502bc9bac8bccd96b7d83f" kindref="member">MAX_CONSOLE_LINES</ref>;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespace_open_arena_1d8d094be76d67241acb17086ee86a3b9" kindref="member">MAX_OUTPUT_TEXT_LINES</ref><sp/>=<sp/>4;<sp/><sp/></highlight><highlight class="comment">//The<sp/>max<sp/>number<sp/>of<sp/>output<sp/>lines<sp/>to<sp/>be<sp/>displayed<sp/>on<sp/>the<sp/>screen</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{<ref refid="namespace_open_arena_1de3eacbfe4e57e8f886089e9ffca60c35c681db37433e4ff14b9982decfcdf0e" kindref="member">GL_MY_TEXTURE_CONSOLEBACKGROUND</ref>=0,<sp/><ref refid="namespace_open_arena_1de3eacbfe4e57e8f886089e9ffca60c349f2172c1f1c52782deaf547da60c4c9" kindref="member">NUM_MENU_TEXTURES</ref>};</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="129" refid="class_open_arena_1_1_level" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_open_arena_1_1_level" kindref="compound">Level</ref></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_level_15b6a51fe49f2767c5a87adc9667b5ddb" kindref="member">Level</ref>();</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_level_18edd5f37cbc8a04928828270ebb7a89a" kindref="member">~Level</ref>();</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_18be66953d75ad742f5934d4cff30af1b" kindref="member">LoadMap</ref>(string<sp/>mapname);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_18be66953d75ad742f5934d4cff30af1b" kindref="member">LoadMap</ref>();</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_1ff12b5813734e731fe546dc8f695b5f0" kindref="member">SaveMap</ref>(string<sp/>mapname);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_13735542a131af793330bc2d1f9c45b02" kindref="member">LoadConfig</ref>(string<sp/>cfgname);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_13735542a131af793330bc2d1f9c45b02" kindref="member">LoadConfig</ref>();</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_132cd26bf48d6c3dc5873f9934217b988" kindref="member">SaveConfig</ref>(string<sp/>cfgname);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_13e41383131c482dcd1c07e5eac8201c5" kindref="member">Execute</ref>(string<sp/>cmd);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_17bc094479be8d07f988548bf22a12894" kindref="member">LoadGLTextures</ref>();</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_1a96af1efc4ba237332f16b86f9780b0c" kindref="member">Render</ref>();</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_168ab5997fd1052932585c03ccd5d40bc" kindref="member">UnloadMap</ref>();</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_1c160b417a0835dc7fac144f5ad12ac32" kindref="member">UpdateConsole</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/><ref refid="class_open_arena_1_1_level_1b5dd76eccea1ef392fa1d959f698c78b" kindref="member">FPS</ref>();</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_1e1e90628bddd7823e6159af0f6b15307" kindref="member">ParseCmds</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*);</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_1c1952b1efdc2cf84b0f8e8f7deb75b97" kindref="member">Print</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>string,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>set);</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_1ea76daad1a0d7fb0ede7a3c8f06a2938" kindref="member">SetWindow</ref>(<ref refid="class_open_arena_1_1_window" kindref="compound">Window</ref>*);</highlight></codeline>
+<codeline lineno="425"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_window" kindref="compound">Window</ref>*<sp/><ref refid="class_open_arena_1_1_level_1f953752717d8a4d750ffd9e76b26d6a3" kindref="member">GetWindow</ref>();</highlight></codeline>
+<codeline lineno="426"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*Not<sp/>Yet<sp/>Implemented</highlight></codeline>
+<codeline lineno="428"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>void<sp/>PlayerConnect();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>implement<sp/>later</highlight></codeline>
+<codeline lineno="429"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>void<sp/>PlayerDisconnect();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>implement<sp/>later</highlight></codeline>
+<codeline lineno="430"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="431"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_screen" kindref="compound">Screen</ref><sp/><ref refid="class_open_arena_1_1_level_1c5c4d184229ffa78432f171d5c3757e4" kindref="member">screen</ref>;</highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_font" kindref="compound">Font</ref><sp/><ref refid="class_open_arena_1_1_level_1eb7e603c241910b8f41b774bf8df13bd" kindref="member">glFont</ref>;</highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/><ref refid="class_open_arena_1_1_level_13b8d8a1160c028a1d3a18c3e25a61d2f" kindref="member">nextLevel</ref>;</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_player" kindref="compound">Player</ref>*<sp/><ref refid="class_open_arena_1_1_level_1ec7ee32d878081467484475558f384fe" kindref="member">defaultPlayer</ref>;</highlight></codeline>
+<codeline lineno="435"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/><ref refid="class_open_arena_1_1_level_1bbc8a296f44f68c47749a5d19696cc3c" kindref="member">numTextures</ref>;</highlight></codeline>
+<codeline lineno="436"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string*<sp/><ref refid="class_open_arena_1_1_level_1795dea99526f1becf525b23aa11398a1" kindref="member">textureNames</ref>;</highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="438"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/><ref refid="class_open_arena_1_1_level_1c6cf4317c860d5a50d7bf151ccb63ccf" kindref="member">bgm</ref>;</highlight></codeline>
+<codeline lineno="439"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#ifdef<sp/>WIN32</highlight></codeline>
+<codeline lineno="440"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HSTREAM<sp/>bgmStream;</highlight></codeline>
+<codeline lineno="441"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#endif</highlight></codeline>
+<codeline lineno="442"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_1b6fd13f872dc6b19ef83e55316714e5d" kindref="member">bgmCDA</ref>;</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/><ref refid="class_open_arena_1_1_level_1083734d24864d9b2dadf810dd644d2c2" kindref="member">gamedir</ref>;</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_1388c32c76f5200e525f065629f86c6da" kindref="member">gravity</ref>;</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_1e610be7c9986ef5876ecc762e3bfcdd8" kindref="member">mlook</ref>;</highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_12aac1844ab1b438c067e14d5505344e8" kindref="member">showFPS</ref>;</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_1ad7b324391cdada359046a0aa7fcfdef" kindref="member">showConsole</ref>;</highlight></codeline>
+<codeline lineno="448"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_19036560c4e748201023feeebd77f67b2" kindref="member">sound</ref>;</highlight></codeline>
+<codeline lineno="449"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_12df00d2539215cdd42077b9196647fba" kindref="member">turnSpeed</ref>;</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_1961c76f58c6fec31edb85e6127e146c6" kindref="member">moveSpeed</ref>;</highlight></codeline>
+<codeline lineno="451"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_1b256439dfcf24b3477f881e9f9a3043e" kindref="member">mouseSpeed</ref>;</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_114904c1f6f42728d6d863e464160432a" kindref="member">maxFPS</ref>;</highlight></codeline>
+<codeline lineno="453"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Map</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="454"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_triangle" kindref="compound">Triangle</ref>*<sp/><ref refid="class_open_arena_1_1_level_1f2baa02ba7c947aa1e0b7f036e2842ee" kindref="member">triangles</ref>;</highlight></codeline>
+<codeline lineno="455"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32<sp/><ref refid="class_open_arena_1_1_level_185ffae540bada083fceb9d9af024f877" kindref="member">numTriangles</ref>;</highlight></codeline>
+<codeline lineno="456"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;Player&gt;</ref><sp/><ref refid="class_open_arena_1_1_level_160574e2c07001508429da0fb4e4e346e" kindref="member">players</ref>;</highlight></codeline>
+<codeline lineno="457"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list&lt;ENTITY&gt;<sp/>ents;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="458"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1list" kindref="compound">list&lt;Texture*&gt;</ref><sp/><ref refid="class_open_arena_1_1_level_19fc2e7e7b4fc8467032e8b8fb2892821" kindref="member">textures</ref>;</highlight></codeline>
+<codeline lineno="459"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_texture" kindref="compound">Texture</ref><sp/><ref refid="class_open_arena_1_1_level_1afdf9a49dca708712795deca64bde32e" kindref="member">menuTextures</ref>[<ref refid="namespace_open_arena_1de3eacbfe4e57e8f886089e9ffca60c349f2172c1f1c52782deaf547da60c4c9" kindref="member">NUM_MENU_TEXTURES</ref>];</highlight></codeline>
+<codeline lineno="460"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_arena_1_1_window" kindref="compound">Window</ref>*<sp/><ref refid="class_open_arena_1_1_level_17487e093a13ae8a3873390ddc6a37c90" kindref="member">_window</ref>;</highlight></codeline>
+<codeline lineno="461"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="462"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="463"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>private:</highlight></codeline>
+<codeline lineno="482"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_level_11bc8ebcaffc9706768a6eb2717f5f38a" kindref="member">ConsolePrint</ref>(string);</highlight></codeline>
+<codeline lineno="483"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="484"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/><ref refid="class_open_arena_1_1_level_15163c81dae13e76147492f8c29a742d1" kindref="member">consoleHistory</ref>[<ref refid="namespace_open_arena_1f631478ed0bac188a4e2436c723f4d01" kindref="member">MAX_CONSOLE_HISTORY_LINES</ref>];</highlight></codeline>
+<codeline lineno="485"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/><ref refid="class_open_arena_1_1_level_1bc183aa7f39f9c1462d792fa4e3518db" kindref="member">consoleOutput</ref>[<ref refid="namespace_open_arena_112db95c0247a5cbe110265cdb30cd347" kindref="member">MAX_CONSOLE_OUTPUT_LINES</ref>];</highlight></codeline>
+<codeline lineno="486"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/><ref refid="class_open_arena_1_1_level_19d90d057469bfea4e040d8ee163c884e" kindref="member">outputText</ref>[<ref refid="namespace_open_arena_1d8d094be76d67241acb17086ee86a3b9" kindref="member">MAX_OUTPUT_TEXT_LINES</ref>];</highlight></codeline>
+<codeline lineno="487"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="488"><highlight class="normal">};<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="489"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/level.h"/>
+  </compounddef>
+</doxygen>

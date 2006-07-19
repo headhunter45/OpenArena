@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="entities_8h" kind="file">
+    <compoundname>entities.h</compoundname>
+    <innernamespace refid="namespacestd">std</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//Yank/rename<sp/>these<sp/>maybe<sp/>MapEntities</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="class_open_arena_1_1_vec3d" kindref="compound">OpenArena::Vec3d</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">struct<sp/>LIGHT</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLfloat<sp/>coords[4];</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLfloat<sp/>color[4];</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">};</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"></highlight></codeline>
+<codeline lineno="36"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">struct<sp/>PLAYER_START</highlight></codeline>
+<codeline lineno="38"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vec3d<sp/>coords;</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vec3d<sp/>heading;</highlight></codeline>
+<codeline lineno="41"><highlight class="comment">};</highlight></codeline>
+<codeline lineno="54"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="55"><highlight class="comment">struct<sp/>PLAYER_DEATHMATCH_START</highlight></codeline>
+<codeline lineno="56"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vec3d<sp/>coords;</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vec3d<sp/>heading;</highlight></codeline>
+<codeline lineno="59"><highlight class="comment">};</highlight></codeline>
+<codeline lineno="72"><highlight class="comment">/*struct<sp/>BOT_START</highlight></codeline>
+<codeline lineno="73"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vec3d<sp/>coords;</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vec3d<sp/>heading;</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string<sp/>name;</highlight></codeline>
+<codeline lineno="77"><highlight class="comment">};</highlight></codeline>
+<codeline lineno="90"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="91"><highlight class="comment">struct<sp/>GEOMETRY</highlight></codeline>
+<codeline lineno="92"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>x;</highlight></codeline>
+<codeline lineno="94"><highlight class="comment">};</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>/*</highlight></codeline>
+<codeline lineno="108"><highlight class="comment">struct<sp/>PROJECTILE</highlight></codeline>
+<codeline lineno="109"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vec3d<sp/>heading;</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vec3d<sp/>start;</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vec3d<sp/>end;</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>dammage;</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float<sp/>creation;</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="116"><highlight class="comment">};</highlight></codeline>
+<codeline lineno="117"><highlight class="comment">//const<sp/>PROJECTILE<sp/>BULLET<sp/>=<sp/>{{0,0,0},{0,0,0},{0,0,0},5};</highlight></codeline>
+<codeline lineno="118"><highlight class="comment">//const<sp/>PROJECTILE<sp/>SPIKE<sp/>=<sp/>{{0,0,0},{0,0,0},{0,0,0},10};</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"></highlight></codeline>
+<codeline lineno="132"><highlight class="comment">/*struct<sp/>ENTITY</highlight></codeline>
+<codeline lineno="133"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="134"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PLAYER_START*<sp/>Player_Start;</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>numPlayer_Start;</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PLAYER_DEATHMATCH_START*<sp/>Player_Deathmatch_Start;</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>numPlayer_Deathmatch_Start;</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BOT_START*<sp/>Bot_Start;</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>numBot_Start;</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GEOMETRY*<sp/>Geometry;</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>numGeometry;</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PROJECTILE*<sp/>Projectile;</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>numProjectile;</highlight></codeline>
+<codeline lineno="145"><highlight class="comment">*/</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="161"><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/>ENTITY();</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"></highlight></codeline>
+<codeline lineno="163"><highlight class="comment">};</highlight></codeline>
+<codeline lineno="164"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment">//enum<sp/>ITEM_TYPE{/*all<sp/>weapons<sp/>go<sp/>first*/WEAPON_LASERPISTOL<sp/>=<sp/>1,<sp/>WEAPON_SHOTGUN<sp/>=<sp/>2,<sp/>ITEM_BANDAGES<sp/>=<sp/>4,<sp/><sp/>RUNE_DAMMAGEMULTIPLIER<sp/>=<sp/>8,<sp/>RUNE_PROTECTION<sp/>=<sp/>16,<sp/>RUNE_VAMPIRE<sp/>=<sp/>32,<sp/>RUNE_SPEED<sp/>=<sp/>64,<sp/>RUNE_DOC<sp/>=<sp/>128};//This<sp/>semicolon<sp/>got<sp/>rid<sp/>of<sp/>107<sp/>errors<sp/>and<sp/>no<sp/>warnings</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h"/>
+  </compounddef>
+</doxygen>

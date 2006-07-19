@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="struct_p_l_a_y_e_r___s_t_a_r_t" kind="struct" prot="public">
+    <compoundname>PLAYER_START</compoundname>
+    <includes local="no">entities.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_p_l_a_y_e_r___s_t_a_r_t_15a1734aa95e1c97db056fbf64e4e2cbf" prot="public" static="no" mutable="no">
+        <type><ref refid="class_open_arena_1_1_vec3d" kindref="compound">Vec3d</ref></type>
+        <definition>Vec3d PLAYER_START::coords</definition>
+        <argsstring></argsstring>
+        <name>coords</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="37" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_p_l_a_y_e_r___s_t_a_r_t_1e17ac00b92c290b88cd1b8a98209c50c" prot="public" static="no" mutable="no">
+        <type><ref refid="class_open_arena_1_1_vec3d" kindref="compound">Vec3d</ref></type>
+        <definition>Vec3d PLAYER_START::heading</definition>
+        <argsstring></argsstring>
+        <name>heading</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="38" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="struct_p_l_a_y_e_r___s_t_a_r_t" kindref="compound">PLAYER_START</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="struct_p_l_a_y_e_r___s_t_a_r_t" kindref="compound">PLAYER_START</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="struct_p_l_a_y_e_r___s_t_a_r_t" kindref="compound">PLAYER_START</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="82">
+        <label>OpenArena::Vec3d</label>
+        <link refid="class_open_arena_1_1_vec3d"/>
+      </node>
+      <node id="81">
+        <label>PLAYER_START</label>
+        <link refid="struct_p_l_a_y_e_r___s_t_a_r_t"/>
+        <childnode refid="82" relation="usage">
+          <edgelabel>heading
+coords</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" line="36" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/entities.h" bodystart="35" bodyend="39"/>
+    <listofallmembers>
+      <member refid="struct_p_l_a_y_e_r___s_t_a_r_t_15a1734aa95e1c97db056fbf64e4e2cbf" prot="public" virt="non-virtual"><scope>PLAYER_START</scope><name>coords</name></member>
+      <member refid="struct_p_l_a_y_e_r___s_t_a_r_t_1e17ac00b92c290b88cd1b8a98209c50c" prot="public" virt="non-virtual"><scope>PLAYER_START</scope><name>heading</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

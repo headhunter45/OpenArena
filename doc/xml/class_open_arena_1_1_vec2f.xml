@@ -1,0 +1,538 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="class_open_arena_1_1_vec2f" kind="class" prot="public">
+    <compoundname>OpenArena::Vec2f</compoundname>
+    <includes local="no">vector.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_13c9f9bb1b5a44a43bd8e405e334bf6eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::Vec2f::Vec2f</definition>
+        <argsstring>()</argsstring>
+        <name>Vec2f</name>
+        <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="389" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="90" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_140b6dcccfc1a02162dcf725b3bde3859" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::Vec2f::Vec2f</definition>
+        <argsstring>(const Vec2f &amp;)</argsstring>
+        <name>Vec2f</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="408" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="96" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_188a41eb41cf4648fcf5190fc6822d2d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::Vec2f::Vec2f</definition>
+        <argsstring>(double)</argsstring>
+        <name>Vec2f</name>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="427"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_125136f866769e4834d68b91c3af8714a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenArena::Vec2f::Vec2f</definition>
+        <argsstring>(double, double)</argsstring>
+        <name>Vec2f</name>
+        <param>
+          <type>double</type>
+          <defname>X</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>Y</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="449" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="160" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_17a6a57e352f1e719f2fcd43e9502ec24" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double OpenArena::Vec2f::lengthsquared</definition>
+        <argsstring>() const </argsstring>
+        <name>lengthsquared</name>
+        <briefdescription>
+<para>Write brief comment for lengthsquared here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for lengthsquared here.</para><para><simplesect kind="remark"><para>Write remarks for lengthsquared here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="469" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="112" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_100bdd73763bab43e4d566b7e6bba2d35" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double OpenArena::Vec2f::length</definition>
+        <argsstring>() const </argsstring>
+        <name>length</name>
+        <briefdescription>
+<para>Write brief comment for length here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for length here.</para><para><simplesect kind="remark"><para>Write remarks for length here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="488" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_17af96f273a8fd438740633bfa434aa1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenArena::Vec2f::normalize</definition>
+        <argsstring>()</argsstring>
+        <name>normalize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="489" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="117" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_169b3eae645ee750e532df9fa7774728c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref></type>
+        <definition>Vec2f OpenArena::Vec2f::normalized</definition>
+        <argsstring>() const </argsstring>
+        <name>normalized</name>
+        <briefdescription>
+<para>Write brief comment for normalized here. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for normalized here.</para><para><simplesect kind="remark"><para>Write remarks for normalized here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="508" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_13cc413ca0b5f6bcbf741047decd2f873" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref></type>
+        <definition>Vec2f OpenArena::Vec2f::cross</definition>
+        <argsstring>(const Vec2f &amp;) const </argsstring>
+        <name>cross</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for cross here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for cross here.</para><para><simplesect kind="remark"><para>Write remarks for cross here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="531" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_17832dd37d6d3dbe9a655128e95c153d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref></type>
+        <definition>Vec2f OpenArena::Vec2f::operator=</definition>
+        <argsstring>(const Vec2f &amp;)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator = here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator = here.</para><para><simplesect kind="remark"><para>Write remarks for operator = here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="553" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="153" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_1bcc7f052869c8507bfc0fdde23b6af8c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref></type>
+        <definition>Vec2f OpenArena::Vec2f::operator *</definition>
+        <argsstring>(const Vec2f &amp;) const </argsstring>
+        <name>operator *</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator * here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator * here.</para><para><simplesect kind="remark"><para>Write remarks for operator * here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="575" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="138" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_19c60084e76656b4ccda657b3608bd269" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref></type>
+        <definition>Vec2f OpenArena::Vec2f::operator+</definition>
+        <argsstring>(const Vec2f &amp;) const </argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator + here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator + here.</para><para><simplesect kind="remark"><para>Write remarks for operator + here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="597" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="133" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_134533fb92d780a465616aa9372144ea4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref></type>
+        <definition>Vec2f OpenArena::Vec2f::operator-</definition>
+        <argsstring>(const Vec2f &amp;) const </argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> &amp;</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator - here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator - here.</para><para><simplesect kind="remark"><para>Write remarks for operator - here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="619" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="143" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_1844d38b338ea9f736548ba8cf5e6c5f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref></type>
+        <definition>Vec2f OpenArena::Vec2f::operator *</definition>
+        <argsstring>(double) const </argsstring>
+        <name>operator *</name>
+        <param>
+          <type>double</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator * here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator * here.</para><para><simplesect kind="remark"><para>Write remarks for operator * here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="642" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="128" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_arena_1_1_vec2f_1f421dc21f7632f5fdb4fa3b6b0dca108" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref></type>
+        <definition>Vec2f OpenArena::Vec2f::operator/</definition>
+        <argsstring>(double) const </argsstring>
+        <name>operator/</name>
+        <param>
+          <type>double</type>
+          <defname>rtOp</defname>
+        </param>
+        <briefdescription>
+<para>Write brief comment for operator / here. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>of parameter .</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Write description of return value here.</para></simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>&lt;exception</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>class&gt; Description of criteria for throwing this exception.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+Write detailed description for operator / here.</para><para><simplesect kind="remark"><para>Write remarks for operator / here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="664" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.cpp" bodystart="148" bodyend="151"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_open_arena_1_1_vec2f_1d24b019e1d5cc39b341296eeff399b35" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float OpenArena::Vec2f::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="373" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" bodystart="373" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_arena_1_1_vec2f_1a2cfda0285a249dbdd2977f2a68aa1a8" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float OpenArena::Vec2f::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="373" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" bodystart="373" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="class_open_arena_1_1_vec2f" kindref="compound">Vec2f</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" line="371" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/vector.h" bodystart="370" bodyend="665"/>
+    <listofallmembers>
+      <member refid="class_open_arena_1_1_vec2f_13cc413ca0b5f6bcbf741047decd2f873" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>cross</name></member>
+      <member refid="class_open_arena_1_1_vec2f_100bdd73763bab43e4d566b7e6bba2d35" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>length</name></member>
+      <member refid="class_open_arena_1_1_vec2f_17a6a57e352f1e719f2fcd43e9502ec24" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>lengthsquared</name></member>
+      <member refid="class_open_arena_1_1_vec2f_17af96f273a8fd438740633bfa434aa1f" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>normalize</name></member>
+      <member refid="class_open_arena_1_1_vec2f_169b3eae645ee750e532df9fa7774728c" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>normalized</name></member>
+      <member refid="class_open_arena_1_1_vec2f_1bcc7f052869c8507bfc0fdde23b6af8c" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>operator *</name></member>
+      <member refid="class_open_arena_1_1_vec2f_1844d38b338ea9f736548ba8cf5e6c5f7" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>operator *</name></member>
+      <member refid="class_open_arena_1_1_vec2f_19c60084e76656b4ccda657b3608bd269" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>operator+</name></member>
+      <member refid="class_open_arena_1_1_vec2f_134533fb92d780a465616aa9372144ea4" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>operator-</name></member>
+      <member refid="class_open_arena_1_1_vec2f_1f421dc21f7632f5fdb4fa3b6b0dca108" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>operator/</name></member>
+      <member refid="class_open_arena_1_1_vec2f_17832dd37d6d3dbe9a655128e95c153d3" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>operator=</name></member>
+      <member refid="class_open_arena_1_1_vec2f_13c9f9bb1b5a44a43bd8e405e334bf6eb" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>Vec2f</name></member>
+      <member refid="class_open_arena_1_1_vec2f_140b6dcccfc1a02162dcf725b3bde3859" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>Vec2f</name></member>
+      <member refid="class_open_arena_1_1_vec2f_188a41eb41cf4648fcf5190fc6822d2d9" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>Vec2f</name></member>
+      <member refid="class_open_arena_1_1_vec2f_125136f866769e4834d68b91c3af8714a" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>Vec2f</name></member>
+      <member refid="class_open_arena_1_1_vec2f_1d24b019e1d5cc39b341296eeff399b35" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>x</name></member>
+      <member refid="class_open_arena_1_1_vec2f_1a2cfda0285a249dbdd2977f2a68aa1a8" prot="public" virt="non-virtual"><scope>OpenArena::Vec2f</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

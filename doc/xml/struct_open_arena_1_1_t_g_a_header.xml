@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='iso-8859-1' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.4.7">
+  <compounddef id="struct_open_arena_1_1_t_g_a_header" kind="struct" prot="public">
+    <compoundname>OpenArena::TGAHeader</compoundname>
+    <includes local="no">tga.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_open_arena_1_1_t_g_a_header_1d193395b787c3a7f0dbd80b2dc5cd8b1" prot="public" static="no" mutable="no">
+        <type>GLubyte</type>
+        <definition>GLubyte OpenArena::TGAHeader::Header[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>Header</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" line="28" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Write brief comment for <ref refid="struct_open_arena_1_1_t_g_a_header" kindref="compound">TGAHeader</ref> here. </para>    </briefdescription>
+    <detaileddescription>
+<para>Write detailed description for <ref refid="struct_open_arena_1_1_t_g_a_header" kindref="compound">TGAHeader</ref> here.</para><para><simplesect kind="remark"><para>Write remarks for <ref refid="struct_open_arena_1_1_t_g_a_header" kindref="compound">TGAHeader</ref> here.</para></simplesect>
+<simplesect kind="see"><para>Separate items with the &apos;|&apos; character. </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" line="27" bodyfile="/Users/tomhicks/Documents/workspaces/OpenArena/openarena/src/tga.h" bodystart="26" bodyend="29"/>
+    <listofallmembers>
+      <member refid="struct_open_arena_1_1_t_g_a_header_1d193395b787c3a7f0dbd80b2dc5cd8b1" prot="public" virt="non-virtual"><scope>OpenArena::TGAHeader</scope><name>Header</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

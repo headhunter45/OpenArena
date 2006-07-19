@@ -6,7 +6,7 @@ X11INCLUDEDIR = /usr/X11R6/include
 X11LIBDIR = /usr/X11R6/lib
 INCLUDE_DIRS = -I$(X11INCLUDEDIR)
 LIBRARY_DIRS = -L$(X11LIBDIR)
-OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o physics.o player.o strmanip.o tga.o vector.o window.o keys.o main.o
+OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o player.o strmanip.o tga.o vector.o window.o keys.o main.o
 LIBS = $(LIBRARY_DIRS) -lGL -lGLU -lXxf86vm -lX11
 LIBRARIES = 
 SO_LIBS = 
@@ -48,7 +48,7 @@ bmp.o: bmp.cpp bmp.h mygl.h datatypes.h texture.h
 camera.o: camera.cpp camera.h vector.h mygl.h screen.h
 	$(CPP) -c $(INCLUDE_DIRS) -o camera.o camera.cpp
 
-ctrls.o: ctrls.cpp ctrls.h keys.h physics.h datatypes.h list.h
+ctrls.o: ctrls.cpp ctrls.h keys.h datatypes.h list.h
 	$(CPP) -c $(INCLUDE_DIRS) -o ctrls.o ctrls.cpp
 
 level.o: level.cpp level.h version.h
@@ -62,9 +62,6 @@ myglFont.o: myglFont.cpp myglFont.h
 
 myglTexture.o: myglTexture.cpp myglTexture.h
 	$(CPP) -c $(INCLUDE_DIRS) -o myglTexture.o myglTexture.cpp
-
-physics.o: physics.cpp physics.h
-	$(CPP) -c $(INCLUDE_DIRS) -o physics.o physics.cpp
 
 player.o: player.cpp player.h
 	$(CPP) -c $(INCLUDE_DIRS) -o player.o player.cpp
