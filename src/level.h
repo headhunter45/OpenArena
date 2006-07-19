@@ -29,7 +29,6 @@
 #endif
 #include "vector.h"
 #include "camera.h"
-#include "entities.h"
 #include "geometry.h"
 #include "myglFont.h"
 #include "myglTexture.h"
@@ -455,7 +454,7 @@ namespace OpenArena
 		Triangle* triangles;
 		uint32 numTriangles;
 		list<Player> players;
-		list<ENTITY> ents;
+//		list<ENTITY> ents;
 		list<Texture*> textures;
 		Texture menuTextures[NUM_MENU_TEXTURES];
 		Window* _window;

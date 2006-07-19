@@ -289,18 +289,20 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 					if (level.mlook)
 					{
 						using OpenArena::Vec2i;
-						//Get the mouse delta and rotate accordingly
-						
-						Vec2i mousePosition = g_Screen.GetMousePosition();
 						Vec2i middleOfScreen = Vec2i(g_Screen.GetWidth()/2, g_Screen.GetHeight()/2);
-						Vec2i mouseDelta = mousePosition - middleOfScreen;
-						const float MOUSE_SENSATIVITY_HORIZONTAL = 1;
-						const float MOUSE_SENSATIVITY_VERTICAL = 1;
-						float horizontalAngle = mouseDelta.x * MOUSE_SENSATIVITY_HORIZONTAL;
-						float verticalAngle = mouseDelta.y * MOUSE_SENSATIVITY_VERTICAL;
-						level.defaultPlayer[0].camera.RotateHorizontal(horizontalAngle);
-						level.defaultPlayer[0].camera.RotateVertical(verticalAngle);
-						//level.defaultPlayer[0].camera.SetViewByMouse(g_Screen);
+						Vec2i mousePosition = g_Screen.GetMousePosition();
+						if(mousePosition != middleOfScreen)
+						{
+							//Vec2i mouseDelta = mousePosition - middleOfScreen;
+							Vec2i mouseDelta = middleOfScreen - mousePosition;
+							g_Screen.SetMousePosition(middleOfScreen);
+							const float MOUSE_SENSITIVITY_HORIZONTAL = 0.005;
+							const float MOUSE_SENSITIVITY_VERTICAL = 0.005;
+							float horizontalAngle = mouseDelta.x * MOUSE_SENSITIVITY_HORIZONTAL;
+							float verticalAngle = mouseDelta.y * MOUSE_SENSITIVITY_VERTICAL;
+							level.defaultPlayer[0].camera.RotateHorizontal(horizontalAngle);
+							level.defaultPlayer[0].camera.RotateVertical(verticalAngle);
+						}
 					}
 					else
 					{

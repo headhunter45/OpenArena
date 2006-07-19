@@ -50,25 +50,27 @@ namespace OpenArena
 {
 	Camera::Camera()
 	{
-		m_vPosition = Vec3f(0,0,0);
-		m_vView = Vec3f(0,0,-1);
-		m_vUpVector = Vec3f(0,1,0);
+		_position = Vec3f(0,0,0);
+		_heading = Vec3f(0,0,-1);
+		_up = Vec3f(0,1,0);
 	}
 	
 	void Camera::PositionCamera(double xpos,  double ypos,  double zpos,
 									 double xview, double yview, double zview,
 									 double xup,	  double yup,   double zup)
 	{
-		m_vPosition = Vec3f(xpos, ypos, zpos);
-		m_vView = Vec3f(xview, yview, zview);
-		m_vUpVector = Vec3f(xup, yup, zup);
+		_position = Vec3f(xpos, ypos, zpos);
+		_heading = Vec3f(xview-xpos, yview-ypos, zview-zpos);
+		_up = Vec3f(xup, yup, zup).normalized();		
+		UpdateVectors();
 	}
 	
 	void Camera::PositionCamera(Vec3f pos, Vec3f view, Vec3f up)
 	{
-		m_vPosition = pos;
-		m_vView = view;
-		m_vUpVector = up;
+		_position = pos;
+		_heading = view-pos;
+		_up = up;
+		UpdateVectors();
 	}
 	
 	void Camera::SetViewByMouse(Window window)
@@ -130,7 +132,7 @@ namespace OpenArena
 			}
 			else
 			{
-				Vec3d axis = (m_vView - m_vPosition).cross(m_vUpVector);
+				Vec3d axis = (_heading).cross(_up);
 				axis.normalize();
 				RotateView(angleZ, axis.x, axis.y, axis.z);
 				RotateView((middle.x-pos.x)/1000.0, 0, 1, 0);
@@ -175,12 +177,8 @@ namespace OpenArena
 	
 	void Camera::MoveCamera(double speed)
 	{
-		Vec3f heading = (m_vView - m_vPosition).normalized();
-		
-		m_vPosition.x += heading.x * speed;
-		m_vPosition.z += heading.z * speed;
-		m_vView.x += heading.x * speed;
-		m_vView.z += heading.z * speed;
+		_position  = _position + _heading * speed;
+		UpdateVectors();
 	}
 	
 	void Camera::RotateView(double angle, Vec3d axis)
@@ -192,73 +190,64 @@ namespace OpenArena
 	
 	void Camera::RotateView(double angle, double x, double y, double z)
 	{
-		Vec3f nView;
-		Vec3f cView;
-	
-		cView = m_vView - m_vPosition;
-	
 		double cosTheta = cos(angle);
 		double sinTheta = sin(angle);
-	
-		nView.x = (cosTheta + (1 - cosTheta) * x * x) * cView.x +
-				  ((1 - cosTheta) * x * y - z * sinTheta) * cView.y +
-				  ((1 - cosTheta) * x * z + y * sinTheta) * cView.z;
-	
-		nView.y = (cosTheta + (1 - cosTheta) * y * y) * cView.y +
-				  ((1- cosTheta) * x * y + z * sinTheta) * cView.x + 
-				  ((1 - cosTheta) * y * z - x * sinTheta) * cView.z;
-	
-		nView.z = (cosTheta + (1 - cosTheta) * z * z) * cView.z+
-				  ((1 - cosTheta) * x * z - y * sinTheta) * cView.x +
-				  ((1 - cosTheta) * y * z + x * sinTheta) * cView.y;
 		
-		m_vView.x = m_vPosition.x + nView.x;	  
-		m_vView.y = m_vPosition.y + nView.y;
-		m_vView.z = m_vPosition.z + nView.z;
+		double newX = (cosTheta + (1 - cosTheta) * x * x) * _heading.x +
+		               ((1 - cosTheta) * x * y - z * sinTheta) * _heading.y +
+		               ((1 - cosTheta) * x * z + y * sinTheta) * _heading.z;
+		               
+		double newY = (cosTheta + (1 - cosTheta) * y * y) * _heading.y +
+		               ((1 - cosTheta) * x * y + z * sinTheta) * _heading.x +
+		               ((1 - cosTheta) * y * z - x * sinTheta) * _heading.z;
+		               
+		double newZ = (cosTheta + (1 - cosTheta) * z * z) * _heading.z +
+					  ((1 - cosTheta) * x * z - y * sinTheta) * _heading.x +
+					  ((1 - cosTheta) * y * z + x * sinTheta) * _heading.y;
+		
+		_heading.x = newX;
+		_heading.y = newY;
+		_heading.z = newZ;		
 	}
 	
 	void Camera::StrafeCamera(double speed)
 	{
-		m_vPosition.x += m_vStrafe.x * speed;
-		m_vPosition.z += m_vStrafe.z * speed;
-		m_vView.x += m_vStrafe.x * speed;
-		m_vView.z += m_vStrafe.z * speed;
+		_position = _position + _strafe * speed;
 	}
 	
 	
 	
 	void Camera::Update()
 	{
-		m_vStrafe =((m_vView - m_vPosition).cross(m_vUpVector)).normalized();
-		//SetViewByMouse();	//TODO take this whole function out asap
-	
+		_strafe = ((_heading).cross(_up)).normalized();
 	}
 	
 	void Camera::Look()
 	{
-		gluLookAt(m_vPosition.x, m_vPosition.y, m_vPosition.z,
-				  m_vView.x,	 m_vView.y,		m_vView.z,
-				  m_vUpVector.x, m_vUpVector.y, m_vUpVector.z);
+		Vec3f view = _position + _heading;
+		gluLookAt(_position.x, _position.y, _position.z,
+		          view.x, view.y, view.z,
+		          _up.x, _up.y, _up.z);
 	}
 	
 	Vec3f Camera::Position()
 	{
-		return m_vPosition;
+		return _position;
 	}
 	
 	Vec3f Camera::Strafe()
 	{
-		return m_vStrafe;
+		return _strafe;
 	}
 	
 	Vec3f Camera::UpVector()
 	{
-		return m_vUpVector;
+		return _up;
 	}
 	
 	Vec3f Camera::View()
 	{
-		return m_vView;
+		return _heading + _position;
 	}
 	
 	void Camera::RotateHorizontal(float angle)
@@ -273,16 +262,20 @@ namespace OpenArena
 
 	Vec3f Camera::GetUpVector()
 	{
+		return _up;
 	}
 
 	Vec3f Camera::GetRightVector()
 	{
+		return _strafe;
 	}
 
 	Vec3f Camera::GetForwardVector()
 	{
+		return _heading;
 	}
-
-
-
+	
+	void Camera::UpdateVectors()
+	{
+	}
 };

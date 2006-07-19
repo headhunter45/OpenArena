@@ -167,7 +167,7 @@ namespace OpenArena
 		 * 
 		 * \see
 		 */
-		void Camera::RotateView(double angle, Vec3d axis);
+		void RotateView(double angle, Vec3d axis);
 		
 		/*!
 		 * \brief
@@ -318,49 +318,43 @@ namespace OpenArena
 
 		/*!
 		 * \brief
-		 * Write brief comment for GetRightVector here.
+		 * Returns a unit vector pointing to the immediate right of the current view.
+		 * 
 		 * 
 		 * \returns
-		 * Write description of return value here.
+		 * A unit vector pointing to the immediate right of the current view.
 		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for GetRightVector here.
+		 * Returns a unit vector pointing to the immediate right of the current view.
+		 * This is the direction of a positive strafe movement.
 		 * 
 		 * \remarks
-		 * Write remarks for GetRightVector here.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		Vec3f GetRightVector();
 
 		/*!
 		 * \brief
-		 * Write brief comment for GetForwardVector here.
+		 * Returns a unit vector pointing directly into the current view.
 		 * 
 		 * \returns
-		 * Write description of return value here.
-		 * 
-		 * \throws <exception class>
-		 * Description of criteria for throwing this exception.
-		 * 
-		 * Write detailed description for GetForwardVector here.
+ 		 * A unit vector pointing directly into the current view.
+ 		 * 
+		 * Returns a unit vector pointing directly into the current view. This is the direction of positive movement.
 		 * 
 		 * \remarks
-		 * Write remarks for GetForwardVector here.
 		 * 
 		 * \see
-		 * Separate items with the '|' character.
 		 */
 		Vec3f GetForwardVector();
+		
+		void UpdateVectors();
 
 	private:
-		Vec3f m_vPosition;
-		Vec3f m_vView;
-		Vec3f m_vUpVector;
-		Vec3f m_vStrafe;
+		Vec3f _heading;
+		Vec3f _position;
+		Vec3f _up;
+		Vec3f _strafe;
 	};
 };
 
