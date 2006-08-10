@@ -3,6 +3,13 @@
 
 namespace OpenArena
 {
+	class Vertex
+	{
+	public:
+		Vec3f coordinates;
+		Vec2f textureCoordinates;
+	};
+	
 	/*!
 	 * \brief
 	 * Write brief comment for Triangle here.
@@ -20,8 +27,10 @@ namespace OpenArena
 	public:
 		Texture texture;
 		uint32 texID;
-		Vec3f vertecies[3];
-		Vec2f texCoords[3];
+		Vertex vertecies[3];
+//		Vec3f vertecies[3];
+//		Vec2f texCoords[3];
 		Vec3f normal;
 	};
+	
 };
