@@ -1,0 +1,3 @@
+ln -s Makefile.macosx Makefile
+ln -s Makefile.macosx src/Makefile
+
