@@ -5,7 +5,7 @@
 
 #ifndef BASS_H
 #define BASS_H
-
+#ifdef WIN32
 #include <wtypes.h>
 
 #ifdef __cplusplus
@@ -1218,4 +1218,5 @@ par    : Pointer to the parameter structure */
 }
 #endif
 
+#endif
 #endif
