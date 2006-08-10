@@ -1,54 +1,32 @@
 #include "window.h"
 
-#ifdef __linux
 void OpenArena::Window::SwapBuffers()
 {
+	#if defined USE_GLX
 	if(doubleBuffered)
 	{
 		glXSwapBuffers(display, window);
 	}
-}
-#endif
-#ifdef __APPLE__
-void OpenArena::Window::SwapBuffers()
-{
-	if(doubleBuffered)
-	{
-		glXSwapBuffers(display, window);
-	}
-}
-#endif
-#ifdef WIN32
-void OpenArena::Window::SwapBuffers()
-{
+	#elif defined USE_AGL
+	aglSwapBuffers(aglContext);
+	#elif defined USE_CGL
+	CGLFlushDrawable(cglContext);
+	#elif defined USE_WGL
 	::SwapBuffers(deviceContext);
+	#endif
 }
-#endif
 
-#ifdef __linux
 void OpenArena::Window::Close()
 {
-	if(hRC)
-	{
-		if(!glXMakeCurrent(display, None, NULL))
-		{
-			printf("Could not release drawing context.\n");
-		}
-		glXDestroyContext(display, hRC);
-		hRC = NULL;
-	}
-
+	#if defined USE_GLX
 	if(_fullscreen)
 	{
+		#if defined HAVE_XF86VIDMODE
 		XF86VidModeSwitchToMode(display, screen, &vidMode);
 		XF86VidModeSetViewPort(display, screen, 0, 0);
+		#endif
 	}
-	XCloseDisplay(display);	
-}	
-#endif
-#ifdef __APPLE__
-void OpenArena::Window::Close()
-{
+	
 	if(hRC)
 	{
 		if(!glXMakeCurrent(display, None, NULL))
@@ -58,27 +36,20 @@ void OpenArena::Window::Close()
 		glXDestroyContext(display, hRC);
 		hRC = NULL;
 	}
-
+	
+	XCloseDisplay(display);
+	#elif defined USE_AGL
+	#elif defined USE_CGL
+	#elif defined USE_WGL
 	if(_fullscreen)
 	{
-//		XF86VidModeSwitchToMode(display, screen, &vidMode);
-//		XF86VidModeSetViewPort(display, screen, 0, 0);
-	}
-	XCloseDisplay(display);	
-}	
-#endif
-#ifdef WIN32
-void OpenArena::Window::Close()
-{
-	if (_fullscreen)
-	{
 		ChangeDisplaySettings(NULL, 0);
-		ShowCursor(true/*false*/);
+		ShowCursor(true);
 	}
-
-	if (glContext)
+	
+	if(glContext)
 	{
-		if (!wglMakeCurrent(NULL, NULL))
+		if(!wglMakeCurrent(NULL, NULL))
 			MessageBox(NULL,"Release Of DC And RC Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
 
 		if (!wglDeleteContext(glContext))
@@ -104,13 +75,14 @@ void OpenArena::Window::Close()
 		MessageBox(NULL,"Could Not Unregister Class.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
 		instance=NULL;
 	}
-}//End OpenArena::Window::Close()
-#endif
+	#endif
+}
 
-#ifdef __linux
+
 bool OpenArena::Window::Open()
 {
-		XVisualInfo* vi;
+	#if defined USE_GLX
+	XVisualInfo* vi;
 	Colormap cmap;
 	int bestMode = 0;
 	int vidModeMajorVersion;
@@ -118,13 +90,17 @@ bool OpenArena::Window::Open()
 	int glxMajorVersion;
 	int glxMinorVersion;
 	int modeNum;
+	#if defined HAVE_XF86VIDMODE
 	XF86VidModeModeInfo** modes;
+	#endif
 	Atom  wmDelete;
 	::Window winDummy;
 	unsigned int borderDummy;
 
 	display = XOpenDisplay(0);
 	screen = DefaultScreen(display);
+
+	#if defined HAVE_XF86VIDMODE
 	XF86VidModeQueryVersion(display, &vidModeMajorVersion, &vidModeMinorVersion);
 	printf("XF86VidModeExtension-Version %d.%d\n", vidModeMajorVersion, vidModeMinorVersion);
 
@@ -140,9 +116,10 @@ bool OpenArena::Window::Open()
 			bestMode = i;
 		}
 	}
-
+	#endif
+	
 	vi = glXChooseVisual(display, screen, attrListDbl);
-	if(vi == NULL)
+	if(vi == NULL){
 		vi = glXChooseVisual(display, screen, attrListSgl);
 		doubleBuffered = false;
 		printf("Only Singlebuffered Visual!\n");
@@ -169,10 +146,12 @@ bool OpenArena::Window::Open()
 	
 	if(_fullscreen)
 	{
+		#if defined HAVE_XF86VIDMODE
 		XF86VidModeSwitchToMode(display, screen, modes[bestMode]);
 		XF86VidModeSetViewPort(display, screen, 0, 0);
 		XFree(modes);
-
+		#endif
+		
 		attributes.override_redirect = true;
 		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, _width, _height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask | CWOverrideRedirect, &attributes);
 		XWarpPointer(display, None, window, 0, 0, 0, 0, 0, 0);
@@ -209,116 +188,9 @@ bool OpenArena::Window::Open()
 	}
 	_initializer->Initialize();
 	return true;
-}
-#endif
-#ifdef __APPLE__
-bool OpenArena::Window::Open()
-{
-		XVisualInfo* vi;
-	Colormap cmap;
-	int bestMode = 0;
-	int vidModeMajorVersion;
-	int vidModeMinorVersion;
-	int glxMajorVersion;
-	int glxMinorVersion;
-	int modeNum;
-//	XF86VidModeModeInfo** modes;
-	Atom  wmDelete;
-	::Window winDummy;
-	unsigned int borderDummy;
-
-	display = XOpenDisplay(0);
-	screen = DefaultScreen(display);
-	//XF86VidModeQueryVersion(display, &vidModeMajorVersion, &vidModeMinorVersion);
-	//printf("XF86VidModeExtension-Version %d.%d\n", vidModeMajorVersion, vidModeMinorVersion);
-
-	//XF86VidModeGetAllModeLines(display, screen, &modeNum, &modes);
-	//vidMode = *modes[0];
-
-	int i;
-	for(i=0; i<modeNum; i++)
-	{
-		//Add a check for colordepth here
-	//	if((modes[i]->hdisplay == _width) && (modes[i]->vdisplay == _height))
-	//	{
-	//		bestMode = i;
-	//	}
-	}
-
-	vi = glXChooseVisual(display, screen, attrListDbl);
-	if(vi == NULL)
-	{
-		vi = glXChooseVisual(display, screen, attrListSgl);
-		doubleBuffered = false;
-		printf("Only Singlebuffered Visual!\n");
-	}
-	else
-	{
-		doubleBuffered = true;
-		printf("Got Doublebuffered Visual!\n");
-	}
-
-	glXQueryVersion(display, &glxMajorVersion, & glxMinorVersion);
-	printf("glX-Version %d.%d\n", glxMajorVersion, glxMinorVersion);
-
-	hRC = glXCreateContext(display, vi, 0, GL_TRUE);
-	cmap = XCreateColormap(display, RootWindow(display, vi->screen), vi->visual, AllocNone);
-	attributes.colormap = cmap;
-	attributes.border_pixel = 0;
-
-	attributes.event_mask = ExposureMask | 
-	                        KeyPressMask | KeyReleaseMask |
-	                        ButtonPressMask | ButtonReleaseMask | 
-//	                        PointerMotionMask | ButtonMotionMask |
-	                        StructureNotifyMask;
-	
-	if(_fullscreen)
-	{
-	//	XF86VidModeSwitchToMode(display, screen, modes[bestMode]);
-	//	XF86VidModeSetViewPort(display, screen, 0, 0);
-	//	XFree(modes);
-
-		attributes.override_redirect = true;
-		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, _width, _height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask | CWOverrideRedirect, &attributes);
-		XWarpPointer(display, None, window, 0, 0, 0, 0, 0, 0);
-		XMapRaised(display, window);
-		XGrabKeyboard(display, window, true, GrabModeAsync, GrabModeAsync, CurrentTime);
-		XGrabPointer(display, window, true, ButtonPressMask, GrabModeAsync, GrabModeAsync, window, None, CurrentTime);
-		XDefineCursor(display, window, CreateFullscreenCursor());
-	}
-	else
-	{
-		window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, _width, _height, 0, vi->depth, InputOutput, vi->visual, CWBorderPixel | CWColormap | CWEventMask, &attributes);
-		wmDelete = XInternAtom(display, "WM_DELETE_WINDOW", true);
-		XSetWMProtocols(display, window, &wmDelete, 1);
-		XSetStandardProperties(display, window, GetName(), GetName(), None, NULL, 0, NULL);
-		XMapRaised(display, window);
-		XDefineCursor(display, window, CreateWindowedCursor());
-	}
-
-	glXMakeCurrent(display, window, hRC);
-	unsigned int twidth, theight, depth;
-	XGetGeometry(display, window, &winDummy, &x, &y, &twidth, &theight, &borderDummy, &depth);
-	_colorDepth = (char)depth;
-	_height = (short)twidth;
-	_width = (short)theight;
-	printf("Resolution %dx%d\n", twidth, theight);
-	printf("Depth %d\n", depth);
-	if(glXIsDirect(display, hRC))
-	{
-		printf("Congrats, you have Direct Rendering!\n");
-	}
-	else
-	{
-		printf("Sorry, no Direct Rendering possible!\n");
-	}
-	_initializer->Initialize();
-	return true;
-}
-#endif
-#ifdef WIN32
-bool OpenArena::Window::Open()
-{
+	#elif defined USE_AGL
+	#elif defined USE_CGL
+	#elif defined USE_WGL
 	unsigned int PixelFormat;
 	WNDCLASS	wc;
 	DWORD		dwExStyle;
@@ -443,8 +315,8 @@ bool OpenArena::Window::Open()
 	}
 
 	return true;
+	#endif
 }
-#endif
 
 bool OpenArena::Window::Open(string title, int width, int height, int bits, bool fullscreenflag)
 {
@@ -512,23 +384,9 @@ void OpenArena::Window::Resize(GLsizei width, GLsizei height)
 	_resizer->Resize(width, height);
 }
 
-#ifdef __linux
-Display* OpenArena::Window::GetDisplay()
+OpenArena::Vec2i OpenArena::Window::GetMousePosition()
 {
-	return display;
-}
-#endif
-
-#ifdef __APPLE__
-Display* OpenArena::Window::GetDisplay()
-{
-	return display;
-}
-#endif
-
-#ifdef __linux
-Vec2i OpenArena::Window::GetMousePosition()
-{
+	#ifdef USE_GLX
 	::Window rootWindow;
 	::Window childWindow;
 	int rootX;
@@ -544,59 +402,32 @@ Vec2i OpenArena::Window::GetMousePosition()
 	{
 		return Vec2i(mouseX, mouseY);
 	}
-}
-#endif
-#ifdef __APPLE__
-OpenArena::Vec2i OpenArena::Window::GetMousePosition()
-{
-	::Window rootWindow;
-	::Window childWindow;
-	int rootX;
-	int rootY;
-	int mouseX;
-	int mouseY;
-	unsigned int mask;
-	if(!XQueryPointer(display, window, &rootWindow, &childWindow, &rootX, &rootY, &mouseX, &mouseY, &mask))
-	{
-		return Vec2i(-1,-1);
-	}
-	else
-	{
-		return Vec2i(mouseX, mouseY);
-	}
-}
-#endif
-#ifdef WIN32
-OpenArena::Vec2i OpenArena::Window::GetMousePosition()
-{
-		POINT pos;
+	#elif USE_AGL
+	#elif USE_CGL
+	POINT pos;
 	GetCursorPos(&pos);
 	return Vec2i(pos.x, pos.y);
+	#elif USE_WGL
+	#endif
 }
-#endif
 
-#ifdef __linux
 void OpenArena::Window::SetMousePosition(Vec2i pos)
 {
-	Vec2i middle = Vec2i(_width, _height)/2;
-	XWarpPointer(display, None, window, 0, 0, 0, 0, middle.x, middle.y);
-}
-#endif
-#ifdef __APPLE__
-void OpenArena::Window::SetMousePosition(Vec2i pos)
-{
-	Vec2i middle = Vec2i(_width, _height)/2;
-	XWarpPointer(display, None, window, 0, 0, 0, 0, middle.x, middle.y);
-}
-#endif
-#ifdef WIN32
-void OpenArena::Window::SetMousePosition(Vec2i pos)
-{
+	#if defined USE_GLX
+	XWarpPointer(display, None, window, 0, 0, 0, 0, pos.x, pos.y);
+	#elif defined USE_AGL
+	#elif defined USE_CGL
+	#elif defined USE_WGL
 	SetCursorPos(pos.x, pos.y);
+	#endif
 }
-#endif
 
-#ifdef __linux
+#ifdef USE_GLX
+Display* OpenArena::Window::GetDisplay()
+{
+	return display;
+}
+
 Cursor OpenArena::Window::CreateWindowedCursor()
 {
 	return CreateFullscreenCursor();
@@ -614,22 +445,3 @@ Cursor OpenArena::Window::CreateFullscreenCursor()
 	return cur;
 }
 #endif
-#ifdef __APPLE__
-Cursor OpenArena::Window::CreateWindowedCursor()
-{
-	return CreateFullscreenCursor();
-}
-
-Cursor OpenArena::Window::CreateFullscreenCursor()
-{
-	Pixmap pixmap = XCreatePixmap(display, window, 1, 1, 1);
-	XColor color;
-	color.pixel = 0;
-	color.red = 0;
-	color.flags = DoRed;
-	Cursor cur = XCreatePixmapCursor(display, pixmap, pixmap, &color, &color, 0, 0);
-	XFreePixmap(display, pixmap);
-	return cur;
-}
-#endif
-

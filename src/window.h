@@ -1,28 +1,35 @@
 #ifndef __window_h__
 #define __window_h__
 
-#include "screen.h"
-#ifdef __linux
-#include <GL/gl.h>
-#include <GL/glx.h>
-#include <X11/extensions/xf86vmode.h>
-#include <X11/keysym.h>
+#if defined HAVE_CONFIG_H
+#include "config.h"
 #endif
 
-#ifdef __APPLE__
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GL/glx.h>
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
-//#include <X11/extensions/xf86vmode.h>
-#include <X11/keysym.h>
+#include "screen.h"
+
+#if defined USE_GLX
+	#include <GL/gl.h>
+	#include <GL/glu.h> //maybe not necessary
+	#include <GL/glx.h>
+	#include <X11/Xlib.h>
+	#include <X11/Xutil.h>
+	#include <X11/keysym.h>
+	#if defined HAVE_XF86VIDMODE
+		#include <X11/extensions/xf86vmode.h>
+	#endif
+#elif defined USE_AGL
+	#include <AGL/agl.h>
+	#include <OpenGL/gl.h>
+#elif defined USE_CGL
+	#include <OpenGL/OpenGL.h>
+	#include <OpenGL/gl.h>
+#elif defined USE_WGL
+	#include <windows.h>
+	#include <GL/gl.h>
+	#include <GL/glu.h>
 #endif
 
 #ifdef WIN32
-#include <windows.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
 #endif
 #include "vector.h"
 
@@ -353,49 +360,38 @@ namespace OpenArena
 		 */
 		void SetMousePosition(Vec2i pos);
 
-		#ifdef __linux
-		Display* GetDisplay();
-
-	private:
-		Cursor CreateWindowedCursor();
-		Cursor CreateFullscreenCursor();
-		int screen;
-		::Window window;
-		GLXContext hRC;
-		XSetWindowAttributes attributes;
-		bool doubleBuffered;
-		XF86VidModeModeInfo vidMode;
-		int x, y;
-		Display* display;			
-		#endif
-		#ifdef __APPLE__
-		Display* GetDisplay();
-
-	private:
-		Cursor CreateWindowedCursor();
-		Cursor CreateFullscreenCursor();
-		int screen;
-		::Window window;
-		GLXContext hRC;
-		XSetWindowAttributes attributes;
-		bool doubleBuffered;
-		//XF86VidModeModeInfo vidMode;
-		int x, y;
-		Display* display;			
+		#ifdef USE_GLX
+			Display* GetDisplay();
 		#endif
 	private:
+		#ifdef USE_GLX
+			Cursor CreateWindowedCursor();
+			Cursor CreateFullscreenCursor();
+			int screen;
+			::Window window;
+			GLXContext hRC;
+			XSetWindowAttributes attributes;
+			bool doubleBuffered;
+			#if defined HAVE_XF86VIDMODE
+				XF86VidModeModeInfo vidMode;
+			#endif
+			int x, y;
+			Display* display;			
+		#elif defined USE_WGL
+			HGLRC glContext;
+			HWND window;
+			HDC deviceContext;
+			HINSTANCE instance;
+		#endif
 		Resizer* _resizer;
 		Initializer* _initializer;
-		#ifdef WIN32
-		HGLRC glContext;
-		HWND window;
-		HDC deviceContext;
-		HINSTANCE instance;
-		#endif
 	};
 };
 
-#ifdef WIN32
+#if defined USE_GLX
+static int attrListSgl[] = {GLX_RGBA, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
+static int attrListDbl[] = {GLX_RGBA, GLX_DOUBLEBUFFER, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
+#elif defined USE_WGL
 /*!
  * \brief
  * Write brief comment for WndProc here.
@@ -427,14 +423,6 @@ namespace OpenArena
  * Separate items with the '|' character.
  */
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
-#endif
-#ifdef __linux
-static int attrListSgl[] = {GLX_RGBA, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
-static int attrListDbl[] = {GLX_RGBA, GLX_DOUBLEBUFFER, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
-#endif
-#ifdef __APPLE__
-static int attrListSgl[] = {GLX_RGBA, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
-static int attrListDbl[] = {GLX_RGBA, GLX_DOUBLEBUFFER, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
 #endif
 
 #endif
