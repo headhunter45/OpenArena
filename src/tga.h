@@ -1,6 +1,10 @@
 #ifndef __TGA_H__
 #define __TGA_H__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #pragma comment(lib, "OpenGL32.lib")
 #ifdef WIN32
 #include <windows.h> //I think this was only needed because gl.h uses it

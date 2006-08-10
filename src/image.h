@@ -1,4 +1,9 @@
-#pragma once
+#ifndef __image_h__
+#define __image_h__
+
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
 
 #include "datatypes.h"
 
@@ -154,3 +159,4 @@ namespace OpenArena
 	};
 };
 
+#endif

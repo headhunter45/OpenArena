@@ -1,6 +1,10 @@
 #ifndef __glPrint_h__
 #define __glPrint_h__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include "mygl.h"
 
 namespace OpenArena

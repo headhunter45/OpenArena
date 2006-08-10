@@ -2,6 +2,10 @@
 #define __screen_h__
 #include <string>
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 using namespace std;
 namespace OpenArena
 {

@@ -1,4 +1,10 @@
-#pragma once
+#ifndef __WindowsLogger_h__
+#define __WindowsLogger_h__
+
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include "logger.h"
 #include "datatypes.h"
 
@@ -144,3 +150,5 @@ namespace OpenArena
 		virtual ~WindowsLogger();
 	};
 };
+
+#endif

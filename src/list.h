@@ -1,6 +1,10 @@
 #ifndef __list_h__
 #define __list_h__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <cstdlib>
 
 #pragma warning(disable:4715)

@@ -1,6 +1,10 @@
 #ifndef __vector_h__
 #define __vector_h__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <cmath>
 namespace OpenArena{
 	/*!

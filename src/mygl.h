@@ -1,6 +1,10 @@
 #ifndef __MYGL_H__
 #define __MYGL_H__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #ifdef WIN32
 #include <windows.h>	//Remove if possible
 #include <GL/gl.h>

@@ -1,6 +1,10 @@
 #ifndef __main_h__
 #define __main_h__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #ifdef WIN32
 #include <windows.h>			// Header file for windows
 #endif

@@ -1,4 +1,9 @@
-#pragma once
+#ifndef __Logger_h__
+#define __Logger_h__
+
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
 
 namespace OpenArena
 {
@@ -87,3 +92,5 @@ namespace OpenArena
 		virtual void Log(const char* message, const char* classification, MessageType type=MESSAGETYPE_INFORMATION) = 0;
 	};
 };
+
+#endif

@@ -1,6 +1,10 @@
 #ifndef __LEVEL_H__
 #define __LEVEL_H__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #ifdef WIN32
 #include <windows.h> //prolly used for alot but should be removed
 #endif

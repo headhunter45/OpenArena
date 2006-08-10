@@ -6,6 +6,10 @@
 #ifndef __camera_h__
 #define __camera_h__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <cmath>
 #ifdef WIN32
 #include <windows.h>	//Currently used for mouse stuff this should be replaced by oa_input

@@ -1,4 +1,10 @@
-#pragma once
+#ifndef __NullVideoPlugin_h__
+#define __NullVideoPlugin_h__
+
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include "VideoPlugin.h"
 
 namespace OpenArena
@@ -90,3 +96,5 @@ namespace OpenArena
 	};
 
 };
+
+#endif

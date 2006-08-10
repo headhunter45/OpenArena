@@ -1,4 +1,9 @@
-#pragma once
+#ifndef __PluginManager_h__
+#define __PluginManager_h___
+
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
 
 #include "list.h"
 #include "Plugin.h"
@@ -105,3 +110,5 @@ namespace OpenArena
 		VideoPlugin* GetDefaultVideoPlugin(void);
 	};
 };
+
+#endif

@@ -4,7 +4,7 @@ INCLUDES =
 LD = g++
 X11INCLUDEDIR = /usr/X11R6/include
 X11LIBDIR = /usr/X11R6/lib
-INCLUDE_DIRS = -I$(X11INCLUDEDIR)
+INCLUDE_DIRS = -I$(X11INCLUDEDIR) -DHAVE_CONFIG_H
 LIBRARY_DIRS = -L$(X11LIBDIR)
 OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o player.o strmanip.o tga.o vector.o window.o keys.o main.o
 LIBS = $(LIBRARY_DIRS) -lGL -lGLU -lXxf86vm -lX11
@@ -19,7 +19,7 @@ all: ../OpenArena
 
 clean: 
 	rm -f *.o
-	if [ -f ../OpenArena/OpenArena ]; then rm ../OpenArena/OpenArena; fi
+	if [ -f ../OpenArena ]; then rm ../OpenArena; fi
 	
 install:
 
@@ -39,47 +39,47 @@ oa_video.so:
 oa_input.so:
 
 #Object Files
-screen.o: screen.cpp screen.h
+screen.o: screen.cpp screen.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o screen.o screen.cpp
 
-bmp.o: bmp.cpp bmp.h mygl.h datatypes.h texture.h
+bmp.o: bmp.cpp bmp.h mygl.h datatypes.h texture.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o bmp.o bmp.cpp
 	
-camera.o: camera.cpp camera.h vector.h mygl.h screen.h
+camera.o: camera.cpp camera.h vector.h mygl.h screen.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o camera.o camera.cpp
 
-ctrls.o: ctrls.cpp ctrls.h keys.h datatypes.h list.h
+ctrls.o: ctrls.cpp ctrls.h keys.h datatypes.h list.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o ctrls.o ctrls.cpp
 
-level.o: level.cpp level.h version.h
+level.o: level.cpp level.h version.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o level.o level.cpp
 	
-mygl.o: mygl.cpp mygl.h
+mygl.o: mygl.cpp mygl.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o mygl.o mygl.cpp
 
-myglFont.o: myglFont.cpp myglFont.h
+myglFont.o: myglFont.cpp myglFont.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o myglFont.o myglFont.cpp
 
-myglTexture.o: myglTexture.cpp myglTexture.h
+myglTexture.o: myglTexture.cpp myglTexture.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o myglTexture.o myglTexture.cpp
 
-player.o: player.cpp player.h
+player.o: player.cpp player.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o player.o player.cpp
 
-strmanip.o: strmanip.cpp strmanip.h
+strmanip.o: strmanip.cpp strmanip.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o strmanip.o strmanip.cpp
 
-tga.o: tga.cpp tga.h
+tga.o: tga.cpp tga.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o tga.o tga.cpp
 
-vector.o: vector.cpp vector.h
+vector.o: vector.cpp vector.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o vector.o vector.cpp
 
-window.o: window.cpp window.h
+window.o: window.cpp window.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o window.o window.cpp
 	
-keys.o: keys.cpp keys.h
+keys.o: keys.cpp keys.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o keys.o keys.cpp
 
-main.o: macosx.cpp main.h
+main.o: macosx.cpp main.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o main.o macosx.cpp

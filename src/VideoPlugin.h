@@ -1,4 +1,10 @@
-#pragma once
+#ifndef __VideoPlugin_h__
+#define __VideoPlugin_h__
+
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include "Plugin.h"
 #include "window.h"
 #include "datatypes.h"
@@ -77,3 +83,5 @@ namespace OpenArena
 			const char* title = NULL) = 0;
 	};
 };
+
+#endif

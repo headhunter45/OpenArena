@@ -1,3 +1,10 @@
+#ifndef __ctrls_h__
+#define __ctrls_h__
+
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include "keys.h"
 #include "datatypes.h"
 #include "list.h"
@@ -98,3 +105,5 @@ namespace OpenArena{
 		list<uint8> rollRight;	
 	};
 };
+
+#endif

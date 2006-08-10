@@ -1,3 +1,10 @@
+#ifndef __geometry_h__
+#define __geometry_h__
+
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include "vector.h"
 #include "myglTexture.h"
 
@@ -34,3 +41,5 @@ namespace OpenArena
 	};
 	
 };
+
+#endif

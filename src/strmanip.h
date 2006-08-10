@@ -1,6 +1,10 @@
 #ifndef __strmanip_h__
 #define __strmanip_h__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <string>
 #include <cmath>
 #include "keys.h"

@@ -1,6 +1,10 @@
 #ifndef __myglTexture_h__
 #define __myglTexture_h__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <string>
 #include "datatypes.h"
 #include "mygl.h"

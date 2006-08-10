@@ -1,6 +1,10 @@
 #ifndef __datatypes_h__
 #define __datatypes_h__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #ifdef WIN32 //Make this MSVC something
 typedef unsigned __int8		uint8;
 typedef unsigned __int16	uint16;

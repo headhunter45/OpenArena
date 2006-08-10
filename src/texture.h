@@ -1,6 +1,10 @@
 #ifndef __texture_h__
 #define __texture_h__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 namespace OpenArena
 {
 	/*!

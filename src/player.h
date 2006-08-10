@@ -1,6 +1,10 @@
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include "camera.h"
 #include "ctrls.h"
 
