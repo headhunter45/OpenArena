@@ -1,3 +1,4 @@
+#ifdef WIN32
 #include <cstdlib>
 #include "WindowsLogger.h"
 #include <windows.h>
@@ -45,3 +46,4 @@ namespace OpenArena
 		};
 	}
 };
+#endif
