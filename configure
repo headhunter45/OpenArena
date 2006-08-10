@@ -1,3 +1,54 @@
-ln -s Makefile.macosx Makefile
-ln -s Makefile.macosx src/Makefile
+#Symlink Makefiles
+case `uname -s` in
+Darwin)
+	ln -sf Makefile.macosx Makefile
+	ln -sf Makefile.macosx src/Makefile
+	
+	#this should be set as a default if no option is specified and set via options otherwise
+	USE_AGL=1
+	;;
+Linux)
+	ln -sf Makefile.linux makefile
+	ln -sf Makefile.linux src/Makefile
+	
+	#this should be set as a default if no option is specified and set via options otherwise
+	USE_GLX=1
+	HAVE_XF86VIDMODE=1
+	;;
+esac
 
+#Generate config.h
+CONFIGFILE="src/config.h"
+
+#Write Header
+echo "#ifndef CONFIG_H
+#define CONFIG_H
+" > $CONFIGFILE
+
+#Check for GLX ie X11
+if [ $USE_GLX ]; then
+	echo "#define USE_GLX" >> $CONFIGFILE
+	if [ $HAVE_XF86VIDMODE ]; then
+		echo "#define HAVE_XF86VIDMODE" >> $CONFIGFILE
+	fi
+fi
+
+#Check for AGL
+if [ $USE_AGL ]; then
+	echo "#define USE_AGL" >> $CONFIGFILE
+fi
+
+#Check for CGL
+if [ $USE_CGL ]; then
+	echo "#define USE_CGL" >> $CONFIGFILE
+fi
+
+#Check for WGL
+if [ $USE_WGL ]; then
+	echo "#define USE_WGL" >> $CONFIGFILE
+fi
+
+#Write Footer
+echo "
+#endif
+" >> $CONFIGFILE
