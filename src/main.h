@@ -5,22 +5,20 @@
 #include "config.h"
 #endif
 
-#ifdef WIN32
-#include <windows.h>			// Header file for windows
+#if defined USE_GLX
+#include <GL/gl.h>			// Header file for OpenGL32 library
+#include <GL/glu.h>			// Header file for Glu32 library
+#elif defined USE_AGL
+#error unimplemented method
+#elif defined USE_CGL
+#error unimplemented method
+#elif defined USE_WGL
+#include <windows.h>
+#include <GL/gl.h>			// Header file for OpenGL32 library
+#include <GL/glu.h>			// Header file for Glu32 library
 #endif
+
 #include <cstdio>			// Header file for standard input/output
-#ifdef WIN32
-#include <GL/gl.h>			// Header file for OpenGL32 library
-#include <GL/glu.h>			// Header file for Glu32 library
-#endif
-#ifdef __linux
-#include <GL/gl.h>			// Header file for OpenGL32 library
-#include <GL/glu.h>			// Header file for Glu32 library
-#endif
-#ifdef __APPLE__
-#include <GL/gl.h>				// Header file for OpenGL32 library
-#include <GL/glu.h>				// Header file for Glu32 library
-#endif
 #include <math.h>
 
 #include "camera.h"

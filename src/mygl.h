@@ -5,20 +5,19 @@
 #include "config.h"
 #endif
 
-#ifdef WIN32
-#include <windows.h>	//Remove if possible
+#if defined USE_GLX
+#include <GL/gl.h>
+#include <GL/glu.h>
+#elif defined USE_AGL
+#error unimplemented method
+#elif defined USE_CGL
+#error unimplemented method
+#elif defined USE_WGL
+#include <windows.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 #endif
-#ifdef __linux
-#include <GL/gl.h>
-#include <GL/glu.h>
-#endif
-#ifdef __APPLE__
-#include <GL/gl.h>
-#include <GL/glu.h>
-#endif
-//#include <gl/glaux.h>	//Hopefully nothing needs this remove if it works in windows
+
 #include <string>
 #include "datatypes.h"
 #include "screen.h"

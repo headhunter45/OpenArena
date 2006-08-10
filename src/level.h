@@ -5,23 +5,23 @@
 #include "config.h"
 #endif
 
-#ifdef WIN32
-#include <windows.h> //prolly used for alot but should be removed
-#endif
 #include <string>
 #include <fstream>
 #include <cctype>
 #include <cmath>
 #include <iostream>
-#ifdef WIN32
+
+#if defined USE_GLX
+#include <GL/gl.h>
+#elif defined USE_AGL
+#error unimplemented method
+#elif defined USE_CGL
+#error unimplemented method
+#elif defined USE_WGL
+#include <windows.h>
 #include <GL/gl.h>
 #endif
-#ifdef __linux
-#include <GL/gl.h>
-#endif
-#ifdef __APPLE___
-#include <gl.h>
-#endif
+
 #include <cstdio>			//for file I/O
 
 #include "mydefs.h"

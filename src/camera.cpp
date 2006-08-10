@@ -75,40 +75,7 @@ namespace OpenArena
 	
 	void Camera::SetViewByMouse(Window window)
 	{
-		//Remove the ifdef and use the linux section for both linux and windows
-		#ifdef __linux
-		static double currentRotX = 0.0f;
-		Vec2i pos;
-		Vec2i middle;
-		double angleZ;
-		
-		middle.x = window.GetWidth()/2;
-		middle.y = window.GetHeight()/2;
-		pos = window.GetMousePosition();
-		if(pos != middle)
-		{
-			window.SetMousePosition(middle);
-			angleZ = (middle.y - pos.y)/1000.0;
-			currentRotX-=angleZ;
-			if(currentRotX >1.0)
-			{
-				currentRotX = 1.0;
-			}
-			else if(currentRotX < -1.0)
-			{
-				currentRotX = -1.0;
-			}
-			else
-			{
-				Vec3d axis = (m_vView - m_vPosition).cross(m_vUpVector);
-				axis.normalize();
-				RotateView(angleZ, axis.x, axis.y, axis.z);
-				RotateView((middle.x-pos.x)/1000.0, 0, 1, 0);
-				//RotateView((middle.x-pos.x)/1000.0, m_vUpVector.x, m_vUpVector.y, m_vUpVector.z);
-			}
-		}		
-		#endif
-		#ifdef __APPLE__
+		#if defined USE_GLX
 		static double currentRotX = 0.0f;
 		Vec2i pos;
 		Vec2i middle;
@@ -139,8 +106,11 @@ namespace OpenArena
 				//RotateView((middle.x-pos.x)/1000.0, m_vUpVector.x, m_vUpVector.y, m_vUpVector.z);
 			}
 		}		
-		#endif
-		#ifdef WIN32
+		#elif defined USE_AGL
+		#error unimplemented method
+		#elif defined USE_CGL
+		#error unimplemented method
+		#elif defined USE_WGL
 		static double currentRotX = 0.0f;
 		POINT mpos;
 		POINT middle;

@@ -39,7 +39,9 @@ void OpenArena::Window::Close()
 	
 	XCloseDisplay(display);
 	#elif defined USE_AGL
+	#error unimplemented method
 	#elif defined USE_CGL
+	#error unimplemented method
 	#elif defined USE_WGL
 	if(_fullscreen)
 	{

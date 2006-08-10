@@ -28,15 +28,15 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 #ifdef __APPLE__
-
-//include necessary header files
 #include "main.h"
 #include "version.h"
+//include necessary header files
 using namespace std;
-
-//void InitControls();
 unsigned char TranslateKey(int keyCode);
 unsigned char TranslateButton(int keyCode);
+
+#if defined USE_GLX
+//void InitControls();
 void HandleConsoleKeyPress(OpenArena::Keys key);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -885,5 +885,10 @@ void HandleConsoleKeyPress(OpenArena::Keys key)
 		}
 	}
 }
+#elif defined USE_AGL
+#error
+#elif defined USE_CGL
+#error
+#endif
 
 #endif
