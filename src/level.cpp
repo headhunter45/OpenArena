@@ -127,15 +127,15 @@ namespace OpenArena
 			{
 				//Vertex Data
 				input >> readBuffer;
-				triangles[i].vertecies[i2].x = atof(readBuffer.c_str());
+				triangles[i].vertecies[i2].coordinates.x = atof(readBuffer.c_str());
 				input >> readBuffer;
-				triangles[i].vertecies[i2].y = atof(readBuffer.c_str());
+				triangles[i].vertecies[i2].coordinates.y = atof(readBuffer.c_str());
 				input >> readBuffer;
-				triangles[i].vertecies[i2].z = atof(readBuffer.c_str());
+				triangles[i].vertecies[i2].coordinates.z = atof(readBuffer.c_str());
 				input >> readBuffer;
-				triangles[i].texCoords[i2].x = (float)atof(readBuffer.c_str());
+				triangles[i].vertecies[i2].textureCoordinates.x = (float)atof(readBuffer.c_str());
 				input >> readBuffer;
-				triangles[i].texCoords[i2].y = (float)atof(readBuffer.c_str());
+				triangles[i].vertecies[i2].textureCoordinates.y = (float)atof(readBuffer.c_str());
 			}
 	
 			//Normal
@@ -260,11 +260,11 @@ namespace OpenArena
 	
 			for(unsigned int i2=0; i2<3; i2++)
 			{
-				output << triangles[i].vertecies[i2].x << " "
-					   << triangles[i].vertecies[i2].y << " "
-					   << triangles[i].vertecies[i2].z << " "
-					   << triangles[i].texCoords[i2].x << " "
-					   << triangles[i].texCoords[i2].y << endl;
+				output << triangles[i].vertecies[i2].coordinates.x << " "
+					   << triangles[i].vertecies[i2].coordinates.y << " "
+					   << triangles[i].vertecies[i2].coordinates.z << " "
+					   << triangles[i].vertecies[i2].textureCoordinates.x << " "
+					   << triangles[i].vertecies[i2].textureCoordinates.y << endl;
 			}
 	
 			output << triangles[i].normal.x << " "
@@ -302,11 +302,11 @@ namespace OpenArena
 	//		glNormal3f((GLfloat)triangles[i].normal.x, (GLfloat)triangles[i].normal.y, (GLfloat)triangles[i].normal.z);
 			for (uint32 i2=0; i2<3; i2++)
 			{
-				glTexCoord2f(triangles[i].texCoords[i2].x,
-							 triangles[i].texCoords[i2].y);
-				glVertex3f((GLfloat)triangles[i].vertecies[i2].x,
-						   (GLfloat)triangles[i].vertecies[i2].y,
-						   (GLfloat)triangles[i].vertecies[i2].z);
+				glTexCoord2f(triangles[i].vertecies[i2].textureCoordinates.x,
+							 triangles[i].vertecies[i2].textureCoordinates.y);
+				glVertex3f((GLfloat)triangles[i].vertecies[i2].coordinates.x,
+						   (GLfloat)triangles[i].vertecies[i2].coordinates.y,
+						   (GLfloat)triangles[i].vertecies[i2].coordinates.z);
 			}
 			glEnd();
 		}
