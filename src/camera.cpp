@@ -130,7 +130,7 @@ namespace OpenArena
 				currentRotX = -1.0f;
 			else
 			{
-				Vec3f axis = (m_vView - m_vPosition).cross(m_vUpVector);
+				Vec3f axis = (_heading).cross(_up);
 				axis.normalize();
 							
 				RotateView(angleZ, axis.x, axis.y, axis.z);

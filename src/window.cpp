@@ -406,10 +406,10 @@ OpenArena::Vec2i OpenArena::Window::GetMousePosition()
 	}
 	#elif USE_AGL
 	#elif USE_CGL
+	#elif USE_WGL
 	POINT pos;
 	GetCursorPos(&pos);
 	return Vec2i(pos.x, pos.y);
-	#elif USE_WGL
 	#endif
 }
 

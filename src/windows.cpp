@@ -30,8 +30,10 @@
 #ifdef WIN32
 //include necessary header files
 #include "main.h"
+#include <GL/glu.h>
 #include "version.h"
 #include "vector.h"
+using OpenArena::Vec2i;
 
 //link necessary libraries
 #pragma comment(lib, "opengl32.lib")
@@ -296,8 +298,8 @@ int WINAPI WinMain(	HINSTANCE	hInstance,
 							//Vec2i mouseDelta = mousePosition - middleOfScreen;
 							Vec2i mouseDelta = middleOfScreen - mousePosition;
 							g_Screen.SetMousePosition(middleOfScreen);
-							const float MOUSE_SENSITIVITY_HORIZONTAL = 0.005;
-							const float MOUSE_SENSITIVITY_VERTICAL = 0.005;
+							const float MOUSE_SENSITIVITY_HORIZONTAL = 0.005f;
+							const float MOUSE_SENSITIVITY_VERTICAL = 0.005f;
 							float horizontalAngle = mouseDelta.x * MOUSE_SENSITIVITY_HORIZONTAL;
 							float verticalAngle = mouseDelta.y * MOUSE_SENSITIVITY_VERTICAL;
 							level.defaultPlayer[0].camera.RotateHorizontal(horizontalAngle);
