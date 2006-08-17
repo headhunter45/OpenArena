@@ -237,6 +237,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\main.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\Model.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\mygl.cpp"
 				>
 			</File>
@@ -310,14 +318,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\entities.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\entity.h"
-				>
-			</File>
-			<File
 				RelativePath=".\src\geometry.h"
 				>
 			</File>
@@ -346,6 +346,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\Model.h"
+				>
+			</File>
+			<File
 				RelativePath=".\src\mydefs.h"
 				>
 			</File>
@@ -363,10 +367,6 @@
 			</File>
 			<File
 				RelativePath=".\src\NullVideoPlugin.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\physics.h"
 				>
 			</File>
 			<File
