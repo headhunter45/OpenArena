@@ -8,7 +8,7 @@ Darwin)
 	USE_AGL=1
 	;;
 Linux)
-	ln -sf Makefile.linux makefile
+	ln -sf Makefile.linux Makefile
 	ln -sf Makefile.linux src/Makefile
 	
 	#this should be set as a default if no option is specified and set via options otherwise

@@ -128,15 +128,15 @@ int main(int argc, char** argv)
 		level.screen.SetColorDepth(24);
 	}
 
-	g_Screen.SetOnInit(InitGL);
-	g_Screen.SetOnResize(ResizeGLScene);
+//	g_Screen.SetOnInit(InitGL);
+//	g_Screen.SetOnResize(ResizeGLScene);
 
 	if(!g_Screen.Open(OPENARENA_VERSION, level.screen.GetWidth(), level.screen.GetHeight(), level.screen.GetColorDepth(), level.screen.GetFullscreen()))
 	{
 		return 1;
 	}
 
-	level.SetWindow(g_Screen);
+	level.SetWindow(&g_Screen);
 
 	if(level.nextLevel == "")
 	{
