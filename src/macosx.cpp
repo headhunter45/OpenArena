@@ -891,4 +891,13 @@ void HandleConsoleKeyPress(OpenArena::Keys key)
 #error
 #endif
 
+bool keys[256] = {0};			// Array for which keys are down now
+bool keys2[256] = {0};			// Array for which keys are were down already
+bool active = true;		// Is window active flag
+bool fullscreen = false;	// Is window fullscreen flag
+//bool showConsole = false;// Do we need to draw the console
+OpenArena::Vec2i g_mousePosition;
+float lastTime = 0.0f;		// This will hold the time from the last frame
+float currentTime;
+
 #endif

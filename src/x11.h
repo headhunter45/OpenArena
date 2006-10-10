@@ -17,23 +17,20 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#ifndef MODEL_H_
-#define MODEL_H_
+#ifndef __x11_h__
+#define __x11_h__
 
-#if defined HAVE_CONFIG_H
-#include "config.h"
-#endif
+/**
+ * @file x11.h
+ * @breif Specification of an X11 Event loop 
+ * This file along with x11.cpp implement an X11 Event loop to
+ * process and dispatch events to the specified EventManager.
+ * 
+ * @see x11.cpp
+ */
 
-namespace OpenArena
-{
+#include "EventManager.h"
 
-class Model
-{
-public:
-	Model();
-	virtual ~Model();
-};
+bool RT();
 
-}
-
-#endif /*MODEL_H_*/
+#endif /*__x11_h__*/

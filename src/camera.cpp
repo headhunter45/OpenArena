@@ -1,3 +1,22 @@
+/***************************************************************************
+ *   Copyright (C) 2006 by Tom Hicks   *
+ *   tomhicks@cse.buffalo.edu   *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
 ////////////////////////////////////////////////////////////////////////////////
 //
 //	Module:		camera.cpp
@@ -75,7 +94,6 @@ namespace OpenArena
 	
 	void Camera::SetViewByMouse(Window window)
 	{
-		#if defined USE_GLX
 		static double currentRotX = 0.0f;
 		Vec2i pos;
 		Vec2i middle;
@@ -106,43 +124,6 @@ namespace OpenArena
 				//RotateView((middle.x-pos.x)/1000.0, m_vUpVector.x, m_vUpVector.y, m_vUpVector.z);
 			}
 		}		
-		#elif defined USE_AGL
-		#error unimplemented method
-		#elif defined USE_CGL
-		#error unimplemented method
-		#elif defined USE_WGL
-		static double currentRotX = 0.0f;
-		POINT mpos;
-		POINT middle;
-		double angleZ;
-		middle.x = window.GetWidth() / 2;
-		middle.y = window.GetHeight() / 2;
-		GetCursorPos(&mpos);
-		SetCursorPos(middle.x, middle.y);							
-		if(mpos.x != middle.x || mpos.y != middle.y)
-		{
-			angleZ = double(middle.y - mpos.y) / 1000.0f;		
-			currentRotX -= angleZ;  
-			
-			if(currentRotX > 1.0f)
-				currentRotX = 1.0f;
-			else if(currentRotX < -1.0f)
-				currentRotX = -1.0f;
-			else
-			{
-				Vec3f axis = (_heading).cross(_up);
-				axis.normalize();
-							
-				RotateView(angleZ, axis.x, axis.y, axis.z);
-	
-				//need to switch these two when I figure out stuff for flight
-				//till then I think the first is faster
-	
-				RotateView(double(middle.x - mpos.x) / 1000.0f, 0, 1, 0);
-				//RotateView(double(middle.x - mpos.x) / 1000.0f, m_vUpVector.x, m_vUpVector.y, m_vUpVector.z);
-			}
-		}
-		#endif
 	}
 	
 	void Camera::MoveCamera(double speed)

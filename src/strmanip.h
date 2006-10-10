@@ -1,3 +1,22 @@
+/***************************************************************************
+ *   Copyright (C) 2006 by Tom Hicks   *
+ *   tomhicks@cse.buffalo.edu   *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
 #ifndef __strmanip_h__
 #define __strmanip_h__
 
@@ -100,75 +119,72 @@ float Floating(string str);
  * Separate items with the '|' character.
  */
 uint8 KeyName(string str);
-/*!
- * \brief
+
+/**
+ * @brief
  * Write brief comment for KeyString here.
  * 
- * \param 
- * Description of parameter .
+ * @param keyCode - Description of parameter .
  * 
- * \returns
+ * @returns
  * Write description of return value here.
- * 
- * \throws <exception class>
- * Description of criteria for throwing this exception.
  * 
  * Write detailed description for KeyString here.
  * 
- * \remarks
+ * @remarks
  * Write remarks for KeyString here.
  * 
- * \see
+ * @see
  * Separate items with the '|' character.
  */
-string KeyString(uint8);
+string KeyString(uint8 keyCode);
 /*!
- * \brief
+ * @brief
  * Write brief comment for Right here.
  * 
- * \param 
+ * @param 
  * Description of parameter .
  * 
- * \param 
+ * @param 
  * Description of parameter .
  * 
- * \returns
+ * @returns
  * Write description of return value here.
  * 
- * \throws <exception class>
+ * @throws <exception class>
  * Description of criteria for throwing this exception.
  * 
  * Write detailed description for Right here.
  * 
- * \remarks
+ * @remarks
  * Write remarks for Right here.
  * 
- * \see
+ * @see
  * Separate items with the '|' character.
  */
 string Right(string, uint32);
 /*!
- * \brief
+ * @brief
  * Write brief comment for Left here.
  * 
- * \param 
+ * @param 
  * Description of parameter .
  * 
- * \param 
+ * @param 
  * Description of parameter .
  * 
- * \returns
+ * @returns
  * Write description of return value here.
  * 
- * \throws <exception class>
+ * @throws <exception class>
  * Description of criteria for throwing this exception.
  * 
  * Write detailed description for Left here.
  * 
- * \remarks
+ * @remarks
  * Write remarks for Left here.
  * 
- * \see
+ * @see
  * Separate items with the '|' character.
  */
 string Left(string, uint32);

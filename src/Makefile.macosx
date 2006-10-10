@@ -6,7 +6,7 @@ X11INCLUDEDIR = /usr/X11R6/include
 X11LIBDIR = /usr/X11R6/lib
 INCLUDE_DIRS = -I$(X11INCLUDEDIR) -DHAVE_CONFIG_H
 LIBRARY_DIRS = -L$(X11LIBDIR)
-OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o player.o strmanip.o tga.o vector.o window.o keys.o main.o
+OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o player.o strmanip.o tga.o vector.o window.o keys.o main.o x11.o EventManager.o
 LIBS = $(LIBRARY_DIRS) -lGL -lGLU -lXxf86vm -lX11
 LIBRARIES = 
 SO_LIBS = 
@@ -83,3 +83,9 @@ keys.o: keys.cpp keys.h config.h
 
 main.o: macosx.cpp main.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o main.o macosx.cpp
+	
+x11.o: x11.cpp x11.h EventManager.h
+	$(CPP) -c $(INCLUDE_DIRS) -o x11.o x11.cpp
+
+EventManager.o: EventManager.cpp EventManager.h
+	$(CPP) -c $(INCLUDE_DIRS) -o EventManager.o EventManager.cpp

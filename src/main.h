@@ -1,3 +1,22 @@
+/***************************************************************************
+ *   Copyright (C) 2006 by Tom Hicks   *
+ *   tomhicks@cse.buffalo.edu   *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
 #ifndef __main_h__
 #define __main_h__
 
@@ -34,20 +53,19 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Variables
 
-static bool		keys[256];			// Array for which keys are down now
-static bool		keys2[256];			// Array for which keys are were down already
-static bool		active=true;		// Is window active flag
-static bool		fullscreen=true;	// Is window fullscreen flag
-//static bool		showConsole = false;// Do we need to draw the console
-static OpenArena::Vec2i	g_mousePosition;
-
+extern bool		keys[256];			// Array for which keys are down now
+extern bool		keys2[256];			// Array for which keys are were down already
+extern bool		active;		// Is window active flag
+extern bool		fullscreen;	// Is window fullscreen flag
+//extern bool		showConsole = false;// Do we need to draw the console
+extern OpenArena::Vec2i	g_mousePosition;
 
 
 #ifdef WIN32
-static POINT mpos;
+extern POINT mpos;
 #endif
-static float lastTime = 0.0f;		// This will hold the time from the last frame
-static float currentTime;
+extern float lastTime;		// This will hold the time from the last frame
+extern float currentTime;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Function Declarations

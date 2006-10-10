@@ -17,23 +17,20 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#ifndef MODEL_H_
-#define MODEL_H_
-
-#if defined HAVE_CONFIG_H
-#include "config.h"
-#endif
+/**
+ * @file EventManager.cpp
+ * @breif Implementation of the EventManager class 
+ * This file along with EventManager.h implement the EventManager
+ * class.  The EventManager class collects and redistributes events
+ * in a fashion similar to AWT's EventListeners.
+ * 
+ * @see EventManager.h
+ */
+#include "EventManager.h"
 
 namespace OpenArena
 {
-
-class Model
-{
-public:
-	Model();
-	virtual ~Model();
+	EventManager::EventManager()
+	{
+	};
 };
-
-}
-
-#endif /*MODEL_H_*/
