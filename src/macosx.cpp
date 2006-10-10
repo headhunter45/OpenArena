@@ -30,6 +30,7 @@
 #ifdef __APPLE__
 #include "main.h"
 #include "version.h"
+#include "x11.h"
 //include necessary header files
 using namespace std;
 unsigned char TranslateKey(int keyCode);
@@ -42,69 +43,21 @@ void HandleConsoleKeyPress(OpenArena::Keys key);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Function Definitions
 
-void ResizeGLScene(GLsizei width, GLsizei height)
-{
-	if(height == 0)
-		height = 1;
-
-	glViewport(0,0,width, height);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluPerspective(45.0f, (GLfloat)width/height, 0.1f, 100.0f);
-	glMatrixMode(GL_MODELVIEW);
-}
-
 int DrawGLScene()
 {
+	//The context is somehow different if this call is inside the RT function
 	level.Render();
 
-	g_Screen.SwapBuffers();
+	RT();
 	
 	return true;
-}
-
-//
-//void InitControls()
-//  Purpose:
-//	    Initializes controls by loading the default control config file "my.cfg".
-void InitControls()
-{
-	if (!level.LoadConfig("my.cfg"))
-		level.LoadConfig();
 }
 
 //
 //int InitGL(GLvoid)
 //	Purpose:
 //		To do all required setup before creating an OpenGL window
-int InitGL(GLvoid)
-{
-	level.LoadGLTextures();
-
-	glEnable(GL_TEXTURE_2D);
-	glShadeModel(GL_SMOOTH);
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	glClearDepth(1.0f);
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LEQUAL);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-
-	/*lighting disabled temporarily
-	glLightfv(GL_LIGHT1, GL_AMBIENT, level.LightAmbient);
-	for(index=0; index<level.numLights; index++)
-	{
-	glLightfv(GL_LIGHT1, GL_DIFFUSE, level.light[index].color);
-	glLightfv(GL_LIGHT1, GL_POSITION, level.light[index].coords);
-	}
-
-	glEnable(GL_LIGHT1);
-	glEnable(GL_LIGHTING);
-	*/
-	//BuildFont();
-	return true;
-}
-
+///*
 int main(int argc, char** argv)
 {
 	XEvent event;
@@ -146,6 +99,7 @@ int main(int argc, char** argv)
 	}
 	
 	level.SetWindow(&g_Screen);
+	
 	level.LoadGLTextures();
 
 	while(!done)
@@ -544,6 +498,7 @@ int main(int argc, char** argv)
 	g_Screen.Close();
 	exit(0);
 }
+/**/
 
 #elif defined USE_AGL
 #error

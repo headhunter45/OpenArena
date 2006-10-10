@@ -50,11 +50,39 @@
 #include "main.h"
 #include "version.h"
 
-int DrawGLScene();
-unsigned char TranslateButton(int keyCode);
-unsigned char TranslateKey(int keyCode);
-void ResizeGLScene(GLsizei width, GLsizei height);
-void HandleConsoleKeyPress(OpenArena::Keys key);
+void InitControls()
+{
+	if (!level.LoadConfig("my.cfg"))
+		level.LoadConfig();
+}
+
+int InitGL(GLvoid)
+{
+	level.LoadGLTextures();
+
+	glEnable(GL_TEXTURE_2D);
+	glShadeModel(GL_SMOOTH);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClearDepth(1.0f);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+
+	/*lighting disabled temporarily
+	glLightfv(GL_LIGHT1, GL_AMBIENT, level.LightAmbient);
+	for(index=0; index<level.numLights; index++)
+	{
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, level.light[index].color);
+	glLightfv(GL_LIGHT1, GL_POSITION, level.light[index].coords);
+	}
+
+	glEnable(GL_LIGHT1);
+	glEnable(GL_LIGHTING);
+	*/
+	//BuildFont();
+	return true;
+}
 
 //This should probably be moved into oa_input
 unsigned char TranslateKey(int keyCode)
@@ -397,7 +425,19 @@ void HandleConsoleKeyPress(OpenArena::Keys key)
 	}
 }
 
-bool RT()
+void ResizeGLScene(GLsizei width, GLsizei height)
 {
+	if(height == 0)
+		height = 1;
 
+	glViewport(0,0,width, height);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(45.0f, (GLfloat)width/height, 0.1f, 100.0f);
+	glMatrixMode(GL_MODELVIEW);
+}
+
+void RT()
+{
+	g_Screen.SwapBuffers();
 }

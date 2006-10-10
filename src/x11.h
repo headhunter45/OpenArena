@@ -28,9 +28,18 @@
  * 
  * @see x11.cpp
  */
-
+ 
+#include "mygl.h"
 #include "EventManager.h"
 
-bool RT();
+int DrawGLScene();
+unsigned char TranslateButton(int keyCode);
+unsigned char TranslateKey(int keyCode);
+void ResizeGLScene(GLsizei width, GLsizei height);
+void HandleConsoleKeyPress(OpenArena::Keys key);
+int DrawGLScene();
+void InitControls();
+int InitGL(GLvoid);
+void RT();
 
 #endif /*__x11_h__*/
