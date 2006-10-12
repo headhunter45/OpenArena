@@ -50,6 +50,14 @@
 #include "main.h"
 #include "version.h"
 
+void InitControls(OpenArena::EventManager* em)
+{
+	if (!level.LoadConfig("my.cfg"))
+	{
+		level.LoadConfig();
+	}
+}
+
 void InitControls()
 {
 	if (!level.LoadConfig("my.cfg"))

@@ -39,6 +39,7 @@ void ResizeGLScene(GLsizei width, GLsizei height);
 void HandleConsoleKeyPress(OpenArena::Keys key);
 int DrawGLScene();
 void InitControls();
+void InitControls(OpenArena::EventManager* em);
 int InitGL(GLvoid);
 void RT();
 
