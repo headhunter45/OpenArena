@@ -130,5 +130,6 @@ int InitGL();						// All setup for OpenGL goes here
  * Separate items with the '|' character.
  */
 void ReSizeGLScene(GLsizei width, GLsizei height);	// Resize and initialize the GL window
+int DrawGLScene();
 
 #endif
