@@ -27,10 +27,31 @@
  * @see EventManager.h
  */
 #include "EventManager.h"
+#include <cstdlib>
+#include <iostream>
 
 namespace OpenArena
 {
 	EventManager::EventManager()
 	{
-	};
+	}
+	
+	void EventManager::SendEvent(Event* event)
+	{
+		unsigned int index;
+		
+		for(index=0; index < eventHandlers.Length(); index++)
+		{
+			Event::EventHandler* handler = eventHandlers[index];
+			if(handler->Handles(event->GetEventType()))
+			{
+				handler->HandleEvent(event);
+			}
+		}
+	}
+	
+	void EventManager::RegisterEventHandler(Event::EventHandler* eventHandler)
+	{
+		eventHandlers.Insert(eventHandler);
+	}
 };

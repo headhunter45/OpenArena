@@ -20,6 +20,9 @@
 #ifndef __OpenArena_EventMangaer_h__
 #define __OpenArena_EventMangaer_h__
 
+#include "Events/Event.h"
+#include "list.h"
+
 /**
  * @file EventManager.h
  * @breif Specification of the EventManager class 
@@ -36,6 +39,10 @@ namespace OpenArena
 	{
 	public:
 		EventManager();
+		void SendEvent(Event* event);
+		void RegisterEventHandler(Event::EventHandler* eventHandler);
+	private:
+		list<Event::EventHandler*> eventHandlers;
 	};
 }
 #endif /*__OpenArena_EventMangaer_h__*/
