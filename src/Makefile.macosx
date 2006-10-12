@@ -6,7 +6,8 @@ X11INCLUDEDIR = /usr/X11R6/include
 X11LIBDIR = /usr/X11R6/lib
 INCLUDE_DIRS = -I$(X11INCLUDEDIR) -DHAVE_CONFIG_H
 LIBRARY_DIRS = -L$(X11LIBDIR)
-OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o player.o strmanip.o tga.o vector.o window.o keys.o main.o x11.o EventManager.o
+OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o player.o
+OBJECTS += strmanip.o tga.o vector.o window.o keys.o main.o x11.o EventManager.o Events/DrawEvent.o
 LIBS = $(LIBRARY_DIRS) -lGL -lGLU -lXxf86vm -lX11
 LIBRARIES = 
 SO_LIBS = 
@@ -20,6 +21,7 @@ all: ../OpenArena
 clean: 
 	rm -f *.o
 	if [ -f ../OpenArena ]; then rm ../OpenArena; fi
+	rm -f */*.o
 	
 install:
 
@@ -39,6 +41,9 @@ oa_video.so:
 oa_input.so:
 
 #Object Files
+DrawEvent.o: Events/DrawEvent.cpp Events/DrawEvent.h
+	$(CPP) -c $(INCLUDE_DIRS) -o Events/DrawEvent.o Events/DrawEvent.cpp
+	
 screen.o: screen.cpp screen.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o screen.o screen.cpp
 
@@ -81,11 +86,11 @@ window.o: window.cpp window.h config.h
 keys.o: keys.cpp keys.h config.h
 	$(CPP) -c $(INCLUDE_DIRS) -o keys.o keys.cpp
 
-main.o: macosx.cpp main.h config.h
+main.o: macosx.cpp main.h config.h Events/Event.h Events/DrawEvent.h EventManager.h
 	$(CPP) -c $(INCLUDE_DIRS) -o main.o macosx.cpp
 	
 x11.o: x11.cpp x11.h EventManager.h
 	$(CPP) -c $(INCLUDE_DIRS) -o x11.o x11.cpp
 
-EventManager.o: EventManager.cpp EventManager.h
+EventManager.o: EventManager.cpp EventManager.h Events/Event.h
 	$(CPP) -c $(INCLUDE_DIRS) -o EventManager.o EventManager.cpp
