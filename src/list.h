@@ -789,7 +789,7 @@ namespace OpenArena{
 		else
 		{
 			int len = 1;
-			listNode<ItemType> temp = head->next;
+			listNode<ItemType>* temp = head->next;
 			while (temp != NULL)
 			{
 				temp = temp->next;
