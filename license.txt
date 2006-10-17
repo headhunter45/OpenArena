@@ -1,1 +1,0 @@
-This program can be distributed under either the GPL or the QTPL.  Copies of which will soon be added to this distribution.
