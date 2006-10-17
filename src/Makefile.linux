@@ -2,7 +2,9 @@
 CPP = g++ -g
 INCLUDES = -I/usr/X11R6/include
 LD = g++
-OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o player.o strmanip.o tga.o vector.o window.o keys.o main.o
+OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o player.o
+OBJECTS += strmanip.o tga.o vector.o window.o keys.o main.o x11.o EventManager.o Events/DrawEvent.o
+OBJECTS += Events/Event.o Object.o Events/KeyPressEvent.o Events/KeyReleaseEvent.o
 LIBS = -L/usr/X11R6/lib -lGL -lGLU -lXxf86vm
 LIBRARIES = 
 SO_LIBS = 
@@ -36,6 +38,21 @@ oa_video.so:
 oa_input.so:
 
 #Object Files
+Events/Event.o: Events/Event.cpp Events/Event.h Object.h
+	$(CPP) $(CPPFLAGS) -c $(INCLUDE_DIRS) -o Events/Event.o Events/Event.cpp
+
+Object.o: Object.cpp Object.h
+	$(CPP) $(CPPFLAGS) -c $(INCLUDE_DIRS) -o Object.o Object.cpp
+	
+Events/KeyPressEvent.o: Events/KeyPressEvent.cpp Events/KeyPressEvent.h Events/Event.h
+	$(CPP) $(CPPFLAGS) -c $(INCLUDE_DIRS) -o Events/KeyPressEvent.o Events/KeyPressEvent.cpp
+	
+Events/KeyReleaseEvent.o: Events/KeyReleaseEvent.cpp Events/KeyReleaseEvent.h Events/Event.h
+	$(CPP) $(CPPFLAGS) -c $(INCLUDE_DIRS) -o Events/KeyReleaseEvent.o Events/KeyReleaseEvent.cpp
+	
+Events/DrawEvent.o: Events/DrawEvent.cpp Events/DrawEvent.h Events/Event.h
+	$(CPP) $(CPPFLAGS) -c $(INCLUDE_DIRS) -o Events/DrawEvent.o Events/DrawEvent.cpp
+	
 screen.o: screen.cpp screen.h config.h
 	$(CPP) $(CPPFLAGS) -c -o screen.o screen.cpp
 

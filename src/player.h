@@ -41,7 +41,7 @@ namespace OpenArena
 		
 		ControlScheme controls;
 		Camera camera;
-		EventManager eventManager;
+		EventManager* eventManager;
 	
 		class EventHandler
 		{
