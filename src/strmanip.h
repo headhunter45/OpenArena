@@ -97,28 +97,6 @@ int Integer(string str);
  * Separate items with the '|' character.
  */
 float Floating(string str);
-/*!
- * \brief
- * Write brief comment for KeyName here.
- * 
- * \param str
- * Description of parameter str.
- * 
- * \returns
- * Write description of return value here.
- * 
- * \throws <exception class>
- * Description of criteria for throwing this exception.
- * 
- * Write detailed description for KeyName here.
- * 
- * \remarks
- * Write remarks for KeyName here.
- * 
- * \see
- * Separate items with the '|' character.
- */
-uint8 KeyName(string str);
 
 /**
  * @brief

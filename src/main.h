@@ -28,7 +28,7 @@
 #include <GL/gl.h>			// Header file for OpenGL32 library
 #include <GL/glu.h>			// Header file for Glu32 library
 #elif defined USE_AGL
-#error unimplemented method
+#include "mygl.h"
 #elif defined USE_CGL
 #error unimplemented method
 #elif defined USE_WGL
@@ -130,6 +130,6 @@ int InitGL();						// All setup for OpenGL goes here
  * Separate items with the '|' character.
  */
 void ReSizeGLScene(GLsizei width, GLsizei height);	// Resize and initialize the GL window
-int DrawGLScene();
+int DrawGLScene(OpenArena::Level* level);
 
 #endif

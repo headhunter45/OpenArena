@@ -47,26 +47,13 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 #include "x11.h"
+#if defined USE_GLX
 #include "main.h"
 #include "version.h"
 
-void InitControls(OpenArena::EventManager* em)
+int InitGL(OpenArena::Level* level)
 {
-	if (!level.LoadConfig("my.cfg"))
-	{
-		level.LoadConfig();
-	}
-}
-
-void InitControls()
-{
-	if (!level.LoadConfig("my.cfg"))
-		level.LoadConfig();
-}
-
-int InitGL(GLvoid)
-{
-	level.LoadGLTextures();
+	level->LoadGLTextures();
 
 	glEnable(GL_TEXTURE_2D);
 	glShadeModel(GL_SMOOTH);
@@ -78,11 +65,11 @@ int InitGL(GLvoid)
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
 	/*lighting disabled temporarily
-	glLightfv(GL_LIGHT1, GL_AMBIENT, level.LightAmbient);
-	for(index=0; index<level.numLights; index++)
+	glLightfv(GL_LIGHT1, GL_AMBIENT, level->LightAmbient);
+	for(index=0; index<level->numLights; index++)
 	{
-	glLightfv(GL_LIGHT1, GL_DIFFUSE, level.light[index].color);
-	glLightfv(GL_LIGHT1, GL_POSITION, level.light[index].coords);
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, level->light[index].color);
+	glLightfv(GL_LIGHT1, GL_POSITION, level->light[index].coords);
 	}
 
 	glEnable(GL_LIGHT1);
@@ -93,7 +80,7 @@ int InitGL(GLvoid)
 }
 
 //This should probably be moved into oa_input
-unsigned char TranslateKey(int keyCode)
+OpenArena::Keys TranslateKey(int keyCode)
 {
 	switch (keyCode)
 	{
@@ -335,46 +322,23 @@ unsigned char TranslateKey(int keyCode)
 	case XK_slash:
 		return OpenArena::KEY_OEM_2;
 	case XK_Alt_L:
-		return OpenArena::KEY_UNKNOWN;
+		return OpenArena::KEY_ALT_L;
 	case XK_Alt_R:
-		return OpenArena::KEY_UNKNOWN;
-
-/*These keys definately still need to be accounted for
-` 96
-pause 65299
-win 65515
-apps 65383
-- 45
-= 61
-[ 91
-] 93
-\ 92
-; 59
-' 39
-' 47
-left alt 65513
-right alt 65514
-
-#define KEY_LBUTTON		1
-#define KEY_RBUTTON		2
-#define KEY_MBUTTON 	3
-#define KEY_LWIN		21
-#define KEY_RWIN		22
-#define KEY_APPS		23
-#define KEY_OEM_1		53
-#define KEY_OEM_2		54
-#define KEY_OEM_3		55
-#define KEY_OEM_4		56
-#define KEY_OEM_5		57
-#define KEY_OEM_6		58
-#define KEY_OEM_7		59
-*/
+		return OpenArena::KEY_ALT_L;
+	case XK_equal:
+		return OpenArena::KEY_OEM_PLUS;
+	case XK_Mode_switch:
+		return OpenArena::KEY_OPTION;
+	case XK_Meta_L:
+		return OpenArena::KEY_COMMAND;
+	case 16777219:
+		return OpenArena::KEY_ENTER;
 	default:
 		return OpenArena::KEY_UNKNOWN;
 	}
 }
 
-unsigned char TranslateButton(int keyCode)
+OpenArena::Keys TranslateButton(int keyCode)
 {
 	switch(keyCode)
 	{
@@ -391,44 +355,36 @@ unsigned char TranslateButton(int keyCode)
 	}
 }
 
-void HandleConsoleKeyPress(OpenArena::Keys key)
+void HandleConsoleKeyPress(OpenArena::Keys key, OpenArena::Level* level)
 {
-	//See if we need to hide the console
-	level.defaultPlayer[0].controls.toggleConsole.FirstPosition();
-	if(key == level.defaultPlayer[0].controls.toggleConsole.Retrieve())
+	if(level->defaultPlayer[0].controls.IsBound(key, OpenArena::ControlScheme::ACTION_TOGGLE_CONSOLE))
 	{
-		level.showConsole = false;
+		level->showConsole = false;
 	}
-	else
-	{
-		while(level.defaultPlayer[0].controls.toggleConsole.NextPosition() && level.showConsole)
-		{
-			if(level.defaultPlayer[0].controls.toggleConsole.Retrieve() == key)
-			{
-				level.showConsole = false;
-			}
-		}
-	}
+
 	switch (key)
 	{
 	case OpenArena::KEY_SHIFT:
 		keys[OpenArena::KEY_SHIFT] = true;
 		break;
 	case OpenArena::KEY_RETURN:
-		level.UpdateConsole('\n');
+		level->UpdateConsole('\n');
 		break;
 	case OpenArena::KEY_SPACE:
 		printf("hello");
-		level.UpdateConsole(' ');
+		level->UpdateConsole(' ');
 		break;
 	case OpenArena::KEY_BACK:
-		level.UpdateConsole(OpenArena::KEY_BACK);
+		level->UpdateConsole(OpenArena::KEY_BACK);
+		break;
+	case OpenArena::KEY_ESCAPE:
+		level->showConsole = false;
 		break;
 	default:
 		char ascii = OpenArena::KeyToASCII(key, keys[OpenArena::KEY_SHIFT]);
 		if(ascii != '\0')
 		{
-			level.UpdateConsole(ascii);
+			level->UpdateConsole(ascii);
 		}
 	}
 }
@@ -447,5 +403,6 @@ void ResizeGLScene(GLsizei width, GLsizei height)
 
 void RT()
 {
-	g_Screen.SwapBuffers();
 }
+
+#endif /* USE_GLX */

@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2006 by Tom Hicks   *
- *   tomhicks@cse.buffalo.edu   *
+ *   Copyright (C) 2006 by Tom Hicks                                       *
+ *   tomhicks@cse.buffalo.edu                                              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -36,21 +36,40 @@ namespace OpenArena
 	{
 	}
 	
-	void EventManager::SendEvent(Event* event)
+
+	void EventManager::SendEvent(Events::Event* event)
 	{
 		unsigned int index;
 		
 		for(index=0; index < eventHandlers.Length(); index++)
 		{
-			Event::EventHandler* handler = eventHandlers[index];
+			Events::Event::EventHandler* handler = eventHandlers[index];
 			if(handler->Handles(event->GetEventType()))
 			{
 				handler->HandleEvent(event);
 			}
 		}
+		
+		delete event;
 	}
 	
-	void EventManager::RegisterEventHandler(Event::EventHandler* eventHandler)
+	/*
+	void EventManager::SendEvent(Events::Event event)
+	{
+		unsigned int index;
+		
+		for(index=0; index < eventHandlers.Length(); index++)
+		{
+			Events::Event::EventHandler* handler = eventHandlers[index];
+			if(handler->Handles(event.GetEventType()))
+			{
+				handler->HandleEvent(event);
+			}
+		}
+	}
+	*/
+	
+	void EventManager::RegisterEventHandler(Events::Event::EventHandler* eventHandler)
 	{
 		eventHandlers.Insert(eventHandler);
 	}

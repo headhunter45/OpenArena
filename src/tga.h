@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2006 by Tom Hicks   *
- *   tomhicks@cse.buffalo.edu   *
+ *   Copyright (C) 2006 by Tom Hicks                                       *
+ *   tomhicks@cse.buffalo.edu                                              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -24,11 +24,7 @@
 #include "config.h"
 #endif
 
-#pragma comment(lib, "OpenGL32.lib")
-#ifdef WIN32
-#include <windows.h> //I think this was only needed because gl.h uses it
-#endif
-#include <GL/gl.h>
+#include "mygl.h"
 #include <cstdio>
 #include <string>
 #include "texture.h"

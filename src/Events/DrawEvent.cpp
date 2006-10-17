@@ -1,30 +1,45 @@
 #include "DrawEvent.h"
 #include "../main.h"
 
-OpenArena::DrawEvent::DrawEvent()
+namespace OpenArena
 {
-}
-
-OpenArena::DrawEvent::~DrawEvent()
-{
-}
-
-OpenArena::Event::EventType OpenArena::DrawEvent::GetEventType()
-{
-	return Event::DrawEventType;
-}
-
-bool OpenArena::DrawEvent::DrawEventHandler::Handles(OpenArena::Event::EventType type)
-{
-	if(type == Event::DrawEventType)
+	namespace Events
 	{
-		return true;
-	}
-
-	return false;
-}
-
-void OpenArena::DrawEvent::DrawEventHandler::HandleEvent(OpenArena::Event* event)
-{
-	DrawGLScene();
-}
+		
+		DrawEvent::DrawEvent()
+		{
+			SetEventType(Event::DrawEventType);
+		}
+		
+		DrawEvent::~DrawEvent()
+		{
+		}
+		
+		bool DrawEvent::DrawEventHandler::Handles(Event::EventType type)
+		{
+			if(type == Event::DrawEventType)
+			{
+				return true;
+			}
+		
+			return false;
+		}
+		
+		/*
+		void DrawEvent::DrawEventHandler::HandleEvent(Event event)
+		{
+			DrawGLScene();
+		}
+		*/
+		
+		void DrawEvent::DrawEventHandler::HandleEvent(Event* event)
+		{
+			DrawGLScene(_level);
+		}
+		
+		DrawEvent::DrawEventHandler::DrawEventHandler(Level* level)
+		{
+			_level = level;
+		}
+	};
+};

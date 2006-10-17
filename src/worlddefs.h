@@ -26,6 +26,6 @@
 
 #include "level.h"
 
-static OpenArena::Level level;
+//static OpenArena::Level level;
 
 #endif

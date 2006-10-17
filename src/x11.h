@@ -19,28 +19,22 @@
  ***************************************************************************/
 #ifndef __x11_h__
 #define __x11_h__
-
-/**
- * @file x11.h
- * @breif Specification of an X11 Event loop 
- * This file along with x11.cpp implement an X11 Event loop to
- * process and dispatch events to the specified EventManager.
- * 
- * @see x11.cpp
- */
+#if defined HAVE_CONFIG_H
+#include "config.h"
+#endif
  
+#if defined USE_GLX
 #include "mygl.h"
 #include "EventManager.h"
+#include "level.h"
 
 int DrawGLScene();
-unsigned char TranslateButton(int keyCode);
-unsigned char TranslateKey(int keyCode);
+OpenArena::Keys TranslateButton(int keyCode);
+OpenArena::Keys TranslateKey(int keyCode);
 void ResizeGLScene(GLsizei width, GLsizei height);
 void HandleConsoleKeyPress(OpenArena::Keys key);
-int DrawGLScene();
-void InitControls();
-void InitControls(OpenArena::EventManager* em);
-int InitGL(GLvoid);
-void RT();
-
-#endif /*__x11_h__*/
+int DrawGLScene(OpenArena::Level* level);
+int InitGL(OpenArena::Level* level);
+void HandleConsoleKeyPress(OpenArena::Keys key, OpenArena::Level* level);
+#endif /* USE_GLX */
+#endif /* __x11_h__ */

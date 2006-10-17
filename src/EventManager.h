@@ -22,16 +22,6 @@
 
 #include "Events/Event.h"
 #include "list.h"
-
-/**
- * @file EventManager.h
- * @breif Specification of the EventManager class 
- * This file along with EventManager.cpp implement the EventManager
- * class.  The EventManager class collects and redistributes events
- * in a fashion similar to AWT's EventListeners.
- * 
- * @see EventManager.cpp
- */
  
 namespace OpenArena
 {
@@ -39,10 +29,10 @@ namespace OpenArena
 	{
 	public:
 		EventManager();
-		void SendEvent(Event* event);
-		void RegisterEventHandler(Event::EventHandler* eventHandler);
+		void SendEvent(Events::Event* event);
+		void RegisterEventHandler(Events::Event::EventHandler* eventHandler);
 	private:
-		list<Event::EventHandler*> eventHandlers;
+		list<Events::Event::EventHandler*> eventHandlers;
 	};
 }
 #endif /*__OpenArena_EventMangaer_h__*/

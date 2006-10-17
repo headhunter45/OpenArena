@@ -1,30 +1,42 @@
 #ifndef __OpenArena_Event_h__
 #define __OpenArena_Event_h__
+#include "../Object.h"
 
 namespace OpenArena
 {
-	class Event
+	namespace Events
 	{
-	public:
-		enum EventType
-		{
-			InputEventType,
-			DrawEventType
-		};
-
-		class EventHandler
+		class Event :public Object
 		{
 		public:
-			virtual bool Handles(Event::EventType eventType) = 0;
-			virtual void HandleEvent(Event* event) = 0;
-//			virtual ~EventHandler(){};
+			enum EventType
+			{
+				InputEventType,
+				DrawEventType,
+				KeyPressEventType,
+				KeyReleaseEventType,
+				AxisMotionEventType,
+				UnknownEventType
+			};
+	
+			class EventHandler
+			{
+			public:
+				EventHandler();
+				virtual bool Handles(Event::EventType eventType);
+				virtual void HandleEvent(Event* event);
+				//virtual void HandleEvent(Event event);
+				virtual ~EventHandler();
+			};
+			
+			Event();
+			virtual ~Event();
+			EventType GetEventType();
+		protected:
+			void SetEventType(EventType type);
+		private:
+			EventType _type;
 		};
-		
-		virtual EventType GetEventType() = 0;
-		
-		//remove this
-		Event(){};
-		virtual ~Event(){};
 	};
 };
 #endif //__OpenArena_Event_h__

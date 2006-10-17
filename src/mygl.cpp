@@ -82,4 +82,4 @@ namespace OpenArena
 	}
 };
 	
-OpenArena::Window g_Screen;
+OpenArena::Window* g_Screen = new OpenArena::Window();

@@ -8,12 +8,13 @@ INCLUDE_DIRS = -I$(X11INCLUDEDIR) -DHAVE_CONFIG_H
 LIBRARY_DIRS = -L$(X11LIBDIR)
 OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o player.o
 OBJECTS += strmanip.o tga.o vector.o window.o keys.o main.o x11.o EventManager.o Events/DrawEvent.o
+OBJECTS += Events/Event.o Object.o Events/KeyPressEvent.o Events/KeyReleaseEvent.o
 LIBS = $(LIBRARY_DIRS) -lGL -lGLU -lXxf86vm -lX11
 LIBRARIES = 
 SO_LIBS = 
 SO_LIBRARIES = oa_game.so oa_audio.so oa_net.so oa_video.so oa_input.so
 CPPFLAGS = $(INCLUDE_DIRS)
-LDFLAGS = $(LIBS) -bind_at_load --disable-framework=/Library/Frameworks/OpenGL
+LDFLAGS = $(LIBS) -bind_at_load -framework OpenGL -framework AGL -framework Carbon
 .Phony: all clean install
 
 all: ../OpenArena
@@ -41,7 +42,19 @@ oa_video.so:
 oa_input.so:
 
 #Object Files
-DrawEvent.o: Events/DrawEvent.cpp Events/DrawEvent.h
+Events/Event.o: Events/Event.cpp Events/Event.h Object.h
+	$(CPP) -c $(INCLUDE_DIRS) -o Events/Event.o Events/Event.cpp
+
+Object.o: Object.cpp Object.h
+	$(CPP) -c $(INCLUDE_DIRS) -o Object.o Object.cpp
+	
+Events/KeyPressEvent.o: Events/KeyPressEvent.cpp Events/KeyPressEvent.h Events/Event.h
+	$(CPP) -c $(INCLUDE_DIRS) -o Events/KeyPressEvent.o Events/KeyPressEvent.cpp
+	
+Events/KeyReleaseEvent.o: Events/KeyReleaseEvent.cpp Events/KeyReleaseEvent.h Events/Event.h
+	$(CPP) -c $(INCLUDE_DIRS) -o Events/KeyReleaseEvent.o Events/KeyReleaseEvent.cpp
+	
+Events/DrawEvent.o: Events/DrawEvent.cpp Events/DrawEvent.h Events/Event.h
 	$(CPP) -c $(INCLUDE_DIRS) -o Events/DrawEvent.o Events/DrawEvent.cpp
 	
 screen.o: screen.cpp screen.h config.h
@@ -89,7 +102,7 @@ keys.o: keys.cpp keys.h config.h
 main.o: macosx.cpp main.h config.h Events/Event.h Events/DrawEvent.h EventManager.h
 	$(CPP) -c $(INCLUDE_DIRS) -o main.o macosx.cpp
 	
-x11.o: x11.cpp x11.h EventManager.h
+x11.o: x11.cpp x11.h EventManager.h main.h mygl.h
 	$(CPP) -c $(INCLUDE_DIRS) -o x11.o x11.cpp
 
 EventManager.o: EventManager.cpp EventManager.h Events/Event.h

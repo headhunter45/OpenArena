@@ -39,255 +39,186 @@
 //
 //	Summary of Properties:
 //	ControlScheme
-//		-list<uint8> forward;
-//			A list of the VKeys associated with forward.
-//		-list<uint8> backward;
-//			A list of the VKeys associated with backward.
-//		-list<uint8> lookLeft;
-//			A list of the VKeys associated with turning left.
-//		-list<uint8> lookRight;
-//			A list of the VKeys associated with turning right.
-//		-list<uint8> lookUp;
-//			A list of the VKeys associated with looking up.
-//		-list<uint8> lookDown;
-//			A list of the VKeys associated with looking down.
-//		-list<uint8> moveLeft;
-//			A list of the VKeys associated with strafing left.
-//		-list<uint8> moveRight;
-//			A list of the VKeys associated with strafing right.
-//		-list<uint8> moveUp;
-//			A list of the VKeys associated with jumping.
-//		-list<uint8> moveDown;
-//			A list of the VKeys associated with crouching.
-//		-list<uint8> firePrimary;
-//			A list of the VKeys associated with activating the primary ability of the active item.
-//		-list<uint8> fireSecondary;
-//			A list of the VKeys associated with activating the secondary ablilty of the active item.
-//		-list<uint8> weaponNext;
-//			A list of the VKeys associated with switching to the next item.
-//		-list<uint8> weaponPrev;
-//			A list of the VKeys associated with switching to the previous item.
-//		-list<uint8> toggleLights;
-//			A list of the VKeys associated with turning lighting on and off.
-//		-list<uint8> toggleFPS;
-//			A list of the VKeys associated with turning the FPS display on and off.
-//		-list<uint8> toggleConsole;
-//			A list of the VKeys associated with toggling the display of the console.
-//		-list<uint8> toggleMouseLook;
-//			A list of the VKeys associated with toggling mouse look.
-//		-list<uint8> quickMouseLook;
-//			A list of the VKeys associated with temporarily switching the mouse look mode.
-//		-list<uint8> rollLeft;
-//			A list of the VKeys associated with rolling left.
-//		-list<uint8> rollRight;	
-//			A list of the VKeys associated with rolling right.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
 #include "ctrls.h"
+#include "strmanip.h"
+using std::string;
+using std::ostream;
+using std::endl;
 
 namespace OpenArena{
 	void ControlScheme::LoadDefaultControlScheme()
 	{
-		forward.Insert(OpenArena::KEY_LBUTTON);
-		backward.Insert(OpenArena::KEY_RBUTTON);
-		lookLeft.Insert(OpenArena::KEY_LEFT);
-		lookRight.Insert(OpenArena::KEY_RIGHT);
-		lookUp.Insert(OpenArena::KEY_UP);
-		lookDown.Insert(OpenArena::KEY_DOWN);
-		moveLeft.Insert(OpenArena::KEY_S);
-		moveRight.Insert(OpenArena::KEY_D);
-		moveUp.Insert(OpenArena::KEY_SPACE);
-		moveDown.Insert(OpenArena::KEY_A);
-		firePrimary.Insert(OpenArena::KEY_F);
-		fireSecondary.Insert(OpenArena::KEY_G);
-		weaponNext.Insert(OpenArena::KEY_T);
-		weaponPrev.Insert(OpenArena::KEY_R);
-		toggleLights.Insert(OpenArena::KEY_L);
-		toggleFPS.Insert(OpenArena::KEY_P);
-		toggleConsole.Insert(OpenArena::KEY_OEM_3);
-		toggleMouseLook.Insert(OpenArena::KEY_M);
-		quickMouseLook.Insert(OpenArena::KEY_Q);
-		rollLeft.Insert(OpenArena::KEY_W);
-		rollRight.Insert(OpenArena::KEY_E);
+		Bind(OpenArena::KEY_LBUTTON, ACTION_FORWARD);
+		Bind(OpenArena::KEY_RBUTTON, ACTION_BACKWARD);
+		Bind(OpenArena::KEY_LEFT, ACTION_LOOKLEFT);
+		Bind(OpenArena::KEY_RIGHT, ACTION_LOOKRIGHT);
+		Bind(OpenArena::KEY_UP, ACTION_LOOKUP);
+		Bind(OpenArena::KEY_DOWN, ACTION_LOOKDOWN);
+		Bind(OpenArena::KEY_S, ACTION_MOVELEFT);
+		Bind(OpenArena::KEY_D, ACTION_MOVERIGHT);
+		Bind(OpenArena::KEY_SPACE, ACTION_MOVEUP);
+		Bind(OpenArena::KEY_A, ACTION_MOVEDOWN);
+		Bind(OpenArena::KEY_F, ACTION_FIREPRIMARY);
+		Bind(OpenArena::KEY_G, ACTION_FIRESECONDARY);
+		Bind(OpenArena::KEY_T, ACTION_WEAPONNEXT);
+		Bind(OpenArena::KEY_R, ACTION_WEAPONPREV);
+		Bind(OpenArena::KEY_L, ACTION_TOGGLE_LIGHTS);
+		Bind(OpenArena::KEY_P, ACTION_TOGGLE_FPS);
+		Bind(OpenArena::KEY_OEM_3, ACTION_TOGGLE_CONSOLE);
+		Bind(OpenArena::KEY_M, ACTION_TOGGLE_MOUSELOOK);
+		Bind(OpenArena::KEY_Q, ACTION_QUICKMOUSELOOK);
+		Bind(OpenArena::KEY_W, ACTION_ROLLLEFT);
+		Bind(OpenArena::KEY_E, ACTION_ROLLRIGHT);
 	}
-	void ControlScheme::ClearControlScheme()
+	void ControlScheme::UnBindAll()
 	{
-		backward.Clear();
-		firePrimary.Clear();
-		fireSecondary.Clear();
-		forward.Clear();
-		lookDown.Clear();
-		lookUp.Clear();
-		lookRight.Clear();
-		lookLeft.Clear();
-		moveDown.Clear();
-		moveUp.Clear();
-		moveLeft.Clear();
-		moveRight.Clear();
-		quickMouseLook.Clear();
-		toggleConsole.Clear();
-		toggleFPS.Clear();
-		toggleLights.Clear();
-		toggleMouseLook.Clear();
-		weaponNext.Clear();
-		weaponPrev.Clear();
+		OpenArena::Keys key;
+		for(key=(OpenArena::Keys)0; key<(OpenArena::Keys)256; key = (OpenArena::Keys)(key+1))
+		{
+			UnBind(key);
+		}
 	}
 
-	void ControlScheme::Unbind(uint8 key)
+	void ControlScheme::UnBind(OpenArena::Keys key)
 	{
-		backward.Remove(key);
-		firePrimary.Remove(key);
-		fireSecondary.Remove(key);
-		forward.Remove(key);
-		lookDown.Remove(key);
-		lookUp.Remove(key);
-		lookRight.Remove(key);
-		lookLeft.Remove(key);
-		moveDown.Remove(key);
-		moveUp.Remove(key);
-		moveRight.Remove(key);
-		quickMouseLook.Remove(key);
-		toggleConsole.Remove(key);
-		toggleFPS.Remove(key);
-		toggleLights.Remove(key);
-		toggleMouseLook.Remove(key);
-		weaponNext.Remove(key);
-		weaponPrev.Remove(key);
+		keyActions[key] = ACTION_NONE;
 	}
 
-	bool ControlScheme::Bind(uint32 action, uint8 key)
+	void ControlScheme::Bind(OpenArena::Keys key, Action action)
+	{
+		keyActions[key] = action;
+	}
+	
+	void ControlScheme::WriteToStream(std::ostream& output)
+	{
+		//output << " bind " << action << keyname << endl;	
+		OpenArena::Keys key;
+		for(key=(OpenArena::Keys)0; key<(OpenArena::Keys)256; key = (OpenArena::Keys)(key+1))
+		{
+			if(keyActions[key] != ACTION_NONE)
+			{
+				output << " bind " << ActionName(keyActions[key]) << GetKeyName(key) << endl;
+			}
+		} 
+	}
+	
+	ControlScheme::Action ControlScheme::GetAction(const char* actionName)
+	{
+		string str = actionName;
+		str = tolower(str);
+		if(str == "none"){
+			return ACTION_NONE;
+		}else if(str == "forward"){
+			return ACTION_FORWARD;
+		}else if(str == "backward"){
+			return ACTION_BACKWARD;
+		}else if(str == "lookleft"){
+			return ACTION_LOOKLEFT;
+		}else if(str == "lookright"){
+			return ACTION_LOOKRIGHT;
+		}else if(str == "lookup"){
+			return ACTION_LOOKUP;
+		}else if(str == "lookdown"){
+			return ACTION_LOOKDOWN;
+		}else if(str == "moveleft"){
+			return ACTION_MOVELEFT;
+		}else if(str == "moveright"){
+			return ACTION_MOVERIGHT;
+		}else if(str == "moveup"){
+			return ACTION_MOVEUP;
+		}else if(str == "movedown"){
+			return ACTION_MOVEDOWN;
+		}else if(str == "rollleft"){
+			return ACTION_ROLLLEFT;
+		}else if(str == "rollright"){
+			return ACTION_ROLLRIGHT;
+		}else if(str == "fireprimary"){
+			return ACTION_FIREPRIMARY;
+		}else if(str == "firesecondary"){
+			return ACTION_FIRESECONDARY;
+		}else if(str == "weaponnext"){
+			return ACTION_WEAPONNEXT;
+		}else if(str == "weaponprev"){
+			return ACTION_WEAPONPREV;
+		}else if(str == "togglelights"){
+			return ACTION_TOGGLE_LIGHTS;
+		}else if(str == "togglefps"){
+			return ACTION_TOGGLE_FPS;
+		}else if(str == "toggleconsole"){
+			return ACTION_TOGGLE_CONSOLE;
+		}else if(str == "togglemouselook"){
+			return ACTION_TOGGLE_MOUSELOOK;
+		}else if(str == "quickmouselook"){
+			return ACTION_QUICKMOUSELOOK;
+		}else{
+			return ACTION_NONE;
+		}
+	}
+	
+	string ControlScheme::ActionName(Action action)
 	{
 		switch(action)
 		{
+		case ACTION_NONE:
+			return "none";
 		case ACTION_FORWARD:
-			{
-				Unbind(key);
-				forward.Insert(key);
-				return true;
-			}
+			return "forward";
 		case ACTION_BACKWARD:
-			{
-				Unbind(key);
-				backward.Insert(key);
-				return true;
-			}
+			return "backward";
 		case ACTION_LOOKLEFT:
-			{
-				Unbind(key);
-				lookLeft.Insert(key);
-				return true;
-			}
+			return "lookleft";
 		case ACTION_LOOKRIGHT:
-			{
-				Unbind(key);
-				lookRight.Insert(key);
-				return true;
-			}
+			return "lookright";
 		case ACTION_LOOKUP:
-			{
-				Unbind(key);
-				lookUp.Insert(key);
-				return true;
-			}
+			return "lookup";
 		case ACTION_LOOKDOWN:
-			{
-				Unbind(key);
-				lookDown.Insert(key);
-				return true;
-			}
+			return "lookdown";
 		case ACTION_MOVELEFT:
-			{
-				Unbind(key);
-				moveLeft.Insert(key);
-				return true;
-			}
+			return "moveleft";
 		case ACTION_MOVERIGHT:
-			{
-				Unbind(key);
-				moveRight.Insert(key);
-				return true;
-			}
+			return "moveright";
 		case ACTION_MOVEUP:
-			{
-				Unbind(key);
-				moveUp.Insert(key);
-				return true;
-			}
+			return "moveup";
 		case ACTION_MOVEDOWN:
-			{
-				Unbind(key);
-				moveDown.Insert(key);
-				return true;
-			}
+			return "movedown";
 		case ACTION_ROLLLEFT:
-			{
-				Unbind(key);
-				rollLeft.Insert(key);
-				return true;
-			}
+			return "rollleft";
 		case ACTION_ROLLRIGHT:
-			{
-				Unbind(key);
-				rollRight.Insert(key);
-				return true;
-			}
+			return "rollright";
 		case ACTION_FIREPRIMARY:
-			{
-				Unbind(key);
-				firePrimary.Insert(key);
-				return true;
-			}
+			return "fireprimary";
 		case ACTION_FIRESECONDARY:
-			{
-				Unbind(key);
-				fireSecondary.Insert(key);
-				return true;
-			}
+			return "firesecondary";
 		case ACTION_WEAPONNEXT:
-			{
-				Unbind(key);
-				weaponNext.Insert(key);
-				return true;
-			}
+			return "weaponnext";
 		case ACTION_WEAPONPREV:
-			{
-				Unbind(key);
-				weaponPrev.Insert(key);
-				return true;
-			}
+			return "weaponprev";
 		case ACTION_TOGGLE_LIGHTS:
-			{
-				Unbind(key);
-				toggleLights.Insert(key);
-				return true;
-			}
+			return "togglelights";
 		case ACTION_TOGGLE_FPS:
-			{
-				Unbind(key);
-				toggleFPS.Insert(key);
-				return true;
-			}
+			return "togglefps";
 		case ACTION_TOGGLE_CONSOLE:
-			{
-				Unbind(key);
-				toggleConsole.Insert(key);
-				return true;
-			}
+			return "toggleconsole";
 		case ACTION_TOGGLE_MOUSELOOK:
-			{
-				Unbind(key);
-				toggleMouseLook.Insert(key);
-				return true;
-			}
+			return "togglemouselook";
 		case ACTION_QUICKMOUSELOOK:
-			{
-				Unbind(key);
-				quickMouseLook.Insert(key);
-				return true;
-			}
+			return "quickmouselook";			
 		default:
-			return false;
-		}
+			return "unknown";
+		};
 	}
+	
+	bool ControlScheme::IsBound(OpenArena::Keys key, Action action)
+	{
+		if(keyActions[key] == action)
+		{
+			return true;
+		}
+	
+		return false;
+	}	
 };
+

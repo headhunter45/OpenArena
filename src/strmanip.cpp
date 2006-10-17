@@ -240,160 +240,6 @@ string KeyString(uint8 key)
 		return "null";
 	};
 }
-uint8 KeyName(std::string str)
-{
-	if (str.length() > 1)
-	{
-		if (str.substr(0,2) == "up")
-			return OpenArena::KEY_UP;
-		else if (str.substr(0,4) == "down")
-			return OpenArena::KEY_DOWN;
-		else if (str.substr(0,3) == "esc")
-			return OpenArena::KEY_ESCAPE;
-		else if (str.substr(0,6) == "pageup")
-			return OpenArena::KEY_PRIOR;
-		else if (str.substr(0,8) == "pagedown")
-			return OpenArena::KEY_NEXT;
-		else if (str.substr(0,5) == "right")
-			return OpenArena::KEY_RIGHT;
-		else if (str.substr(0,4) == "left")
-			return OpenArena::KEY_LEFT;
-		else if (str.substr(0,5) == "space")
-			return OpenArena::KEY_SPACE;
-		else if (str.substr(0,6) == "mouse1")
-			return OpenArena::KEY_LBUTTON;
-		else if (str.substr(0,6) == "mouse2")
-			return OpenArena::KEY_RBUTTON;
-		else if (str.substr(0,6) == "mouse3")
-			return OpenArena::KEY_MBUTTON;
-		else if (str.substr(0,4) == "home")
-			return OpenArena::KEY_HOME;
-		else if (str.substr(0,3) == "end")
-			return OpenArena::KEY_END;
-		else if (str.substr(0,3) == "tab")
-			return OpenArena::KEY_TAB;
-		else if (str.substr(0,5) == "enter")
-			return OpenArena::KEY_RETURN;
-		else if (str.substr(0,6) == "insert")
-			return OpenArena::KEY_INSERT;
-		else if (str.substr(0,6) == "delete")
-			return OpenArena::KEY_DELETE;
-		else if (str.substr(0,7) == "control")
-			return OpenArena::KEY_CONTROL;
-		else if (str.substr(0,5) == "shift")
-			return OpenArena::KEY_SHIFT;
-		else if (str.substr(0,7) == "numpad0")
-			return OpenArena::KEY_NUMPAD0;
-		else if (str.substr(0,7) == "numpad1")
-			return OpenArena::KEY_NUMPAD1;
-		else if (str.substr(0,7) == "numpad2")
-			return OpenArena::KEY_NUMPAD2;
-		else if (str.substr(0,7) == "numpad3")
-			return OpenArena::KEY_NUMPAD3;
-		else if (str.substr(0,7) == "numpad4")
-			return OpenArena::KEY_NUMPAD4;
-		else if (str.substr(0,7) == "numpad5")
-			return OpenArena::KEY_NUMPAD5;
-		else if (str.substr(0,7) == "numpad6")
-			return OpenArena::KEY_NUMPAD6;
-		else if (str.substr(0,7) == "numpad7")
-			return OpenArena::KEY_NUMPAD7;
-		else if (str.substr(0,7) == "numpad8")
-			return OpenArena::KEY_NUMPAD8;
-		else if (str.substr(0,7) == "numpad9")
-			return OpenArena::KEY_NUMPAD9;
-		else if (str.substr(0,9) == "separator")
-			return OpenArena::KEY_SEPARATOR;
-		else if (str.substr(0,4) == "lwin")
-			return OpenArena::KEY_LWIN;
-		else if (str.substr(0,4) == "rwin")
-			return OpenArena::KEY_RWIN;
-		else if (str.substr(0,4) == "apps")
-			return OpenArena::KEY_APPS;
-		else if (str.substr(0,7) == "numpad*")
-			return OpenArena::KEY_MULTIPLY;
-		else if (str.substr(0,7) == "numpad+")
-			return OpenArena::KEY_ADD;
-		else if (str.substr(0,7) == "numpad/")
-			return OpenArena::KEY_DIVIDE;
-		else if (str.substr(0,7) == "numpad-")
-			return OpenArena::KEY_SUBTRACT;
-		else if (str.substr(0,6) == "scroll")
-			return OpenArena::KEY_SCROLL;
-		else if (str.substr(0,7) == "numlock")
-			return OpenArena::KEY_NUMLOCK;
-		else if (str.substr(0,5) == "pause")
-			return OpenArena::KEY_PAUSE;
-		else if (str.substr(0,8) == "capslock")
-			return OpenArena::KEY_CAPITAL;
-		
-
-
-		/*uncomment this to enable f1 as a mappable key
-		else if(str.substr(0,2) == "f1")
-			return OpenArena::KEY_F1;
-		*/
-
-		else if (str.substr(0,2) == "f2")
-			return OpenArena::KEY_F2;
-		else if (str.substr(0,2) == "f3")
-			return OpenArena::KEY_F3;
-		else if (str.substr(0,2) == "f4")
-			return OpenArena::KEY_F4;
-		else if (str.substr(0,2) == "f5")
-			return OpenArena::KEY_F5;
-		else if (str.substr(0,2) == "f6")
-			return OpenArena::KEY_F6;
-		else if (str.substr(0,2) == "f7")
-			return OpenArena::KEY_F7;
-		else if (str.substr(0,2) == "f8")
-			return OpenArena::KEY_F8;
-		else if (str.substr(0,2) == "f9")
-			return OpenArena::KEY_F9;
-		else if (str.substr(0,2) == "f10")
-			return OpenArena::KEY_F10;
-		else if (str.substr(0,2) == "f11")
-			return OpenArena::KEY_F11;
-		else if (str.substr(0,2) == "f12")
-			return OpenArena::KEY_F12;
-		//Add Game specific keys here and e-mail headhunter45@hotmail.com subject OpenArena keys so I can add them please
-		else if (str.substr(0,4) == "null")
-			return (uint8)NULL;
-		else
-			return (uint8)NULL;
-	}
-	else
-	{
-		if(str[0] == '~' || str[0] == '`')
-			return OpenArena::KEY_OEM_3;
-		else if (str[0] == '?' || str[0] == '/')
-            return OpenArena::KEY_OEM_2;
-		else if (str[0] == '.' || str[0] == '>')
-			return OpenArena::KEY_OEM_PERIOD;
-		else if (str[0] == '+' || str[0] == '=')
-			return OpenArena::KEY_OEM_PLUS;
-		else if (str[0] == ';' || str[0] == ':')
-			return OpenArena::KEY_OEM_1;
-		else if (str[0] == ',' || str[0] == '<')
-			return OpenArena::KEY_OEM_COMMA;
-		else if (str[0] == '-' || str[0] == '_')
-			return OpenArena::KEY_OEM_MINUS;
-		else if (str[0] == '[' || str[0] == '{')
-			return OpenArena::KEY_OEM_4;
-		else if (str[0] == ']' || str[0] == '}')
-			return OpenArena::KEY_OEM_6;
-		else if (str[0] == '\\' || str[0] == '|')
-			return OpenArena::KEY_OEM_5;
-		else if (str[0] == '\'' || str[0] == '"')
-			return OpenArena::KEY_OEM_7;
-		else if (isalpha(str[0]))
-			return toupper(str[0]) - 'A' + OpenArena::KEY_A; 
-		else if(isdigit(str[0]))
-			return str[0] - '0' + OpenArena::KEY_0;
-		else
-			return OpenArena::KEY_UNKNOWN;
-	}
-}
 
 string Right(string str, uint32 len)
 {
@@ -433,15 +279,24 @@ string word(string str, uint32 wordNum)
 	{
 		if(wordNum < 1)
 		{
+			while(isspace(str[start]))
+				++start;
+			
 			while (!isspace(str[++length]) && length < maxLength);
 
+			if(length < maxLength || isspace(str[length])){
+				if(length >0)
+				{
+					length--;
+				}
+			}
 			return str.substr(start, length);
 		}
 		else
 		{
 			while(isspace(str[start]))
 				++start;
-
+			
 			for(uint32 i=0; i<wordNum; i++)
 			{
 				while(start <maxLength && !isspace(str[start]))// && start <= maxLength)

@@ -27,78 +27,13 @@ void OpenArena::Window::SwapBuffers()
 		glXSwapBuffers(display, window);
 	}
 	#elif defined USE_AGL
-	aglSwapBuffers(aglContext);
+	aglSwapBuffers(_aglContext);
 	#elif defined USE_CGL
 	CGLFlushDrawable(cglContext);
 	#elif defined USE_WGL
 	::SwapBuffers(deviceContext);
 	#endif
 }
-
-void OpenArena::Window::Close()
-{
-	#if defined USE_GLX
-	if(_fullscreen)
-	{
-		#if defined HAVE_XF86VIDMODE
-		XF86VidModeSwitchToMode(display, screen, &vidMode);
-		XF86VidModeSetViewPort(display, screen, 0, 0);
-		#endif
-	}
-	
-	if(hRC)
-	{
-		if(!glXMakeCurrent(display, None, NULL))
-		{
-			printf("Could not release drawing context.\n");
-		}
-		glXDestroyContext(display, hRC);
-		hRC = NULL;
-	}
-	
-	XCloseDisplay(display);
-	#elif defined USE_AGL
-	#error unimplemented method
-	#elif defined USE_CGL
-	#error unimplemented method
-	#elif defined USE_WGL
-	if(_fullscreen)
-	{
-		ChangeDisplaySettings(NULL, 0);
-		ShowCursor(true);
-	}
-	
-	if(glContext)
-	{
-		if(!wglMakeCurrent(NULL, NULL))
-			MessageBox(NULL,"Release Of DC And RC Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
-
-		if (!wglDeleteContext(glContext))
-			MessageBox(NULL,"Release Rendering Context Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
-
-		glContext=NULL;
-	}
-
-	if (deviceContext && !ReleaseDC(window, deviceContext))
-	{
-		MessageBox(NULL,"Release Device Context Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
-		deviceContext=NULL;
-	}
-
-	if (window && !DestroyWindow(window))
-	{
-		MessageBox(NULL,"Could Not Release hWnd.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
-		window=NULL;
-	}
-
-	if (!UnregisterClass("OpenArena v0.1.0", instance))
-	{
-		MessageBox(NULL,"Could Not Unregister Class.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
-		instance=NULL;
-	}
-	#endif
-}
-
 
 bool OpenArena::Window::Open()
 {
@@ -210,7 +145,46 @@ bool OpenArena::Window::Open()
 	_initializer->Initialize();
 	return true;
 	#elif defined USE_AGL
+	OSStatus err = noErr;
+	SetRect(&_bounds, 0, 0, 640, 480);
+	err = CreateNewWindow(kDocumentWindowClass, kWindowStandardHandlerAttribute | kWindowCloseBoxAttribute | kWindowFullZoomAttribute | kWindowCollapseBoxAttribute, &_bounds, &_window);
+    if(err != noErr)
+    {
+    	return false;
+    }
+    
+    RepositionWindow(_window, NULL, kWindowCascadeOnMainScreen);
+    
+    AGLDevice* devices = NULL;
+	GLint deviceCount = 0;
+	GLint attributes[] = {AGL_ACCELERATED, AGL_NO_RECOVERY, AGL_RGBA, AGL_DOUBLEBUFFER, AGL_NONE};
+	AGLPixelFormat pixelFormat;
+	
+	pixelFormat = aglChoosePixelFormat(devices,deviceCount,attributes);
+	_aglContext = aglCreateContext(pixelFormat, NULL);
+	if(!_aglContext)
+	{
+		exit (5);
+	}
+	
+	aglDestroyPixelFormat(pixelFormat);
+	
+	if(!aglSetCurrentContext(_aglContext))
+	{
+		exit(6);
+	}
+	
+	if(!aglSetDrawable(_aglContext, GetWindowPort(_window)))
+	{
+	exit(7);
+	}
+
+	glClearColor(0.0f,0.0f,0.0f,0.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+	aglSwapBuffers(_aglContext);
+	ShowWindow(_window);
 	#elif defined USE_CGL
+	#error undefined method
 	#elif defined USE_WGL
 	unsigned int PixelFormat;
 	WNDCLASS	wc;
@@ -339,6 +313,75 @@ bool OpenArena::Window::Open()
 	#endif
 }
 
+void OpenArena::Window::Close()
+{
+	#if defined USE_GLX
+	if(_fullscreen)
+	{
+		#if defined HAVE_XF86VIDMODE
+		XF86VidModeSwitchToMode(display, screen, &vidMode);
+		XF86VidModeSetViewPort(display, screen, 0, 0);
+		#endif
+	}
+	
+	if(hRC)
+	{
+		if(!glXMakeCurrent(display, None, NULL))
+		{
+			printf("Could not release drawing context.\n");
+		}
+		glXDestroyContext(display, hRC);
+		hRC = NULL;
+	}
+	
+	XCloseDisplay(display);
+	#elif defined USE_AGL
+	if(!_fullscreen)
+	{
+		aglSetCurrentContext(NULL);
+		aglDestroyContext(_aglContext);
+		_aglContext = NULL;
+	}
+	#elif defined USE_CGL
+	#error unimplemented method
+	#elif defined USE_WGL
+	if(_fullscreen)
+	{
+		ChangeDisplaySettings(NULL, 0);
+		ShowCursor(true);
+	}
+	
+	if(glContext)
+	{
+		if(!wglMakeCurrent(NULL, NULL))
+			MessageBox(NULL,"Release Of DC And RC Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
+
+		if (!wglDeleteContext(glContext))
+			MessageBox(NULL,"Release Rendering Context Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
+
+		glContext=NULL;
+	}
+
+	if (deviceContext && !ReleaseDC(window, deviceContext))
+	{
+		MessageBox(NULL,"Release Device Context Failed.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
+		deviceContext=NULL;
+	}
+
+	if (window && !DestroyWindow(window))
+	{
+		MessageBox(NULL,"Could Not Release hWnd.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
+		window=NULL;
+	}
+
+	if (!UnregisterClass("OpenArena v0.1.0", instance))
+	{
+		MessageBox(NULL,"Could Not Unregister Class.","SHUTDOWN ERROR",MB_OK | MB_ICONINFORMATION);
+		instance=NULL;
+	}
+	#endif
+}
+
 bool OpenArena::Window::Open(string title, int width, int height, int bits, bool fullscreenflag)
 {
 	_fullscreen = fullscreenflag;
@@ -423,11 +466,11 @@ OpenArena::Vec2i OpenArena::Window::GetMousePosition()
 	{
 		return Vec2i(mouseX, mouseY);
 	}
-	#elif USE_AGL
+	#elif defined USE_AGL
+	#warning unimplemented method
+	#elif defined USE_CGL
 	#error unimplemented method
-	#elif USE_CGL
-	#error unimplemented method
-	#elif USE_WGL
+	#elif defined USE_WGL
 	POINT pos;
 	GetCursorPos(&pos);
 	return Vec2i(pos.x, pos.y);
@@ -439,7 +482,7 @@ void OpenArena::Window::SetMousePosition(Vec2i pos)
 	#if defined USE_GLX
 	XWarpPointer(display, None, window, 0, 0, 0, 0, pos.x, pos.y);
 	#elif defined USE_AGL
-	#error unimplemented method
+	#warning unimplemented method
 	#elif defined USE_CGL
 	#error unimplemented method
 	#elif defined USE_WGL

@@ -142,7 +142,12 @@ namespace OpenArena
 		KEY_W,
 		KEY_X,
 		KEY_Y,
-		KEY_Z
+		KEY_Z,
+		KEY_ALT_L,
+		KEY_ALT_R,
+		KEY_ENTER,
+		KEY_COMMAND,
+		KEY_OPTION
 	};
 	/*!
 	 * \brief
@@ -208,5 +213,8 @@ namespace OpenArena
 	 * Separate items with the '|' character.
 	 */
 	char KeyToASCII(Keys key, bool shift);
+	const char* GetKeyName(Keys key);
+	OpenArena::Keys GetKey(const char* keyName);
+	
 };
 #endif

@@ -3,21 +3,29 @@
 
 #include "Event.h"
 #include "../Geometry2D/Rectangle.h"
+#include "../level.h"
 
 namespace OpenArena
 {
-	class DrawEvent :public OpenArena::Event
+	namespace Events
 	{
-	public:
-		class DrawEventHandler :public EventHandler
+		class DrawEvent :public OpenArena::Events::Event
 		{
-			virtual bool Handles(EventType type);
-			virtual void HandleEvent(Event* event);			
+		public:
+			class DrawEventHandler :public EventHandler
+			{
+			public:
+				DrawEventHandler(Level* level);
+				virtual bool Handles(EventType type);
+				virtual void HandleEvent(Event* event);
+				//virtual void HandleEvent(Event event);
+			private:
+				Level* _level;		
+			};
+			
+			DrawEvent();
+			virtual ~DrawEvent();
 		};
-		
-		DrawEvent();
-		virtual ~DrawEvent();
-		virtual Event::EventType GetEventType();		
 	};
 };
 

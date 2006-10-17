@@ -54,8 +54,9 @@ using namespace std;
 
 namespace OpenArena
 {
-	Level::Level()
+	Level::Level(EventManager* eventManager)
 	{
+		_eventManager = eventManager;
 		_window = NULL;
 		textureNames = NULL;
 		numTextures = 0;
@@ -570,157 +571,18 @@ namespace OpenArena
 			else if(command == "bind")
 			{
 				command = tolower(word(cmd, ++i));
-	
-				if(command == "forward")
+				string key = tolower(word(cmd, ++i));
+				if(ControlScheme::GetAction(command.c_str())==OpenArena::ControlScheme::ACTION_NONE)
 				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_FORWARD, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action forward");
-					}
+					ConsolePrint("No action identified by " + command);
 				}
-				else if(command == "backward")
+				else if (GetKey(key.c_str()) == OpenArena::KEY_UNKNOWN)
 				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_BACKWARD, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action backward");
-					}
-				}
-				else if(command == "lookleft")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKLEFT, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action lookleft");
-					}
-				}
-				else if(command == "lookright")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKRIGHT, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action lookright");
-					}
-				}
-				else if(command == "lookup")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKUP, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action lookup");
-					}
-				}
-				else if(command == "lookdown")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKDOWN, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action lookdown");
-					}
-				}
-				else if(command == "moveup")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVEUP, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action moveup");
-					}
-				}
-				else if(command == "movedown")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVEDOWN, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action movedown");
-					}
-				}
-				else if(command == "moveleft")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVELEFT, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action moveleft");
-					}
-				}
-				else if(command == "moveright")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVERIGHT, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action moveright");
-					}
-				}
-				else if(command == "fireprimary")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_FIREPRIMARY, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action fireprimary");
-					}
-				}
-				else if(command == "firesecondary")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_FIRESECONDARY, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action firesecondary");
-					}
-				}
-				else if(command == "weapnext")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_WEAPONNEXT, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action weapnext");
-					}
-				}
-				else if(command == "weapprev")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_WEAPONPREV, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action weapprev");
-					}
-				}
-				else if(command == "togglelights" || command == "togglelighting")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_LIGHTS, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action togglelights");
-					}
-				}
-				else if(command == "togglefps")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_FPS, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action togglefps");
-					}
-				}
-				else if(command == "toggleconsole")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_CONSOLE, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action toggleconsole");
-					}
-				}
-				else if(command == "togglemouselook")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_MOUSELOOK, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action togglemouselook");
-					}
-				}
-				else if(command == "quickmouselook")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_QUICKMOUSELOOK, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action quickmouselook");
-					}
-				}
-				else if(command == "rollleft")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_ROLLLEFT, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action rollleft");
-					}
-				}
-				else if(command == "rollright")
-				{
-					if(!defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_ROLLRIGHT, KeyName(word(cmd, ++i))))
-					{
-						ConsolePrint("Couldn't bind " + word(cmd, i) + " to action rollright");
-					}
+					ConsolePrint("No key identified by " + key);
 				}
 				else
 				{
-					ConsolePrint("No action identified by " + command);
+					defaultPlayer[0].controls.Bind(GetKey(key.c_str()), ControlScheme::GetAction(command.c_str()));
 				}
 			}
 			else if(command == "map" || command == "map_load")
@@ -740,11 +602,11 @@ namespace OpenArena
 				
 				if(command == "all")
 				{
-					defaultPlayer[0].controls.ClearControlScheme();
+					defaultPlayer[0].controls.UnBindAll();
 				}
 				else
 				{
-					defaultPlayer[0].controls.Unbind(KeyName(command));
+					defaultPlayer[0].controls.UnBind(GetKey(command.c_str()));
 				}
 			}
 			else if(command == "exec" || command == "config_load")
@@ -814,11 +676,10 @@ namespace OpenArena
 		string cmd = lpCmdLine;
 		string command;
 		
-		uint32 i=0xFFFFFFFF;
-		while(word(cmd, ++i) != "")
+		uint32 i=0;
+		command = word(cmd, i);
+		while(command != "")
 		{
-			command = word(cmd, i);
-			
 			if(command == "+set")
 			{
 				command = tolower(word(cmd, ++i));
@@ -842,6 +703,9 @@ namespace OpenArena
 				else if(command == "game")
 				{
 					gamedir= word(cmd, ++i);
+					if(gamedir[gamedir.length()-1] != '/'){
+						gamedir = gamedir + '/';
+					}
 				}
 			}
 			else if(command == "+bind")
@@ -850,79 +714,79 @@ namespace OpenArena
 	
 				if(command == "forward")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_FORWARD, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_FORWARD);
 				}
 				else if(command == "backward")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_BACKWARD, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_BACKWARD);
 				}
 				else if(command == "lookleft")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKLEFT, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_LOOKLEFT);
 				}
 				else if(command == "lookright")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKRIGHT, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_LOOKRIGHT);
 				}
 				else if(command == "lookup")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKUP, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_LOOKUP);
 				}
 				else if(command == "lookdown")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_LOOKDOWN, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_LOOKDOWN);
 				}
 				else if(command == "moveup")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVEUP, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_MOVEUP);
 				}
 				else if(command == "movedown")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVEDOWN, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_MOVEDOWN);
 				}
 				else if(command == "moveleft")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVELEFT, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_MOVELEFT);
 				}
 				else if(command == "moveright")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_MOVERIGHT, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_MOVERIGHT);
 				}
 				else if(command == "fireprimary")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_FIREPRIMARY, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_FIREPRIMARY);
 				}
 				else if(command == "firesecondary")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_FIRESECONDARY, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_FIRESECONDARY);
 				}
 				else if(command == "weapnext")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_WEAPONNEXT, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_WEAPONNEXT);
 				}
 				else if(command == "weapprev")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_WEAPONPREV, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_WEAPONPREV);
 				}
 				else if(command == "togglelights" || command == "togglelighting")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_LIGHTS, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_TOGGLE_LIGHTS);
 				}
 				else if(command == "togglefps")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_FPS, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_TOGGLE_FPS);
 				}
 				else if(command == "toggleconsole")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_CONSOLE, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_TOGGLE_CONSOLE);
 				}
 				else if(command == "togglemouselook")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_TOGGLE_MOUSELOOK, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_TOGGLE_MOUSELOOK);
 				}
 				else if(command == "quickmouselook")
 				{
-					defaultPlayer[0].controls.Bind(OpenArena::ControlScheme::ACTION_QUICKMOUSELOOK, KeyName(word(cmd, ++i)));
+					defaultPlayer[0].controls.Bind(GetKey(word(cmd, ++i).c_str()), OpenArena::ControlScheme::ACTION_QUICKMOUSELOOK);
 				}
 			}
 			else if(command == "+map" || command == "+map_load")
@@ -937,11 +801,11 @@ namespace OpenArena
 				
 				if(command == "all")
 				{
-					defaultPlayer[0].controls.ClearControlScheme();
+					defaultPlayer[0].controls.UnBindAll();
 				}
 				else
 				{
-					defaultPlayer[0].controls.Unbind(KeyName(command));
+					defaultPlayer[0].controls.UnBind(GetKey(command.c_str()));
 				}
 			}
 			else if(command == "+exec" || command == "+config_load")
@@ -959,7 +823,8 @@ namespace OpenArena
 				command = tolower(word(cmd, ++i));
 				SaveConfig(command);
 			}
-			
+		
+			command = word(cmd, ++i);
 		}
 	}
 	
@@ -1034,173 +899,7 @@ namespace OpenArena
 		output << "set maxfps " << maxFPS << endl;
 	
 		//Control Scheme
-		//output << " bind " << action << keyname << endl;
-		if(!defaultPlayer->controls.backward.IsEmpty())
-		{
-			defaultPlayer->controls.backward.FirstPosition();
-			output << "bind backward " << string(KeyString(defaultPlayer->controls.backward.Retrieve())) << endl;
-			while(defaultPlayer->controls.backward.NextPosition())
-				output << "bind backward " << KeyString(defaultPlayer->controls.backward.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.firePrimary.IsEmpty())
-		{
-			defaultPlayer->controls.firePrimary.FirstPosition();
-			output << "bind firePrimary " << KeyString(defaultPlayer->controls.firePrimary.Retrieve()) << endl;
-			while(defaultPlayer->controls.firePrimary.NextPosition())
-				output << "bind firePrimary " << KeyString(defaultPlayer->controls.firePrimary.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.fireSecondary.IsEmpty())
-		{
-			defaultPlayer->controls.fireSecondary.FirstPosition();
-			output << "bind fireSecondary " << KeyString(defaultPlayer->controls.fireSecondary.Retrieve()) << endl;
-			while(defaultPlayer->controls.fireSecondary.NextPosition())
-				output << "bind fireSecondary " << KeyString(defaultPlayer->controls.fireSecondary.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.forward.IsEmpty())
-		{
-			defaultPlayer->controls.forward.FirstPosition();
-			output << "bind forward " << KeyString(defaultPlayer->controls.forward.Retrieve()) << endl;
-			while(defaultPlayer->controls.forward.NextPosition())
-				output << "bind forward " << KeyString(defaultPlayer->controls.forward.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.lookDown.IsEmpty())
-		{
-			defaultPlayer->controls.lookDown.FirstPosition();
-			output << "bind lookDown " << KeyString(defaultPlayer->controls.lookDown.Retrieve()) << endl;
-			while(defaultPlayer->controls.lookDown.NextPosition())
-				output << "bind lookDown " << KeyString(defaultPlayer->controls.lookDown.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.lookLeft.IsEmpty())
-		{
-			defaultPlayer->controls.lookLeft.FirstPosition();
-			output << "bind lookLeft " << KeyString(defaultPlayer->controls.lookLeft.Retrieve()) << endl;
-			while(defaultPlayer->controls.lookLeft.NextPosition())
-				output << "bind lookLeft " << KeyString(defaultPlayer->controls.lookLeft.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.lookRight.IsEmpty())
-		{
-			defaultPlayer->controls.lookRight.FirstPosition();
-			output << "bind lookRight " << KeyString(defaultPlayer->controls.lookRight.Retrieve()) << endl;
-			while(defaultPlayer->controls.lookRight.NextPosition())
-				output << "bind lookRight " << KeyString(defaultPlayer->controls.lookRight.Retrieve()) << endl;
-		}
-		if(!defaultPlayer->controls.lookUp.IsEmpty())
-		{
-			defaultPlayer->controls.lookUp.FirstPosition();
-			output << "bind lookUp " << KeyString(defaultPlayer->controls.lookUp.Retrieve()) << endl;
-			while(defaultPlayer->controls.lookUp.NextPosition())
-				output << "bind lookUp " << KeyString(defaultPlayer->controls.lookUp.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.moveDown.IsEmpty())
-		{
-			defaultPlayer->controls.moveDown.FirstPosition();
-			output << "bind moveDown " << KeyString(defaultPlayer->controls.moveDown.Retrieve()) << endl;
-			while(defaultPlayer->controls.moveDown.NextPosition())
-				output << "bind moveDown " << KeyString(defaultPlayer->controls.moveDown.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.moveLeft.IsEmpty())
-		{
-			defaultPlayer->controls.moveLeft.FirstPosition();
-			output << "bind moveLeft " << KeyString(defaultPlayer->controls.moveLeft.Retrieve()) << endl;
-			while(defaultPlayer->controls.moveLeft.NextPosition())
-				output << "bind moveLeft " << KeyString(defaultPlayer->controls.moveLeft.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.moveRight.IsEmpty())
-		{
-			defaultPlayer->controls.moveRight.FirstPosition();
-			output << "bind moveRight " << KeyString(defaultPlayer->controls.moveRight.Retrieve()) << endl;
-			while(defaultPlayer->controls.moveRight.NextPosition())
-				output << "bind moveRight " << KeyString(defaultPlayer->controls.moveRight.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.moveUp.IsEmpty())
-		{
-			defaultPlayer->controls.moveUp.FirstPosition();
-			output << "bind moveUp " << KeyString(defaultPlayer->controls.moveUp.Retrieve()) << endl;
-			while(defaultPlayer->controls.moveUp.NextPosition())
-				output << "bind moveUp " << KeyString(defaultPlayer->controls.moveUp.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.quickMouseLook.IsEmpty())
-		{
-			defaultPlayer->controls.quickMouseLook.FirstPosition();
-			output << "bind quickMouseLook " << KeyString(defaultPlayer->controls.quickMouseLook.Retrieve()) << endl;
-			while(defaultPlayer->controls.quickMouseLook.NextPosition())
-				output << "bind quickMouseLook " << KeyString(defaultPlayer->controls.quickMouseLook.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.rollLeft.IsEmpty())
-		{
-			defaultPlayer->controls.rollLeft.FirstPosition();
-			output << "bind rollLeft " << KeyString(defaultPlayer->controls.rollLeft.Retrieve()) << endl;
-			while(defaultPlayer->controls.rollLeft.NextPosition())
-				output << "bind rollLeft " << KeyString(defaultPlayer->controls.rollLeft.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.rollRight.IsEmpty())
-		{
-			defaultPlayer->controls.rollRight.FirstPosition();
-			output << "bind rollRight " << KeyString(defaultPlayer->controls.rollRight.Retrieve()) << endl;
-			while(defaultPlayer->controls.rollRight.NextPosition())
-				output << "bind rollRight " << KeyString(defaultPlayer->controls.rollRight.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.toggleConsole.IsEmpty())
-		{
-			defaultPlayer->controls.toggleConsole.FirstPosition();
-			output << "bind toggleConsole " << KeyString(defaultPlayer->controls.toggleConsole.Retrieve()) << endl;
-			while(defaultPlayer->controls.toggleConsole.NextPosition())
-				output << "bind toggleConsole " << KeyString(defaultPlayer->controls.toggleConsole.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.toggleFPS.IsEmpty())
-		{
-			defaultPlayer->controls.toggleFPS.FirstPosition();
-			output << "bind toggleFPS " << KeyString(defaultPlayer->controls.toggleFPS.Retrieve()) << endl;
-			while(defaultPlayer->controls.toggleFPS.NextPosition())
-				output << "bind toggleFPS " << KeyString(defaultPlayer->controls.toggleFPS.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.toggleLights.IsEmpty())
-		{
-			defaultPlayer->controls.toggleLights.FirstPosition();
-			output << "bind toggleLights " << KeyString(defaultPlayer->controls.toggleLights.Retrieve()) << endl;
-			while(defaultPlayer->controls.toggleLights.NextPosition())
-				output << "bind toggleLights " << KeyString(defaultPlayer->controls.toggleLights.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.toggleMouseLook.IsEmpty())
-		{
-			defaultPlayer->controls.toggleMouseLook.FirstPosition();
-			output << "bind toggleMouseLook " << KeyString(defaultPlayer->controls.toggleMouseLook.Retrieve()) << endl;
-			while(defaultPlayer->controls.toggleMouseLook.NextPosition())
-				output << "bind toggleMouseLook " << KeyString(defaultPlayer->controls.toggleMouseLook.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.weaponNext.IsEmpty())
-		{
-			defaultPlayer->controls.weaponNext.FirstPosition();
-			output << "bind weaponNext " << KeyString(defaultPlayer->controls.weaponNext.Retrieve()) << endl;
-			while(defaultPlayer->controls.weaponNext.NextPosition())
-				output << "bind weaponNext " << KeyString(defaultPlayer->controls.weaponNext.Retrieve()) << endl;
-		}
-	
-		if(!defaultPlayer->controls.weaponPrev.IsEmpty())
-		{
-			defaultPlayer->controls.weaponPrev.FirstPosition();
-			output << "bind weaponPrev " << KeyString(defaultPlayer->controls.weaponPrev.Retrieve()) << endl;
-			while(defaultPlayer->controls.weaponPrev.NextPosition())
-				output << "bind weaponPrev " << KeyString(defaultPlayer->controls.weaponPrev.Retrieve()) << endl;
-		}
+		defaultPlayer->controls.WriteToStream(output);
 	}
 	
 	void Level::Print(int x, int y, const char* str, unsigned int set)
@@ -1225,7 +924,7 @@ namespace OpenArena
 		{
 			consoleHistory[0] = Left(consoleHistory[0], consoleHistory[0].length()-1);
 		}
-		else if(!(defaultPlayer->controls.toggleConsole.Contains(newChar)))
+		else if(!(defaultPlayer->controls.IsBound(GetKey(&newChar), ControlScheme::ACTION_TOGGLE_CONSOLE)))
 		{
 			consoleHistory[0] = consoleHistory[0] + newChar;
 			/*
