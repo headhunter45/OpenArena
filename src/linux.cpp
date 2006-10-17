@@ -906,4 +906,13 @@ void HandleConsoleKeyPress(OpenArena::Keys key)
 	}
 }
 
+bool             keys[256];
+bool             keys2[256];
+bool             active;
+bool             fullscreen;
+//bool           showConsole = false;
+OpenArena::Vec2i g_mousePosition;
+float lastTime;
+float currentTime;
+
 #endif
