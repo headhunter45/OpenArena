@@ -1,0 +1,99 @@
+#Dependencies soooo need to be fixed/finished
+CPP = g++ -g
+INCLUDES = -I/usr/X11R6/include
+LD = g++
+OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o player.o
+OBJECTS += strmanip.o tga.o vector.o window.o keys.o main.o x11.o EventManager.o Events/DrawEvent.o
+OBJECTS += Events/Event.o Object.o Events/KeyPressEvent.o Events/KeyReleaseEvent.o
+LIBS = -L/usr/X11R6/lib -lGL -lGLU -lXxf86vm
+LIBRARIES = 
+SO_LIBS = 
+SO_LIBRARIES = oa_game.so oa_audio.so oa_net.so oa_video.so oa_input.so
+CPPFLAGS = -DHAVE_CONFIG_H
+LDFLAGS = $(LIBS)
+
+.Phony: all clean install
+
+all: ../OpenArena
+
+clean: 
+	rm -f *.o
+	rm -f ../OpenArena
+	
+install:
+
+#Executables
+../OpenArena: $(OBJECTS)
+	$(LD) $(LDFLAGS) -o ../OpenArena $(OBJECTS)
+
+#Dynamic Libraries
+oa_game.so:
+
+oa_audio.so:
+
+oa_net.so:
+
+oa_video.so:
+
+oa_input.so:
+
+#Object Files
+Events/Event.o: Events/Event.cpp Events/Event.h Object.h
+	$(CPP) $(CPPFLAGS) -c $(INCLUDE_DIRS) -o Events/Event.o Events/Event.cpp
+
+Object.o: Object.cpp Object.h
+	$(CPP) $(CPPFLAGS) -c $(INCLUDE_DIRS) -o Object.o Object.cpp
+	
+Events/KeyPressEvent.o: Events/KeyPressEvent.cpp Events/KeyPressEvent.h Events/Event.h
+	$(CPP) $(CPPFLAGS) -c $(INCLUDE_DIRS) -o Events/KeyPressEvent.o Events/KeyPressEvent.cpp
+	
+Events/KeyReleaseEvent.o: Events/KeyReleaseEvent.cpp Events/KeyReleaseEvent.h Events/Event.h
+	$(CPP) $(CPPFLAGS) -c $(INCLUDE_DIRS) -o Events/KeyReleaseEvent.o Events/KeyReleaseEvent.cpp
+	
+Events/DrawEvent.o: Events/DrawEvent.cpp Events/DrawEvent.h Events/Event.h
+	$(CPP) $(CPPFLAGS) -c $(INCLUDE_DIRS) -o Events/DrawEvent.o Events/DrawEvent.cpp
+	
+screen.o: screen.cpp screen.h config.h
+	$(CPP) $(CPPFLAGS) -c -o screen.o screen.cpp
+
+bmp.o: bmp.cpp bmp.h mygl.h datatypes.h texture.h config.h
+	$(CPP) $(CPPFLAGS) -c -o bmp.o bmp.cpp
+	
+camera.o: camera.cpp camera.h vector.h mygl.h screen.h config.h
+	$(CPP) $(CPPFLAGS) -c -o camera.o camera.cpp
+
+ctrls.o: ctrls.cpp ctrls.h keys.h datatypes.h list.h config.h
+	$(CPP) $(CPPFLAGS) -c -o ctrls.o ctrls.cpp
+
+level.o: level.cpp level.h version.h config.h
+	$(CPP) $(CPPFLAGS) -c -o level.o level.cpp
+
+mygl.o: mygl.cpp mygl.h config.h
+	$(CPP) $(CPPFLAGS) -c -o mygl.o mygl.cpp
+
+myglFont.o: myglFont.cpp myglFont.h config.h
+	$(CPP) $(CPPFLAGS) -c -o myglFont.o myglFont.cpp
+
+myglTexture.o: myglTexture.cpp myglTexture.h config.h
+	$(CPP) $(CPPFLAGS) -c -o myglTexture.o myglTexture.cpp
+
+player.o: player.cpp player.h config.h
+	$(CPP) $(CPPFLAGS) -c -o player.o player.cpp
+
+strmanip.o: strmanip.cpp strmanip.h config.h
+	$(CPP) $(CPPFLAGS) -c -o strmanip.o strmanip.cpp
+
+tga.o: tga.cpp tga.h config.h
+	$(CPP) $(CPPFLAGS) -c -o tga.o tga.cpp
+
+vector.o: vector.cpp vector.h config.h
+	$(CPP) $(CPPFLAGS) -c -o vector.o vector.cpp
+
+window.o: window.cpp window.h config.h
+	$(CPP) $(CPPFLAGS) -c -o window.o window.cpp
+	
+keys.o: keys.cpp keys.h config.h
+	$(CPP) $(CPPFLAGS) -c -o keys.o keys.cpp
+
+main.o: linux.cpp main.h config.h
+	$(CPP) $(CPPFLAGS) -c -o main.o linux.cpp

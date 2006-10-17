@@ -1,0 +1,109 @@
+#Dependencies soooo need to be fixed/finished
+CPP = g++ -g
+INCLUDES = 
+LD = g++
+X11INCLUDEDIR = /usr/X11R6/include
+X11LIBDIR = /usr/X11R6/lib
+INCLUDE_DIRS = -I$(X11INCLUDEDIR) -DHAVE_CONFIG_H
+LIBRARY_DIRS = -L$(X11LIBDIR)
+OBJECTS = screen.o bmp.o camera.o ctrls.o level.o mygl.o myglFont.o myglTexture.o player.o
+OBJECTS += strmanip.o tga.o vector.o window.o keys.o main.o x11.o EventManager.o Events/DrawEvent.o
+OBJECTS += Events/Event.o Object.o Events/KeyPressEvent.o Events/KeyReleaseEvent.o
+LIBS = $(LIBRARY_DIRS) -lGL -lGLU -lXxf86vm -lX11
+LIBRARIES = 
+SO_LIBS = 
+SO_LIBRARIES = oa_game.so oa_audio.so oa_net.so oa_video.so oa_input.so
+CPPFLAGS = $(INCLUDE_DIRS)
+LDFLAGS = $(LIBS) -bind_at_load -framework OpenGL -framework AGL -framework Carbon
+.Phony: all clean install
+
+all: ../OpenArena
+
+clean: 
+	rm -f *.o
+	if [ -f ../OpenArena ]; then rm ../OpenArena; fi
+	rm -f */*.o
+	
+install:
+
+#Executables
+../OpenArena: $(OBJECTS)
+	$(LD) $(LDFLAGS) $(INCLUDE_DIRS) -o ../OpenArena $(OBJECTS)
+
+#Dynamic Libraries
+oa_game.so:
+
+oa_audio.so:
+
+oa_net.so:
+
+oa_video.so:
+
+oa_input.so:
+
+#Object Files
+Events/Event.o: Events/Event.cpp Events/Event.h Object.h
+	$(CPP) -c $(INCLUDE_DIRS) -o Events/Event.o Events/Event.cpp
+
+Object.o: Object.cpp Object.h
+	$(CPP) -c $(INCLUDE_DIRS) -o Object.o Object.cpp
+	
+Events/KeyPressEvent.o: Events/KeyPressEvent.cpp Events/KeyPressEvent.h Events/Event.h
+	$(CPP) -c $(INCLUDE_DIRS) -o Events/KeyPressEvent.o Events/KeyPressEvent.cpp
+	
+Events/KeyReleaseEvent.o: Events/KeyReleaseEvent.cpp Events/KeyReleaseEvent.h Events/Event.h
+	$(CPP) -c $(INCLUDE_DIRS) -o Events/KeyReleaseEvent.o Events/KeyReleaseEvent.cpp
+	
+Events/DrawEvent.o: Events/DrawEvent.cpp Events/DrawEvent.h Events/Event.h
+	$(CPP) -c $(INCLUDE_DIRS) -o Events/DrawEvent.o Events/DrawEvent.cpp
+	
+screen.o: screen.cpp screen.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o screen.o screen.cpp
+
+bmp.o: bmp.cpp bmp.h mygl.h datatypes.h texture.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o bmp.o bmp.cpp
+	
+camera.o: camera.cpp camera.h vector.h mygl.h screen.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o camera.o camera.cpp
+
+ctrls.o: ctrls.cpp ctrls.h keys.h datatypes.h list.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o ctrls.o ctrls.cpp
+
+level.o: level.cpp level.h version.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o level.o level.cpp
+	
+mygl.o: mygl.cpp mygl.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o mygl.o mygl.cpp
+
+myglFont.o: myglFont.cpp myglFont.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o myglFont.o myglFont.cpp
+
+myglTexture.o: myglTexture.cpp myglTexture.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o myglTexture.o myglTexture.cpp
+
+player.o: player.cpp player.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o player.o player.cpp
+
+strmanip.o: strmanip.cpp strmanip.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o strmanip.o strmanip.cpp
+
+tga.o: tga.cpp tga.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o tga.o tga.cpp
+
+vector.o: vector.cpp vector.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o vector.o vector.cpp
+
+window.o: window.cpp window.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o window.o window.cpp
+	
+keys.o: keys.cpp keys.h config.h
+	$(CPP) -c $(INCLUDE_DIRS) -o keys.o keys.cpp
+
+main.o: macosx.cpp main.h config.h Events/Event.h Events/DrawEvent.h EventManager.h
+	$(CPP) -c $(INCLUDE_DIRS) -o main.o macosx.cpp
+	
+x11.o: x11.cpp x11.h EventManager.h main.h mygl.h
+	$(CPP) -c $(INCLUDE_DIRS) -o x11.o x11.cpp
+
+EventManager.o: EventManager.cpp EventManager.h Events/Event.h
+	$(CPP) -c $(INCLUDE_DIRS) -o EventManager.o EventManager.cpp
