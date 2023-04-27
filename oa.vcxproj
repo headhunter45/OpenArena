@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{6F5D0FF6-A032-4356-932E-865B601E0DD4}</ProjectGuid>
+    <RootNamespace>oa</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>17.0.33312.129</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\OpenArena\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/oa.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>.\Release/oa.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\</AssemblerListingLocation>
+      <ObjectFileName>.\</ObjectFileName>
+      <ProgramDataBaseFileName>.\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\OpenArena\oa.exe</OutputFile>
+      <Version>0.1.0-alpha</Version>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>.\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ProgramDatabaseFile>.\Release/oa.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/oa.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;USE_WGL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>.\Debug/oa.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>.\Debug\oa.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>.\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/oa.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\bmp.cpp" />
+    <ClCompile Include="src\camera.cpp" />
+    <ClCompile Include="src\ctrls.cpp" />
+    <ClCompile Include="src\keys.cpp" />
+    <ClCompile Include="src\level.cpp" />
+    <ClCompile Include="src\linux.cpp" />
+    <ClCompile Include="src\macosx.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Model.cpp" />
+    <ClCompile Include="src\mygl.cpp" />
+    <ClCompile Include="src\myglFont.cpp" />
+    <ClCompile Include="src\myglTexture.cpp" />
+    <ClCompile Include="src\NullVideoPlugin.cpp" />
+    <ClCompile Include="src\player.cpp" />
+    <ClCompile Include="src\PluginManager.cpp" />
+    <ClCompile Include="src\screen.cpp" />
+    <ClCompile Include="src\strmanip.cpp" />
+    <ClCompile Include="src\tga.cpp" />
+    <ClCompile Include="src\vector.cpp" />
+    <ClCompile Include="src\window.cpp" />
+    <ClCompile Include="src\windows.cpp" />
+    <ClCompile Include="src\WindowsLogger.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\bmp.h" />
+    <ClInclude Include="src\camera.h" />
+    <ClInclude Include="src\ctrls.h" />
+    <ClInclude Include="src\datatypes.h" />
+    <ClInclude Include="src\geometry.h" />
+    <ClInclude Include="src\image.h" />
+    <ClInclude Include="src\keys.h" />
+    <ClInclude Include="src\level.h" />
+    <ClInclude Include="src\list.h" />
+    <ClInclude Include="src\Logger.h" />
+    <ClInclude Include="src\main.h" />
+    <ClInclude Include="src\Model.h" />
+    <ClInclude Include="src\mydefs.h" />
+    <ClInclude Include="src\mygl.h" />
+    <ClInclude Include="src\myglFont.h" />
+    <ClInclude Include="src\myglTexture.h" />
+    <ClInclude Include="src\NullVideoPlugin.h" />
+    <ClInclude Include="src\player.h" />
+    <ClInclude Include="src\Plugin.h" />
+    <ClInclude Include="src\PluginManager.h" />
+    <ClInclude Include="src\screen.h" />
+    <ClInclude Include="src\strmanip.h" />
+    <ClInclude Include="src\texture.h" />
+    <ClInclude Include="src\tga.h" />
+    <ClInclude Include="src\vector.h" />
+    <ClInclude Include="src\version.h" />
+    <ClInclude Include="src\VideoPlugin.h" />
+    <ClInclude Include="src\window.h" />
+    <ClInclude Include="src\WindowsLogger.h" />
+    <ClInclude Include="src\worlddefs.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Doxyfile.doxygen" />
+    <None Include="OpenArena\oa\config\G2k.cfg" />
+    <None Include="OpenArena\oa\config\My.cfg" />
+    <None Include="OpenArena\oa\maps\intro.map" />
+    <None Include="OpenArena\oa\maps\oamap1.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="OpenArena\oa\textures\groundc.tga" />
+    <Image Include="OpenArena\oa\textures\menu\con_back.bmp" />
+    <Image Include="OpenArena\oa\textures\menu\con_back.tga" />
+    <Image Include="OpenArena\oa\textures\menu\font.bmp" />
+    <Image Include="OpenArena\oa\textures\moonc.tga" />
+    <Image Include="OpenArena\oa\textures\nightSkyc.tga" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="OpenArena\oa\music\bgm\bgm1.mp3" />
+    <Media Include="OpenArena\oa\music\bgm\bgm2.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="heading.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

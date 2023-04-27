@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{13ff878a-a992-45cd-ad4f-2bb053c88836}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{f29e093d-67b9-4989-befa-dfecf48204e0}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="oa">
+      <UniqueIdentifier>{f42db360-f8c8-42e3-b718-63bb5a0dcac4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="oa\maps">
+      <UniqueIdentifier>{72b87d5b-b071-4a5e-b335-6d9b872a4292}</UniqueIdentifier>
+      <Extensions>.map, .lit</Extensions>
+    </Filter>
+    <Filter Include="oa\textures">
+      <UniqueIdentifier>{66139995-7a80-4dfd-a6ca-2d14d79ecdb2}</UniqueIdentifier>
+      <Extensions>.bmp, .jpg, .tga, .png</Extensions>
+    </Filter>
+    <Filter Include="oa\textures\menu">
+      <UniqueIdentifier>{b35e3482-d694-4b71-99c9-12739107f658}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="oa\config">
+      <UniqueIdentifier>{01480a7b-f053-4aba-b4d1-1369458ca6f0}</UniqueIdentifier>
+      <Extensions>.cfg</Extensions>
+    </Filter>
+    <Filter Include="oa\music">
+      <UniqueIdentifier>{4de1e500-1291-4aa4-90e8-73b88763a5c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="oa\music\bgm">
+      <UniqueIdentifier>{a45648ed-60e2-4d43-a43c-ebdffe564796}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{9935e2db-6b13-45d9-a63a-fe203e744684}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\bmp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ctrls.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\keys.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\linux.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\macosx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mygl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\myglFont.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\myglTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NullVideoPlugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PluginManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\screen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\strmanip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tga.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WindowsLogger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\bmp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ctrls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\datatypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\keys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mydefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mygl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\myglFont.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\myglTexture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NullVideoPlugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Plugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PluginManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\screen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\strmanip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tga.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\VideoPlugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WindowsLogger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\worlddefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OpenArena\oa\maps\intro.map">
+      <Filter>oa\maps</Filter>
+    </None>
+    <None Include="OpenArena\oa\maps\oamap1.map">
+      <Filter>oa\maps</Filter>
+    </None>
+    <None Include="OpenArena\oa\config\G2k.cfg">
+      <Filter>oa\config</Filter>
+    </None>
+    <None Include="OpenArena\oa\config\My.cfg">
+      <Filter>oa\config</Filter>
+    </None>
+    <None Include="Doxyfile.doxygen" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="OpenArena\oa\textures\groundc.tga">
+      <Filter>oa\textures</Filter>
+    </Image>
+    <Image Include="OpenArena\oa\textures\moonc.tga">
+      <Filter>oa\textures</Filter>
+    </Image>
+    <Image Include="OpenArena\oa\textures\nightSkyc.tga">
+      <Filter>oa\textures</Filter>
+    </Image>
+    <Image Include="OpenArena\oa\textures\menu\con_back.bmp">
+      <Filter>oa\textures\menu</Filter>
+    </Image>
+    <Image Include="OpenArena\oa\textures\menu\con_back.tga">
+      <Filter>oa\textures\menu</Filter>
+    </Image>
+    <Image Include="OpenArena\oa\textures\menu\font.bmp">
+      <Filter>oa\textures\menu</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="OpenArena\oa\music\bgm\bgm1.mp3">
+      <Filter>oa\music\bgm</Filter>
+    </Media>
+    <Media Include="OpenArena\oa\music\bgm\bgm2.mp3">
+      <Filter>oa\music\bgm</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="heading.txt" />
+  </ItemGroup>
+</Project>
