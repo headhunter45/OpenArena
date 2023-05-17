@@ -17,10 +17,16 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__KeyPressEvent_h__
 #define OpenArena__KeyPressEvent_h__
+// clang-format off
+#include "config.h"
+#include <cstdint>
 #include "Event.h"
 #include "keys.h"
+
+// clang-format on
 
 namespace OpenArena {
 class KeyPressEvent : public Event {

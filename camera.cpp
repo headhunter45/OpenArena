@@ -17,29 +17,19 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include "camera.h"
 
-#include <OpenGL/glu.h>
+// clang-format off
+#include "camera.h"
+#include "opengl.h"
+
+// clang-format on
 
 namespace OpenArena {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
-Camera::Camera() {
-  _position = Vec3f(0, 0, 0);
-  _heading = Vec3f(0, 0, -1);
-  _up = Vec3f(0, 1, 0);
-}
+Camera::Camera() : _position(0, 0, 0), _heading(0, 0, 0), _up(0, 1, 0) {}
 
-void Camera::PositionCamera(double xpos,
-                            double ypos,
-                            double zpos,
-                            double xview,
-                            double yview,
-                            double zview,
-                            double xup,
-                            double yup,
-                            double zup) {
+void Camera::PositionCamera(double xpos, double ypos, double zpos, double xview, double yview, double zview, double xup,
+                            double yup, double zup) {
   _position = Vec3f(xpos, ypos, zpos);
   _heading = Vec3f(xview - xpos, yview - ypos, zview - zpos);
   _up = Vec3f(xup, yup, zup).normalized();
@@ -161,5 +151,4 @@ Vec3f Camera::GetForwardVector() {
 
 void Camera::UpdateVectors() {}
 
-#pragma clang diagnostic pop
 };  // End namespace OpenArena

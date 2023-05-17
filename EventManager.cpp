@@ -17,10 +17,14 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
+// clang-format off
 #include "EventManager.h"
 
 #include <cstdlib>
 #include <iostream>
+
+// clang-format on
 
 namespace OpenArena {
 EventManager::EventManager() {}
@@ -28,7 +32,7 @@ EventManager::EventManager() {}
 void EventManager::SendEvent(Event* event) {
   unsigned int index;
 
-  for (index = 0; index < eventHandlers.Length(); index++) {
+  for (index = 0; index < eventHandlers.size(); index++) {
     Event::EventHandler* handler = eventHandlers[index];
     if (handler->Handles(event->GetEventType())) {
       handler->HandleEvent(event);
@@ -55,6 +59,6 @@ void EventManager::SendEvent(Event event)
 */
 
 void EventManager::RegisterEventHandler(Event::EventHandler* eventHandler) {
-  eventHandlers.Insert(eventHandler);
+  eventHandlers.push_back(eventHandler);
 }
-};  // namespace OpenArena
+};  // End namespace OpenArena

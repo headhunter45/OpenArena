@@ -17,12 +17,14 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__Model_h__
 #define OpenArena__Model_h__
 
-#if defined HAVE_CONFIG_H
+// clang-format off
 #include "config.h"
-#endif
+
+// clang-format on
 
 namespace OpenArena {
 

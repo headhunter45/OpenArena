@@ -17,631 +17,221 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
+// clang-format off
 #include "tga.h"
 
-#include <OpenGL/gl.h>
+#include <cstdio>
+#include <memory>
+#include <string>
 
-#ifdef WIN32
-#pragma warning(disable : 4996)
-#endif
+#include "Logger.h"
+#include "opengl.h"
+
+// clang-format on
 
 namespace OpenArena {
-TextureImage* LoadTGA(const char* filename) {
-  TGAHeader tgaheader;
-  TextureImage* image;
-  std::string errmsg;
-  FILE* file = fopen(filename, "rb");
+namespace {
+using std::make_shared;
+using std::shared_ptr;
+using std::string;
 
-  if (file == NULL) {
-    errmsg = "Could not open texture file ";
-    errmsg = errmsg + filename;
-// This needs to be abstracted somehow
-#ifdef WIN32
-    MessageBox(NULL, errmsg.c_str(), "ERROR", MB_OK);
-#endif
-    return NULL;
+struct TGAHeader {
+  uint8_t Header[12];  // File Header To Determine File Type
+};
+
+struct TGA {
+  uint8_t header[6];       // Holds The First 6 Useful Bytes Of The File
+  uint32_t bytesPerPixel;  // Number Of BYTES Per Pixel (3 Or 4)
+  uint32_t imageSize;      // Amount Of Memory Needed To Hold The Image
+  uint32_t type;           // The Type Of Image, GL_RGB Or GL_RGBA
+  uint32_t Height;         // Height Of Image
+  uint32_t Width;          // Width Of Image
+  uint32_t Bpp;            // Number Of BITS Per Pixel (24 Or 32)
+};
+
+const uint8_t uTGAcompare[12] = {0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0};   // Uncompressed TGA Header
+const uint8_t cTGAcompare[12] = {0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0};  // Compressed TGA Header
+
+}  // End namespace
+
+shared_ptr<TargaImage> LoadUncompressedTGA(FILE*);  // Load an Uncompressed file
+shared_ptr<TargaImage> LoadCompressedTGA(FILE*);    // Load a Compressed file
+
+TargaImage::~TargaImage() {}
+
+shared_ptr<TargaImage> TargaImage::FromFile(string filename) {
+  const string method_name = "OpenArena::TargaImage::FromFile(string) ";
+  FILE* file = nullptr;
+  TGAHeader tga_header;
+  if (filename.empty()) {
+    Logger::LogError(method_name + "filename is empty");
+    return nullptr;
   }
 
-  if (fread(&tgaheader, sizeof(TGAHeader), 1, file) == 0) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-    MessageBox(NULL, "Could not read file header", "ERROR", MB_OK);
-#endif
-    if (file != NULL) fclose(file);
-    return NULL;
+  // TODO: If our filename doesn't exist return null.
+
+  fopen_s(&file, filename.c_str(), "rb");
+  if (file == nullptr) {
+    Logger::LogError(method_name + "unable to open file " + filename);
+    return nullptr;
   }
 
-  if (memcmp(uTGAcompare, &tgaheader, sizeof(tgaheader)) == 0)
-    image = LoadUncompressedTGA(file);
-  else if (memcmp(cTGAcompare, &tgaheader, sizeof(tgaheader)) == 0)
-    image = LoadCompressedTGA(file);
-  else {
-// This needs to be abstracted somehow
-#ifdef WIN32
-    MessageBox(NULL, "TGA file must be type 2 or type 10 ", "Invalid Image", MB_OK);
-#endif
+  if (fread(&tga_header, sizeof(tga_header), 1, file) != 1) {
+    Logger::LogError(method_name + "Could not read file header from file " + filename);
     fclose(file);
-    return NULL;
-  }
-  return image;
-}
-
-TextureImage* LoadUncompressedTGA(FILE* fTGA) {
-  TGA tga;
-  TextureImage* image = new TextureImage;
-
-  if (fread(tga.header, sizeof(tga.header), 1, fTGA) == 0) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-    MessageBox(NULL, "Could not read info header", "ERROR", MB_OK);
-#endif
-    if (fTGA != NULL) {
-      fclose(fTGA);
-    }
-    return NULL;
+    return nullptr;
   }
 
-  image->sizeY = tga.header[1] * 256 + tga.header[0];
-  image->sizeX = tga.header[3] * 256 + tga.header[2];
-  image->bpp = tga.header[4];
-  tga.Width = image->sizeX;
-  tga.Height = image->sizeY;
-  tga.Bpp = image->bpp;
-
-  if ((image->sizeX <= 0) || (image->sizeY <= 0) || ((image->bpp != 24) && (image->bpp != 32))) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-    MessageBox(NULL, "Invalid texture information", "ERROR", MB_OK);
-#endif
-    if (fTGA != NULL) {
-      fclose(fTGA);
-    }
-    return NULL;
-  }
-
-  if (image->bpp == 24) {
-    image->type = GL_RGB;
+  if (memcmp(uTGAcompare, &tga_header, sizeof(tga_header)) == 0) {
+    return LoadUncompressedTGA(file);
+  } else if (memcmp(cTGAcompare, &tga_header, sizeof(tga_header)) == 0) {
+    return LoadCompressedTGA(file);
   } else {
-    image->type = GL_RGBA;
+    Logger::LogError(method_name + "TGA file must be type 2 or type 10");
+    fclose(file);
+    return nullptr;
+  }
+}
+
+shared_ptr<TargaImage> LoadUncompressedTGA(FILE* file) {
+  const string method_name = "OpenArena::TargaImage::<anonymous>::LoadUncompressedTGA(FILE*)";
+  TGA tga;
+  shared_ptr<TargaImage> image = make_shared<TargaImage>();
+
+  if (fread(tga.header, sizeof(tga.header), 1, file) != 1) {
+    Logger::LogError(method_name + "Cound not read info header");
+    fclose(file);
+    return nullptr;
   }
 
-  tga.bytesPerPixel = (tga.Bpp / 8);
-  tga.imageSize = (tga.bytesPerPixel * tga.Width * tga.Height);
-  image->data = (uint8_t*)malloc(tga.imageSize);
+  image->bpp_ = tga.header[4];
+  image->size_x_ = tga.header[3] * 256 + tga.header[2];
+  image->size_y_ = tga.header[1] * 256 + tga.header[0];
 
-  if (image->data == NULL) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-    MessageBox(NULL, "Could not allocate memory for image", "ERROR", MB_OK);
-#endif
-    fclose(fTGA);
-    return NULL;
+  if ((image->size_x_ <= 0) || (image->size_y_ <= 0) || ((image->bpp_ != 24) && (image->bpp_ != 32))) {
+    Logger::LogError(method_name + "Invalid texture information");
+    fclose(file);
+    return nullptr;
   }
 
-  if (fread(image->data, 1, tga.imageSize, fTGA) != tga.imageSize) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-    MessageBox(NULL, "Could not read image data", "ERROR", MB_OK);
-#endif
-    if (image->data != NULL) {
-      free(image->data);
-    }
-    fclose(fTGA);
-    return NULL;
+  if (image->bpp_ == 24) {
+    image->type_ = ImageBase::Type::RGB;
+  } else {
+    image->type_ = ImageBase::Type::RGBA;
   }
 
-  for (uint32_t cswap = 0; cswap < (int)tga.imageSize; cswap += tga.bytesPerPixel) {
-    image->data[cswap] ^= image->data[cswap + 2] ^= image->data[cswap] ^= image->data[cswap + 2];
+  int bytes_per_pixel = image->bpp_ / 8;
+  int num_pixels = image->size_x_ * image->size_y_;
+  int num_bytes = num_pixels * bytes_per_pixel;
+  image->data_ = shared_ptr<uint8_t[]>(new uint8_t[num_bytes]);
+  if (image->data_ == nullptr) {
+    Logger::LogError(method_name + "Could not allocate memory for image");
+    fclose(file);
+    return nullptr;
   }
 
-  fclose(fTGA);
+  if (fread(image->data_.get(), 1, num_bytes, file) != num_bytes) {
+    Logger::LogError(method_name + "Could not read image data");
+    fclose(file);
+    return nullptr;
+  }
+
+  for (uint32_t cswap = 0; cswap < num_bytes; cswap += bytes_per_pixel) {
+    image->data_[cswap] ^= image->data_[cswap + 2] ^= image->data_[cswap] ^= image->data_[cswap + 2];
+  }
+
+  fclose(file);
   return image;
 }
 
-TextureImage* LoadCompressedTGA(FILE* fTGA) {
-  TextureImage* image = new TextureImage;
+shared_ptr<TargaImage> LoadCompressedTGA(FILE* file) {
+  const std::string method_name = "OpenArena::TargaImage::<anonymous>::LoadCompressedTGA ";
+  shared_ptr<TargaImage> image = make_shared<TargaImage>();
   TGA tga;
 
-  if (fread(tga.header, sizeof(tga.header), 1, fTGA) == 0) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-    MessageBox(NULL, "Could not read info header", "ERROR", MB_OK);
-#endif
-    if (fTGA != NULL) {
-      fclose(fTGA);
-    }
-    return NULL;
+  if (fread(tga.header, sizeof(tga.header), 1, file) != 1) {
+    Logger::LogError(method_name + "Could not read info header");
+    fclose(file);
+    return nullptr;
   }
 
-  image->sizeX = tga.header[1] * 256 + tga.header[0];
-  image->sizeY = tga.header[3] * 256 + tga.header[2];
-  image->bpp = tga.header[4];
-  tga.Width = image->sizeX;
-  tga.Height = image->sizeY;
-  tga.Bpp = image->bpp;
+  image->bpp_ = tga.header[4];
+  image->size_x_ = tga.header[1] * 256 + tga.header[0];
+  image->size_y_ = tga.header[3] * 256 + tga.header[2];
 
-  if ((image->sizeX <= 0) || (image->sizeY <= 0) || ((image->bpp != 24) && (image->bpp != 32))) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-    MessageBox(NULL, "Invalid texture information", "ERROR", MB_OK);
-#endif
-    if (fTGA != NULL) {
-      fclose(fTGA);
-    }
-    return NULL;
+  if ((image->size_x_ <= 0) || (image->size_y_ <= 0) || ((image->bpp_ != 24) && (image->bpp_ != 32))) {
+    Logger::LogError(method_name + "Invalid texture information");
+    fclose(file);
+    return nullptr;
   }
-
-  tga.bytesPerPixel = (tga.Bpp / 8);
-  tga.imageSize = (tga.bytesPerPixel * tga.Width * tga.Height);
-  image->data = (uint8_t*)malloc(tga.imageSize);
-
-  if (image->data == NULL) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-    MessageBox(NULL, "Could not allocate memory for image", "ERROR", MB_OK);
-#endif
-    fclose(fTGA);
-    return NULL;
+  int bytes_per_pixel = image->bpp_ / 8;
+  int num_pixels = image->size_x_ * image->size_y_;
+  int num_bytes = num_pixels * bytes_per_pixel;
+  image->data_ = shared_ptr<uint8_t[]>(new uint8_t[num_bytes]);
+  if (image->data_ == nullptr) {
+    Logger::LogError(method_name + "Could not allocate memory for image");
+    fclose(file);
+    return nullptr;
   }
-
-  uint32_t pixelcount = tga.Height * tga.Width;
-  uint32_t currentpixel = 0;
-  uint32_t currentbyte = 0;
-  uint8_t* colorbuffer = (uint8_t*)malloc(tga.bytesPerPixel);
-
+  // TODO: Abstract the RLE decoder to it's own file/class.
+  uint32_t current_pixel = 0;
+  uint32_t current_byte = 0;
+  uint8_t* color_buffer = (uint8_t*)malloc(bytes_per_pixel);
   do {
-    uint8_t chunkheader = 0;
-
-    if (fread(&chunkheader, sizeof(uint8_t), 1, fTGA) == 0) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-      MessageBox(NULL, "Could not read RLE header", "ERROR", MB_OK);
-#endif
-      if (fTGA != NULL) {
-        fclose(fTGA);
-      }
-      if (image->data != NULL) {
-        free(image->data);
-      }
-      return NULL;
+    uint8_t chunk_header = 0;
+    if (fread(&chunk_header, sizeof(uint8_t), 1, file) != 1) {
+      Logger::LogError(method_name + "Could not read RLE header");
+      fclose(file);
+      return nullptr;
     }
 
-    if (chunkheader < 128) {
-      chunkheader++;
-      for (short counter = 0; counter < chunkheader; counter++) {
-        if (fread(colorbuffer, 1, tga.bytesPerPixel, fTGA) != tga.bytesPerPixel) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-          MessageBox(NULL, "Could not read image data", "ERROR", MB_OK);
-#endif
-
-          if (fTGA != NULL) {
-            fclose(fTGA);
-          }
-
-          if (colorbuffer != NULL) {
-            free(colorbuffer);
-          }
-
-          if (image->data != NULL) {
-            free(image->data);
-          }
-
-          return NULL;
+    if (chunk_header < 128) {
+      chunk_header++;
+      for (uint16_t counter = 0; counter < chunk_header; counter++) {
+        if (fread(color_buffer, 1, bytes_per_pixel, file) != bytes_per_pixel) {
+          Logger::LogError(method_name + "Could not read image data.");
+          fclose(file);
+          return nullptr;
         }
-
-        image->data[currentbyte] = colorbuffer[2];
-        image->data[currentbyte + 1] = colorbuffer[1];
-        image->data[currentbyte + 2] = colorbuffer[0];
-
-        if (tga.bytesPerPixel == 4) {
-          image->data[currentbyte + 3] = colorbuffer[3];
+        image->data_[current_byte] = color_buffer[2];
+        image->data_[current_byte + 1] = color_buffer[1];
+        image->data_[current_byte + 2] = color_buffer[0];
+        if (bytes_per_pixel == 4) {
+          image->data_[current_byte + 3] = color_buffer[3];
         }
-
-        currentbyte += tga.bytesPerPixel;
-        currentpixel++;
-
-        if (currentpixel > pixelcount) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-          MessageBox(NULL, "Too many pixels read", "ERROR", NULL);
-#endif
-
-          if (fTGA != NULL) {
-            fclose(fTGA);
-          }
-
-          if (colorbuffer != NULL) {
-            free(colorbuffer);
-          }
-
-          if (image->data != NULL) {
-            free(image->data);
-          }
-
-          return NULL;
+        current_byte += bytes_per_pixel;
+        current_pixel++;
+        if (current_pixel > num_pixels) {
+          Logger::LogError(method_name + "Too many pixels read.");
+          fclose(file);
         }
       }
     } else {
-      chunkheader -= 127;
-      if (fread(colorbuffer, 1, tga.bytesPerPixel, fTGA) != tga.bytesPerPixel) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-        MessageBox(NULL, "Could not read from file", "ERROR", MB_OK);
-#endif
-
-        if (fTGA != NULL) {
-          fclose(fTGA);
-        }
-
-        if (colorbuffer != NULL) {
-          free(colorbuffer);
-        }
-
-        if (image->data != NULL) {
-          free(image->data);
-        }
-
-        return NULL;
+      chunk_header -= 127;
+      if (fread(color_buffer, 1, bytes_per_pixel, file) != bytes_per_pixel) {
+        Logger::LogError(method_name + "Could not read from file.");
+        fclose(file);
+        return nullptr;
       }
-
-      for (short counter = 0; counter < chunkheader; counter++) {
-        image->data[currentbyte] = colorbuffer[2];
-        image->data[currentbyte + 1] = colorbuffer[1];
-        image->data[currentbyte + 2] = colorbuffer[0];
-
-        if (tga.bytesPerPixel == 4) {
-          image->data[currentbyte + 3] = colorbuffer[3];
+      for (uint16_t counter = 0; counter < chunk_header; counter++) {
+        image->data_[current_byte] = color_buffer[2];
+        image->data_[current_byte + 1] = color_buffer[1];
+        image->data_[current_byte + 2] = color_buffer[0];
+        if (bytes_per_pixel == 4) {
+          image->data_[current_byte + 3] = color_buffer[3];
         }
-
-        currentbyte += tga.bytesPerPixel;
-        currentpixel++;
-
-        if (currentpixel > pixelcount) {
-// This needs to be abstracted somehow
-#ifdef WIN32
-          MessageBox(NULL, "Too many pixels read", "ERROR", NULL);
-#endif
-
-          if (fTGA != NULL) {
-            fclose(fTGA);
-          }
-
-          if (colorbuffer != NULL) {
-            free(colorbuffer);
-          }
-
-          if (image->data != NULL) {
-            free(image->data);
-          }
-
-          return NULL;
+        current_byte += bytes_per_pixel;
+        current_pixel++;
+        if (current_pixel > num_pixels) {
+          Logger::LogError(method_name + "Too many pixels read.");
+          fclose(file);
+          return nullptr;
         }
       }
     }
-  }
-
-  while (currentpixel < pixelcount);
-  fclose(fTGA);
+  } while (current_pixel < num_pixels);
+  fclose(file);
   return image;
 }
-
-/*
-TextureImage* LoadTGA(const char * filename)
-{
-        TGAHeader tgaheader;
-        TextureImage* image;
-        std::string errmsg;
-        FILE* file = fopen(filename, "rb");
-
-        if(file == NULL)
-        {
-                errmsg = "Could not open texture file ";
-                errmsg = errmsg + filename;
-                MessageBox(NULL, errmsg.c_str(), "ERROR", MB_OK);
-                return NULL;
-        }
-
-        if(fread(&tgaheader, sizeof(TGAHeader), 1, file) == 0)
-        {
-                MessageBox(NULL, "Could not read file header", "ERROR", MB_OK);
-                if(file != NULL)
-                        fclose(file);
-                return NULL;
-        }
-
-        if(memcmp(uTGAcompare, &tgaheader, sizeof(tgaheader)) == 0)
-                image = LoadUncompressedTGA(file);
-        else if(memcmp(cTGAcompare, &tgaheader, sizeof(tgaheader)) == 0)
-                image = LoadCompressedTGA(file);
-        else
-        {
-                MessageBox(NULL, "TGA file must be type 2 or type 10 ", "Invalid
-Image", MB_OK); fclose(file); return NULL;
-        }
-        return image;
-}
-
-TextureImage* LoadUncompressedTGA(FILE * fTGA)
-{
-        TGA tga;
-        TextureImage* image = new TextureImage;
-
-        if(fread(tga.header, sizeof(tga.header), 1, fTGA) == 0)
-        {
-                MessageBox(NULL, "Could not read info header", "ERROR", MB_OK);
-                if(fTGA != NULL)
-                {
-                        fclose(fTGA);
-                }
-                return NULL;
-        }
-
-        image->sizeY  = tga.header[1] * 256 + tga.header[0];
-        image->sizeX = tga.header[3] * 256 + tga.header[2];
-        image->bpp	= tga.header[4];
-        tga.Width		= image->sizeX;
-        tga.Height		= image->sizeY;
-        tga.Bpp			= image->bpp;
-
-        if((image->sizeX <= 0) || (image->sizeY <= 0) || ((image->bpp != 24) &&
-(image->bpp !=32)))
-        {
-                MessageBox(NULL, "Invalid texture information", "ERROR", MB_OK);
-                if(fTGA != NULL)
-                {
-                        fclose(fTGA);
-                }
-                return NULL;
-        }
-
-        if(image->bpp == 24)
-        {
-                image->type	= GL_RGB;
-        }
-        else
-        {
-                image->type	= GL_RGBA;
-        }
-
-        tga.bytesPerPixel	= (tga.Bpp / 8);
-        tga.imageSize		= (tga.bytesPerPixel * tga.Width * tga.Height);
-        image->data	= (uint8_t *)malloc(tga.imageSize);
-
-        if(image->data == NULL)
-        {
-                MessageBox(NULL, "Could not allocate memory for image", "ERROR",
-MB_OK); fclose(fTGA); return NULL;
-        }
-
-        if(fread(image->data, 1, tga.imageSize, fTGA) != tga.imageSize)
-        {
-                MessageBox(NULL, "Could not read image data", "ERROR", MB_OK);
-                if(image->data != NULL)
-                {
-                        free(image->data);
-                }
-                fclose(fTGA);
-                return NULL;
-        }
-
-
-        for(uint32_t cswap = 0; cswap < (int)tga.imageSize; cswap +=
-tga.bytesPerPixel)
-        {
-                image->data[cswap] ^= image->data[cswap+2] ^=
-                image->data[cswap] ^= image->data[cswap+2];
-        }
-
-        fclose(fTGA);
-        return image;
-}
-
-TextureImage* LoadCompressedTGA(FILE * fTGA)
-{
-        TextureImage* image = new TextureImage;
-        TGA tga;
-
-        if(fread(tga.header, sizeof(tga.header), 1, fTGA) == 0)
-        {
-                MessageBox(NULL, "Could not read info header", "ERROR", MB_OK);
-                if(fTGA != NULL)
-                {
-                        fclose(fTGA);
-                }
-                return NULL;
-        }
-
-        image->sizeX  = tga.header[1] * 256 + tga.header[0];
-        image->sizeY = tga.header[3] * 256 + tga.header[2];
-        image->bpp	= tga.header[4];
-        tga.Width		= image->sizeX;
-        tga.Height		= image->sizeY;
-        tga.Bpp			= image->bpp;
-
-        if((image->sizeX <= 0) || (image->sizeY <= 0) || ((image->bpp != 24) &&
-(image->bpp !=32)))
-        {
-                MessageBox(NULL, "Invalid texture information", "ERROR", MB_OK);
-                if(fTGA != NULL)
-                {
-                        fclose(fTGA);
-                }
-                return NULL;
-        }
-
-        tga.bytesPerPixel	= (tga.Bpp / 8);
-        tga.imageSize		= (tga.bytesPerPixel * tga.Width * tga.Height);
-        image->data	= (uint8_t *)malloc(tga.imageSize);
-
-        if(image->data == NULL)
-        {
-                MessageBox(NULL, "Could not allocate memory for image", "ERROR",
-MB_OK); fclose(fTGA); return NULL;
-        }
-
-        uint32_t pixelcount	= tga.Height * tga.Width;
-        uint32_t currentpixel	= 0;
-        uint32_t currentbyte	= 0;
-        uint8_t * colorbuffer = (uint8_t *)malloc(tga.bytesPerPixel);
-
-        do
-        {
-                uint8_t chunkheader = 0;
-
-                if(fread(&chunkheader, sizeof(uint8_t), 1, fTGA) == 0)
-                {
-                        MessageBox(NULL, "Could not read RLE header", "ERROR",
-MB_OK); if(fTGA != NULL)
-                        {
-                                fclose(fTGA);
-                        }
-                        if(image->data != NULL)
-                        {
-                                free(image->data);
-                        }
-                        return NULL;
-                }
-
-                if(chunkheader < 128)
-                {
-                        chunkheader++;
-                        for(short counter = 0; counter < chunkheader; counter++)
-                        {
-                                if(fread(colorbuffer, 1, tga.bytesPerPixel,
-fTGA) != tga.bytesPerPixel)
-                                {
-                                        MessageBox(NULL, "Could not read image
-data", "ERROR", MB_OK);
-
-                                        if(fTGA != NULL)
-                                        {
-                                                fclose(fTGA);
-                                        }
-
-                                        if(colorbuffer != NULL)
-                                        {
-                                                free(colorbuffer);
-                                        }
-
-                                        if(image->data != NULL)
-                                        {
-                                                free(image->data);
-                                        }
-
-                                        return NULL;
-                                }
-
-                                image->data[currentbyte		] =
-colorbuffer[2]; image->data[currentbyte + 1	] = colorbuffer[1];
-                                image->data[currentbyte + 2	] =
-colorbuffer[0];
-
-                                if(tga.bytesPerPixel == 4)
-                                {
-                                        image->data[currentbyte + 3] =
-colorbuffer[3];
-                                }
-
-                                currentbyte += tga.bytesPerPixel;
-                                currentpixel++;
-
-                                if(currentpixel > pixelcount)
-                                {
-                                        MessageBox(NULL, "Too many pixels read",
-"ERROR", NULL);
-
-                                        if(fTGA != NULL)
-                                        {
-                                                fclose(fTGA);
-                                        }
-
-                                        if(colorbuffer != NULL)
-                                        {
-                                                free(colorbuffer);
-                                        }
-
-                                        if(image->data != NULL)
-                                        {
-                                                free(image->data);
-                                        }
-
-                                        return NULL;
-                                }
-                        }
-                }
-                else
-                {
-                        chunkheader -= 127;
-                        if(fread(colorbuffer, 1, tga.bytesPerPixel, fTGA) !=
-tga.bytesPerPixel)
-                        {
-                                MessageBox(NULL, "Could not read from file",
-"ERROR", MB_OK);
-
-                                if(fTGA != NULL)
-                                {
-                                        fclose(fTGA);
-                                }
-
-                                if(colorbuffer != NULL)
-                                {
-                                        free(colorbuffer);
-                                }
-
-                                if(image->data != NULL)
-                                {
-                                        free(image->data);
-                                }
-
-                                return NULL;
-                        }
-
-                        for(short counter = 0; counter < chunkheader; counter++)
-                        {
-                                image->data[currentbyte		] =
-colorbuffer[2]; image->data[currentbyte + 1	] = colorbuffer[1];
-                                image->data[currentbyte + 2	] =
-colorbuffer[0];
-
-                                if(tga.bytesPerPixel == 4)
-                                {
-                                        image->data[currentbyte + 3] =
-colorbuffer[3];
-                                }
-
-                                currentbyte += tga.bytesPerPixel;
-                                currentpixel++;
-
-                                if(currentpixel > pixelcount)
-                                {
-                                        MessageBox(NULL, "Too many pixels read",
-"ERROR", NULL);
-
-                                        if(fTGA != NULL)
-                                        {
-                                                fclose(fTGA);
-                                        }
-
-                                        if(colorbuffer != NULL)
-                                        {
-                                                free(colorbuffer);
-                                        }
-
-                                        if(image->data != NULL)
-                                        {
-                                                free(image->data);
-                                        }
-
-                                        return NULL;
-                                }
-                        }
-                }
-        }
-
-        while(currentpixel < pixelcount);
-        fclose(fTGA);
-        return image;
-}
-*/
 }  // End namespace OpenArena

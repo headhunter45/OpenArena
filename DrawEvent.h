@@ -17,11 +17,15 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__DrawEvent_h__
 #define OpenArena__DrawEvent_h__
-
+// clang-format off
+#include "config.h"
 #include "Event.h"
 #include "level.h"
+
+// clang-format on
 
 namespace OpenArena {
 class DrawEvent : public OpenArena::Event {
@@ -41,4 +45,4 @@ class DrawEvent : public OpenArena::Event {
 };
 };  // End namespace OpenArena
 
-#endif  // End OpenArena__DrawEvent_h__
+#endif  // End !defined(OpenArena__DrawEvent_h__)

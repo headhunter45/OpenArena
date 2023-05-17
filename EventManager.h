@@ -17,11 +17,15 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__EventManager_h__
 #define OpenArena__EventManager_h__
-
+// clang-format off
+#include "config.h"
 #include "Event.h"
-#include "list.h"
+#include <vector>
+
+// clang-format on
 
 namespace OpenArena {
 class EventManager {
@@ -31,7 +35,7 @@ class EventManager {
   void RegisterEventHandler(Event::EventHandler* eventHandler);
 
  private:
-  list<Event::EventHandler*> eventHandlers;
+  std::vector<Event::EventHandler*> eventHandlers;
 };
 }  // End namespace OpenArena
-#endif  // End OpenArena__EventManager_h__
+#endif  // End !defined(OpenArena__EventManager_h__)

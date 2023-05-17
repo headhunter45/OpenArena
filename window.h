@@ -17,41 +17,17 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__window_h__
 #define OpenArena__window_h__
 
-#if defined HAVE_CONFIG_H
+// clang-format off
 #include "config.h"
-#endif
-
+#include "opengl.h"
 #include "screen.h"
-
-#if defined USE_GLX
-#include <GL/gl.h>
-#include <GL/glu.h>  //maybe not necessary
-#include <GL/glx.h>
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
-#include <X11/keysym.h>
-#if defined HAVE_XF86VIDMODE
-#include <X11/extensions/xf86vmode.h>
-#endif
-#elif defined USE_AGL
-#include <AGL/agl.h>
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#elif defined USE_CGL
-#include <OpenGL/OpenGL.h>
-#include <OpenGL/gl.h>
-#elif defined USE_WGL
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <windows.h>
-#endif
-
-#ifdef WIN32
-#endif
 #include "vector.h"
+
+// clang-format on
 
 namespace OpenArena {
 class Window : public Screen {
@@ -68,43 +44,21 @@ class Window : public Screen {
 
  public:
   Window();
-  ~Window();
-  void Close();
-  bool Open();
-  bool Open(string title,
-            int width,
-            int height,
-            int bits,
-            bool fullscreenflag);  // make that string a const char* after this works
-  void SetInitializer(Initializer* initializer);
-  void SetResizer(Resizer* resizer);
-  void SwapBuffers();
-  void Resize(uint32_t width, uint32_t height);
-  Vec2i GetMousePosition();
-  void SetMousePosition(Vec2i pos);
+  virtual ~Window();
+  virtual void Close();
+  virtual bool Open();
+  virtual bool Open(std::string title, int width, int height, int bits,
+                    bool fullscreenflag);  // make that string a const char* after this works
+  virtual void SetInitializer(Initializer* initializer);
+  virtual void SetResizer(Resizer* resizer);
+  virtual void SwapBuffers();
+  virtual void Resize(uint32_t width, uint32_t height);
+  virtual Vec2i GetMousePosition();
+  virtual void SetMousePosition(Vec2i pos);
 
-#ifdef USE_GLX
-  Display* GetDisplay();
-#endif
  private:
-#ifdef USE_GLX
-  Cursor CreateWindowedCursor();
-  Cursor CreateFullscreenCursor();
-  int screen;
-  ::Window window;
-  GLXContext hRC;
-  XSetWindowAttributes attributes;
-  bool doubleBuffered;
-#if defined HAVE_XF86VIDMODE
-  XF86VidModeModeInfo vidMode;
-#endif
-  int x, y;
-  Display* display;
-#elif defined USE_AGL
-  AGLContext _aglContext;
-  WindowRef _window;
-  Rect _bounds;
-#elif defined USE_WGL
+#ifdef USE_WGL
+  // TODO: move this to opengl/window
   HGLRC glContext;
   HWND window;
   HDC deviceContext;
@@ -117,9 +71,10 @@ class Window : public Screen {
 
 #if defined USE_GLX
 static int attrListSgl[] = {GLX_RGBA, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
-static int attrListDbl[] = {
-    GLX_RGBA, GLX_DOUBLEBUFFER, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, GLX_DEPTH_SIZE, 16, None};
+static int attrListDbl[] = {GLX_RGBA, GLX_DOUBLEBUFFER, GLX_RED_SIZE, 4,   GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE,
+                            4,        GLX_DEPTH_SIZE,   16,           None};
 #elif defined USE_WGL
+// TODO: Move this to opengl/window.
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 #endif
 

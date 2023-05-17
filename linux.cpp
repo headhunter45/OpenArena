@@ -17,13 +17,17 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#ifdef __linux
 
+#ifdef __linux
+// clang-format off
 // include necessary header files
 #include "main.h"
 #include "version.h"
 #include "x11.h"
-using namespace std;
+
+// clang-format on
+
+namespace {}  // End namespace
 
 void InitControls();
 
@@ -71,11 +75,8 @@ int main(int argc, char** argv) {
   //	g_Screen.SetOnInit(InitGL);
   //	g_Screen.SetOnResize(ResizeGLScene);
 
-  if (!g_Screen->Open(OPENARENA_VERSION,
-                      level->screen.GetWidth(),
-                      level->screen.GetHeight(),
-                      level->screen.GetColorDepth(),
-                      level->screen.GetFullscreen())) {
+  if (!g_Screen->Open(OPENARENA_VERSION, level->screen.GetWidth(), level->screen.GetHeight(),
+                      level->screen.GetColorDepth(), level->screen.GetFullscreen())) {
     return 1;
   }
 
@@ -174,11 +175,8 @@ int main(int argc, char** argv) {
       keys[OpenArena::KEY_F1] = false;
       g_Screen->Close();
       g_Screen->ToggleFullscreen();
-      if (!g_Screen->Open(OPENARENA_VERSION,
-                          level->screen.GetWidth(),
-                          level->screen.GetHeight(),
-                          level->screen.GetColorDepth(),
-                          level->screen.GetFullscreen())) {
+      if (!g_Screen->Open(OPENARENA_VERSION, level->screen.GetWidth(), level->screen.GetHeight(),
+                          level->screen.GetColorDepth(), level->screen.GetFullscreen())) {
         return 1;
       }
     }

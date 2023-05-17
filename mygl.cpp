@@ -17,31 +17,41 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include "mygl.h"
 
+// clang-format off
+#include "mygl.h"
+#include "Logger.h"
 #include "bmp.h"
 #include "strmanip.h"
 #include "texture.h"
 #include "tga.h"
 
+// clang-format on
+
 namespace OpenArena {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+namespace {
+using std::shared_ptr;
+using std::string;
+}  // End namespace
 
 void FreeGLTexture(GLuint& texture) {
   glDeleteTextures(1, &texture);
 }
 
 bool LoadGLTexture(string fn, GLuint& texture, GLuint mag, GLuint min) {
+  string method_name = "OpenArena::LoadGLTexture(string, GLuint&, GLuint, GLuint) ";
   if (Right(tolower(fn), 4) == ".bmp") {
-    TextureImage* texImage = NULL;
-    if ((texImage = LoadBMP(fn.c_str()))) {
+    Logger::LogDebug(method_name + "Loading a bitmap.");
+    shared_ptr<BitmapImage> bmp = BitmapImage::FromFile(fn);
+    Logger::LogDebug((string) "bitmap is " + (bmp ? "not null" : "null"));
+    TextureImage* texImage = bmp->ToTextureImage();
+    if (texImage) {
       glGenTextures(1, &texture);
       glBindTexture(GL_TEXTURE_2D, texture);
       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-      glTexImage2D(
-          GL_TEXTURE_2D, 0, 3, texImage->sizeX, texImage->sizeY, 0, texImage->type, GL_UNSIGNED_BYTE, texImage->data);
+      glTexImage2D(GL_TEXTURE_2D, 0, 3, texImage->sizeX, texImage->sizeY, 0, texImage->type, GL_UNSIGNED_BYTE,
+                   texImage->data);
 
       if (texImage)  // Just in case somehow the file was empty or unloadable
       {
@@ -53,12 +63,16 @@ bool LoadGLTexture(string fn, GLuint& texture, GLuint mag, GLuint min) {
       return false;
     }
   } else if (Right(tolower(fn), 4) == ".tga") {
-    TextureImage* texImage = NULL;
-    if ((texImage = LoadTGA(fn.c_str()))) {
+    Logger::LogDebug(method_name + "Loading a tga file.");
+    shared_ptr<TargaImage> tga = TargaImage::FromFile(fn);
+    Logger::LogDebug(method_name + "tga is " + (tga ? "not null" : "null"));
+    TextureImage* texImage = tga->FromFile(fn)->ToTextureImage();
+    Logger::LogDebug(method_name + "texImage is " + (texImage ? "not null" : "null"));
+    if ((texImage)) {
       glGenTextures(1, &texture);
       glBindTexture(GL_TEXTURE_2D, texture);
-      glTexImage2D(
-          GL_TEXTURE_2D, 0, 3, texImage->sizeX, texImage->sizeY, 0, texImage->type, GL_UNSIGNED_BYTE, texImage->data);
+      glTexImage2D(GL_TEXTURE_2D, 0, 3, texImage->sizeX, texImage->sizeY, 0, texImage->type, GL_UNSIGNED_BYTE,
+                   texImage->data);
       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
@@ -67,16 +81,18 @@ bool LoadGLTexture(string fn, GLuint& texture, GLuint mag, GLuint min) {
         if (texImage->data) free(texImage->data);
         free(texImage);
       }
+      Logger::LogDebug(method_name + "returning true");
       return true;
     } else {
+      Logger::LogDebug(method_name + "returning false from 1");
       return false;
     }
   } else {
+    Logger::LogDebug(method_name + "returning false from 2");
     return false;
   }
 }
 
-#pragma clang diagnostic pop
-}  // End namespace OpenArena
-
 OpenArena::Window* g_Screen = new OpenArena::Window();
+
+}  // End namespace OpenArena

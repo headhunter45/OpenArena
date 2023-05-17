@@ -17,14 +17,22 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
+// clang-format off
 #include "Object.h"
 
+// clang-format on
+
 namespace OpenArena {
+namespace {
+const char kClassName_OpenArena_Object[] = "Object";
+}
+
 Object::Object() {}
 
 Object::~Object() {}
 
 const char* Object::GetClassName() {
-  return 0x0;
+  return kClassName_OpenArena_Object;
 }
 }  // End namespace OpenArena

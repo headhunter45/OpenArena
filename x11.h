@@ -17,17 +17,19 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__x11_h__
 #define OpenArena__x11_h__
-#if defined HAVE_CONFIG_H
+// clang-format off
 #include "config.h"
-#endif
 
 #if defined USE_GLX
 #include "EventManager.h"
 #include "level.h"
 #include "mygl.h"
-
+#endif
+// clang-format on
+#if defined USE_GLX
 int DrawGLScene();
 OpenArena::Keys TranslateButton(int keyCode);
 OpenArena::Keys TranslateKey(int keyCode);

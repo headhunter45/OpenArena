@@ -17,15 +17,21 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include "ctrls.h"
 
+// clang-format off
+#include "ctrls.h"
 #include "strmanip.h"
-using std::endl;
-using std::ostream;
-using std::string;
+// clang-foramt on
 
 namespace OpenArena {
+  namespace {
+    using std::endl;
+    using std::ostream;
+    using std::string;
+  } // End namespace
+
 void ControlScheme::LoadDefaultControlScheme() {
+  UnBindAll();
   Bind(OpenArena::KEY_LBUTTON, ACTION_FORWARD);
   Bind(OpenArena::KEY_RBUTTON, ACTION_BACKWARD);
   Bind(OpenArena::KEY_LEFT, ACTION_LOOKLEFT);
@@ -183,5 +189,13 @@ bool ControlScheme::IsBound(OpenArena::Keys key, Action action) {
   }
 
   return false;
+}
+
+ControlScheme::Action ControlScheme::GetAction(OpenArena::Keys key) {
+  return keyActions[key];
+}
+
+ControlScheme::ControlScheme(){
+  UnBindAll();
 }
 }  // End namespace OpenArena

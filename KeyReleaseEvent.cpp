@@ -17,11 +17,13 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
+// clang-format off
 #include "KeyReleaseEvent.h"
-
 #include <cstdio>
-
 #include "main.h"
+
+// clang-format on
 
 namespace OpenArena {
 KeyReleaseEvent::KeyReleaseEvent(OpenArena::Keys key) {

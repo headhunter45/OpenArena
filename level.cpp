@@ -17,50 +17,46 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include "level.h"
 
+// clang-format off
+#include "level.h"
+#include <sstream>
+#include <vector>
+#include "logger.h"
 #include "version.h"
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#ifdef WIN32
-#pragma warning(disable : 4996)
-#endif
-#pragma clang diagnostic pop
-using namespace std;
+// clang-format on
+
+namespace {
+// using std::cout;
+using std::endl;
+using std::ifstream;
+using std::ofstream;
+using std::ostringstream;
+using std::string;
+using std::to_string;
+using std::vector;
+}  // End namespace
 
 namespace OpenArena {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
-Level::Level(EventManager* eventManager) {
-  _eventManager = eventManager;
-  _window = NULL;
-  textureNames = NULL;
-  numTextures = 0;
-
+// set consoleHistory
+Level::Level(EventManager* eventManager)
+    : _eventManager(eventManager),
+      _window(nullptr),
+      showConsole(false),
+      showFPS(false),
+      defaultPlayer(nullptr),
+      numTextures(0),
+      nextLevel("intro.map"),
+      gamedir("oa/"),
+      sound(true),
+      numTriangles(0),
+      mouseSpeed(5),
+      turnSpeed(1.0f),
+      mlook(true) {
   screen.SetName(OPENARENA_VERSION);
-
-  showFPS = false;
-  showConsole = false;
-
-  nextLevel = "intro.map";
-  gamedir = "oa/";
-  sound = true;
-
   defaultPlayer = new Player;
-
-  numTriangles = 0;
-  triangles = NULL;
-  /*
-  for(int x=0; x<4; x++)
-  LightAmbient[x] = 5;
-  */
-  // Player Stuff
-  mouseSpeed = 5;
-  turnSpeed = 1.0f;
-  moveSpeed = 0.2f;
-  mlook = true;
 }
 
 Level::~Level() {
@@ -71,11 +67,11 @@ Level::~Level() {
 }
 
 bool Level::LoadMap(string mapname) {
+  string method_name = "OpenArena::Level::LoadMap(string) ";
   ifstream input;
   string readBuffer;
 
-  // players.Insert(*defaultPlayer);
-
+  Logger::LogDebug(method_name + "Loading map: " + mapname);
   mapname = gamedir + "maps/" + mapname;
 
   if (tolower(Right(mapname, 4)) != ".map") mapname = mapname + ".map";
@@ -83,19 +79,13 @@ bool Level::LoadMap(string mapname) {
   input.open(mapname.c_str());
 
   if (!input) {
-    char* tmpChar = new char[mapname.length() + 41];
-    strcpy(tmpChar, "Unable to load level file ");
-    strcat(tmpChar, mapname.c_str());
-    strcat(tmpChar, " doesn't exist.");
-
-// This needs to be abstracted somehow
-#ifdef WIN32
-    MessageBox(NULL, tmpChar, "ERROR", MB_OK | MB_ICONEXCLAMATION);
-#endif
-    delete[] tmpChar;
+    string message = "Unable to load level file " + mapname + " doesn't exist.";
+    Logger::LogError(method_name + message);
+    Logger::LogDebug(method_name + "returning false.");
     return false;
   } else {
-    ConsolePrint("map file \"" + mapname + "\" opened successfully");
+    Logger::LogDebug(method_name + "Map file \"" + mapname + "\" opened successfully.");
+    ConsolePrint("Map file \"" + mapname + "\" opened successfully.");
   }
 
   // Gravity
@@ -138,60 +128,53 @@ bool Level::LoadMap(string mapname) {
   }
   char lpszNumTriangles[6];
   sprintf(lpszNumTriangles, "%d", numTriangles);
-  ConsolePrint(lpszNumTriangles + string(" triangles successfully read"));
+  ConsolePrint(lpszNumTriangles + string(" triangles successfully read."));
 
   // Number of textures;
   input >> readBuffer;
   numTextures = Integer(readBuffer);
+  Logger::LogDebug("read num_textures = " + to_string(numTextures));
 
   // Texture data
   textureNames = new string[numTextures];
   for (unsigned int i = 0; i < numTextures; i++) {
     input >> textureNames[i];
+    Logger::LogDebug("read texture name = " + textureNames[i]);
   }
   LoadGLTextures();
+  Logger::LogDebug("after LoadGLTextures()");
+  // Copy loaded textures to the individual triangles.
+  for (uint32_t i = 0; i < numTriangles; i++) {
+    Triangle& triangle = triangles[i];
+    triangle.texture = *textures[triangle.texID];
+  }
   char lpszNumTextures[6];
   sprintf(lpszNumTextures, "%d", numTextures);
   ConsolePrint(lpszNumTextures + string(" textures successfully read"));
 
+  Logger::LogDebug("about to read bgm from file");
   // BGM
   input >> bgm;
 
   // Build display list
-
+  Logger::LogDebug(string("sound is ") + (sound ? "true" : "false"));
   // Sound
   if (sound) {
     ConsolePrint("Starting sound");
-
-// This needs to be abstracted somehow
-#ifdef WIN32
-    BASS_Init(-1, 44100, BASS_DEVICE_LEAVEVOL, g_hWnd);
-    BASS_Start();
-    BASS_CDInit(NULL, BASS_DEVICE_LEAVEVOL);
-#endif
-
     if (bgm.length() >= 4) {
       if (toupper(bgm[0]) == 'C' && toupper(bgm[1]) == 'D' && toupper(bgm[2]) == 'A') {
         bgmCDA = Integer(bgm.substr(3, bgm.length()));
-// This needs to be abstracted somehow
-#ifdef WIN32
-        BASS_CDPlay(bgmCDA, 1, 0);
-#endif
       } else {
         bgmCDA = 0;
         string tmpstr = gamedir + "music/bgm/" + bgm;
-// This needs to be abstracted somehow
-#ifdef WIN32
-        bgmStream = BASS_StreamCreateFile(0, (void*)tmpstr.c_str(), 0, 0, BASS_STREAM_AUTOFREE);
-        BASS_StreamPlay(bgmStream, 1, BASS_SAMPLE_LOOP);
-#endif
+        // This needs to be abstracted somehow
       }
     }
-
     ConsolePrint("Sound init complete");
   } else {
     ConsolePrint("Sound disabled");
   }
+  Logger::LogDebug(method_name + "returning true.");
 
   return true;
 }
@@ -210,16 +193,7 @@ void Level::SaveMap(string mapname) {
   output.open(mapname.c_str());
 
   if (!output) {
-    char* tmpChar = new char[mapname.length() + 42];
-    strcpy(tmpChar, "Unable to save level file ");
-    strcat(tmpChar, mapname.c_str());
-    strcat(tmpChar, " already exists.");
-
-// This needs to be abstracted somehow
-#ifdef WIN32
-    MessageBox(NULL, tmpChar, "ERROR", MB_OK | MB_ICONEXCLAMATION);
-#endif
-    delete[] tmpChar;
+    Logger::LogError("Unable to save level file " + mapname + " already exists.");
     return;
   }
 
@@ -254,7 +228,75 @@ void Level::SaveMap(string mapname) {
   output << bgm;
 }
 
+string to_string(const Vertex& value) {
+  // Vertex {x: 12, y: 34, z: 56, u: 0.2, v: 0.4}
+  ostringstream os;
+  os << "Vertex {x: " << value.coordinates.x << ", y: " << value.coordinates.y << ", z: " << value.coordinates.z
+     << ", u: " << value.textureCoordinates.x << ", v: " << value.textureCoordinates.y << "}";
+  return os.str();
+}
+
+string to_string(const Texture& value) {
+  /*
+Texture {
+    filename: "",
+    id: 12,
+    is_loaded: true/false
+},
+  */
+  ostringstream os;
+  os << "Texture {filename: \"" << value.Filename() << "\", id: " << value.ID()
+     << ", is_loaded: " << (value.Loaded() ? "true" : "false");
+  return os.str();
+}
+
+string to_string(const Vec3f& value) {
+  /*
+Vec3f {x: 1, y: 2, z: 3}
+  */
+  ostringstream os;
+  os << "Vec3f {x: " << value.x << ", y: " << value.y << ", z: " << value.z << "}";
+  return os.str();
+}
+
+string to_string(const Triangle& triangle) {
+  /*
+Triangle {
+  normal: {x: 12, y: 34, z: 56}
+  tex_id: 12,
+  texture: {
+      filename: "",
+      id: 12,
+      is_loaded: true/false
+  },
+  vertecies: [
+      0: {x: 12, y: 34, z: 56, u: 0.2, v: 0.4},
+      1: {x: 12, y: 34, z: 56, u: 0.2, v: 0.4},
+      2: {x: 12, y: 34, z: 56, u: 0.2, v: 0.4},
+  ]
+}
+  */
+  ostringstream os;
+  os << "Triangle {normal: " + to_string(triangle.normal) << ", tex_id: " << triangle.texID
+     << ", texture: " << to_string(triangle.texture) << ", vertices: [";
+  // TODO: Make this a range based for loop after making vertices a std::array or std::vector.
+  for (int i = 0; i < 3; i++) {
+    os << std::to_string(i) << ": " << to_string(triangle.vertecies[i]) << ",";
+  }
+  os << "]}";
+  return os.str();
+}
+
+int num_renders = 0;
+
 void Level::Render() {
+  const string method_name = "OpenArena::Level::Render() ";
+  static int num_renders = 0;
+  num_renders++;
+  if (num_renders > 5) {
+    return;
+  }
+  Logger::LogDebug(method_name + "Entered");
   glPushMatrix();
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glLoadIdentity();
@@ -262,15 +304,16 @@ void Level::Render() {
   // Move the camera to where the player is
   defaultPlayer->camera.Look();
 
+  Logger::LogDebug(method_name + "Rendering " + std::to_string(numTriangles) + " triangles.");
   for (uint32_t i = 0; i < numTriangles; i++) {
-    glBindTexture(GL_TEXTURE_2D, textures[triangles[i].texID]->ID());  // Bind this triangle's texture
+    Triangle triangle = triangles[i];
+    Logger::LogDebug(method_name + "Rendering a " + to_string(triangle));
+
+    glBindTexture(GL_TEXTURE_2D, triangles[i].texture.ID());  // Bind this triangle's texture
     glBegin(GL_TRIANGLES);
-    //		glNormal3f((GLfloat)triangles[i].normal.x, (GLfloat)triangles[i].normal.y,
-    //(GLfloat)triangles[i].normal.z);
     for (uint32_t i2 = 0; i2 < 3; i2++) {
       glTexCoord2f(triangles[i].vertecies[i2].textureCoordinates.x, triangles[i].vertecies[i2].textureCoordinates.y);
-      glVertex3f((GLfloat)triangles[i].vertecies[i2].coordinates.x,
-                 (GLfloat)triangles[i].vertecies[i2].coordinates.y,
+      glVertex3f((GLfloat)triangles[i].vertecies[i2].coordinates.x, (GLfloat)triangles[i].vertecies[i2].coordinates.y,
                  (GLfloat)triangles[i].vertecies[i2].coordinates.z);
     }
     glEnd();
@@ -366,10 +409,7 @@ void Level::UnloadMap() {
   }
 
   // Free all map textures
-  if (!textures.IsEmpty()) {
-    // TODOiterate over list and delete all entries
-  }
-  textures.Clear();
+  textures.clear();
 
   // Free the array of texture names
   if (textureNames) {
@@ -379,26 +419,36 @@ void Level::UnloadMap() {
 }
 
 void Level::LoadGLTextures() {
-  if (_window != NULL) {
-    /*
-    GLfloat light[4] = {1.0f,1.0f,1.0f,0.5f};
-    glLightfv(GL_LIGHT1, GL_AMBIENT, light);
-    glEnable(GL_LIGHT1);
-    glEnable(GL_LIGHTING);
-    */
-
-    textures.Clear();
+  Logger::LogDebug("In LoadGLTextures");
+  string file_name;
+  if (_window != nullptr) {
+    Logger::LogDebug("_window is not null");
+    textures.clear();
 
     for (uint32_t i = 0; i < numTextures; i++) {
       Texture* texture = new Texture();
-      if (!texture->Load(gamedir + "textures/" + textureNames[i])) texture->Load(DEFAULT_TEXTURE_NAME);
+      file_name = gamedir + "textures/" + textureNames[i];
+      Logger::LogDebug("loading texture from " + file_name);
+      if (!texture->Load(file_name)) {
+        Logger::LogDebug("falling back to " + DEFAULT_TEXTURE_NAME);
+        texture->Load(DEFAULT_TEXTURE_NAME);
+      }
+      Logger::LogDebug("texture loaded");
       textures[i] = texture;
     }
 
-    if (!glFont.BuildFont((gamedir + "textures/menu/font.bmp").c_str())) glFont.BuildFont("oa/textures/menu/font.bmp");
+    file_name = gamedir + "textures/menu/font.bmp";
+    Logger::LogDebug("Loading font from " + file_name);
+    if (!glFont.BuildFont(file_name.c_str())) {
+      Logger::LogDebug("Falling back to oa/textures/menu/font.bmp");
+      glFont.BuildFont("oa/textures/menu/font.bmp");
+    }
 
     // Load the console background image
-    if (!menuTextures[GL_MY_TEXTURE_CONSOLEBACKGROUND].Load(gamedir + "textures/menu/con_back.tga")) {
+    file_name = gamedir + "textures/menu/con_back.tga";
+    Logger::LogDebug("Loading console background from " + file_name);
+    if (!menuTextures[GL_MY_TEXTURE_CONSOLEBACKGROUND].Load(file_name)) {
+      Logger::LogDebug("Falling back to oa/textures/menu/con_back.bmp");
       menuTextures[GL_MY_TEXTURE_CONSOLEBACKGROUND].Load("oa/textures/menu/con_back.bmp");
     }
   }
@@ -649,7 +699,6 @@ void Level::LoadConfig() {
 bool Level::LoadConfig(string cfgname) {
   ifstream input;
   string readBuffer;
-
   cfgname = gamedir + "config/" + cfgname;
 
   if (tolower(Right(cfgname, 4)) != ".cfg") cfgname = cfgname + ".cfg";
@@ -728,6 +777,7 @@ void Level::ConsolePrint(string line) {
     consoleOutput[i] = consoleOutput[i - 1];
   }
   consoleOutput[0] = line;
+  Logger::LogInfo("Console Message: " + line);
 }
 
 void Level::SetWindow(Window* window) {
@@ -737,6 +787,4 @@ void Level::SetWindow(Window* window) {
 Window* Level::GetWindow() {
   return _window;
 }
-
-#pragma clang diagnostic pop
 }  // End namespace OpenArena

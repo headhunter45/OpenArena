@@ -17,26 +17,15 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__texture_h__
 #define OpenArena__texture_h__
-
-#if defined HAVE_CONFIG_H
+// clang-format off
 #include "config.h"
-#endif
+
+// clang-format on
 
 namespace OpenArena {
-/*!
- * \brief
- * Write brief comment for TextureImage here.
- *
- * Write detailed description for TextureImage here.
- *
- * \remarks
- * Write remarks for TextureImage here.
- *
- * \see
- * Separate items with the '|' character.
- */
 class TextureImage {
  public:
   unsigned char* data;

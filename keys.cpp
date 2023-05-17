@@ -17,9 +17,11 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include "keys.h"
 
+// clang-format off
+#include "keys.h"
 #include <string>
+// clang-format on
 
 using std::string;
 

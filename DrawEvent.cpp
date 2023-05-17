@@ -17,9 +17,12 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include "DrawEvent.h"
 
+// clang-format off
+#include "DrawEvent.h"
 #include "main.h"
+
+// clang-format on
 
 namespace OpenArena {
 

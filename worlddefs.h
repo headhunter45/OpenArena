@@ -17,15 +17,15 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#ifndef OpenArena__world_defs_h__
-#define OpenArena__world_defs_h__
 
-#if defined HAVE_CONFIG_H
+#ifndef OpenArena__worlddefs_h__
+#define OpenArena__worlddefs_h__
+
+// clang-format off
 #include "config.h"
-#endif
-
 #include "level.h"
+// clang-format on
 
 // static OpenArena::Level level;
 
-#endif  // End !defined(OpenArena__world_defs_h__)
+#endif  // End !defined(OpenArena__worlddefs_h__)

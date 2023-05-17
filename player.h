@@ -17,16 +17,16 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__player_h__
 #define OpenArena__player_h__
-
-#if defined HAVE_CONFIG_H
+// clang-format off
 #include "config.h"
-#endif
-
 #include "EventManager.h"
 #include "camera.h"
 #include "ctrls.h"
+
+// clang-format on
 
 namespace OpenArena {
 class Player {

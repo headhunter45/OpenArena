@@ -17,9 +17,14 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__event_h__
 #define OpenArena__event_h__
+// clang-format off
+#include "config.h"
 #include "Object.h"
+
+// clang-format on
 
 namespace OpenArena {
 class Event : public Object {
@@ -53,4 +58,4 @@ class Event : public Object {
   EventType _type;
 };
 }  // End namespace OpenArena
-#endif  // End OpenArena__event_h__
+#endif  // End !defined(OpenArena__event_h__)

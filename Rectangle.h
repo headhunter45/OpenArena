@@ -17,11 +17,12 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#ifndef __OpenArena_Rectangle_h__
-#define __OpenArena_Rectangle_h__
+
+#ifndef OpenArena__Rectangle_h__
+#define OpenArena__Rectangle_h__
 
 namespace OpenArena {
 class Rectangle {};
 };  // namespace OpenArena
 
-#endif  // __OpenArena_Rectangle_h__
+#endif  // OpenArena__Rectangle_h__

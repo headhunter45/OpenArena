@@ -17,11 +17,13 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
+// clang-format off
 #include "myglFont.h"
 
+// clang-format on
+
 namespace OpenArena {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 Font::Font() {
   status = 0;
@@ -123,5 +125,4 @@ short Font::ScreenHeight() {
   return screenHeight;
 }
 
-#pragma clang diagnostic pop
 }  // End namespace OpenArena

@@ -17,26 +17,15 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__keys_h__
 #define OpenArena__keys_h__
-
-#if defined HAVE_CONFIG_H
+// clang-format off
 #include "config.h"
-#endif
+
+// clang-format on
 
 namespace OpenArena {
-/*!
- * \brief
- * Write brief comment for Keys here.
- *
- * Write detailed description for Keys here.
- *
- * \remarks
- * Write remarks for Keys here.
- *
- * \see
- * Separate items with the '|' character.
- */
 enum Keys {
   KEY_UNKNOWN = 0,
   KEY_BUTTON0,
@@ -149,69 +138,9 @@ enum Keys {
   KEY_OPTION
 };
 
-/*!
- * \brief
- * Write brief comment for KEY_LBUTTON here.
- *
- * Write detailed description for KEY_LBUTTON here.
- *
- * \remarks
- * Write remarks for KEY_LBUTTON here.
- *
- * \see
- * Separate items with the '|' character.
- */
 const Keys KEY_LBUTTON = KEY_BUTTON0;
-/*!
- * \brief
- * Write brief comment for KEY_RBUTTON here.
- *
- * Write detailed description for KEY_RBUTTON here.
- *
- * \remarks
- * Write remarks for KEY_RBUTTON here.
- *
- * \see
- * Separate items with the '|' character.
- */
 const Keys KEY_RBUTTON = KEY_BUTTON1;
-/*!
- * \brief
- * Write brief comment for KEY_MBUTTON here.
- *
- * Write detailed description for KEY_MBUTTON here.
- *
- * \remarks
- * Write remarks for KEY_MBUTTON here.
- *
- * \see
- * Separate items with the '|' character.
- */
 const Keys KEY_MBUTTON = KEY_BUTTON2;
-/*!
- * \brief
- * Write brief comment for KeyToASCII here.
- *
- * \param key
- * Description of parameter key.
- *
- * \param shift
- * Description of parameter shift.
- *
- * \returns
- * Write description of return value here.
- *
- * \throws <exception class>
- * Description of criteria for throwing this exception.
- *
- * Write detailed description for KeyToASCII here.
- *
- * \remarks
- * Write remarks for KeyToASCII here.
- *
- * \see
- * Separate items with the '|' character.
- */
 char KeyToASCII(Keys key, bool shift);
 const char* GetKeyName(Keys key);
 OpenArena::Keys GetKey(const char* keyName);

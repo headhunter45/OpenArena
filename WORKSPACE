@@ -29,41 +29,15 @@ http_archive(
 )
 
 http_archive(
-    name = "bazel_skylib",
-    sha256 = "f7be3474d42aae265405a592bb7da8e171919d74c16f082a5457840f06054728",
-    urls = ["https://github.com/bazelbuild/bazel-skylib/releases/download/1.2.1/bazel-skylib-1.2.1.tar.gz"],
+    name = "TinyTest",
+    sha256 = "d6729abbec6ac167635be7463d8c37ca54b08e506e61553236b50c5ad30e8736",
+    strip_prefix = "TinyTest-a4109d2f494fd3fd3cc47069239fd3c79f728d5a",
+    urls = ["https://github.com/headhunter45/TinyTest/archive/a4109d2f494fd3fd3cc47069239fd3c79f728d5a.zip"],
 )
 
 http_archive(
-    name = "build_bazel_rules_apple",
-    sha256 = "9e26307516c4d5f2ad4aee90ac01eb8cd31f9b8d6ea93619fc64b3cbc81b0944",
-    url = "https://github.com/bazelbuild/rules_apple/releases/download/2.2.0/rules_apple.2.2.0.tar.gz",
+    name = "CPPUtils",
+    sha256 = "f6464f02ba6c67e36058c3f6f06ff7fe3977340af3fdd350153f4aa15c628a6a",
+    strip_prefix = "cpp-utils-e05fb1e0a4e6ba247a8cd4af13a3aefa23e456dd",
+    urls = ["https://github.com/headhunter45/cpp-utils/archive/e05fb1e0a4e6ba247a8cd4af13a3aefa23e456dd.zip"],
 )
-
-load(
-    "@build_bazel_rules_apple//apple:repositories.bzl",
-    "apple_rules_dependencies",
-)
-
-apple_rules_dependencies()
-
-load(
-    "@build_bazel_rules_swift//swift:repositories.bzl",
-    "swift_rules_dependencies",
-)
-
-swift_rules_dependencies()
-
-load(
-    "@build_bazel_rules_swift//swift:extras.bzl",
-    "swift_rules_extra_dependencies",
-)
-
-swift_rules_extra_dependencies()
-
-load(
-    "@build_bazel_apple_support//lib:repositories.bzl",
-    "apple_support_dependencies",
-)
-
-apple_support_dependencies()

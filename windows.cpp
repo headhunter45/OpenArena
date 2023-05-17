@@ -17,38 +17,72 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#ifdef WIN32
-// include necessary header files
-#include <GL/glu.h>
 
+#ifdef _WIN32
+// clang-format off
+// include necessary header files
+#include "windows.h"
+#include <iostream>
+#include "DrawEvent.h"
+#include "EventManager.h"
+#include "KeyPressEvent.h"
+#include "KeyReleaseEvent.h"
+#include "Logger.h"
+#include "WindowsLogger.h"
+#include "console_logger.h"
+#include "level.h"
 #include "main.h"
+#include "mygl.h"
+#include "opengl.h"
+#include "opengl/window.h"
 #include "vector.h"
 #include "version.h"
+
+// clang-format on
+
+namespace {
+using OpenArena::ConsoleLogger;
+using OpenArena::ControlScheme;
+using OpenArena::DrawEvent;
+using OpenArena::EventManager;
+using OpenArena::g_Screen;
+using OpenArena::KeyPressEvent;
+using OpenArena::KeyReleaseEvent;
+using OpenArena::Keys;
+using OpenArena::Level;
+using OpenArena::Logger;
 using OpenArena::Vec2i;
-
-// link necessary libraries
-#pragma comment(lib, "opengl32.lib")
-#pragma comment(lib, "glu32.lib")
-#pragma comment(lib, "glaux.lib")
-#pragma comment(lib, "winmm.lib")
-
-// Ensure CDS_FULLSCREEN is defined
-#ifndef CDS_FULLSCREEN
-#define CDS_FULLSCREEN 4
-#endif
-
-using namespace std;
+using OpenArena::WindowsLogger;
+using OpenArena::OpenGL::Window;
+using std::exception;
+using std::make_shared;
+using std::string;
+using std::to_string;
+}  // End namespace
 
 void InitControls();
 int InitGL(GLvoid);
 void ReSizeGLScene(GLsizei width, GLsizei height);
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-OpenArena::Keys TranslateKey(int keyCode);
-void HandleConsoleKeyPress(OpenArena::Keys key);
+Keys TranslateKey(int keyCode);
+void HandleConsoleKeyPress(Keys key);
+
+Level* level = nullptr;
+bool keys[256] = {false};
+bool keys2[256] = {false};
+bool active = false;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Function Definitions
+
+int DrawGLScene(Level* level) {
+  level->Render();
+
+  g_Screen->SwapBuffers();
+
+  return 1;
+}
 
 //
 // void InitControls()
@@ -56,7 +90,9 @@ void HandleConsoleKeyPress(OpenArena::Keys key);
 //	    Initializes controls by loading the default control config file "my.cfg".
 
 void InitControls() {
-  if (!level.LoadConfig("my.cfg")) level.LoadConfig();
+  if (!level->LoadConfig("my.cfg")) {
+    level->LoadConfig();
+  };
 }
 
 //
@@ -69,7 +105,7 @@ void InitControls() {
 //
 
 int InitGL(GLvoid) {
-  level.LoadGLTextures();
+  level->LoadGLTextures();
 
   glEnable(GL_TEXTURE_2D);
   glShadeModel(GL_SMOOTH);
@@ -81,11 +117,11 @@ int InitGL(GLvoid) {
   glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
   /*lighting disabled temporarily
-  glLightfv(GL_LIGHT1, GL_AMBIENT, level.LightAmbient);
-  for(index=0; index<level.numLights; index++)
+  glLightfv(GL_LIGHT1, GL_AMBIENT, level->LightAmbient);
+  for(index=0; index<level->numLights; index++)
   {
-  glLightfv(GL_LIGHT1, GL_DIFFUSE, level.light[index].color);
-  glLightfv(GL_LIGHT1, GL_POSITION, level.light[index].coords);
+  glLightfv(GL_LIGHT1, GL_DIFFUSE, level->light[index].color);
+  glLightfv(GL_LIGHT1, GL_POSITION, level->light[index].coords);
   }
 
   glEnable(GL_LIGHT1);
@@ -140,8 +176,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
       return 0;
     }
     case WM_KEYDOWN: {
-      if (level.showConsole) {
-        HandleConsoleKeyPress((OpenArena::Keys)TranslateKey(wParam));
+      if (level->showConsole) {
+        HandleConsoleKeyPress((Keys)TranslateKey(wParam));
       } else {
         keys[TranslateKey(wParam)] = true;
       }
@@ -191,331 +227,350 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+  auto p_console_logger = make_shared<ConsoleLogger>();
+  auto p_windows_logger = make_shared<WindowsLogger>();
+  p_windows_logger->SetMinType(Logger::MessageType::Error);
+  Logger::AddLogger(p_console_logger);
+  Logger::AddLogger(p_windows_logger);
+  Logger::LogDebug("Starting");
+  OpenArena::Logger::LogUnimplementedMethod;
   MSG msg;
-  bool done = false;
+  try {
+    g_Screen = new Window();
+    DrawEvent::DrawEventHandler* _drawEventHandler = new DrawEvent::DrawEventHandler(level);
+    KeyPressEvent::KeyPressEventHandler* _keyPressEventHandler = new KeyPressEvent::KeyPressEventHandler();
+    KeyReleaseEvent::KeyReleaseEventHandler* _keyReleaseEventHandler = new KeyReleaseEvent::KeyReleaseEventHandler();
 
-  if (strlen(lpCmdLine)) level.ParseCmds(lpCmdLine);
-
-  InitControls();
-
-  g_Screen.SetInitializer(new OpenArena::Window::Initializer());
-  g_Screen.SetResizer(new OpenArena::Window::Resizer());
-  if (!g_Screen.Open(string(OPENARENA_VERSION),
-                     level.screen.GetWidth(),
-                     level.screen.GetHeight(),
-                     level.screen.GetColorDepth(),
-                     level.screen.GetFullscreen())) {
-    return 0;
-  }
-
-  level.SetWindow(&g_Screen);
-  level.glFont.SetScreenDimensions(level.screen.GetWidth() * 2, level.screen.GetHeight() * 2);
-  // level.glFont.BuildFont("oa\\textures\\menu\\font.bmp");//(level.gamedir + "\\textures\\menu\\font.bmp").c_str());
-  if (level.nextLevel == "") {
-    level.LoadMap("intro.map");
-  } else {
-    level.LoadMap();
-  }
-
-  while (!done) {
-    while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
-      if (msg.message == WM_QUIT) {
-        done = true;
-      } else {
-        TranslateMessage(&msg);
-        DispatchMessage(&msg);
-      }
+    EventManager* em = new EventManager();
+    level = new Level(em);
+    bool done = false;
+    if (strlen(lpCmdLine)) level->ParseCmds(lpCmdLine);
+    InitControls();
+    g_Screen->SetInitializer(new Window::Initializer());
+    g_Screen->SetResizer(new Window::Resizer());
+    if (!g_Screen->Open(string(OPENARENA_VERSION), g_Screen->GetWidth(), g_Screen->GetHeight(),
+                        g_Screen->GetColorDepth(), g_Screen->GetFullscreen())) {
+      Logger::LogError("Screen open failed.");
+      return -1;
     }
 
-    if (active) {
-      if (keys[OpenArena::KEY_ESCAPE]) {
-        done = true;
-      } else {
-        level.defaultPlayer[0].camera.Update();
+    level->SetWindow(g_Screen);
+    level->glFont.SetScreenDimensions(g_Screen->GetWidth() * 2, g_Screen->GetHeight() * 2);
 
-        if (!level.showConsole) {
-          if (level.mlook) {
-            using OpenArena::Vec2i;
-            Vec2i middleOfScreen = Vec2i(g_Screen.GetWidth() / 2, g_Screen.GetHeight() / 2);
-            Vec2i mousePosition = g_Screen.GetMousePosition();
-            if (mousePosition != middleOfScreen) {
-              // Vec2i mouseDelta = mousePosition - middleOfScreen;
-              Vec2i mouseDelta = middleOfScreen - mousePosition;
-              g_Screen.SetMousePosition(middleOfScreen);
-              const float MOUSE_SENSITIVITY_HORIZONTAL = 0.005f;
-              const float MOUSE_SENSITIVITY_VERTICAL = 0.005f;
-              float horizontalAngle = mouseDelta.x * MOUSE_SENSITIVITY_HORIZONTAL;
-              float verticalAngle = mouseDelta.y * MOUSE_SENSITIVITY_VERTICAL;
-              level.defaultPlayer[0].camera.RotateHorizontal(horizontalAngle);
-              level.defaultPlayer[0].camera.RotateVertical(verticalAngle);
-            }
-          } else {
-            g_Screen.SetMousePosition(Vec2i(g_Screen.GetWidth() / 2, g_Screen.GetHeight() / 2));
-            // SetCursorPos(g_Screen.GetWidth()/2, g_Screen.GetHeight()/2);
-          }
-
-          //////////
-          // Move Backward
-          if (!level.defaultPlayer->controls.backward.IsEmpty()) {
-            level.defaultPlayer->controls.backward.FirstPosition();
-            if (keys[level.defaultPlayer->controls.backward.Retrieve()]) {
-              level.defaultPlayer->camera.MoveCamera(-level.moveSpeed);
-            } else {
-              while (level.defaultPlayer->controls.backward.NextPosition()
-                     && (keys[level.defaultPlayer->controls.backward.Retrieve()] != true))
-                ;
-              {
-                if (keys[level.defaultPlayer->controls.backward.Retrieve()]) {
-                  level.defaultPlayer->camera.MoveCamera(-level.moveSpeed);
-                }
-              }
-            }
-          }
-
-          //////////
-          // Move forward
-          if (!level.defaultPlayer->controls.forward.IsEmpty()) {
-            level.defaultPlayer->controls.forward.FirstPosition();
-            if (keys[level.defaultPlayer->controls.forward.Retrieve()]) {
-              level.defaultPlayer->camera.MoveCamera(level.moveSpeed);
-            } else {
-              while (level.defaultPlayer->controls.forward.NextPosition()
-                     && (keys[level.defaultPlayer->controls.forward.Retrieve()] != true))
-                ;
-              {
-                if (keys[level.defaultPlayer->controls.forward.Retrieve()]) {
-                  level.defaultPlayer->camera.MoveCamera(level.moveSpeed);
-                }
-              }
-            }
-          }
-
-          //////////
-          // Strafe Left
-          if (!level.defaultPlayer->controls.moveLeft.IsEmpty()) {
-            level.defaultPlayer->controls.moveLeft.FirstPosition();
-            if (keys[level.defaultPlayer->controls.moveLeft.Retrieve()]) {
-              level.defaultPlayer->camera.StrafeCamera(-level.moveSpeed);
-            } else {
-              while (level.defaultPlayer->controls.moveLeft.NextPosition()
-                     && (keys[level.defaultPlayer->controls.moveLeft.Retrieve()] != true))
-                ;
-              {
-                if (keys[level.defaultPlayer->controls.moveLeft.Retrieve()]) {
-                  level.defaultPlayer->camera.StrafeCamera(-level.moveSpeed);
-                }
-              }
-            }
-          }
-
-          //////////
-          // Strafe Right
-          if (!level.defaultPlayer->controls.moveRight.IsEmpty()) {
-            level.defaultPlayer->controls.moveRight.FirstPosition();
-            if (keys[level.defaultPlayer->controls.moveRight.Retrieve()]) {
-              level.defaultPlayer[0].camera.StrafeCamera(level.moveSpeed);
-            } else {
-              while (level.defaultPlayer->controls.moveRight.NextPosition()
-                     && (keys[level.defaultPlayer->controls.moveRight.Retrieve()] != true))
-                ;
-              {
-                if (keys[level.defaultPlayer->controls.moveRight.Retrieve()]) {
-                  level.defaultPlayer->camera.StrafeCamera(level.moveSpeed);
-                }
-              }
-            }
-          }
-
-          //////////
-          // Keyboard Look Left
-          if (!level.defaultPlayer->controls.lookLeft.IsEmpty()) {
-            level.defaultPlayer->controls.lookLeft.FirstPosition();
-            if (keys[level.defaultPlayer->controls.lookLeft.Retrieve()]) {
-              level.defaultPlayer[0].camera.RotateView(level.turnSpeed, 0, 1, 0);
-            } else {
-              while (level.defaultPlayer->controls.lookLeft.NextPosition()
-                     && (keys[level.defaultPlayer->controls.lookLeft.Retrieve()] != true))
-                ;
-              {
-                if (keys[level.defaultPlayer->controls.lookLeft.Retrieve()]) {
-                  level.defaultPlayer[0].camera.RotateView(level.turnSpeed, 0, 1, 0);
-                }
-              }
-            }
-          }
-
-          //////////
-          // Keyboard Look Right
-          if (!level.defaultPlayer->controls.lookRight.IsEmpty()) {
-            level.defaultPlayer->controls.lookRight.FirstPosition();
-            if (keys[level.defaultPlayer->controls.lookRight.Retrieve()]) {
-              level.defaultPlayer->camera.RotateView(-level.turnSpeed, 0, 1, 0);
-            } else {
-              while (level.defaultPlayer->controls.lookRight.NextPosition()
-                     && (keys[level.defaultPlayer->controls.lookRight.Retrieve()] != true))
-                ;
-              {
-                if (keys[level.defaultPlayer->controls.lookRight.Retrieve()]) {
-                  level.defaultPlayer->camera.RotateView(-level.turnSpeed, 0, 1, 0);
-                }
-              }
-            }
-          }
-
-          //////////
-          // Keyboard Look Up
-          if (!level.defaultPlayer->controls.lookUp.IsEmpty()) {
-            level.defaultPlayer->controls.lookUp.FirstPosition();
-            if (keys[level.defaultPlayer->controls.lookUp.Retrieve()]) {
-              level.defaultPlayer->camera.RotateView(level.turnSpeed, 1, 0, 0);
-            } else {
-              while (level.defaultPlayer->controls.lookUp.NextPosition()
-                     && (keys[level.defaultPlayer->controls.lookUp.Retrieve()] != true))
-                ;
-              {
-                if (keys[level.defaultPlayer->controls.lookUp.Retrieve()]) {
-                  level.defaultPlayer->camera.RotateView(level.turnSpeed, 1, 0, 0);
-                }
-              }
-            }
-          }
-
-          //////////
-          // Keyboard Look Down
-          if (!level.defaultPlayer->controls.lookDown.IsEmpty()) {
-            level.defaultPlayer->controls.lookDown.FirstPosition();
-            if (keys[level.defaultPlayer->controls.lookDown.Retrieve()]) {
-              level.defaultPlayer->camera.RotateView(-level.turnSpeed, 1, 0, 0);
-            } else {
-              while (level.defaultPlayer->controls.lookDown.NextPosition()
-                     && (keys[level.defaultPlayer->controls.lookDown.Retrieve()] != true))
-                ;
-              {
-                if (keys[level.defaultPlayer->controls.lookDown.Retrieve()]) {
-                  level.defaultPlayer->camera.RotateView(-level.turnSpeed, 1, 0, 0);
-                }
-              }
-            }
-          }
-
-          //////////
-          // Toggle Show FPS
-          if (!level.defaultPlayer->controls.toggleFPS.IsEmpty()) {
-            level.defaultPlayer->controls.toggleFPS.FirstPosition();
-            if (keys[level.defaultPlayer->controls.toggleFPS.Retrieve()]) {
-              if (!keys2[level.defaultPlayer->controls.toggleFPS.Retrieve()]) {
-                level.showFPS = !level.showFPS;
-              }
-            } else {
-              while (level.defaultPlayer->controls.toggleFPS.NextPosition()
-                     && (keys[level.defaultPlayer->controls.toggleFPS.Retrieve()] != true))
-                ;
-              {
-                if (keys[level.defaultPlayer->controls.toggleFPS.Retrieve()]) {
-                  if (!keys2[level.defaultPlayer->controls.toggleFPS.Retrieve()]) {
-                    level.showFPS = !level.showFPS;
-                  }
-                }
-              }
-            }
-          }
-
-          //////////
-          // Toggle MouseLook
-          if (!level.defaultPlayer->controls.toggleMouseLook.IsEmpty()) {
-            level.defaultPlayer->controls.toggleMouseLook.FirstPosition();
-            if (keys[level.defaultPlayer->controls.toggleMouseLook.Retrieve()]) {
-              if (keys2[level.defaultPlayer->controls.toggleMouseLook.Retrieve()]) {
-                level.mlook = !level.mlook;
-              }
-            } else {
-              while (level.defaultPlayer->controls.toggleMouseLook.NextPosition()
-                     && (keys[level.defaultPlayer->controls.toggleMouseLook.Retrieve()] != true))
-                ;
-              {
-                if (keys[level.defaultPlayer->controls.toggleMouseLook.Retrieve()]) {
-                  if (keys2[level.defaultPlayer->controls.toggleMouseLook.Retrieve()]) {
-                    level.mlook = !level.mlook;
-                  }
-                }
-              }
-            }
-          }
-
-          //////////
-          // Toggle Console
-          if (!level.defaultPlayer[0].controls.toggleConsole.IsEmpty()) {
-            level.defaultPlayer[0].controls.toggleConsole.FirstPosition();
-            if (keys[level.defaultPlayer[0].controls.toggleConsole.Retrieve()]) {
-              if (!keys2[level.defaultPlayer[0].controls.toggleConsole.Retrieve()]) {
-                level.showConsole = !level.showConsole;
-                keys2[level.defaultPlayer[0].controls.toggleConsole.Retrieve()] = true;
-              }
-            } else {
-              while (level.defaultPlayer[0].controls.toggleConsole.NextPosition()
-                     && (keys[level.defaultPlayer[0].controls.toggleConsole.Retrieve()] != true))
-                ;
-              {
-                if (keys[level.defaultPlayer[0].controls.toggleConsole.Retrieve()]) {
-                  if (!keys2[level.defaultPlayer[0].controls.toggleConsole.Retrieve()]) {
-                    level.showConsole = !level.showConsole;
-                    keys2[level.defaultPlayer[0].controls.toggleConsole.Retrieve()] = true;
-                  }
-                }
-              }
-            }
-          }
-
-          //////////
-          // Quick MouseLook
-          if (!level.defaultPlayer->controls.quickMouseLook.IsEmpty()) {
-            level.defaultPlayer->controls.quickMouseLook.FirstPosition();
-            if (keys[level.defaultPlayer->controls.quickMouseLook.Retrieve()]) {
-              if (keys2[level.defaultPlayer->controls.quickMouseLook.Retrieve()]) {
-                level.mlook = !level.mlook;
-              }
-            } else {
-              while (level.defaultPlayer->controls.quickMouseLook.NextPosition()
-                     && (keys[level.defaultPlayer->controls.quickMouseLook.Retrieve()] != true))
-                ;
-              {
-                if (keys[level.defaultPlayer->controls.quickMouseLook.Retrieve()]) {
-                  if (keys2[level.defaultPlayer->controls.quickMouseLook.Retrieve()]) {
-                    level.mlook = !level.mlook;
-                  }
-                }
-              }
-            }
-          }
-          // level.Render();
+    if (level->nextLevel == "") {
+      Logger::LogDebug("Loading intro.map");
+      level->LoadMap("intro.map");
+    } else {
+      Logger::LogDebug("Loading nextLevel: " + level->nextLevel);
+      level->LoadMap();
+    }
+    Logger::LogDebug("About to start main loop.");
+    while (!done) {
+      // Logger::LogDebug("in while(!done)");
+      while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
+        if (msg.message == WM_QUIT) {
+          done = true;
+        } else {
+          TranslateMessage(&msg);
+          DispatchMessage(&msg);
         }
-        level.Render();
-        //
+      }
+
+      if (active) {
+        if (keys[OpenArena::KEY_ESCAPE]) {
+          done = true;
+        } else {
+          level->defaultPlayer[0].camera.Update();
+
+          if (!level->showConsole) {
+            if (level->mlook) {
+              Vec2i middleOfScreen = Vec2i(g_Screen->GetWidth() / 2, g_Screen->GetHeight() / 2);
+              Vec2i mousePosition = g_Screen->GetMousePosition();
+              if (mousePosition != middleOfScreen) {
+                // Vec2i mouseDelta = mousePosition - middleOfScreen;
+                Vec2i mouseDelta = middleOfScreen - mousePosition;
+                g_Screen->SetMousePosition(middleOfScreen);
+                const float MOUSE_SENSITIVITY_HORIZONTAL = 0.005f;
+                const float MOUSE_SENSITIVITY_VERTICAL = 0.005f;
+                float horizontalAngle = mouseDelta.x * MOUSE_SENSITIVITY_HORIZONTAL;
+                float verticalAngle = mouseDelta.y * MOUSE_SENSITIVITY_VERTICAL;
+                level->defaultPlayer[0].camera.RotateHorizontal(horizontalAngle);
+                level->defaultPlayer[0].camera.RotateVertical(verticalAngle);
+              }
+            } else {
+              g_Screen->SetMousePosition(Vec2i(g_Screen->GetWidth() / 2, g_Screen->GetHeight() / 2));
+            }
+
+            // //////////
+            // // Move Backward
+            // if (!level->defaultPlayer->controls.backward.IsEmpty()) {
+            //   level->defaultPlayer->controls.backward.FirstPosition();
+            //   if (keys[level->defaultPlayer->controls.backward.Retrieve()]) {
+            //     level->defaultPlayer->camera.MoveCamera(-level->moveSpeed);
+            //   } else {
+            //     while (level->defaultPlayer->controls.backward.NextPosition()
+            //            && (keys[level->defaultPlayer->controls.backward.Retrieve()] != true))
+            //       ;
+            //     {
+            //       if (keys[level->defaultPlayer->controls.backward.Retrieve()]) {
+            //         level->defaultPlayer->camera.MoveCamera(-level->moveSpeed);
+            //       }
+            //     }
+            //   }
+            // }
+
+            // //////////
+            // // Move forward
+            // if (!level->defaultPlayer->controls.forward.IsEmpty()) {
+            //   level->defaultPlayer->controls.forward.FirstPosition();
+            //   if (keys[level->defaultPlayer->controls.forward.Retrieve()]) {
+            //     level->defaultPlayer->camera.MoveCamera(level->moveSpeed);
+            //   } else {
+            //     while (level->defaultPlayer->controls.forward.NextPosition()
+            //            && (keys[level->defaultPlayer->controls.forward.Retrieve()] != true))
+            //       ;
+            //     {
+            //       if (keys[level->defaultPlayer->controls.forward.Retrieve()]) {
+            //         level->defaultPlayer->camera.MoveCamera(level->moveSpeed);
+            //       }
+            //     }
+            //   }
+            // }
+
+            // //////////
+            // // Strafe Left
+            // if (!level->defaultPlayer->controls.moveLeft.IsEmpty()) {
+            //   level->defaultPlayer->controls.moveLeft.FirstPosition();
+            //   if (keys[level->defaultPlayer->controls.moveLeft.Retrieve()]) {
+            //     level->defaultPlayer->camera.StrafeCamera(-level->moveSpeed);
+            //   } else {
+            //     while (level->defaultPlayer->controls.moveLeft.NextPosition()
+            //            && (keys[level->defaultPlayer->controls.moveLeft.Retrieve()] != true))
+            //       ;
+            //     {
+            //       if (keys[level->defaultPlayer->controls.moveLeft.Retrieve()]) {
+            //         level->defaultPlayer->camera.StrafeCamera(-level->moveSpeed);
+            //       }
+            //     }
+            //   }
+            // }
+
+            // //////////
+            // // Strafe Right
+            // if (!level->defaultPlayer->controls.moveRight.IsEmpty()) {
+            //   level->defaultPlayer->controls.moveRight.FirstPosition();
+            //   if (keys[level->defaultPlayer->controls.moveRight.Retrieve()]) {
+            //     level->defaultPlayer[0].camera.StrafeCamera(level->moveSpeed);
+            //   } else {
+            //     while (level->defaultPlayer->controls.moveRight.NextPosition()
+            //            && (keys[level->defaultPlayer->controls.moveRight.Retrieve()] != true))
+            //       ;
+            //     {
+            //       if (keys[level->defaultPlayer->controls.moveRight.Retrieve()]) {
+            //         level->defaultPlayer->camera.StrafeCamera(level->moveSpeed);
+            //       }
+            //     }
+            //   }
+            // }
+
+            // //////////
+            // // Keyboard Look Left
+            // if (!level->defaultPlayer->controls.lookLeft.IsEmpty()) {
+            //   level->defaultPlayer->controls.lookLeft.FirstPosition();
+            //   if (keys[level->defaultPlayer->controls.lookLeft.Retrieve()]) {
+            //     level->defaultPlayer[0].camera.RotateView(level->turnSpeed, 0, 1, 0);
+            //   } else {
+            //     while (level->defaultPlayer->controls.lookLeft.NextPosition()
+            //            && (keys[level->defaultPlayer->controls.lookLeft.Retrieve()] != true))
+            //       ;
+            //     {
+            //       if (keys[level->defaultPlayer->controls.lookLeft.Retrieve()]) {
+            //         level->defaultPlayer[0].camera.RotateView(level->turnSpeed, 0, 1, 0);
+            //       }
+            //     }
+            //   }
+            // }
+
+            // //////////
+            // // Keyboard Look Right
+            // if (!level->defaultPlayer->controls.lookRight.IsEmpty()) {
+            //   level->defaultPlayer->controls.lookRight.FirstPosition();
+            //   if (keys[level->defaultPlayer->controls.lookRight.Retrieve()]) {
+            //     level->defaultPlayer->camera.RotateView(-level->turnSpeed, 0, 1, 0);
+            //   } else {
+            //     while (level->defaultPlayer->controls.lookRight.NextPosition()
+            //            && (keys[level->defaultPlayer->controls.lookRight.Retrieve()] != true))
+            //       ;
+            //     {
+            //       if (keys[level->defaultPlayer->controls.lookRight.Retrieve()]) {
+            //         level->defaultPlayer->camera.RotateView(-level->turnSpeed, 0, 1, 0);
+            //       }
+            //     }
+            //   }
+            // }
+
+            // //////////
+            // // Keyboard Look Up
+            // if (!level->defaultPlayer->controls.lookUp.IsEmpty()) {
+            //   level->defaultPlayer->controls.lookUp.FirstPosition();
+            //   if (keys[level->defaultPlayer->controls.lookUp.Retrieve()]) {
+            //     level->defaultPlayer->camera.RotateView(level->turnSpeed, 1, 0, 0);
+            //   } else {
+            //     while (level->defaultPlayer->controls.lookUp.NextPosition()
+            //            && (keys[level->defaultPlayer->controls.lookUp.Retrieve()] != true))
+            //       ;
+            //     {
+            //       if (keys[level->defaultPlayer->controls.lookUp.Retrieve()]) {
+            //         level->defaultPlayer->camera.RotateView(level->turnSpeed, 1, 0, 0);
+            //       }
+            //     }
+            //   }
+            // }
+
+            // //////////
+            // // Keyboard Look Down
+            // if (!level->defaultPlayer->controls.lookDown.IsEmpty()) {
+            //   level->defaultPlayer->controls.lookDown.FirstPosition();
+            //   if (keys[level->defaultPlayer->controls.lookDown.Retrieve()]) {
+            //     level->defaultPlayer->camera.RotateView(-level->turnSpeed, 1, 0, 0);
+            //   } else {
+            //     while (level->defaultPlayer->controls.lookDown.NextPosition()
+            //            && (keys[level->defaultPlayer->controls.lookDown.Retrieve()] != true))
+            //       ;
+            //     {
+            //       if (keys[level->defaultPlayer->controls.lookDown.Retrieve()]) {
+            //         level->defaultPlayer->camera.RotateView(-level->turnSpeed, 1, 0, 0);
+            //       }
+            //     }
+            //   }
+            // }
+
+            // //////////
+            // // Toggle Show FPS
+            // if (!level->defaultPlayer->controls.toggleFPS.IsEmpty()) {
+            //   level->defaultPlayer->controls.toggleFPS.FirstPosition();
+            //   if (keys[level->defaultPlayer->controls.toggleFPS.Retrieve()]) {
+            //     if (!keys2[level->defaultPlayer->controls.toggleFPS.Retrieve()]) {
+            //       level->showFPS = !level->showFPS;
+            //     }
+            //   } else {
+            //     while (level->defaultPlayer->controls.toggleFPS.NextPosition()
+            //            && (keys[level->defaultPlayer->controls.toggleFPS.Retrieve()] != true))
+            //       ;
+            //     {
+            //       if (keys[level->defaultPlayer->controls.toggleFPS.Retrieve()]) {
+            //         if (!keys2[level->defaultPlayer->controls.toggleFPS.Retrieve()]) {
+            //           level->showFPS = !level->showFPS;
+            //         }
+            //       }
+            //     }
+            //   }
+            // }
+
+            // //////////
+            // // Toggle MouseLook
+            // if (!level->defaultPlayer->controls.toggleMouseLook.IsEmpty()) {
+            //   level->defaultPlayer->controls.toggleMouseLook.FirstPosition();
+            //   if (keys[level->defaultPlayer->controls.toggleMouseLook.Retrieve()]) {
+            //     if (keys2[level->defaultPlayer->controls.toggleMouseLook.Retrieve()]) {
+            //       level->mlook = !level->mlook;
+            //     }
+            //   } else {
+            //     while (level->defaultPlayer->controls.toggleMouseLook.NextPosition()
+            //            && (keys[level->defaultPlayer->controls.toggleMouseLook.Retrieve()] != true))
+            //       ;
+            //     {
+            //       if (keys[level->defaultPlayer->controls.toggleMouseLook.Retrieve()]) {
+            //         if (keys2[level->defaultPlayer->controls.toggleMouseLook.Retrieve()]) {
+            //           level->mlook = !level->mlook;
+            //         }
+            //       }
+            //     }
+            //   }
+            // }
+
+            // //////////
+            // // Toggle Console
+            // if (!level->defaultPlayer[0].controls.toggleConsole.IsEmpty()) {
+            //   level->defaultPlayer[0].controls.toggleConsole.FirstPosition();
+            //   if (keys[level->defaultPlayer[0].controls.toggleConsole.Retrieve()]) {
+            //     if (!keys2[level->defaultPlayer[0].controls.toggleConsole.Retrieve()]) {
+            //       level->showConsole = !level->showConsole;
+            //       keys2[level->defaultPlayer[0].controls.toggleConsole.Retrieve()] = true;
+            //     }
+            //   } else {
+            //     while (level->defaultPlayer[0].controls.toggleConsole.NextPosition()
+            //            && (keys[level->defaultPlayer[0].controls.toggleConsole.Retrieve()] != true))
+            //       ;
+            //     {
+            //       if (keys[level->defaultPlayer[0].controls.toggleConsole.Retrieve()]) {
+            //         if (!keys2[level->defaultPlayer[0].controls.toggleConsole.Retrieve()]) {
+            //           level->showConsole = !level->showConsole;
+            //           keys2[level->defaultPlayer[0].controls.toggleConsole.Retrieve()] = true;
+            //         }
+            //       }
+            //     }
+            //   }
+            // }
+
+            // //////////
+            // // Quick MouseLook
+            // if (!level->defaultPlayer->controls.quickMouseLook.IsEmpty()) {
+            //   level->defaultPlayer->controls.quickMouseLook.FirstPosition();
+            //   if (keys[level->defaultPlayer->controls.quickMouseLook.Retrieve()]) {
+            //     if (keys2[level->defaultPlayer->controls.quickMouseLook.Retrieve()]) {
+            //       level->mlook = !level->mlook;
+            //     }
+            //   } else {
+            //     while (level->defaultPlayer->controls.quickMouseLook.NextPosition()
+            //            && (keys[level->defaultPlayer->controls.quickMouseLook.Retrieve()] != true))
+            //       ;
+            //     {
+            //       if (keys[level->defaultPlayer->controls.quickMouseLook.Retrieve()]) {
+            //         if (keys2[level->defaultPlayer->controls.quickMouseLook.Retrieve()]) {
+            //           level->mlook = !level->mlook;
+            //         }
+            //       }
+            //     }
+            //   }
+            // }
+            // level->Render();
+          }
+          level->Render();
+          //
+        }
+      }
+
+      // Why the hell are we swapping buffers even if the window is not active?
+      g_Screen->SwapBuffers();
+
+      if (keys[Keys::KEY_F1]) {
+        keys[Keys::KEY_F1] = false;
+        g_Screen->Close();
+        g_Screen->ToggleFullscreen();
+        if (!g_Screen->Open("OpenArena", g_Screen->GetWidth(), g_Screen->GetHeight(), g_Screen->GetColorDepth(),
+                            g_Screen->GetFullscreen())) {
+          Logger::LogError("Window failed to reopen after changing fullscreen flag.");
+          return -1;
+        }
       }
     }
 
-    g_Screen.SwapBuffers();
-
-    if (keys[OpenArena::KEY_F1]) {
-      keys[OpenArena::KEY_F1] = false;
-      g_Screen.Close();
-      g_Screen.ToggleFullscreen();
-      if (!g_Screen.Open("OpenArena",
-                         g_Screen.GetWidth(),
-                         g_Screen.GetHeight(),
-                         g_Screen.GetColorDepth(),
-                         g_Screen.GetFullscreen())) {
-        return 0;
-      }
-    }
+  } catch (const exception& ex) {
+    Logger::LogWtf("Unhandled exception", ex);
+  } catch (...) {
+    Logger::LogWtf("Unhandled exception");
   }
 
-  level.UnloadMap();
-  g_Screen.Close();
+  Logger::LogDebug("level->UnloadMap()");
+  level->UnloadMap();
+  g_Screen->Close();
+  Logger::LogDebug("g_Screen->Close()");
+  Logger::LogDebug("Exiting with msg.wParam " + to_string(msg.wParam));
   return (msg.wParam);
 }
 
-OpenArena::Keys TranslateKey(int keyCode) {
+Keys TranslateKey(int keyCode) {
   switch (keyCode) {
     case VK_LEFT:
       return OpenArena::KEY_LEFT;
@@ -724,36 +779,30 @@ OpenArena::Keys TranslateKey(int keyCode) {
   }
 }
 
-void HandleConsoleKeyPress(OpenArena::Keys key) {
+void HandleConsoleKeyPress(Keys key) {
   // See if we need to hide the console
-  level.defaultPlayer[0].controls.toggleConsole.FirstPosition();
-  if (key == level.defaultPlayer[0].controls.toggleConsole.Retrieve()) {
-    level.showConsole = false;
-  } else {
-    while (level.defaultPlayer[0].controls.toggleConsole.NextPosition() && level.showConsole) {
-      if (level.defaultPlayer[0].controls.toggleConsole.Retrieve() == key) {
-        level.showConsole = false;
-      }
-    }
+  if (level->defaultPlayer->controls.GetAction(key) == ControlScheme::ACTION_TOGGLE_CONSOLE) {
+    level->showConsole = false;
   }
+
   switch (key) {
     case OpenArena::KEY_SHIFT:
       keys[OpenArena::KEY_SHIFT] = true;
       break;
     case OpenArena::KEY_RETURN:
-      level.UpdateConsole('\n');
+      level->UpdateConsole('\n');
       break;
     case OpenArena::KEY_SPACE:
       printf("hello");
-      level.UpdateConsole(' ');
+      level->UpdateConsole(' ');
       break;
     case OpenArena::KEY_BACK:
-      level.UpdateConsole(OpenArena::KEY_BACK);
+      level->UpdateConsole(OpenArena::KEY_BACK);
       break;
     default:
-      char ascii = OpenArena::KeyToASCII(key, keys[OpenArena::KEY_SHIFT]);
+      char ascii = KeyToASCII(key, keys[OpenArena::KEY_SHIFT]);
       if (ascii != '\0') {
-        level.UpdateConsole(ascii);
+        level->UpdateConsole(ascii);
       }
   }
 }

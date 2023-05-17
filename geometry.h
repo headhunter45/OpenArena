@@ -17,15 +17,15 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__geometry_h__
 #define OpenArena__geometry_h__
-
-#if defined HAVE_CONFIG_H
+// clang-format off
 #include "config.h"
-#endif
-
 #include "myglTexture.h"
 #include "vector.h"
+
+// clang-format on
 
 namespace OpenArena {
 class Vertex {
@@ -34,25 +34,12 @@ class Vertex {
   Vec2f textureCoordinates;
 };
 
-/*!
- * \brief
- * Write brief comment for Triangle here.
- *
- * Write detailed description for Triangle here.
- *
- * \remarks
- * Write remarks for Triangle here.
- *
- * \see
- * Separate items with the '|' character.
- */
 class Triangle {
  public:
-  Texture texture;
+  Triangle();
+  Texture& texture;
   uint32_t texID;
   Vertex vertecies[3];
-  //		Vec3f vertecies[3];
-  //		Vec2f texCoords[3];
   Vec3f normal;
 };
 

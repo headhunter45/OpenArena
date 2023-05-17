@@ -17,14 +17,18 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#include "window.h"
 
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
+// clang-format off
+#include "window.h"
+#include <windows.h>
+#include "opengl.h"
+
+// clang-format on
 
 namespace OpenArena {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+namespace {
+using std::string;
+}  // End namespace
 
 void OpenArena::Window::SwapBuffers() {
 #if defined USE_GLX
@@ -106,36 +110,16 @@ bool OpenArena::Window::Open() {
 #endif
 
     attributes.override_redirect = true;
-    window = XCreateWindow(display,
-                           RootWindow(display, vi->screen),
-                           0,
-                           0,
-                           _width,
-                           _height,
-                           0,
-                           vi->depth,
-                           InputOutput,
-                           vi->visual,
-                           CWBorderPixel | CWColormap | CWEventMask | CWOverrideRedirect,
-                           &attributes);
+    window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, _width, _height, 0, vi->depth, InputOutput,
+                           vi->visual, CWBorderPixel | CWColormap | CWEventMask | CWOverrideRedirect, &attributes);
     XWarpPointer(display, None, window, 0, 0, 0, 0, 0, 0);
     XMapRaised(display, window);
     XGrabKeyboard(display, window, true, GrabModeAsync, GrabModeAsync, CurrentTime);
     XGrabPointer(display, window, true, ButtonPressMask, GrabModeAsync, GrabModeAsync, window, None, CurrentTime);
     XDefineCursor(display, window, CreateFullscreenCursor());
   } else {
-    window = XCreateWindow(display,
-                           RootWindow(display, vi->screen),
-                           0,
-                           0,
-                           _width,
-                           _height,
-                           0,
-                           vi->depth,
-                           InputOutput,
-                           vi->visual,
-                           CWBorderPixel | CWColormap | CWEventMask,
-                           &attributes);
+    window = XCreateWindow(display, RootWindow(display, vi->screen), 0, 0, _width, _height, 0, vi->depth, InputOutput,
+                           vi->visual, CWBorderPixel | CWColormap | CWEventMask, &attributes);
     wmDelete = XInternAtom(display, "WM_DELETE_WINDOW", true);
     XSetWMProtocols(display, window, &wmDelete, 1);
     XSetStandardProperties(display, window, GetName(), GetName(), None, NULL, 0, NULL);
@@ -164,8 +148,7 @@ bool OpenArena::Window::Open() {
   err = CreateNewWindow(kDocumentWindowClass,
                         kWindowStandardHandlerAttribute | kWindowCloseBoxAttribute | kWindowFullZoomAttribute
                             | kWindowCollapseBoxAttribute,
-                        &_bounds,
-                        &_window);
+                        &_bounds, &_window);
   if (err != noErr) {
     return false;
   }
@@ -240,8 +223,7 @@ bool OpenArena::Window::Open() {
       if (MessageBox(NULL,
                      "The Requested Fullscreen Mode Is Not Supported By\nYour "
                      "Video Card. Use Windowed Mode Instead?",
-                     "OpenArena",
-                     MB_YESNO | MB_ICONEXCLAMATION)
+                     "OpenArena", MB_YESNO | MB_ICONEXCLAMATION)
           == IDYES)
         _fullscreen = false;
       else {
@@ -263,18 +245,9 @@ bool OpenArena::Window::Open() {
 
   AdjustWindowRectEx(&WindowRect, dwStyle, false, dwExStyle);
 
-  if (!(window = CreateWindowEx(dwExStyle,
-                                "OpenArena v0.1.0",
-                                GetName(),
-                                WS_CLIPSIBLINGS | WS_CLIPCHILDREN | dwStyle,
-                                0,
-                                0,
-                                WindowRect.right - WindowRect.left,
-                                WindowRect.bottom - WindowRect.top,
-                                NULL,
-                                NULL,
-                                instance,
-                                NULL))) {
+  if (!(window = CreateWindowEx(dwExStyle, "OpenArena v0.1.0", GetName(), WS_CLIPSIBLINGS | WS_CLIPCHILDREN | dwStyle,
+                                0, 0, WindowRect.right - WindowRect.left, WindowRect.bottom - WindowRect.top, NULL,
+                                NULL, instance, NULL))) {
     Close();
     MessageBox(NULL, "Window Creation Error.", "ERROR", MB_OK | MB_ICONEXCLAMATION);
     return false;
@@ -284,7 +257,7 @@ bool OpenArena::Window::Open() {
                                       1,
                                       PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER,
                                       PFD_TYPE_RGBA,
-                                      _colorDepth,
+                                      static_cast<BYTE>(_colorDepth),
                                       0,
                                       0,
                                       0,
@@ -526,5 +499,4 @@ Cursor OpenArena::Window::CreateFullscreenCursor() {
   return cur;
 }
 #endif
-#pragma clang diagnostic pop
 }  // End namespace OpenArena

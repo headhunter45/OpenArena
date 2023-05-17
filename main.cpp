@@ -17,10 +17,13 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #if defined __APPLE__
+// clang-format off
 #include <AGL/agl.h>
 #include <Carbon/Carbon.h>
-#include <OpenGL/gl.h>
+#include "opengl.h"
+// clang-format on
 
 /*
 OSStatus main(int argc, char** argv)

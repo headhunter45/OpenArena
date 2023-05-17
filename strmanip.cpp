@@ -17,11 +17,17 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+ 
+// clang-format off
 #include "strmanip.h"
-
 #include <cctype>
-
 #include "keys.h"
+
+// clang-format on
+
+namespace {
+using std::string;
+}  // End namespace
 
 bool Truth(std::string str) {
   if (toupper(str[0]) == 'T' || str[0] == '1')

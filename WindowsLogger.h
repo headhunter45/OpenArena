@@ -17,153 +17,29 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__WindowsLogger_h__
 #define OpenArena__WindowsLogger_h__
+// clang-format off
 #include <cstdint>
-#if defined HAVE_CONFIG_H
-#include "config.h"
-#endif
-
+#include <exception>
+#include <string>
 #include "logger.h"
 
+// clang-format on
+
 namespace OpenArena {
-/*!
- * \brief
- * Write brief comment for WindowsLogger here.
- *
- * Write detailed description for WindowsLogger here.
- *
- * \remarks
- * Write remarks for WindowsLogger here.
- *
- * \see
- * Separate items with the '|' character.
- */
 class WindowsLogger : public OpenArena::Logger {
  private:
-  /*!
-   * \brief
-   * Write brief comment for GetIconFromMessageType here.
-   *
-   * \param type
-   * Description of parameter type.
-   *
-   * \returns
-   * Write description of return value here.
-   *
-   * \throws <exception class>
-   * Description of criteria for throwing this exception.
-   *
-   * Write detailed description for GetIconFromMessageType here.
-   *
-   * \remarks
-   * Write remarks for GetIconFromMessageType here.
-   *
-   * \see
-   * Separate items with the '|' character.
-   */
-  uint32_t GetIconFromMessageType(MessageType type);
-  MessageType _type;
+  uint32_t GetIcon(const MessageType& type) const;
+  std::string GetTitle(const MessageType& type) const;
 
  public:
-  /*!
-   * \brief
-   * Write brief comment for WindowsLogger here.
-   *
-   * \throws <exception class>
-   * Description of criteria for throwing this exception.
-   *
-   * Write detailed description for WindowsLogger here.
-   *
-   * \remarks
-   * Write remarks for WindowsLogger here.
-   *
-   * \see
-   * Separate items with the '|' character.
-   */
   WindowsLogger();
-  /*!
-   * \brief
-   * Write brief comment for WindowsLogger here.
-   *
-   * \param type
-   * Description of parameter type.
-   *
-   * \throws <exception class>
-   * Description of criteria for throwing this exception.
-   *
-   * Write detailed description for WindowsLogger here.
-   *
-   * \remarks
-   * Write remarks for WindowsLogger here.
-   *
-   * \see
-   * Separate items with the '|' character.
-   */
-  WindowsLogger(Logger::MessageType type);
-  /*!
-   * \brief
-   * Write brief comment for Log here.
-   *
-   * \param message
-   * Description of parameter message.
-   *
-   * \param type
-   * Description of parameter type.
-   *
-   * \throws <exception class>
-   * Description of criteria for throwing this exception.
-   *
-   * Write detailed description for Log here.
-   *
-   * \remarks
-   * Write remarks for Log here.
-   *
-   * \see
-   * Separate items with the '|' character.
-   */
-  virtual void Log(const char* message, MessageType type = MESSAGETYPE_INFORMATION);
-  /*!
-   * \brief
-   * Write brief comment for Log here.
-   *
-   * \param message
-   * Description of parameter message.
-   *
-   * \param classification
-   * Description of parameter classification.
-   *
-   * \param type
-   * Description of parameter type.
-   *
-   * \throws <exception class>
-   * Description of criteria for throwing this exception.
-   *
-   * Write detailed description for Log here.
-   *
-   * \remarks
-   * Write remarks for Log here.
-   *
-   * \see
-   * Separate items with the '|' character.
-   */
-  virtual void Log(const char* message, const char* classification, MessageType type = MESSAGETYPE_INFORMATION);
-  /*!
-   * \brief
-   * Write brief comment for ~WindowsLogger here.
-   *
-   * \throws <exception class>
-   * Description of criteria for throwing this exception.
-   *
-   * Write detailed description for ~WindowsLogger here.
-   *
-   * \remarks
-   * Write remarks for ~WindowsLogger here.
-   *
-   * \see
-   * Separate items with the '|' character.
-   */
   virtual ~WindowsLogger();
+  virtual void LogMessage(const MessageType& type, const std::string& message) const;
+  virtual void LogError(const MessageType& type, const std::exception& ex) const;
+  virtual void LogError(const MessageType& type, const std::string& message, const std::exception& ex) const;
 };
 }  // namespace OpenArena
 

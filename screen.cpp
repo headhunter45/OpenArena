@@ -17,9 +17,17 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
+// clang-format off
 #include "screen.h"
 
+// clang-format on
+
 namespace OpenArena {
+namespace {
+using std::string;
+}  // End namespace
+
 Screen::Screen() {
   _width = 640;
   _height = 480;

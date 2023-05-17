@@ -17,16 +17,16 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__ctrls_h__
 #define OpenArena__ctrls_h__
-
-#if defined HAVE_CONFIG_H
+// clang-format off
 #include "config.h"
-#endif
 #include <iostream>
 #include <string>
-
 #include "keys.h"
+
+// clang-format on
 
 namespace OpenArena {
 class ControlScheme {
@@ -57,11 +57,13 @@ class ControlScheme {
     NUM_ACTIONS
   };
 
+  ControlScheme();
   void LoadDefaultControlScheme();
   void UnBindAll();
   void UnBind(OpenArena::Keys key);
   void Bind(OpenArena::Keys key, Action action);
   void WriteToStream(std::ostream& output);
+  Action GetAction(OpenArena::Keys key);
   static Action GetAction(const char* actionName);
   static const char* GetActionName(Action action);
   bool IsBound(OpenArena::Keys key, Action action);

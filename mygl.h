@@ -17,93 +17,25 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__mygl_h__
 #define OpenArena__mygl_h__
-
-#if defined HAVE_CONFIG_H
+// clang-format off
 #include "config.h"
-#endif
-
-#if defined USE_GLX
-#include <GL/gl.h>
-#include <GL/glu.h>
-#elif defined USE_AGL
-#include <OpenGL/OpenGL.h>
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-// #error unimplemented method
-#elif defined USE_CGL
-#error unimplemented method
-#elif defined USE_WGL
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <windows.h>
-#endif
-
-#include <OpenGL/gl.h>
-
+#include "opengl.h"
 #include "window.h"
-
-using namespace std;
+// clang-format on
 
 #ifdef WIN32
 // These this is windows specific
 static HINSTANCE hInstance;  // Application instance
 #endif
 
+namespace OpenArena {
 // TODO: Move this to behidden in mygl.cpp.
 extern OpenArena::Window* g_Screen;
 
-namespace OpenArena {
-/*!
- * \brief
- * Write brief comment for LoadGLTexture here.
- *
- * \param
- * Description of parameter .
- *
- * \param
- * Description of parameter .
- *
- * \param
- * Description of parameter .
- *
- * \param
- * Description of parameter .
- *
- * \returns
- * Write description of return value here.
- *
- * \throws <exception class>
- * Description of criteria for throwing this exception.
- *
- * Write detailed description for LoadGLTexture here.
- *
- * \remarks
- * Write remarks for LoadGLTexture here.
- *
- * \see
- * Separate items with the '|' character.
- */
-bool LoadGLTexture(string, GLuint&, GLuint = GL_LINEAR, GLuint = GL_LINEAR);
-/*!
- * \brief
- * Write brief comment for FreeGLTexture here.
- *
- * \param
- * Description of parameter .
- *
- * \throws <exception class>
- * Description of criteria for throwing this exception.
- *
- * Write detailed description for FreeGLTexture here.
- *
- * \remarks
- * Write remarks for FreeGLTexture here.
- *
- * \see
- * Separate items with the '|' character.
- */
+bool LoadGLTexture(std::string, GLuint&, GLuint = GL_LINEAR, GLuint = GL_LINEAR);
 void FreeGLTexture(GLuint&);
-};  // namespace OpenArena
-#endif
+};      // namespace OpenArena
+#endif  // !defined(OpenArena__mygl_h__)

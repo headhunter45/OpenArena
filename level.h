@@ -17,51 +17,37 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__level_h__
 #define OpenArena__level_h__
-
-#if defined HAVE_CONFIG_H
+// clang-format off
 #include "config.h"
-#endif
 
 #include <cctype>
 #include <cmath>
+#include <cstdio>  //for file I/O
 #include <fstream>
 #include <iostream>
 #include <string>
-
-#if defined USE_GLX
-#include <GL/gl.h>
-#elif defined USE_AGL
-#include <OpenGL/gl.h>
-#elif defined USE_CGL
-#include <OpenGL/gl.h>
-#elif defined USE_WGL
-#include <GL/gl.h>
-#include <windows.h>
-#endif
-
-#include <cstdio>  //for file I/O
+#include <vector>
 
 #include "EventManager.h"
 #include "bmp.h"
 #include "camera.h"
 #include "geometry.h"
 #include "keys.h"
-#include "list.h"
 #include "mydefs.h"
 #include "myglFont.h"
 #include "myglTexture.h"
+#include "opengl.h"
 #include "player.h"
 #include "strmanip.h"
 #include "tga.h"
 #include "vector.h"
 
-using namespace std;
-
 namespace OpenArena {
 const float piover180 = 0.0174532925f;
-const string DEFAULT_TEXTURE_NAME = "oa/textures/default.bmp";
+const std::string DEFAULT_TEXTURE_NAME = "oa/textures/default.bmp";
 const unsigned int MAX_CONSOLE_LINES = 30;  // The max number of lines to be displayed in the console
 const unsigned int MAX_CONSOLE_HISTORY_LINES =
     MAX_CONSOLE_LINES + 20;  // The max number of console lines to store in the history
@@ -74,13 +60,13 @@ class Level {
  public:
   Level(EventManager* eventManager);
   ~Level();
-  bool LoadMap(string mapname);
+  bool LoadMap(std::string mapname);
   bool LoadMap();
-  void SaveMap(string mapname);
-  bool LoadConfig(string cfgname);
+  void SaveMap(std::string mapname);
+  bool LoadConfig(std::string cfgname);
   void LoadConfig();
-  void SaveConfig(string cfgname);
-  void Execute(string cmd);
+  void SaveConfig(std::string cfgname);
+  void Execute(std::string cmd);
   void LoadGLTextures();
   void Render();
   void UnloadMap();
@@ -97,17 +83,14 @@ class Level {
   */
   Screen screen;
   Font glFont;
-  string nextLevel;
+  std::string nextLevel;
   Player* defaultPlayer;
   uint32_t numTextures;
-  string* textureNames;
+  std::string* textureNames;
 
-  string bgm;
-#ifdef WIN32
-  HSTREAM bgmStream;
-#endif
+  std::string bgm;
   unsigned char bgmCDA;
-  string gamedir;
+  std::string gamedir;
   float gravity;
   bool mlook;
   bool showFPS;
@@ -120,20 +103,20 @@ class Level {
   // Map
   Triangle* triangles;
   uint32_t numTriangles;
-  list<Player> players;
-  //		list<ENTITY> ents;
-  list<Texture*> textures;
+  std::vector<Player> players;
+  //		std::vector<ENTITY> ents;
+  std::vector<Texture*> textures;
   Texture menuTextures[NUM_MENU_TEXTURES];
   Window* _window;
 
   //	private:
-  void ConsolePrint(string);
+  void ConsolePrint(std::string);
 
  private:
   EventManager* _eventManager;
-  string consoleHistory[MAX_CONSOLE_HISTORY_LINES];
-  string consoleOutput[MAX_CONSOLE_OUTPUT_LINES];
-  string outputText[MAX_OUTPUT_TEXT_LINES];
+  std::string consoleHistory[MAX_CONSOLE_HISTORY_LINES];
+  std::string consoleOutput[MAX_CONSOLE_OUTPUT_LINES];
+  std::string outputText[MAX_OUTPUT_TEXT_LINES];
 };
 }  // End namespace OpenArena
 #endif  // End !defined(OpenArena__level_h__)

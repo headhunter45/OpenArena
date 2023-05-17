@@ -17,99 +17,78 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__Logger_h__
 #define OpenArena__Logger_h__
+// clang-format off
+#include <exception>
+#include <memory>
+#include <string>
 
-#if defined HAVE_CONFIG_H
-#include "config.h"
-#endif
+// clang-format on
 
 namespace OpenArena {
-/*!
- * \brief
- * Write brief comment for Logger here.
- *
- * Write detailed description for Logger here.
- *
- * \remarks
- * Write remarks for Logger here.
- *
- * \see
- * Separate items with the '|' character.
- */
 class Logger {
  public:
-  /*!
-   * \brief
-   * Write brief comment for MESSAGETYPE_DEBUG here.
-   */
-  enum MessageType { MESSAGETYPE_ALL, MESSAGETYPE_NONE, MESSAGETYPE_INFORMATION, MESSAGETYPE_ERROR, MESSAGETYPE_DEBUG };
+  enum MessageType { Unknown = 0, Debug, Verbose, Info, Warning, Error, Wtf };
 
-  /*!
-   * \brief
-   * Write brief comment for ~Logger here.
-   *
-   * \throws <exception class>
-   * Description of criteria for throwing this exception.
-   *
-   * Write detailed description for ~Logger here.
-   *
-   * \remarks
-   * Write remarks for ~Logger here.
-   *
-   * \see
-   * Separate items with the '|' character.
-   */
-  virtual ~Logger(void) {}
+  Logger();
+  virtual ~Logger();
 
-  /*!
-   * \brief
-   * Write brief comment for Log here.
-   *
-   * \param message
-   * Description of parameter message.
-   *
-   * \param type
-   * Description of parameter type.
-   *
-   * \throws <exception class>
-   * Description of criteria for throwing this exception.
-   *
-   * Write detailed description for Log here.
-   *
-   * \remarks
-   * Write remarks for Log here.
-   *
-   * \see
-   * Separate items with the '|' character.
-   */
-  virtual void Log(const char* message, MessageType type = MESSAGETYPE_INFORMATION) = 0;
-  /*!
-   * \brief
-   * Write brief comment for Log here.
-   *
-   * \param message
-   * Description of parameter message.
-   *
-   * \param classification
-   * Description of parameter classification.
-   *
-   * \param type
-   * Description of parameter type.
-   *
-   * \throws <exception class>
-   * Description of criteria for throwing this exception.
-   *
-   * Write detailed description for Log here.
-   *
-   * \remarks
-   * Write remarks for Log here.
-   *
-   * \see
-   * Separate items with the '|' character.
-   */
-  virtual void Log(const char* message, const char* classification, MessageType type = MESSAGETYPE_INFORMATION) = 0;
+  virtual void LogMessage(const MessageType& type, const std::string& message) const = 0;
+  virtual void LogError(const MessageType& type, const std::exception& ex) const = 0;
+  virtual void LogError(const MessageType& type, const std::string& message, const std::exception& ex) const = 0;
+  virtual void SetMinType(const MessageType& type);
+  virtual void SetMaxType(const MessageType& type);
+  virtual MessageType GetMinType() const;
+  virtual MessageType GetMaxType() const;
+
+// This one is special and annoying because it requires macros until the minimum standard is c++20.
+#if __cplusplus >= 202002L
+  static void LogUnimplementedMethod(std::source_location = std::source_location::current());
+#else
+  static void LogUnimplementedMethodReal(std::string method_name);
+#endif
+
+  static void LogUnhandledError(const std::exception& ex);
+  static void LogUnimplementedFeature(const std::string& feature);
+  static void LogWtf(const std::string& message);
+  static void LogWtf(const std::exception& ex);
+  static void LogWtf(const std::string& message, const std::exception& ex);
+  static void LogError(const std::string& message);
+  static void LogError(const std::exception& ex);
+  static void LogError(const std::string& message, const std::exception& ex);
+  static void LogWarning(const std::string& message);
+  static void LogWarning(const std::exception& ex);
+  static void LogWarning(const std::string& message, const std::exception& ex);
+  static void LogInfo(const std::string& message);
+  static void LogInfo(const std::exception& ex);
+  static void LogInfo(const std::string& message, const std::exception& ex);
+  static void LogDebug(const std::string& message);
+  static void LogDebug(const std::exception& ex);
+  static void LogDebug(const std::string& message, const std::exception& ex);
+  static void LogVerbose(const std::string& message);
+  static void LogVerbose(const std::exception& ex);
+  static void LogVerbose(const std::string& message, const std::exception& ex);
+  static void Log(const MessageType& type, const std::string& message);
+  static void Log(const MessageType& type, const std::exception& ex);
+  static void Log(const MessageType& type, const std::string& message, const std::exception& ex);
+  static void LogToDo(const std::string& message);
+  static void Reset();
+  static void AddLogger(std::shared_ptr<Logger> logger);
+
+ private:
+  MessageType min_type_;
+  MessageType max_type_;
 };
+
 }  // End namespace OpenArena
+
+#if __cplusplus >= 202002L
+#elif defined __GNUC__
+#define Logger ::LogUnimplementedMethod LogUnimplementedMethodReal(__PRETTY_FUNCTION__);
+#else
+#define LogUnimplementedMethod Logger::LogUnimplementedMethodReal(__FUNCTION__);
+#endif
 
 #endif  // End !defined(OpenArena__Logger_h__)

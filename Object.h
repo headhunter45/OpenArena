@@ -17,6 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__Object_h__
 #define OpenArena__Object_h__
 
@@ -29,4 +30,4 @@ class Object {
 };
 };  // namespace OpenArena
 
-#endif  // End OpenArena__Object_h__
+#endif  // End !defined(OpenArena__Object_h__)

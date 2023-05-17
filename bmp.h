@@ -17,32 +17,26 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__bmp_h__
 #define OpenArena__bmp_h__
 
-#if defined HAVE_CONFIG_H
+// clang-format off
 #include "config.h"
-#endif
-
+#include <memory>
+#include <string>
+#include "image.h"
 #include "texture.h"
 
+// clang-format on
+
 namespace OpenArena {
-/**
- * \brief
- * Loads a bitmap (*.bmp) file and returns a pointer to a TextureImage object.
- *
- * \param filename
- * The path to the file to open.
- *
- * \returns
- * A pointer to the created TextureImage object.
- *
- * \remarks
- * Will be replaced with an actual class soon
- *
- * \see
- */
-TextureImage* LoadBMP(const char* Filename);
-};  // End namespace OpenArena
+
+class BitmapImage : public ImageBase {
+ public:
+  virtual ~BitmapImage();
+  static std::shared_ptr<BitmapImage> FromFile(std::string filename);
+};
+}  // End namespace OpenArena
 
 #endif  // End !defined(OpenArena__bmp_h__)

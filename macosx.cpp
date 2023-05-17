@@ -17,7 +17,9 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifdef __APPLE__
+// clang-format off
 #include "DrawEvent.h"
 #include "EventManager.h"
 #include "KeyPressEvent.h"
@@ -25,8 +27,11 @@
 #include "main.h"
 #include "version.h"
 #include "x11.h"
+
+// clang-format on
+
 // include necessary header files
-using namespace std;
+namespace {}  // End namespace
 
 bool g_done = false;
 
@@ -105,11 +110,8 @@ int main(int argc, char** argv) {
     level->screen.SetColorDepth(24);
   }
 
-  if (!g_Screen->Open(OPENARENA_VERSION,
-                      level->screen.GetWidth(),
-                      level->screen.GetHeight(),
-                      level->screen.GetColorDepth(),
-                      level->screen.GetFullscreen())) {
+  if (!g_Screen->Open(OPENARENA_VERSION, level->screen.GetWidth(), level->screen.GetHeight(),
+                      level->screen.GetColorDepth(), level->screen.GetFullscreen())) {
     return 1;
   }
 
@@ -201,11 +203,8 @@ int main(int argc, char** argv) {
       keys[OpenArena::KEY_F1] = false;
       g_Screen->Close();
       g_Screen->ToggleFullscreen();
-      if (!g_Screen->Open(OPENARENA_VERSION,
-                          level->screen.GetWidth(),
-                          level->screen.GetHeight(),
-                          level->screen.GetColorDepth(),
-                          level->screen.GetFullscreen())) {
+      if (!g_Screen->Open(OPENARENA_VERSION, level->screen.GetWidth(), level->screen.GetHeight(),
+                          level->screen.GetColorDepth(), level->screen.GetFullscreen())) {
         return 1;
       }
     }
@@ -245,11 +244,8 @@ int main(int argc, char** argv) {
     level->screen.SetColorDepth(24);
   }
 
-  if (!g_Screen->Open(OPENARENA_VERSION,
-                      level->screen.GetWidth(),
-                      level->screen.GetHeight(),
-                      level->screen.GetColorDepth(),
-                      level->screen.GetFullscreen())) {
+  if (!g_Screen->Open(OPENARENA_VERSION, level->screen.GetWidth(), level->screen.GetHeight(),
+                      level->screen.GetColorDepth(), level->screen.GetFullscreen())) {
     return 1;
   }
 

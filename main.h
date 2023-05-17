@@ -17,12 +17,11 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #ifndef OpenArena__main_h__
 #define OpenArena__main_h__
-
-#if defined HAVE_CONFIG_H
+// clang-format off
 #include "config.h"
-#endif
 
 #if defined USE_GLX
 #include <GL/gl.h>   // Header file for OpenGL32 library
@@ -32,9 +31,9 @@
 #elif defined USE_CGL
 #error unimplemented method
 #elif defined USE_WGL
+#include <windows.h>
 #include <GL/gl.h>   // Header file for OpenGL32 library
 #include <GL/glu.h>  // Header file for Glu32 library
-#include <windows.h>
 #endif
 
 #include <math.h>
@@ -49,10 +48,7 @@
 #include "vector.h"
 #include "window.h"
 #include "worlddefs.h"
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wunknown-pragmas"
-#pragma warning(disable : 4786)
-#pragma clang diagnostic pop
+// clang-format on
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Variables
@@ -66,7 +62,7 @@ extern OpenArena::Vec2i g_mousePosition;
 
 #ifdef WIN32
 extern POINT mpos;
-#endif
+#endif                  // OpenArena__main_h__
 extern float lastTime;  // This will hold the time from the last frame
 extern float currentTime;
 
@@ -76,62 +72,8 @@ extern float currentTime;
 // This shouldn't need to be here
 // LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);	// Declaration for WndProc
 
-/*!
- * \brief
- * Write brief comment for InitControls here.
- *
- * \throws <exception class>
- * Description of criteria for throwing this exception.
- *
- * Write detailed description for InitControls here.
- *
- * \remarks
- * Write remarks for InitControls here.
- *
- * \see
- * Separate items with the '|' character.
- */
-void InitControls();  // Sets up player controls
-/*!
- * \brief
- * Write brief comment for InitGL here.
- *
- * \returns
- * Write description of return value here.
- *
- * \throws <exception class>
- * Description of criteria for throwing this exception.
- *
- * Write detailed description for InitGL here.
- *
- * \remarks
- * Write remarks for InitGL here.
- *
- * \see
- * Separate items with the '|' character.
- */
-int InitGL();  // All setup for OpenGL goes here
-/*!
- * \brief
- * Write brief comment for ReSizeGLScene here.
- *
- * \param width
- * Description of parameter width.
- *
- * \param height
- * Description of parameter height.
- *
- * \throws <exception class>
- * Description of criteria for throwing this exception.
- *
- * Write detailed description for ReSizeGLScene here.
- *
- * \remarks
- * Write remarks for ReSizeGLScene here.
- *
- * \see
- * Separate items with the '|' character.
- */
+void InitControls();                                // Sets up player controls
+int InitGL();                                       // All setup for OpenGL goes here
 void ReSizeGLScene(GLsizei width, GLsizei height);  // Resize and initialize the GL window
 int DrawGLScene(OpenArena::Level* level);
 
